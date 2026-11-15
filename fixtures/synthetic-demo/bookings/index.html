@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bookings · Demo Console</title>
+    <link rel="stylesheet" href="/assets/console.css" />
+    <script src="/assets/guard.js"></script>
+  </head>
+  <body>
+    <p class="synthetic-banner" role="note">
+      SYNTHETIC DEMO — simulated data, not the Iker product
+    </p>
+    <div class="shell">
+      <nav class="sidebar" aria-label="Main">
+        <p class="product-name">Demo Console</p>
+        <ul>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/bookings" aria-current="page">Bookings</a></li>
+        </ul>
+      </nav>
+      <main>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Sample Studio (synthetic business)</p>
+            <h1>Bookings</h1>
+            <p class="muted">Five sample bookings. Amounts are in naira.</p>
+          </div>
+          <a class="button primary" href="/bookings/new">+ Add walk-in</a>
+        </header>
+
+        <div class="field search">
+          <label for="search">Search client name</label>
+          <input id="search" type="search" autocomplete="off" />
+        </div>
+
+        <section class="panel" aria-label="Bookings list">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Client</th>
+                <th scope="col">Rate card item</th>
+                <th scope="col">Appointment</th>
+                <th scope="col">Status</th>
+                <th scope="col">Payment status</th>
+                <th scope="col">Balance remaining</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-client="Sample Client A">
+                <td><a href="/bookings/demo-booking-2041">Sample Client A</a></td>
+                <td>Box braids</td>
+                <td>Sat 14 Jun 2025, 10:00</td>
+                <td><span class="pill">Booked</span></td>
+                <td><span class="pill attention">Unpaid</span></td>
+                <td>₦45,000</td>
+              </tr>
+              <tr data-client="Sample Client B">
+                <td>Sample Client B</td>
+                <td>Silk press</td>
+                <td>Sat 14 Jun 2025, 13:00</td>
+                <td><span class="pill">Booked</span></td>
+                <td><span class="pill attention">Partially paid</span></td>
+                <td>₦9,000</td>
+              </tr>
+              <tr data-client="Sample Client C">
+                <td>Sample Client C</td>
+                <td>Bridal makeup</td>
+                <td>Sun 15 Jun 2025, 09:00</td>
+                <td><span class="pill attention">Awaiting confirmation</span></td>
+                <td><span class="pill attention">Unpaid</span></td>
+                <td>₦80,000</td>
+              </tr>
+              <tr data-client="Sample Client D">
+                <td>Sample Client D</td>
+                <td>Knotless braids</td>
+                <td>Mon 16 Jun 2025, 11:00</td>
+                <td><span class="pill">Booked</span></td>
+                <td><span class="pill done">Paid</span></td>
+                <td>₦0</td>
+              </tr>
+              <tr data-client="Sample Client E">
+                <td>Sample Client E</td>
+                <td>Wash &amp; style</td>
+                <td>Fri 13 Jun 2025, 15:00</td>
+                <td><span class="pill done">Completed</span></td>
+                <td><span class="pill done">Paid</span></td>
+                <td>₦0</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="muted" id="no-results" hidden>No bookings match your filters</p>
+        </section>
+      </main>
+    </div>
+    <script>
+      const search = document.getElementById("search");
+      const rows = document.querySelectorAll("tbody tr[data-client]");
+      search.addEventListener("input", () => {
+        const query = search.value.trim().toLowerCase();
+        let shown = 0;
+        for (const row of rows) {
+          const match = row.dataset.client.toLowerCase().includes(query);
+          row.hidden = !match;
+          if (match) shown += 1;
+        }
+        document.getElementById("no-results").hidden = shown > 0;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 20, "max": 120 },
+      "scenes": [
+        {
+          "id": "intro",
+          "type": "INTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "title",
+            "headline": "Record a deposit on a booking",
+            "subhead": "Bookings in Iker"
+          }
+        },
+        {
+          "id": "problem",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Paid, or still owing?",
+            "body": "A deposit that only lives in a chat is easy to lose track of.",
+            "tone": "warning"
+          },
+          "chapterTitle": "Why this matters"
+        },
+        {
+          "id": "steps",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "Three steps",
+            "steps": [
+              { "title": "Add the booking", "detail": "Bookings, then Add walk-in" },
+              { "title": "Record a payment", "detail": "Amount received (₦)" },
+              { "title": "Check the balance", "detail": "Paid so far and Balance remaining" }
+            ]
+          }
+        },
+        {
+          "id": "chapter-setup",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "chapter",
+            "title": "Add the booking"
+          }
+        },
+        {
+          "id": "setup",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking",
+            "heading": "Add walk-in"
+          },
+          "chapterTitle": "Set it up"
+        },
+        {
+          "id": "result",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Record a payment"
+          },
+          "chapterTitle": "See the result"
+        },
+        {
+          "id": "recap",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Every deposit, on its booking",
+            "points": [
+              { "title": "Its own date", "detail": "Each payment is logged separately" },
+              { "title": "Part payments", "detail": "Balance remaining until paid off" },
+              { "title": "Your money", "detail": "Paid straight to your account" }
+            ],
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Track every deposit in Iker",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "outro",
+            "tagline": "Get booked. Get paid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 8, "max": 60 },
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "A deposit in a chat is easy to lose",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "short-demo",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Record a payment on the booking"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

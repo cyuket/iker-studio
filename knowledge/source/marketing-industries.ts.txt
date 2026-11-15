@@ -1,0 +1,370 @@
+// Copied from ../slot-books/apps/web/lib/marketing/content/industries.ts (the live marketing copy on useiker.com) on 2026-11-15.
+// Snapshot for reference only; saved as .txt so the studio does not compile or lint it. slot-books wins on any disagreement.
+
+import type { Faq, Industry } from "./types";
+
+type Def = {
+  slug: string;
+  name: string; // plural, as used in headings ("Hair Salons")
+  noun: string; // lower-case, as used in keywords ("hair salon")
+  description: string;
+  h1: string;
+  answer: string;
+  subline: string;
+  tour: Industry["tour"];
+  pains: string[];
+  features: string[];
+  depositNorm: string;
+  sampleServices: Industry["sampleServices"];
+  faqs?: Faq[];
+};
+
+const NAIRA = 100; // kobo per naira
+
+function industry(d: Def): Industry {
+  const extra: Faq[] = [
+    { q: "Do your clients need an account to book?", a: "No. They open your booking link, choose a service and a time, and leave their details." },
+    { q: "If I take a deposit, how do clients pay it?", a: "By bank transfer straight to your account. They upload proof and you confirm it in Iker. Deposits are optional per service, and Iker takes no commission." },
+  ];
+  return {
+    slug: d.slug,
+    name: d.name,
+    noun: d.noun,
+    title: `Booking App for ${d.name} | Iker`,
+    description: d.description,
+    h1: d.h1,
+    answer: d.answer,
+    subline: d.subline,
+    tour: d.tour,
+    pains: d.pains,
+    features: d.features,
+    depositNorm: d.depositNorm,
+    sampleServices: d.sampleServices,
+    faqs: [...(d.faqs ?? []), ...extra],
+    keywords: {
+      primary: `${d.noun} booking app`,
+      secondary: [
+        `appointment booking for ${d.name.toLowerCase()}`,
+        `deposit tracking for ${d.name.toLowerCase()}`,
+        `${d.noun} booking software Nigeria`,
+        `${d.noun} appointment app Nigeria`,
+      ],
+    },
+  };
+}
+
+const s = (name: string, minutes: number, naira: number, depositPct: number) => ({
+  name,
+  minutes,
+  priceKobo: naira * NAIRA,
+  depositPct,
+});
+
+export const INDUSTRIES: Industry[] = [
+  industry({
+    slug: "hair-salons",
+    name: "Hair Salons",
+    noun: "hair salon",
+    description:
+      "A booking link for your salon, deposits tracked by bank transfer, and your books kept for you. Stop running appointments from WhatsApp.",
+    h1: "A booking app for hair salons that ends the WhatsApp back and forth",
+    answer:
+      "Iker gives your hair salon a booking link clients can open from Instagram or WhatsApp. They pick a service and a real open slot, pay a deposit by bank transfer and upload proof, and you confirm it in one tap. Walk-ins go on the same calendar, and your income, expenses and monthly statement are kept for you.",
+    subline: "Clients book and pay deposits from one link. You confirm.",
+    tour: [
+      { headline: "Slot requests all day", subline: "Clients pick a real open slot from your link.", scene: "booking" },
+      { headline: "No\u2011shows with no deposit", subline: "Set a deposit on long styles. Confirm the transfer.", scene: "deposit" },
+      { headline: "Walk\u2011ins clash with bookings", subline: "Walk-ins and link bookings share one calendar.", scene: "schedule" },
+    ],
+    pains: ["Clients ask for slots over WhatsApp all day", "No-shows with no deposit paid", "Walk-ins and bookings clash on paper", "No clear view of what the salon earned this month"],
+    features: ["booking-page", "deposits", "walk-ins", "staff-roles", "discounts", "reports"],
+    depositNorm: "You can set a deposit on long services like braids, weaves and colour, and leave quick ones at zero. Set whatever suits you.",
+    sampleServices: [s("Knotless braids", 300, 35000, 50), s("Wash and blow-dry", 60, 8000, 30), s("Silk press", 120, 20000, 40)],
+    faqs: [
+      { q: "How do I stop clients booking a braiding slot that is too short?", a: "Set the real duration on each service, such as five hours for knotless braids. Iker only offers start times where the whole service fits in your open hours, and you can add a buffer between clients." },
+      { q: "Can I ask for a deposit on braids but not on a wash and set?", a: "Yes. The deposit is set per service as a percentage, so long styles can carry a deposit while quick ones carry none." },
+      { q: "Can each stylist have their own login?", a: "Yes. Each team member signs in with their own account, and only the owner can invite or remove people." },
+    ],
+  }),
+  industry({
+    slug: "barbers",
+    name: "Barbers",
+    noun: "barber",
+    description:
+      "Let clients book a cut from a link, add walk-ins in two taps and keep every chair's day clear. Built for busy barbershops.",
+    h1: "A booking app for barbers that keeps the chairs full and the queue fair",
+    answer:
+      "Iker lets clients book a haircut from a link while you keep adding walk-ins in two taps. Both land on one calendar, so the queue is fair and nobody is double-booked. Set your hours and buffers once, give each barber a login, and see what the shop earned without a notebook.",
+    subline: "Link bookings and walk-ins on one calendar, so the queue stays fair.",
+    tour: [
+      { headline: "Walk\u2011ins fight for chairs", subline: "Walk-ins and link bookings land on one calendar.", scene: "schedule" },
+      { headline: "Time slots asked in DMs", subline: "Clients book a cut from your link instead.", scene: "booking" },
+      { headline: "Weekend no\u2011shows cost you", subline: "Set a deposit on your weekend service.", scene: "deposit" },
+    ],
+    pains: ["Walk-ins and appointments fight for the same chair", "Clients ask for time slots in DMs", "Hard to see which barber earned what", "Cash and transfers recorded in a notebook"],
+    features: ["booking-page", "walk-ins", "availability", "deposits", "staff-roles", "reports"],
+    depositNorm: "Haircuts are quick, so a deposit is often unnecessary. If you want one, set it on a premium or weekend service.",
+    sampleServices: [s("Haircut", 30, 3000, 0), s("Haircut and beard trim", 45, 5000, 0), s("Kids cut", 30, 2500, 0), s("Weekend appointment", 45, 6000, 20)],
+    faqs: [
+      { q: "How do walk-ins and online bookings work together in a barbershop?", a: "Add a walk-in from the dashboard by picking the service, time and client. It lands on the same calendar as link bookings, so the two never take the same slot." },
+      { q: "Do barbers need to take deposits?", a: "No. A deposit is optional and set per service. Leave it at zero for a standard haircut, and set one on a weekend or premium service if you want it." },
+      { q: "Can each barber in the shop have a login?", a: "Yes. Every team member signs in as themselves, and the owner controls who has access." },
+      { q: "Can I leave a gap between haircuts?", a: "Yes. Set a buffer between appointments in your availability settings, so a short overrun does not squeeze the next client." },
+    ],
+  }),
+  industry({
+    slug: "makeup-artists",
+    name: "Makeup Artists",
+    noun: "makeup artist",
+    description:
+      "Take bookings, collect deposits by bank transfer and ask the right questions before the event. Booking software for makeup artists.",
+    h1: "A booking app for makeup artists who take a deposit on event bookings",
+    answer:
+      "Iker gives makeup artists a booking page where clients choose a service and date, pay a deposit by bank transfer and upload proof. The date is reserved as soon as they book, and the booking is confirmed when you confirm the deposit. Add custom questions for event time, location and skin type, and keep a clear refund policy attached to each booking.",
+    subline: "Clients book the date and pay a deposit by bank transfer.",
+    tour: [
+      { headline: "Booked dates, never paid", subline: "Confirm the deposit, then the booking is confirmed.", scene: "deposit" },
+      { headline: "Bookings scattered across DMs", subline: "One link with your services, prices and open dates.", scene: "booking" },
+      { headline: "No time to travel", subline: "Block dates and add buffers between bookings.", scene: "schedule" },
+    ],
+    pains: ["Dates held for clients who never pay", "Event details scattered across chats", "Disputes about what the refund policy said", "Travel and product costs not tracked"],
+    features: ["booking-page", "deposits", "booking-forms", "refunds-policies", "packages", "expenses"],
+    depositNorm: "Bridal and event bookings are the natural place for a deposit. Set the percentage on the service.",
+    sampleServices: [s("Bridal makeup", 120, 80000, 50), s("Soft glam", 60, 25000, 50), s("Makeup lesson", 90, 30000, 40)],
+    faqs: [
+      { q: "How do I take a deposit on a wedding booking?", a: "Set a deposit percentage on the bridal service. The date is reserved as soon as the client books. They pay the deposit by bank transfer and upload proof, and the booking is confirmed when you confirm the deposit in Iker." },
+      { q: "Can I ask clients about skin type or the event before they book?", a: "Yes. A booking form lets you add your own questions, required or optional, and the answers sit on the booking." },
+      { q: "Can I protect travel time between jobs?", a: "Yes. Block dates and set buffers in your availability, so back-to-back bookings leave room to travel and set up." },
+    ],
+  }),
+  industry({
+    slug: "nail-technicians",
+    name: "Nail Technicians",
+    noun: "nail technician",
+    description:
+      "Online booking for nail techs: clients choose a service and time, you track deposits and run promotions to fill quiet days.",
+    h1: "A booking app for nail technicians that fills your quiet days",
+    answer:
+      "Iker gives your nail studio a booking link, so clients choose a set, a time and a technician without messaging you. Add walk-ins to the same calendar, take a deposit for bigger sets, and send a promotional email or discount link when the week looks quiet.",
+    subline: "Clients book sets from your link, deposits tracked by transfer.",
+    tour: [
+      { headline: "Long sets booked by chat", subline: "Clients pick a set and time from your link.", scene: "booking" },
+      { headline: "Late cancellations on full sets", subline: "Set a deposit on full sets, none on refills.", scene: "deposit" },
+      { headline: "Gaps across your weekdays", subline: "See the whole week, walk-ins included, on one calendar.", scene: "schedule" },
+    ],
+    pains: ["Long sets booked by chat and forgotten", "Gaps in the diary on weekdays", "Clients cancel late", "No record of who your regulars are"],
+    features: ["booking-page", "walk-ins", "discounts", "customers-email", "deposits"],
+    depositNorm: "Deposits are common for full sets and nail art, and less so for quick refills.",
+    sampleServices: [s("Gel manicure", 60, 8000, 30), s("Acrylic full set", 120, 15000, 40), s("Pedicure", 60, 9000, 30)],
+    faqs: [
+      { q: "Can I charge a deposit on full sets but not on refills?", a: "Yes. The deposit is a percentage set per service, so an acrylic full set can carry one while a quick refill carries none." },
+      { q: "How do I schedule a long set so it never overlaps the next client?", a: "Give each service its real duration and add a buffer for cleaning up. Iker only shows start times where the whole service fits." },
+      { q: "Can clients send inspiration photos when they book?", a: "Yes. Your booking form can include a file upload question next to your text questions, so the reference photo sits on the booking." },
+    ],
+  }),
+  industry({
+    slug: "lash-brow-artists",
+    name: "Lash and Brow Artists",
+    noun: "lash technician",
+    description:
+      "Booking software for lash and brow artists: clear appointment slots, deposits by bank transfer and a customer list you can email.",
+    h1: "A booking app for lash and brow artists with clients who rebook",
+    answer:
+      "Iker gives lash and brow artists a booking page with real open slots and a deposit tracked by bank transfer. Because fills come around every few weeks, your customer list shows each client's visits and last booking, and you can email a promotion to bring them back.",
+    subline: "Real open slots, deposits by transfer, and clients you can rebook.",
+    tour: [
+      { headline: "Fills booked ad hoc", subline: "Clients book fills and sets from your link.", scene: "booking" },
+      { headline: "Clients vanish without paying", subline: "Set a deposit on full sets. Confirm the transfer.", scene: "deposit" },
+      { headline: "Long sessions block your day", subline: "Each service books its real length on your calendar.", scene: "schedule" },
+    ],
+    pains: ["Fills and refills booked ad hoc over chat", "Clients vanish without a deposit", "No idea who is due to come back", "Long sessions blocked without notice"],
+    features: ["booking-page", "deposits", "customers-email", "discounts", "availability"],
+    depositNorm: "Set a deposit on full sets and leave fills at zero, if that suits you. The percentage is set per service.",
+    sampleServices: [s("Classic lash set", 120, 18000, 40), s("Lash fill", 60, 9000, 0), s("Brow lamination", 60, 10000, 30)],
+    faqs: [
+      { q: "Can lash fills have no deposit while full sets do?", a: "Yes. Set a different deposit percentage on each service, including none, so a classic set can need a deposit and a fill can go ahead without one." },
+      { q: "How do I ask about allergies before a lash appointment?", a: "Add a required question to your booking form, such as allergies or earlier reactions. The answer sits on the booking before the client arrives." },
+      { q: "Can I set a no-show or late-cancellation rule?", a: "Write it in your refund policy. Clients see it before they book, and each booking keeps the wording the client saw." },
+    ],
+  }),
+  industry({
+    slug: "spas-massage",
+    name: "Spas and Massage Therapists",
+    noun: "spa",
+    description:
+      "Appointment booking for spas and massage therapists with packages, staff logins and every deposit tracked by bank transfer.",
+    h1: "A booking app for spas and massage therapists",
+    answer:
+      "Iker gives a spa or massage practice a booking link, grouped service packages and logins for each therapist. Clients pick a treatment and a time, pay a deposit by bank transfer and upload proof, and you confirm it. Your income, expenses and monthly statement are kept in one place.",
+    subline: "Treatments booked from your link, deposits confirmed from the client's proof.",
+    tour: [
+      { headline: "Treatments explained by chat", subline: "Clients see every treatment, length and price.", scene: "booking" },
+      { headline: "Deposits tracked by screenshots", subline: "Clients upload proof and you confirm it in Iker.", scene: "deposit" },
+      { headline: "Schedules kept in different places", subline: "Every booking and walk-in sits on one calendar.", scene: "schedule" },
+    ],
+    pains: ["Therapist schedules kept in different places", "Treatments and packages hard to explain by chat", "Deposits tracked by screenshots", "Quiet slots with no way to promote them"],
+    features: ["booking-page", "packages", "staff-roles", "deposits", "discounts", "locations"],
+    depositNorm: "Set a deposit on couples treatments and long services, and leave short treatments at zero. The percentage is set per service.",
+    sampleServices: [s("Deep tissue massage", 60, 20000, 30), s("Facial", 75, 18000, 30), s("Couples spa package", 150, 70000, 50)],
+    faqs: [
+      { q: "Can I give each treatment room or therapist its own bookings?", a: "Each team member has their own login, and you can add locations for separate branches. Iker does not manage individual rooms as resources." },
+      { q: "How do I take a deposit on a couples package?", a: "Set a deposit percentage on that service. The client transfers it, uploads proof and you confirm it, while single treatments can carry no deposit." },
+      { q: "Can I ask for health information before a massage?", a: "Yes. Add questions to your booking form and mark the important ones as required." },
+    ],
+  }),
+  industry({
+    slug: "photographers",
+    name: "Photographers",
+    noun: "photographer",
+    description:
+      "Booking, deposit tracking and bookkeeping for photographers. Clients book the date and pay a deposit; your shoots, income and costs stay in order.",
+    h1: "A booking app for photographers who want deposits tracked and the books clean",
+    answer:
+      "Iker lets photographers take shoot bookings from a link, collect a deposit paid by bank transfer, and ask the right questions up front: location, shoot type, number of people. Your income, equipment and travel costs sit side by side, so profit per month is a number, not a hunch.",
+    subline: "Clients book shoot dates and pay a deposit by bank transfer.",
+    tour: [
+      { headline: "Clients book, never pay", subline: "Confirm the deposit, then the shoot is booked.", scene: "deposit" },
+      { headline: "Shoot details across chats", subline: "Clients book a shoot type and date from your link.", scene: "booking" },
+      { headline: "Double\u2011booked shoot days", subline: "Every shoot sits on one calendar, full length included.", scene: "schedule" },
+    ],
+    pains: ["Dates held for clients who never pay", "Shoot details spread over chats and emails", "Equipment and travel costs unrecorded", "Hard to show income for a loan"],
+    features: ["booking-page", "deposits", "booking-forms", "calendar-sync", "expenses", "statements"],
+    depositNorm: "A deposit on the shoot fee is common. Set the percentage per service.",
+    sampleServices: [s("Portrait session", 90, 60000, 50), s("Event coverage (4 hours)", 240, 150000, 50), s("Product shoot", 120, 80000, 50)],
+    faqs: [
+      { q: "How do photographers take a deposit on a shoot booking?", a: "Set a deposit percentage on each shoot type. The date is reserved as soon as the client books. They pay by bank transfer and upload proof, and the booking is confirmed when you confirm the deposit." },
+      { q: "What can I do when a client needs to move their shoot?", a: "Reschedule the booking from its page in your dashboard. The deposit stays attached to the booking." },
+      { q: "Can I collect shoot details before the session?", a: "Yes. A booking form can ask for location, shoot type or number of people, and the answers sit on the booking." },
+      { q: "Can I track equipment and travel costs against each month's income?", a: "Yes. Record expenses by category with a receipt photo, and your monthly report shows income, expenses and profit together." },
+    ],
+  }),
+  industry({
+    slug: "tutors",
+    name: "Tutors",
+    noun: "tutor",
+    description:
+      "Booking software for tutors: parents choose a lesson slot, you track payments and your timetable stays clear.",
+    h1: "A booking app for tutors that puts the timetable in the parents' hands",
+    answer:
+      "Iker gives tutors a booking link where parents or students choose a lesson time from your real availability. Your Google Calendar can stay in step, payments are tracked by bank transfer, and your monthly statement shows what the tutoring business earned, useful for personal budgets and for lenders.",
+    subline: "Parents pick lesson times from your real availability.",
+    tour: [
+      { headline: "Rescheduling messages every week", subline: "Parents pick lesson times from your open hours.", scene: "booking" },
+      { headline: "Chasing parents for fees", subline: "Parents transfer, upload proof, and you confirm it.", scene: "deposit" },
+      { headline: "Lessons clash with exams", subline: "Block exam weeks. Parents only see open hours.", scene: "schedule" },
+    ],
+    pains: ["Rescheduling messages every week", "Chasing parents for lesson fees", "Clashes with school terms and exams", "No clear record of lessons paid for"],
+    features: ["booking-page", "availability", "calendar-sync", "deposits", "reports"],
+    depositNorm: "Tutors can set a deposit on a lesson service, or leave it at zero. Each lesson is its own booking.",
+    sampleServices: [s("Maths lesson", 60, 5000, 0), s("Exam prep session", 90, 8000, 30), s("Weekend intensive", 180, 15000, 50)],
+    faqs: [
+      { q: "Can I take weekly lessons with Iker?", a: "Clients book each lesson as a separate booking from your open hours. Iker has no automatic repeating bookings, so each lesson is booked on its own." },
+      { q: "Can I ask the student's level and subject before a lesson?", a: "Yes. Add questions to your booking form, such as the subject, exam board or year group, and the answers arrive with the booking." },
+      { q: "Can I take a deposit before a lesson?", a: "Yes. Set a deposit percentage on the lesson service, up to the full price. Clients pay by bank transfer and upload proof, and you confirm it. Iker bills each lesson as its own booking, not as a bundle." },
+    ],
+  }),
+  industry({
+    slug: "fitness-trainers",
+    name: "Fitness Trainers",
+    noun: "personal trainer",
+    description:
+      "Session booking for personal trainers and fitness coaches: open slots, packages and tracked payments without the WhatsApp scheduling.",
+    h1: "A booking app for fitness trainers and personal coaches",
+    answer:
+      "Iker lets clients book training sessions from your real availability, so you stop agreeing times over WhatsApp. Group your services into packages, give co-trainers their own logins, and track every payment made by bank transfer, with income and expenses ready for your monthly review.",
+    subline: "Clients book sessions from your real availability, not over WhatsApp.",
+    tour: [
+      { headline: "Session times haggled in chat", subline: "Clients book from the hours you actually train.", scene: "booking" },
+      { headline: "Unpaid sessions get skipped", subline: "Set a deposit on longer sessions. Confirm the transfer.", scene: "deposit" },
+      { headline: "One messy shared diary", subline: "Every session and walk-in on one clear calendar.", scene: "schedule" },
+    ],
+    pains: ["Session times negotiated in chat", "Clients skip sessions they have not paid for", "Hard to separate gym fees from your income", "Multiple trainers, one messy diary"],
+    features: ["booking-page", "availability", "packages", "staff-roles", "expenses", "locations"],
+    depositNorm: "Trainers can set a deposit on longer or premium sessions and leave short ones at zero. Each session is its own booking.",
+    sampleServices: [s("One-on-one session", 60, 10000, 0), s("Extended training session", 90, 12000, 50), s("Body composition review", 45, 6000, 0)],
+    faqs: [
+      { q: "Can I sell a bundle of sessions?", a: "Not as a bundle. Each session is booked and paid on its own, and Iker does not count down sessions used. You can set a deposit on any service." },
+      { q: "Can my clients book around my gym hours and travel time?", a: "Yes. Set your weekly hours and buffers, and sync Google Calendar so other commitments block those times." },
+      { q: "Can I ask about injuries or goals before the first session?", a: "Yes. Add a required question to your booking form and the answer sits on the booking." },
+    ],
+  }),
+  industry({
+    slug: "aesthetics-clinics",
+    name: "Aesthetics Clinics",
+    noun: "aesthetics clinic",
+    description:
+      "Booking software for aesthetics clinics with intake questions, refund policies kept per booking and a calendar for every practitioner.",
+    h1: "A booking app for aesthetics clinics with intake questions built in",
+    answer:
+      "Iker gives an aesthetics clinic a booking page, custom intake questions and a clear refund policy saved on each booking. Practitioners get their own logins, Google Calendar can stay in step, and every deposit paid by bank transfer is confirmed and recorded in the clinic's books.",
+    subline: "Bookings, intake questions and deposits, recorded in your clinic's books.",
+    tour: [
+      { headline: "Bookings arriving over chat", subline: "Clients pick a treatment and time from your link.", scene: "booking" },
+      { headline: "Deposits tracked informally", subline: "Every transfer confirmed and recorded in the clinic's books.", scene: "deposit" },
+      { headline: "Practitioner calendars out of sync", subline: "Every booking on one calendar. Google can stay in step.", scene: "schedule" },
+    ],
+    pains: ["Intake details collected over chat", "Cancellation disputes without a recorded policy", "Practitioner calendars out of sync", "Deposits tracked informally"],
+    features: ["booking-page", "booking-forms", "refunds-policies", "deposits", "staff-roles", "calendar-sync"],
+    depositNorm: "Set a deposit on treatments that need preparation or have limited slots. The percentage is set per service.",
+    sampleServices: [s("Consultation", 30, 10000, 0), s("Chemical peel", 45, 35000, 30), s("Skin rejuvenation session", 60, 60000, 40)],
+    faqs: [
+      { q: "How does a clinic take a deposit for a treatment?", a: "Set a deposit percentage on the treatment. The client transfers it, uploads proof and your team confirms it, so nothing counts as income until confirmed." },
+      { q: "Can I ask for medical history before a treatment?", a: "You can add questions to a booking form, required or optional. Iker is not a clinical records system, so keep medical notes in your own clinical records." },
+      { q: "Can several practitioners and branches use one account?", a: "Yes. Give each team member their own login and add locations for each branch, with an all-locations view for the owner." },
+    ],
+  }),
+  industry({
+    slug: "tattoo-artists",
+    name: "Tattoo Artists",
+    noun: "tattoo artist",
+    description:
+      "Booking for tattoo artists: collect design details, take a deposit by bank transfer and keep a refund policy on every booking.",
+    h1: "A booking app for tattoo artists who need the deposit before the design",
+    answer:
+      "Iker lets tattoo artists take bookings with a deposit paid by bank transfer. The slot is reserved as soon as the client books, and the booking is confirmed when you confirm the deposit. Add questions for placement, size and a reference link, and attach a refund policy to each booking so everyone knows the terms before the session.",
+    subline: "A deposit by bank transfer before the session, terms on every booking.",
+    tour: [
+      { headline: "Slots lost to no\u2011shows", subline: "Set a deposit. Confirm the transfer from their proof.", scene: "deposit" },
+      { headline: "Design ideas lost in DMs", subline: "Clients book from your link, not your DMs.", scene: "booking" },
+      { headline: "Long sessions need careful scheduling", subline: "Half-day sessions book their real length on your calendar.", scene: "schedule" },
+    ],
+    pains: ["Slots held for people who never show", "Design details scattered across DMs", "Arguments over deposit refunds", "Long sessions that need careful scheduling"],
+    features: ["booking-page", "deposits", "booking-forms", "refunds-policies", "availability"],
+    depositNorm: "A deposit is the norm in tattooing, and it is usually non-refundable inside a stated window.",
+    sampleServices: [s("Small piece", 60, 30000, 50), s("Half-day session", 240, 120000, 50), s("Consultation", 30, 5000, 100)],
+    faqs: [
+      { q: "How do tattoo artists take a booking deposit?", a: "Set a deposit percentage on each service, such as a small piece or a half-day session. The client pays by bank transfer and uploads proof, and the booking is confirmed when you confirm the deposit." },
+      { q: "Can I state that the deposit is non-refundable?", a: "Yes. Write it in your refund policy. Clients see it before they book, and each booking keeps the wording they agreed to." },
+      { q: "Can I collect the design idea and placement before the session?", a: "Yes. A booking form can ask where the tattoo goes, its size and the idea, and can include a file upload question for reference images." },
+    ],
+  }),
+  industry({
+    slug: "consultants-coaches",
+    name: "Consultants and Coaches",
+    noun: "consultant",
+    description:
+      "Let clients book calls and sessions from your real availability, with your calendar synced, payments tracked and your books kept for you.",
+    h1: "A booking app for consultants and coaches",
+    answer:
+      "Iker lets consultants and coaches share one link where clients book a call or session from your real availability. Your Google Calendar stays in step, intake questions arrive with the booking, and payments made by bank transfer are tracked, with income and expenses ready for your monthly statement.",
+    subline: "Clients book calls from your real availability. Payments tracked by transfer.",
+    tour: [
+      { headline: "Scheduling emails before every call", subline: "Share one link. Clients pick an open slot.", scene: "booking" },
+      { headline: "Booked when you're busy", subline: "Clients only see the hours you really have open.", scene: "schedule" },
+      { headline: "Payments spread across accounts", subline: "Transfers confirmed from proof and recorded in your books.", scene: "deposit" },
+    ],
+    pains: ["Scheduling emails before every call", "Clients booking times you cannot take", "No intake information before a session", "Income spread across different accounts"],
+    features: ["booking-page", "availability", "calendar-sync", "booking-forms", "reports", "statements"],
+    depositNorm: "You can set a deposit, up to the full price, on any session, and leave a discovery call free.",
+    sampleServices: [s("Discovery call", 30, 0, 0), s("Strategy session", 60, 25000, 50), s("Extended strategy session", 120, 50000, 50)],
+    faqs: [
+      { q: "Can clients book calls from my real availability?", a: "Yes. Clients see only the open slots in your weekly hours, and Google Calendar sync removes any time you are already busy." },
+      { q: "Can I offer a free discovery call and charge for the rest?", a: "Yes. A service can have a price of zero and no deposit, while other services carry a price and deposit." },
+      { q: "Can I collect intake answers before a call?", a: "Yes. Add questions to a booking form, required or optional, and the answers arrive with the booking." },
+    ],
+  }),
+];
+
+export function getIndustry(slug: string): Industry | undefined {
+  return INDUSTRIES.find((i) => i.slug === slug);
+}

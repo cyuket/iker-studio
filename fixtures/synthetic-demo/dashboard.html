@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard · Demo Console</title>
+    <link rel="stylesheet" href="/assets/console.css" />
+    <script src="/assets/guard.js"></script>
+  </head>
+  <body>
+    <p class="synthetic-banner" role="note">
+      SYNTHETIC DEMO — simulated data, not the Iker product
+    </p>
+    <div class="shell">
+      <nav class="sidebar" aria-label="Main">
+        <p class="product-name">Demo Console</p>
+        <ul>
+          <li><a href="/dashboard" aria-current="page">Dashboard</a></li>
+          <li><a href="/bookings">Bookings</a></li>
+        </ul>
+      </nav>
+      <main>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Sample Studio (synthetic business)</p>
+            <h1>Dashboard</h1>
+            <p class="muted">A simulated booking business with fixed sample data.</p>
+          </div>
+          <a class="button primary" href="/bookings/new">+ Walk-in</a>
+        </header>
+
+        <section class="panel" aria-label="June 2025 performance">
+          <h2>This month · June 2025</h2>
+          <dl class="tiles">
+            <div class="tile">
+              <dt>Income</dt>
+              <dd class="figure">₦312,500</dd>
+            </div>
+            <div class="tile">
+              <dt>Expenses</dt>
+              <dd class="figure">₦48,000</dd>
+            </div>
+            <div class="tile">
+              <dt>Profit</dt>
+              <dd class="figure">₦264,500</dd>
+            </div>
+          </dl>
+          <p class="muted">9 bookings this month. ₦25,000 is awaiting your confirmation.</p>
+        </section>
+
+        <section class="panel" aria-labelledby="today-heading">
+          <h2 id="today-heading">Today · Sat 14 Jun 2025</h2>
+          <ul class="today-list">
+            <li>
+              <a href="/bookings/demo-booking-2041">10:00 · Sample Client A · Box braids</a>
+              <span class="pill">Booked</span>
+            </li>
+            <li>13:00 · Sample Client B · Silk press <span class="pill">Booked</span></li>
+          </ul>
+        </section>
+
+        <div class="card-links">
+          <a href="/bookings">
+            View bookings
+            <span>Every booking, its status and what is still owed.</span>
+          </a>
+          <a href="/bookings/new">
+            New walk-in booking
+            <span>For a customer in front of you. Add payment now or later.</span>
+          </a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>New walk-in booking · Demo Console</title>
+    <link rel="stylesheet" href="/assets/console.css" />
+    <script src="/assets/guard.js"></script>
+  </head>
+  <body>
+    <p class="synthetic-banner" role="note">
+      SYNTHETIC DEMO — simulated data, not the Iker product
+    </p>
+    <div class="shell">
+      <nav class="sidebar" aria-label="Main">
+        <p class="product-name">Demo Console</p>
+        <ul>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/bookings" aria-current="page">Bookings</a></li>
+        </ul>
+      </nav>
+      <main>
+        <a class="back-link" href="/bookings">← Back to bookings</a>
+        <header class="page-header">
+          <div>
+            <h1>New walk-in booking</h1>
+            <p class="muted">
+              For a customer in front of you. Record what they paid now, or leave it at zero and add
+              payment later.
+            </p>
+          </div>
+        </header>
+
+        <form id="walk-in" novalidate>
+          <fieldset>
+            <legend>Appointment</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="service">Rate card item 1</label>
+                <select id="service">
+                  <option value="">Choose a rate card item</option>
+                  <option value="45000">Box braids · ₦45,000</option>
+                  <option value="25000">Knotless braids · ₦25,000</option>
+                  <option value="18000">Silk press · ₦18,000</option>
+                  <option value="12000">Wash &amp; style · ₦12,000</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="slot">Date &amp; time</label>
+                <select id="slot">
+                  <option value="">Pick a date</option>
+                  <option>Sat 21 Jun 2025, 10:00</option>
+                  <option>Sat 21 Jun 2025, 12:00</option>
+                  <option>Sat 21 Jun 2025, 14:00</option>
+                </select>
+                <p class="hint">Sample times. Booked times are not offered.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Customer</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input id="phone" type="tel" autocomplete="off" />
+                <p class="hint">New numbers are saved to your customer list automatically.</p>
+              </div>
+              <div class="field">
+                <label for="full-name">Full name</label>
+                <input id="full-name" type="text" autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="off" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment</legend>
+            <dl class="summary" aria-label="Price">
+              <dt class="total">Total to pay</dt>
+              <dd class="total" id="total">₦0</dd>
+            </dl>
+            <div class="field">
+              <label for="amount">Amount collected now (₦)</label>
+              <div class="inline-actions">
+                <input
+                  id="amount"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="0"
+                  autocomplete="off"
+                />
+                <button class="button" type="button" id="paid-in-full">Paid in full</button>
+                <button class="button" type="button" id="nothing-yet">Nothing yet</button>
+              </div>
+            </div>
+            <dl class="summary" aria-label="After saving">
+              <dt>Collected now</dt>
+              <dd id="collected">₦0</dd>
+              <dt class="total">Balance remaining</dt>
+              <dd class="total" id="balance">₦0</dd>
+              <dt>Status after saving</dt>
+              <dd id="state">Unpaid</dd>
+            </dl>
+            <div class="field" id="proof-field" hidden>
+              <span>Proof of payment: a photo, screenshot or PDF, up to 10MB</span>
+              <div class="inline-actions">
+                <button class="button" type="button" id="proof">Upload proof of payment</button>
+                <span id="proof-name" class="muted"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-footer">
+            <p class="error-message" id="form-error" aria-live="polite"></p>
+            <p class="status-message" id="save-status" role="status" aria-label="Save status"></p>
+            <button class="button primary" type="submit" id="save">Save booking</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script>
+      const naira = (value) => `₦${value.toLocaleString("en-NG")}`;
+      const digits = (text) => Number(text.replace(/[^0-9]/g, "") || "0");
+      const byId = (id) => document.getElementById(id);
+      let proofAttached = false;
+
+      function price() {
+        return Number(byId("service").value || "0");
+      }
+
+      function refresh() {
+        const total = price();
+        const amount = digits(byId("amount").value);
+        byId("total").textContent = naira(total);
+        byId("collected").textContent = naira(amount);
+        byId("balance").textContent = naira(Math.max(total - amount, 0));
+        byId("state").textContent =
+          amount === 0 ? "Unpaid" : amount >= total ? "Paid" : "Partially paid";
+        byId("proof-field").hidden = amount === 0;
+      }
+
+      byId("service").addEventListener("change", refresh);
+      byId("amount").addEventListener("input", () => {
+        const amount = digits(byId("amount").value);
+        byId("amount").value = amount === 0 ? "" : amount.toLocaleString("en-NG");
+        refresh();
+      });
+      byId("paid-in-full").addEventListener("click", () => {
+        byId("amount").value = price() === 0 ? "" : price().toLocaleString("en-NG");
+        refresh();
+      });
+      byId("nothing-yet").addEventListener("click", () => {
+        byId("amount").value = "";
+        refresh();
+      });
+      byId("proof").addEventListener("click", () => {
+        // Simulated: no file picker opens and nothing is read from disk.
+        proofAttached = true;
+        byId("proof-name").textContent = "sample-transfer-receipt.png (simulated upload)";
+      });
+
+      function firstProblem() {
+        const amount = digits(byId("amount").value);
+        if (!byId("service").value)
+          return "Choose a rate card item for every line, or remove the empty one.";
+        if (!byId("slot").value) return "Pick both a date and a time.";
+        if (byId("phone").value.trim() === "")
+          return "Enter a Nigerian phone number, like 0803 123 4567.";
+        if (byId("full-name").value.trim() === "") return "Enter the customer's name.";
+        if (!byId("email").value.includes("@")) return "Enter a valid email address.";
+        if (amount > price()) return "That's more than the appointment price.";
+        if (amount > 0 && !proofAttached) return "Upload proof of payment to save.";
+        return null;
+      }
+
+      byId("walk-in").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const problem = firstProblem();
+        byId("form-error").textContent = problem ?? "";
+        if (problem) return;
+        byId("save-status").textContent = "Booking saved";
+        byId("save").disabled = true;
+      });
+    </script>
+  </body>
+</html>

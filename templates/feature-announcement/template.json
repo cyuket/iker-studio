@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "feature-announcement",
+  "name": "Feature Announcement",
+  "description": "Introduces one shipped Iker feature: what it is, a recorded look at it, how it works step by step and why it matters. Includes a vertical social cut.",
+  "contentTypes": ["FEATURE_ANNOUNCEMENT", "RELEASE_UPDATE", "PRODUCT_DEMO"],
+  "thumbnailVariants": ["split", "product", "statement"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 45,
+        "max": 90
+      },
+      "scenes": [
+        {
+          "id": "title",
+          "type": "INTRO",
+          "title": "Title",
+          "guidance": "Name the feature exactly as Iker names it. Only announce features that have shipped.",
+          "visual": {
+            "kind": "title",
+            "headline": "Feature name"
+          }
+        },
+        {
+          "id": "what",
+          "type": "EXPLANATION",
+          "title": "What it is",
+          "guidance": "What it does and who it is for, in two or three sentences.",
+          "chapterTitle": "What it is",
+          "visual": {
+            "kind": "statement",
+            "headline": "What it does in one line"
+          }
+        },
+        {
+          "id": "demo",
+          "type": "DEMO",
+          "title": "See it",
+          "guidance": "Narrate the recorded flow. Only show states the product really has.",
+          "chapterTitle": "See it",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment"
+          }
+        },
+        {
+          "id": "how-it-works",
+          "type": "EXPLANATION",
+          "title": "How it works",
+          "guidance": "The path the feature follows, step by step, in the product's own words. Say what stays in the business owner's hands.",
+          "chapterTitle": "How it works",
+          "visual": {
+            "kind": "pipeline",
+            "object": {
+              "type": "transaction",
+              "label": "What moves"
+            },
+            "stages": [
+              {
+                "label": "First step"
+              },
+              {
+                "label": "Second step"
+              },
+              {
+                "label": "Third step"
+              }
+            ]
+          }
+        },
+        {
+          "id": "value",
+          "type": "OUTCOME",
+          "title": "Why it matters",
+          "guidance": "What this changes for the team. No unsupported numbers.",
+          "chapterTitle": "Why it matters",
+          "visual": {
+            "kind": "statement",
+            "headline": "Why it matters"
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Get it",
+          "guidance": "How to get it, including any plan condition. Do not quote prices.",
+          "visual": {
+            "kind": "cta",
+            "headline": "How to get it",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "title": "Outro",
+          "guidance": "Leave empty: brand outro without narration.",
+          "visual": {
+            "kind": "outro"
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "format": "social-portrait",
+      "targetSeconds": {
+        "min": 15,
+        "max": 45
+      },
+      "scenes": [
+        {
+          "id": "social-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "What is now possible, in one line.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What is now possible"
+          }
+        },
+        {
+          "id": "social-demo",
+          "type": "DEMO",
+          "title": "See it",
+          "guidance": "One screen that shows it.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "social-cta",
+          "type": "CTA",
+          "title": "Get it",
+          "guidance": "How to get it, including any plan condition. Do not quote prices.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get it",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

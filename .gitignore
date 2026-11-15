@@ -1,0 +1,45 @@
+# Dependencies and build output
+node_modules/
+dist/
+.cache/
+coverage/
+*.tsbuildinfo
+
+# Secrets and local configuration — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+oauth-token*.json
+
+# Browser sessions and Playwright state
+.auth/
+storage-state*.json
+playwright-report/
+test-results/
+
+# Generated media: keep text sources of each video, ignore everything rendered
+output/**
+!output/
+!output/*/
+!output/*/manifest.json
+!output/*/script.md
+!output/*/research.md
+!output/*/storyboard.json
+!output/*/voice-direction.json
+*.mp4
+*.mov
+*.webm
+*.wav
+*.aiff
+*.mp3
+!brand/**/*.mp3
+# Licensed music stays out of Git: its licence forbids passing the file on by itself.
+
+# OS and editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log

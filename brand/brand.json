@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "companyName": "Iker",
+  "productName": "Iker",
+  "tagline": "Get booked. Get paid.",
+  "website": "useiker.com",
+  "logo": {
+    "mark": "logo/iker-emblem-color.svg",
+    "wordmark": "logo/iker-wordmark-on-dark.svg"
+  },
+  "colours": {
+    "background": "#121518",
+    "surface": "#1a1d21",
+    "surfaceRaised": "#272b30",
+    "border": "#3f444a",
+    "text": "#f6f7f7",
+    "textMuted": "#a0a6ac",
+    "primary": "#e05a38",
+    "onPrimary": "#ffffff",
+    "accent": "#ef9c80",
+    "positive": "#4caf80",
+    "warning": "#d29a2e",
+    "danger": "#e8697d"
+  },
+  "fonts": {
+    "display": "Plus Jakarta Sans",
+    "sans": "Plus Jakarta Sans",
+    "mono": "JetBrains Mono"
+  },
+  "placeholders": []
+}

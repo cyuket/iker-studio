@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Log in · Demo Console</title>
+    <link rel="stylesheet" href="/assets/console.css" />
+  </head>
+  <body>
+    <p class="synthetic-banner" role="note">
+      SYNTHETIC DEMO — simulated data, not the Iker product
+    </p>
+    <main class="sign-in">
+      <p class="product-name">Demo Console</p>
+      <h1>Log in</h1>
+      <p class="muted">Any non-empty values work. Nothing leaves this page.</p>
+      <div id="login-view"></div>
+    </main>
+
+    <template id="magic-link-view">
+      <form class="panel" id="magic-link-form" novalidate>
+        <div class="field">
+          <label for="magic-link-email">Email</label>
+          <input id="magic-link-email" type="email" autocomplete="off" required />
+        </div>
+        <button class="button primary" type="submit">Send magic link</button>
+        <p class="muted" id="magic-link-status" role="status"></p>
+        <button class="button" type="button" data-mode="password">Use a password instead</button>
+      </form>
+    </template>
+
+    <template id="password-view">
+      <form class="panel" id="password-form" novalidate>
+        <div class="field">
+          <label for="password-email">Email</label>
+          <input id="password-email" type="email" autocomplete="off" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="off" required />
+        </div>
+        <button class="button primary" type="submit">Log in</button>
+        <button class="button" type="button" data-mode="magic-link">
+          Use a magic link instead
+        </button>
+      </form>
+    </template>
+
+    <script>
+      // Like the real form, only one view is ever in the page, so each label names one field.
+      const view = document.getElementById("login-view");
+
+      function show(mode) {
+        view.replaceChildren(document.getElementById(`${mode}-view`).content.cloneNode(true));
+        view.querySelector("[data-mode]").addEventListener("click", (event) => {
+          show(event.currentTarget.dataset.mode);
+        });
+        const form = view.querySelector("form");
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          if (mode === "magic-link") {
+            // Simulated: no email is sent.
+            document.getElementById("magic-link-status").textContent =
+              "Simulated: no email is sent here. Use a password instead.";
+            return;
+          }
+          const email = document.getElementById("password-email").value.trim();
+          const password = document.getElementById("password").value;
+          if (email === "" || password === "") return;
+          // Only the fact of having logged in is kept; the values themselves are discarded.
+          sessionStorage.setItem("demo-console-session", "1");
+          location.assign("/dashboard");
+        });
+      }
+
+      show("magic-link");
+    </script>
+  </body>
+</html>

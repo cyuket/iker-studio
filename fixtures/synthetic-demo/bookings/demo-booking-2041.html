@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sample Client A · Demo Console</title>
+    <link rel="stylesheet" href="/assets/console.css" />
+    <script src="/assets/guard.js"></script>
+  </head>
+  <body>
+    <p class="synthetic-banner" role="note">
+      SYNTHETIC DEMO — simulated data, not the Iker product
+    </p>
+    <div class="shell">
+      <nav class="sidebar" aria-label="Main">
+        <p class="product-name">Demo Console</p>
+        <ul>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/bookings" aria-current="page">Bookings</a></li>
+        </ul>
+      </nav>
+      <main>
+        <a class="back-link" href="/bookings">← Back to bookings</a>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Booking · demo-booking-2041</p>
+            <h1>Sample Client A</h1>
+            <p class="muted">Box braids · Sat 14 Jun 2025, 10:00</p>
+          </div>
+          <span class="pill">Booked</span>
+        </header>
+
+        <div class="two-column">
+          <section class="panel" aria-labelledby="details-heading">
+            <h2 id="details-heading">Details</h2>
+            <dl class="facts">
+              <dt>Client</dt>
+              <dd>Sample Client A</dd>
+              <dt>Phone</dt>
+              <dd>0800 000 0001</dd>
+              <dt>Email</dt>
+              <dd>sample.client.a@example.com</dd>
+              <dt>Rate card item</dt>
+              <dd>Box braids</dd>
+              <dt>When</dt>
+              <dd>Sat 14 Jun 2025, 10:00</dd>
+              <dt>Price</dt>
+              <dd>₦45,000</dd>
+              <dt>Deposit required</dt>
+              <dd>30% (₦13,500)</dd>
+            </dl>
+          </section>
+
+          <div>
+            <section class="panel" aria-labelledby="payments-heading">
+              <h2 id="payments-heading">Payments</h2>
+              <dl class="summary">
+                <dt>Booking price</dt>
+                <dd>₦45,000</dd>
+                <dt>Paid so far</dt>
+                <dd id="paid">₦0</dd>
+                <dt class="total">Balance remaining</dt>
+                <dd class="total" id="remaining">₦45,000</dd>
+                <dt>Payment status</dt>
+                <dd><span class="pill attention" id="payment-state">Unpaid</span></dd>
+              </dl>
+              <div class="empty-state" id="no-payments">
+                <p><strong>No payments recorded yet</strong></p>
+                <p class="muted">
+                  Record a payment below as the client pays, or when you confirm one they've
+                  submitted.
+                </p>
+              </div>
+              <ol class="payments-list" id="payments" aria-label="Recorded payments" hidden></ol>
+              <p
+                class="status-message"
+                id="payment-update"
+                role="status"
+                aria-label="Payment update"
+              ></p>
+            </section>
+            <div class="inline-actions">
+              <button class="button primary" type="button" id="open-record">
+                Record a payment
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="backdrop" id="backdrop" hidden></div>
+    <div class="dialog" id="record-dialog" role="dialog" aria-labelledby="record-title" hidden>
+      <div class="dialog-header">
+        <h2 id="record-title">Record a payment</h2>
+        <button class="button" type="button" id="close-record">Close</button>
+      </div>
+      <form id="record-form" novalidate>
+        <p class="muted" id="outstanding">
+          ₦45,000 still outstanding on this booking. This is saved as a new, confirmed payment. It
+          never changes an earlier one.
+        </p>
+        <div class="field">
+          <label for="record-amount">Amount received (₦)</label>
+          <div class="inline-actions">
+            <input id="record-amount" type="text" inputmode="decimal" autocomplete="off" />
+            <button class="button" type="button" id="pay-off">Pay off balance</button>
+          </div>
+        </div>
+        <p class="muted" id="record-remaining" aria-live="polite">
+          Balance after this payment: ₦45,000
+        </p>
+        <div class="field">
+          <span>Proof of payment: a photo, screenshot or PDF, up to 10MB</span>
+          <div class="inline-actions">
+            <button class="button" type="button" id="proof">Upload proof of payment</button>
+            <span id="proof-name" class="muted"></span>
+          </div>
+        </div>
+        <p class="error-message" id="record-error" aria-live="polite"></p>
+        <div class="form-footer">
+          <button class="button primary" type="submit" id="save-payment" disabled>
+            Save payment
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const PRICE = 45000;
+      const naira = (value) => `₦${value.toLocaleString("en-NG")}`;
+      const digits = (text) => Number(text.replace(/[^0-9]/g, "") || "0");
+      const byId = (id) => document.getElementById(id);
+      let paid = 0;
+      let proofAttached = false;
+
+      const outstanding = () => PRICE - paid;
+
+      function openDialog() {
+        byId("record-amount").value = "";
+        byId("proof-name").textContent = "";
+        byId("record-error").textContent = "";
+        proofAttached = false;
+        updateRemaining();
+        byId("backdrop").hidden = false;
+        byId("record-dialog").hidden = false;
+        byId("record-amount").focus();
+      }
+
+      function closeDialog() {
+        byId("backdrop").hidden = true;
+        byId("record-dialog").hidden = true;
+      }
+
+      function updateRemaining() {
+        const amount = digits(byId("record-amount").value);
+        byId("save-payment").disabled = amount === 0 || amount > outstanding();
+        byId("record-remaining").textContent =
+          amount > outstanding()
+            ? `That's more than the ${naira(outstanding())} outstanding.`
+            : `Balance after this payment: ${naira(outstanding() - amount)}`;
+      }
+
+      byId("open-record").addEventListener("click", openDialog);
+      byId("close-record").addEventListener("click", closeDialog);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeDialog();
+      });
+      byId("record-amount").addEventListener("input", () => {
+        const amount = digits(byId("record-amount").value);
+        byId("record-amount").value = amount === 0 ? "" : amount.toLocaleString("en-NG");
+        updateRemaining();
+      });
+      byId("pay-off").addEventListener("click", () => {
+        byId("record-amount").value = outstanding().toLocaleString("en-NG");
+        updateRemaining();
+      });
+      byId("proof").addEventListener("click", () => {
+        // Simulated: no file picker opens and nothing is read from disk.
+        proofAttached = true;
+        byId("proof-name").textContent = "sample-transfer-receipt.png (simulated upload)";
+      });
+
+      byId("record-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const amount = digits(byId("record-amount").value);
+        let problem = null;
+        if (amount === 0) return;
+        if (amount > outstanding())
+          problem = `That's more than the ${naira(outstanding())} outstanding.`;
+        else if (!proofAttached) problem = "Upload proof of payment to record this payment.";
+        byId("record-error").textContent = problem ?? "";
+        if (problem) return;
+
+        paid += amount;
+        const type = paid >= PRICE ? "full" : "deposit";
+        const item = document.createElement("li");
+        item.innerHTML =
+          `<div><strong>${naira(amount)} · ${type} · manual</strong>` +
+          `<p class="muted">Sat 14 Jun 2025, 09:40</p>` +
+          `<p class="muted">Confirmed by Sample Owner</p></div>` +
+          `<span class="pill done">Confirmed</span>`;
+        byId("payments").append(item);
+        byId("payments").hidden = false;
+        byId("no-payments").hidden = true;
+        byId("paid").textContent = naira(paid);
+        byId("remaining").textContent = naira(outstanding());
+        const state = byId("payment-state");
+        state.textContent = outstanding() === 0 ? "Paid" : "Partially paid";
+        state.className = outstanding() === 0 ? "pill done" : "pill attention";
+        byId("outstanding").textContent =
+          `${naira(outstanding())} still outstanding on this booking. This is saved as a new, confirmed payment. It never changes an earlier one.`;
+        byId("payment-update").textContent = "Payment recorded";
+        byId("open-record").hidden = outstanding() === 0;
+        closeDialog();
+      });
+    </script>
+  </body>
+</html>

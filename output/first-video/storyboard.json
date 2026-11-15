@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "videoId": "first-video",
+  "version": 2,
+  "scriptHash": "665238a1774f82b81b39cf0d88c3cd8db06560b6457c066ea7acba688102b63c",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 20,
+        "max": 120
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "music": null,
+      "scenes": [
+        {
+          "id": "intro",
+          "type": "INTRO",
+          "enabled": true,
+          "narration": "This is how to record a client's deposit on a booking in Iker.",
+          "estimatedDurationSeconds": 6.1,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "title",
+            "headline": "Record a deposit on a booking",
+            "subhead": "Bookings in Iker"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "problem",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "A deposit that only lives in a chat is easy to lose track of, and so is the balance still owed.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "statement",
+            "headline": "Paid, or still owing?",
+            "body": "A deposit that only lives in a chat is easy to lose track of.",
+            "points": [],
+            "tone": "warning"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Why this matters",
+          "assets": []
+        },
+        {
+          "id": "steps",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "There are three steps. Add the booking, record the payment, and check the balance.",
+          "estimatedDurationSeconds": 6.5,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "steps",
+            "heading": "Three steps",
+            "steps": [
+              {
+                "title": "Add the booking",
+                "detail": "Bookings, then Add walk-in"
+              },
+              {
+                "title": "Record a payment",
+                "detail": "Amount received (₦)"
+              },
+              {
+                "title": "Check the balance",
+                "detail": "Paid so far and Balance remaining"
+              }
+            ]
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "chapter-setup",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "",
+          "estimatedDurationSeconds": 3,
+          "visualInstructions": "Silent chapter card.",
+          "visual": {
+            "kind": "chapter",
+            "title": "Add the booking"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "setup",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Open Bookings and choose Add walk-in. Pick the service and the time, then enter the client's phone number and name. This demo uses made-up data.",
+          "estimatedDurationSeconds": 10.9,
+          "visualInstructions": "Recorded against the synthetic demo fixture.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking",
+            "mode": "video",
+            "heading": "Add walk-in",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Set it up",
+          "assets": []
+        },
+        {
+          "id": "result",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "On the booking, choose Record a payment, enter the amount received, and save. The booking now shows what is paid so far and the balance remaining.",
+          "estimatedDurationSeconds": 11.3,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "heading": "Record a payment",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "See the result",
+          "assets": []
+        },
+        {
+          "id": "recap",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "That is all it takes. Each payment is saved with its own date, so a part payment today and the rest next week add up on the same booking.",
+          "estimatedDurationSeconds": 12.5,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "statement",
+            "headline": "Every deposit, on its booking",
+            "points": [
+              {
+                "title": "Its own date",
+                "detail": "Each payment is logged separately"
+              },
+              {
+                "title": "Part payments",
+                "detail": "Balance remaining until paid off"
+              },
+              {
+                "title": "Your money",
+                "detail": "Paid straight to your account"
+              }
+            ],
+            "tone": "positive"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Not using Iker yet? Get started at useiker.com.",
+          "estimatedDurationSeconds": 4.1,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "cta",
+            "headline": "Track every deposit in Iker",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "enabled": true,
+          "narration": "",
+          "estimatedDurationSeconds": 3,
+          "visualInstructions": "Brand outro, no narration.",
+          "visual": {
+            "kind": "outro",
+            "tagline": "Get booked. Get paid."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 8,
+        "max": 60
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "music": null,
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "A deposit in your WhatsApp chat is easy to lose track of.",
+          "estimatedDurationSeconds": 5.7,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "statement",
+            "headline": "A deposit in a chat is easy to lose",
+            "points": [],
+            "tone": "warning"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "short-demo",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "In Iker, open the booking, choose Record a payment, enter the amount, and save. This is made-up data.",
+          "estimatedDurationSeconds": 8.1,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "heading": "Record a payment on the booking",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get started at useiker.com.",
+          "estimatedDurationSeconds": 2.5,
+          "visualInstructions": "",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "id": "business-explainer",
+  "name": "Business Explainer",
+  "description": "Explains an everyday business or bookkeeping problem a service business has, why the usual way of handling it breaks, a better way, and how Iker does it. Includes 60-second and 30-second vertical cuts.",
+  "contentTypes": ["BUSINESS_EDUCATION", "BOOKKEEPING_EDUCATION", "PRODUCT_DEMO"],
+  "thumbnailVariants": ["statement", "split", "product"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 120,
+        "max": 180
+      },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "title": "The situation",
+          "guidance": "A concrete moment from a service business, told as it happens. Use the owner's situation, not statistics.",
+          "chapterTitle": "The situation",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "What happens", "role": "lead" },
+              { "text": "Why it matters", "role": "key" }
+            ]
+          }
+        },
+        {
+          "id": "gap",
+          "type": "EXPLANATION",
+          "title": "Why the usual way breaks",
+          "guidance": "Why chats, notebooks or memory let this slip, even when the owner is careful.",
+          "chapterTitle": "Why it breaks",
+          "visual": {
+            "kind": "comparison",
+            "left": {
+              "title": "The usual way",
+              "points": ["First point"]
+            },
+            "right": {
+              "title": "A better way",
+              "points": ["First point"]
+            }
+          }
+        },
+        {
+          "id": "how-it-works",
+          "type": "DIAGRAM",
+          "title": "A better way",
+          "guidance": "The better way as a short sequence of steps, in plain terms, including what stays in the owner's hands.",
+          "chapterTitle": "A better way",
+          "visual": {
+            "kind": "pipeline",
+            "object": { "type": "transaction", "label": "Payment" },
+            "stages": [
+              { "label": "First step" },
+              { "label": "Second step" },
+              { "label": "Third step" }
+            ]
+          }
+        },
+        {
+          "id": "product-intro",
+          "type": "DEMO",
+          "title": "In Iker",
+          "guidance": "Where this lives in Iker, named as the product names it. Say the footage uses made-up data.",
+          "chapterTitle": "In Iker",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "booking",
+          "type": "DEMO",
+          "title": "On the booking",
+          "guidance": "Show the booking and what it records. Only show states the product really has.",
+          "chapterTitle": "On the booking",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking"
+          }
+        },
+        {
+          "id": "payment",
+          "type": "DEMO",
+          "title": "Recording a payment",
+          "guidance": "Walk through recording one payment, naming each button as the product does.",
+          "chapterTitle": "Recording a payment",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment"
+          }
+        },
+        {
+          "id": "confirm",
+          "type": "EXPLANATION",
+          "title": "What the owner decides",
+          "guidance": "What stays the owner's decision, and how mistakes are put right.",
+          "chapterTitle": "You stay in charge",
+          "visual": {
+            "kind": "steps",
+            "heading": "What you decide",
+            "steps": [{ "title": "First" }, { "title": "Second" }, { "title": "Third" }]
+          }
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "title": "What changes",
+          "guidance": "The practical difference for the business, including the limits. No unsupported numbers.",
+          "chapterTitle": "What changes",
+          "visual": {
+            "kind": "statement",
+            "headline": "What changes for the business"
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One next step, using the site's own call to action. Teach first; this is not an advert.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short-60",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 45,
+        "max": 60
+      },
+      "scenes": [
+        {
+          "id": "s60-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "The situation in one or two sentences.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The situation"
+          }
+        },
+        {
+          "id": "s60-gap",
+          "type": "EXPLANATION",
+          "title": "Why it breaks",
+          "guidance": "Why the usual way lets it slip, in one or two sentences.",
+          "visual": {
+            "kind": "statement",
+            "headline": "Why it breaks"
+          }
+        },
+        {
+          "id": "s60-how",
+          "type": "EXPLANATION",
+          "title": "A better way",
+          "guidance": "The better way, in one or two sentences.",
+          "visual": {
+            "kind": "pipeline",
+            "object": { "type": "transaction", "label": "Payment" },
+            "stages": [{ "label": "First step" }, { "label": "Second step" }]
+          }
+        },
+        {
+          "id": "s60-demo",
+          "type": "DEMO",
+          "title": "In Iker",
+          "guidance": "One screen from Iker. Say it is made-up data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "s60-outcome",
+          "type": "OUTCOME",
+          "title": "What changes",
+          "guidance": "The difference it makes, in one line.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What changes"
+          }
+        },
+        {
+          "id": "s60-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to start.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "teaser-30",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 20,
+        "max": 30
+      },
+      "scenes": [
+        {
+          "id": "t30-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "The situation in one line.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The situation"
+          }
+        },
+        {
+          "id": "t30-gap",
+          "type": "EXPLANATION",
+          "title": "Why it breaks",
+          "guidance": "Why it happens, in one line.",
+          "visual": {
+            "kind": "statement",
+            "headline": "Why it breaks"
+          }
+        },
+        {
+          "id": "t30-how",
+          "type": "DEMO",
+          "title": "The answer",
+          "guidance": "What Iker does about it, in one line.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "t30-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Point to the full video or to useiker.com.",
+          "visual": {
+            "kind": "cta",
+            "headline": "See how it works",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

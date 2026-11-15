@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "id": "first-video",
+  "title": "How to record a deposit on a booking",
+  "topic": "Record a deposit on a booking",
+  "audience": "Business owners and staff who take bookings and deposits in Iker",
+  "contentType": "PRODUCT_TUTORIAL",
+  "template": "product-tutorial",
+  "format": "youtube-landscape",
+  "durationTarget": {
+    "minSeconds": 60,
+    "maxSeconds": 180
+  },
+  "createdAt": "2026-11-14T23:44:15.541Z",
+  "updatedAt": "2026-11-14T23:50:00.627Z",
+  "script": {
+    "version": 1,
+    "hash": "665238a1774f82b81b39cf0d88c3cd8db06560b6457c066ea7acba688102b63c"
+  },
+  "storyboard": {
+    "version": 2,
+    "hash": "4b914f229ccefc200212568bb62d0280266fdcf1620fd6244353351d7d803dc2"
+  },
+  "voice": {
+    "provider": "system",
+    "voiceId": null,
+    "modelId": null,
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speed": 1,
+    "speakerBoost": true,
+    "languageCode": null,
+    "seed": 20260101,
+    "preset": null,
+    "finishing": {
+      "level": true,
+      "targetLufs": -23,
+      "toleranceLu": 1,
+      "compression": false,
+      "edgeFade": "auto"
+    }
+  },
+  "voiceSelection": null,
+  "render": {
+    "quality": "final",
+    "reducedMotion": false
+  },
+  "stages": {
+    "idea": {
+      "status": "completed",
+      "inputHash": "5933cf3462f31e3ef24bfee63b303c94820a54325c9f0df6c7342917a0463624",
+      "attempts": 1,
+      "startedAt": "2026-11-14T23:44:15.560Z",
+      "completedAt": "2026-11-14T23:44:15.565Z",
+      "error": null
+    },
+    "research": {
+      "status": "completed",
+      "inputHash": "7b24bb5e67d599597a55394875700100204c65b8c5b97d06b3c802b7630a6e3a",
+      "attempts": 1,
+      "startedAt": "2026-11-14T23:44:16.991Z",
+      "completedAt": "2026-11-14T23:44:17.002Z",
+      "error": null
+    },
+    "script": {
+      "status": "completed",
+      "inputHash": "665238a1774f82b81b39cf0d88c3cd8db06560b6457c066ea7acba688102b63c",
+      "attempts": 1,
+      "startedAt": "2026-11-14T23:44:17.010Z",
+      "completedAt": "2026-11-14T23:44:17.016Z",
+      "error": null
+    },
+    "storyboard": {
+      "status": "completed",
+      "inputHash": "4b914f229ccefc200212568bb62d0280266fdcf1620fd6244353351d7d803dc2",
+      "attempts": 1,
+      "startedAt": "2026-11-14T23:44:18.406Z",
+      "completedAt": "2026-11-14T23:44:18.413Z",
+      "error": null
+    },
+    "recording": {
+      "status": "completed",
+      "inputHash": "df7fa59d0261f44d22f13ac6a0511d9fa251cd0bb3b0b0ff3cd82a1453119bc4",
+      "attempts": 1,
+      "startedAt": "2026-11-14T23:44:21.275Z",
+      "completedAt": "2026-11-14T23:45:18.436Z",
+      "error": null
+    },
+    "voice": {
+      "status": "completed",
+      "inputHash": "9cdba17909a73d734e6fbf91c396bb7ac5b08b1484ac42f01c9d8052ac2a6d71",
+      "attempts": 1,
+      "startedAt": "2026-11-14T23:45:20.135Z",
+      "completedAt": "2026-11-14T23:45:40.112Z",
+      "error": null
+    },
+    "motion": {
+      "status": "pending",
+      "inputHash": "3d57f28c17357ab73b8c1225f78d09d78a55d348421ce85b3061bde2a20ea6b5",
+      "attempts": 2,
+      "startedAt": "2026-11-14T23:48:13.790Z",
+      "completedAt": "2026-11-14T23:45:41.819Z",
+      "error": null
+    },
+    "composition": {
+      "status": "pending",
+      "inputHash": "3d57f28c17357ab73b8c1225f78d09d78a55d348421ce85b3061bde2a20ea6b5",
+      "attempts": 2,
+      "startedAt": "2026-11-14T23:48:13.812Z",
+      "completedAt": "2026-11-14T23:47:26.966Z",
+      "error": null
+    },
+    "subtitles": {
+      "status": "pending",
+      "inputHash": "34bfab6335e815190e026e46fbc27f9a207bdca1e50361a1c05fb0e01d0d1fb3",
+      "attempts": 2,
+      "startedAt": "2026-11-14T23:49:44.168Z",
+      "completedAt": "2026-11-14T23:47:27.004Z",
+      "error": null
+    },
+    "render": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 2,
+      "startedAt": "2026-11-14T23:49:44.194Z",
+      "completedAt": null,
+      "error": null
+    },
+    "qa": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 3,
+      "startedAt": "2026-11-14T23:49:55.792Z",
+      "completedAt": null,
+      "error": null
+    },
+    "approval": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "export": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    }
+  },
+  "assets": {
+    "narration": {
+      "intro": {
+        "cacheKey": "2068740caae89ed874263c05bdc12ac4810c1f3a50e12ad7d6fcc12a9afefa83",
+        "textHash": "bbf8e901df18587f671d6e208b0cfc160601142b9f9d447cc5be59c3bc96060a",
+        "file": "audio/intro.wav",
+        "wordsFile": "audio/intro.words.json",
+        "durationSeconds": 3.341458,
+        "characters": 62,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:24.458Z"
+      },
+      "problem": {
+        "cacheKey": "ed43c51a9f6c76ed9eba1b2d5e586c298646ce93c5606a5fab6d8ec3e46e1796",
+        "textHash": "33d1c7e4e6986046daf9296dae730290dd7a2b686df822a73fab4cf9ce850883",
+        "file": "audio/problem.wav",
+        "wordsFile": "audio/problem.words.json",
+        "durationSeconds": 5.076792,
+        "characters": 95,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:26.252Z"
+      },
+      "steps": {
+        "cacheKey": "da2d1c5835c963fffa3a67307eb109fdbf98fa8b465caa0be7a7bfcf452aff4d",
+        "textHash": "80f0fd4b803a0160cef80cacb55efe898e484dbc671b02a50b5289a2bc60c374",
+        "file": "audio/steps.wav",
+        "wordsFile": "audio/steps.words.json",
+        "durationSeconds": 4.946229,
+        "characters": 82,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:27.867Z"
+      },
+      "setup": {
+        "cacheKey": "b6b457ea6cb7f27ae2edf2ea4337b215063da3c35b00d98e63ef2c2048927cdd",
+        "textHash": "a24a51b6713ce313e72d80dd82315f8c777b0f5f507e829417449e22e8390e67",
+        "file": "audio/setup.wav",
+        "wordsFile": "audio/setup.words.json",
+        "durationSeconds": 8.519458,
+        "characters": 144,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:29.500Z"
+      },
+      "result": {
+        "cacheKey": "29632027a75e933e055017281fcaf0cd6ac289cacc6b3319252656f01179a059",
+        "textHash": "2e6f9f73c774dc09371d765a6e789e347a40552004072825339e958005f9ae8e",
+        "file": "audio/result.wav",
+        "wordsFile": "audio/result.words.json",
+        "durationSeconds": 8.513292,
+        "characters": 146,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:31.132Z"
+      },
+      "recap": {
+        "cacheKey": "e40a32884f14b4b473c58601a8a5b5cde5bcee1725c68df445fdf0186c4630e6",
+        "textHash": "2b96ac3cae2c8aa427e69b36d6ac2a91a7fb961ab5d1907cac7f7ecc322d93ac",
+        "file": "audio/recap.wav",
+        "wordsFile": "audio/recap.words.json",
+        "durationSeconds": 7.627813,
+        "characters": 137,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:33.183Z"
+      },
+      "cta": {
+        "cacheKey": "acee114c45475fa02d768c12816fd07b06d70ed2fff2ab156ad93929a27e9e5f",
+        "textHash": "891a6a97e2d038077c0981e5ad9ea2a20fad23362b84c79b25542ccf97acb0e7",
+        "file": "audio/cta.wav",
+        "wordsFile": "audio/cta.words.json",
+        "durationSeconds": 3.706458,
+        "characters": 47,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:34.874Z"
+      },
+      "short-hook": {
+        "cacheKey": "2afd1730107c143ac30d0593b7771d730a40b89a7aa55fa7a7491f5a379f9fe0",
+        "textHash": "99da289ef7f158159477cf9ecdcce7dbf2aba50c11650282475d566a006366f4",
+        "file": "audio/short-hook.wav",
+        "wordsFile": "audio/short-hook.words.json",
+        "durationSeconds": 2.998604,
+        "characters": 57,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:36.791Z"
+      },
+      "short-demo": {
+        "cacheKey": "359d52490ee0e9375345945d9c54a4e391d8d9d33241d8b9d2ebd11892da637f",
+        "textHash": "ad3399baaad3b792cb63a73f6f11b2e3b0a67dc780e819094b318fe41e704895",
+        "file": "audio/short-demo.wav",
+        "wordsFile": "audio/short-demo.words.json",
+        "durationSeconds": 6.71375,
+        "characters": 101,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:38.449Z"
+      },
+      "short-cta": {
+        "cacheKey": "414247d84853ef9c33269aa4c484fc2796a83b86aa7e24f109bf8f4410b0e5e6",
+        "textHash": "986699114a209ee6280a02bb43f8aa6ef2d227a507287df3cd9dffd833a31844",
+        "file": "audio/short-cta.wav",
+        "wordsFile": "audio/short-cta.words.json",
+        "durationSeconds": 2.103771,
+        "characters": 27,
+        "provider": "system",
+        "timing": "estimated",
+        "createdAt": "2026-11-14T23:45:40.093Z"
+      }
+    },
+    "recordings": {
+      "synthetic-new-booking": {
+        "hash": "bf7bd3d195722c02a91140a1eb53dc7631221bac79b2e7d1cf16f298a427d59e",
+        "target": "synthetic",
+        "displayHost": "demo-console.example",
+        "verified": true,
+        "video": "recordings/synthetic-new-booking/recording.mp4",
+        "timeline": "recordings/synthetic-new-booking/timeline.json",
+        "screenshots": {
+          "walk-in-form": "recordings/synthetic-new-booking/screenshots/walk-in-form.png",
+          "booking-saved": "recordings/synthetic-new-booking/screenshots/booking-saved.png"
+        },
+        "durationSeconds": 25.933333,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "recordedAt": "2026-11-14T23:44:50.968Z"
+      },
+      "synthetic-record-payment": {
+        "hash": "a0355eeccbc356b12268c20c440c5b52a316400bfd9a6f70c09be87f563658be",
+        "target": "synthetic",
+        "displayHost": "demo-console.example",
+        "verified": true,
+        "video": "recordings/synthetic-record-payment/recording.mp4",
+        "timeline": "recordings/synthetic-record-payment/timeline.json",
+        "screenshots": {
+          "booking-balance": "recordings/synthetic-record-payment/screenshots/booking-balance.png",
+          "payment-dialog": "recordings/synthetic-record-payment/screenshots/payment-dialog.png",
+          "payment-recorded": "recordings/synthetic-record-payment/screenshots/payment-recorded.png"
+        },
+        "durationSeconds": 23.933333,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "recordedAt": "2026-11-14T23:45:18.427Z"
+      }
+    },
+    "sceneRenders": {
+      "full/preview/intro": {
+        "hash": "192e61904fe91f8b3c4f3bab6cdd517f078ebc5ed0e21edeb3395a0fd4e42b1a",
+        "file": "scenes/full/preview/intro.mkv",
+        "durationFrames": 128,
+        "renderedAt": "2026-11-14T23:48:21.533Z"
+      },
+      "full/preview/problem": {
+        "hash": "0524ad9190f36b480a5692505ad8f831d8ea30721a7a289cc816b833b444433a",
+        "file": "scenes/full/preview/problem.mkv",
+        "durationFrames": 180,
+        "renderedAt": "2026-11-14T23:48:26.338Z"
+      },
+      "full/preview/steps": {
+        "hash": "94bc5f5b450c962e605021bc84caefc8823985b42aa701d56a0a4a70a76cde0b",
+        "file": "scenes/full/preview/steps.mkv",
+        "durationFrames": 176,
+        "renderedAt": "2026-11-14T23:48:31.085Z"
+      },
+      "full/preview/chapter-setup": {
+        "hash": "bf3e228eed76e89ca6ee73c73c7732a142af7ff8592383374015b87f5ea6457e",
+        "file": "scenes/full/preview/chapter-setup.mkv",
+        "durationFrames": 90,
+        "renderedAt": "2026-11-14T23:48:34.289Z"
+      },
+      "full/preview/setup": {
+        "hash": "82b884a1b3183dc078e21deffb38b36cca9aa7a9c92669012ba435d8d5f6ebf2",
+        "file": "scenes/full/preview/setup.mkv",
+        "durationFrames": 805,
+        "renderedAt": "2026-11-14T23:49:23.017Z"
+      },
+      "full/preview/result": {
+        "hash": "897424573af4e0922f782c231d5ba4218612a8f1c1b75ae87d94c4a259d49c2c",
+        "file": "scenes/full/preview/result.mkv",
+        "durationFrames": 283,
+        "renderedAt": "2026-11-14T23:49:30.542Z"
+      },
+      "full/preview/recap": {
+        "hash": "12d6960db51f8a6af77e8166e5b581382270c8784176f7d58134979e08d75e64",
+        "file": "scenes/full/preview/recap.mkv",
+        "durationFrames": 256,
+        "renderedAt": "2026-11-14T23:49:36.854Z"
+      },
+      "full/preview/cta": {
+        "hash": "ddeac6bfabb43910b45fbe88b90ba97deac7b8af499d7bbe029de53a379e5990",
+        "file": "scenes/full/preview/cta.mkv",
+        "durationFrames": 139,
+        "renderedAt": "2026-11-14T23:49:40.859Z"
+      },
+      "full/preview/outro": {
+        "hash": "e1c382d6076ad10f026dda7bef9fd10e2eaf9d964a907199a0cede1bcdece8b3",
+        "file": "scenes/full/preview/outro.mkv",
+        "durationFrames": 90,
+        "renderedAt": "2026-11-14T23:49:44.142Z"
+      },
+      "short/preview/short-hook": {
+        "hash": "6d7dfc1a2265fa537855967a484a2f368fbf0620b219616951de995f6493d959",
+        "file": "scenes/short/preview/short-hook.mkv",
+        "durationFrames": 117,
+        "renderedAt": "2026-11-14T23:47:16.647Z"
+      },
+      "short/preview/short-demo": {
+        "hash": "11028f225bf2c884421760d76b813b156481dd6b0259a744f471af8c3724bfc7",
+        "file": "scenes/short/preview/short-demo.mkv",
+        "durationFrames": 229,
+        "renderedAt": "2026-11-14T23:47:23.407Z"
+      },
+      "short/preview/short-cta": {
+        "hash": "611a134b818e9b0381808a75df08b01676def1f13fccb6fd1f00bad7b8ee8f7b",
+        "file": "scenes/short/preview/short-cta.mkv",
+        "durationFrames": 91,
+        "renderedAt": "2026-11-14T23:47:26.947Z"
+      }
+    },
+    "finals": {
+      "full/preview": {
+        "hash": "7c7f49042f279cb99347fe7673a87928d198d4025776a116c55c4496945fb697",
+        "file": "preview/first-video-full.mp4",
+        "sha256": "4cc91774e3b8a34a096341aed935647a9eccc4ba26239ce6e4f2630f304a775a",
+        "width": 960,
+        "height": 540,
+        "durationSeconds": 71.567,
+        "subtitles": {
+          "srt": "subtitles/full.srt",
+          "vtt": "subtitles/full.vtt"
+        },
+        "timeline": "scenes/full/timeline.json",
+        "renderedAt": "2026-11-14T23:49:51.248Z"
+      },
+      "short/preview": {
+        "hash": "56ebc1c0a8175f313dc54648cdc91efceabec692861815e3df4835e70d093d15",
+        "file": "preview/first-video-short.mp4",
+        "sha256": "da25a1cf1fe1590a1d9d1766811f257b9399eedb4ca23453f4a736300e2f4ea8",
+        "width": 540,
+        "height": 960,
+        "durationSeconds": 14.567,
+        "subtitles": {
+          "srt": "subtitles/short.srt",
+          "vtt": "subtitles/short.vtt"
+        },
+        "timeline": "scenes/short/timeline.json",
+        "renderedAt": "2026-11-14T23:47:35.992Z"
+      }
+    },
+    "thumbnails": []
+  },
+  "qa": {
+    "full/preview": {
+      "subjectHash": "4cc91774e3b8a34a096341aed935647a9eccc4ba26239ce6e4f2630f304a775a",
+      "passed": false,
+      "failures": 1,
+      "warnings": 3,
+      "report": "qa/full-preview/report.html",
+      "checkedAt": "2026-11-14T23:50:00.619Z"
+    },
+    "short/preview": {
+      "subjectHash": "da25a1cf1fe1590a1d9d1766811f257b9399eedb4ca23453f4a736300e2f4ea8",
+      "passed": false,
+      "failures": 1,
+      "warnings": 2,
+      "report": "qa/short-preview/report.html",
+      "checkedAt": "2026-11-14T23:47:54.149Z"
+    }
+  },
+  "approvals": {
+    "script": {
+      "subjectHash": "665238a1774f82b81b39cf0d88c3cd8db06560b6457c066ea7acba688102b63c",
+      "approvedBy": "Claude Code",
+      "approvedAt": "2026-11-14T23:44:19.847Z",
+      "note": "",
+      "automated": true,
+      "voiceDirectionHash": null
+    },
+    "final": {}
+  },
+  "usage": {
+    "synthesisedCharacters": 0,
+    "synthesisRequests": 0,
+    "cacheHits": 0,
+    "generatedSeconds": 0,
+    "credits": 0,
+    "regenerations": 0
+  },
+  "exports": [],
+  "history": [
+    {
+      "at": "2026-11-14T23:44:15.565Z",
+      "stage": "idea",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:44:17.002Z",
+      "stage": "research",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:44:17.016Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:44:18.413Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:44:19.847Z",
+      "stage": "script",
+      "event": "approved by automation",
+      "detail": "by Claude Code"
+    },
+    {
+      "at": "2026-11-14T23:45:18.436Z",
+      "stage": "recording",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:45:40.112Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:45:41.819Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:47:26.966Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:47:27.004Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:47:36.002Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:47:43.384Z",
+      "stage": "qa",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:47:54.154Z",
+      "stage": "qa",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:48:13.804Z",
+      "stage": "motion",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:49:44.160Z",
+      "stage": "composition",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:49:44.188Z",
+      "stage": "subtitles",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:49:51.259Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-14T23:50:00.627Z",
+      "stage": "qa",
+      "event": "partially completed",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+// Copied from ../slot-books/apps/web/lib/marketing/content/features.ts (the live marketing copy on useiker.com) on 2026-11-15.
+// Snapshot for reference only; saved as .txt so the studio does not compile or lint it. slot-books wins on any disagreement.
+
+import type { Faq, Feature } from "./types";
+
+type Def = {
+  slug: string;
+  name: string;
+  h1: string;
+  description: string;
+  answer: string;
+  subline: string;
+  /** [kicker label, headline, subline, demo step id]; the kicker number comes from the order. */
+  tour: [label: string, headline: string, subline: string, frame: string][];
+  points: Feature["points"];
+  faqs: Faq[];
+  secondary: string[];
+  related: string[];
+  industries: string[];
+  planFeatureKey: string | null;
+  flagOnly?: boolean;
+};
+
+function feature(d: Def): Feature {
+  return {
+    slug: d.slug,
+    name: d.name,
+    title: `${d.name} for Small Business | Iker`,
+    description: d.description,
+    h1: d.h1,
+    answer: d.answer,
+    subline: d.subline,
+    tour: d.tour.map(([label, headline, subline, frame], i) => ({ kicker: `0${i + 1} · ${label}`, headline, subline, frame })),
+    points: d.points,
+    faqs: d.faqs,
+    keywords: { primary: `${d.name.toLowerCase()} for small business`, secondary: d.secondary },
+    related: d.related,
+    industries: d.industries,
+    planFeatureKey: d.planFeatureKey,
+    ...(d.flagOnly ? { flagOnly: true } : {}),
+    demo: d.slug,
+  };
+}
+
+export const FEATURES: Feature[] = [
+  feature({
+    slug: "booking-page",
+    name: "Online Booking Page",
+    h1: "A booking page your clients can open from any link",
+    description:
+      "Share one link on Instagram or WhatsApp. Clients pick a service and a real open slot, with no app to download and no account to make.",
+    answer:
+      "Iker gives your business a public booking page at its own link. Clients open it from your Instagram bio or WhatsApp status, choose a service, and pick a time from your real availability. They do not download an app or create an account. The page is server-rendered, so it opens quickly on an average Nigerian mobile connection.",
+    subline: "One link for Instagram and WhatsApp. No app, no account.",
+    tour: [
+      ["Share", "One link, every channel.", "Instagram bio or WhatsApp status. One calendar.", "list"],
+      ["Book", "No app, no account.", "Clients book in a few taps.", "details"],
+      ["Speed", "Fast on mobile data.", "Rendered on the server and kept light.", "booked"],
+    ],
+    points: [
+      { title: "One link for every channel", body: "Put it in your Instagram bio or your WhatsApp status. Every booking lands on the same calendar." },
+      { title: "No app, no account", body: "Clients book in a few taps. You do not chase anyone to sign up first." },
+      { title: "Fast on a slow connection", body: "The page is rendered on the server and kept light, so it loads quickly on mobile data." },
+    ],
+    faqs: [
+      { q: "Do my clients need an account?", a: "No. They open your link, choose a service and a time, and leave their details." },
+      { q: "Can I list prices and durations?", a: "Yes. Each service shows its name, duration and price, and your deposit if you ask for one." },
+    ],
+    secondary: ["online booking page", "booking link for Instagram", "appointment booking app Nigeria"],
+    related: ["availability", "deposits", "packages"],
+    industries: ["hair-salons", "makeup-artists", "photographers", "tutors"],
+    planFeatureKey: null,
+  }),
+  feature({
+    slug: "availability",
+    name: "Availability and Working Hours",
+    h1: "Show only the slots you can actually take",
+    description:
+      "Set weekly hours, buffers and blocked dates once. Clients only see open slots, so there is no back and forth and no double-booking.",
+    answer:
+      "Set your weekly working hours, the buffer you need between appointments and any dates you are away, and Iker works out the open slots for you. Clients only ever see times you can really take, so nobody asks whether you are free on Saturday. Changing your hours affects future availability only; bookings already confirmed stay as they are.",
+    subline: "Set your hours and buffers once. Clients see only real slots.",
+    tour: [
+      ["Hours", "Your week, your hours.", "Set your normal week. Block days off.", "hours-saved"],
+      ["Buffers", "Room between appointments.", "A gap to clean up, travel or rest.", "gap"],
+      ["Bookings", "Booked times stay put.", "Edits change future slots only.", "buffer-saved"],
+    ],
+    points: [
+      { title: "Weekly hours and blocked dates", body: "Set your normal week, then block holidays or days off when they come up." },
+      { title: "Buffers between appointments", body: "Leave room to clean up, travel or rest, so back-to-back bookings never squeeze you." },
+      { title: "Changes never rewrite confirmed bookings", body: "Edit your hours freely. Only future slots change; clients who already booked keep their time." },
+    ],
+    faqs: [
+      { q: "If I change my hours, do existing bookings move?", a: "No. Changes only affect future availability. Confirmed bookings are never rewritten." },
+      { q: "Can I block a single day?", a: "Yes. Add a blocked date and no client can book it." },
+    ],
+    secondary: ["appointment availability software", "working hours booking app", "avoid double booking"],
+    related: ["booking-page", "calendar-sync", "walk-ins"],
+    industries: ["barbers", "hair-salons", "tutors", "fitness-trainers"],
+    planFeatureKey: null,
+  }),
+  feature({
+    slug: "calendar-sync",
+    name: "Google Calendar Sync",
+    h1: "Your Google Calendar and your bookings in step",
+    description:
+      "Connect Google Calendar so Iker bookings appear there and your other events block the times you are already busy.",
+    answer:
+      "Connect your Google Calendar and Iker writes each booking to it, so your phone shows everything in one place. Events already on your calendar block those times on your booking page, which stops clients booking you when you are busy. Iker reads only the start and end times of other events, and you can disconnect whenever you like.",
+    subline: "Bookings go to Google Calendar. Busy times block your page.",
+    tour: [
+      ["Bookings", "Bookings land in Google.", "Each confirmed booking shows on every device.", "pushed"],
+      ["Busy time", "Busy time blocks slots.", "Other events take those times off your page.", "blocked"],
+      ["Control", "Disconnect whenever you like.", "Iker deletes the stored connection.", "connected"],
+    ],
+    points: [
+      { title: "Bookings show up in Google Calendar", body: "Each confirmed booking is added as an event you can see on any device." },
+      { title: "Busy time blocks your page", body: "A meeting or personal event on your calendar removes that slot from your booking page." },
+      { title: "You stay in control", body: "Disconnect from settings and Iker deletes the stored connection." },
+    ],
+    faqs: [
+      { q: "Does Iker read my event titles?", a: "No. For other events it keeps only the start time, end time and event ID, to block the time." },
+      { q: "Is it included on every plan?", a: "Availability depends on your plan. The plan badge on this page shows the current setting." },
+    ],
+    secondary: ["Google Calendar booking sync", "two-way calendar sync booking", "avoid double booking Google Calendar"],
+    related: ["availability", "booking-page", "staff-roles"],
+    industries: ["consultants-coaches", "photographers", "tutors", "aesthetics-clinics"],
+    planFeatureKey: "google_calendar_sync",
+  }),
+  feature({
+    slug: "deposits",
+    name: "Deposit Tracking",
+    h1: "Deposits tracked from transfer to confirmed",
+    description:
+      "Clients pay a deposit by bank transfer and upload proof. You confirm it in one tap, and the balance is tracked for every booking.",
+    answer:
+      "Clients pay their deposit by bank transfer straight to your account and upload proof of payment. You check it and confirm in one tap. Iker tracks the deposit and the outstanding balance on every booking, so you always know who has paid. Confirmed payments are permanent, and any correction is recorded as a new adjustment entry. Iker takes no commission.",
+    subline: "Clients transfer and upload proof. You confirm in one tap.",
+    tour: [
+      ["Proof", "Proof sits on the booking.", "No more screenshots buried in WhatsApp.", "proof"],
+      ["Confirm", "You confirm every payment.", "Nothing counts as income until you do.", "confirm"],
+      ["Balance", "Paid and owed, tracked.", "Deposit and balance on every booking.", "confirmed"],
+    ],
+    points: [
+      { title: "Proof of payment, uploaded by the client", body: "No more screenshots buried in WhatsApp. The proof sits on the booking." },
+      { title: "You confirm every payment", body: "Nothing counts as income until you confirm it." },
+      { title: "Deposit and balance on each booking", body: "See what is paid and what is still owed without a spreadsheet." },
+    ],
+    faqs: [
+      { q: "Does Iker collect the money?", a: "No. Clients transfer directly to your bank account. Iker records it and never holds your funds." },
+      { q: "What if I confirm a payment by mistake?", a: "Confirmed payments are permanent. You correct them with an adjustment entry, so the history stays honest." },
+      { q: "Does Iker take a commission on deposits?", a: "No. Iker never takes a percentage of your deposits or bookings." },
+    ],
+    secondary: ["deposit tracking app", "bank transfer deposit booking", "proof of payment upload booking"],
+    related: ["refunds-policies", "reports", "statements"],
+    industries: ["makeup-artists", "photographers", "tattoo-artists", "hair-salons"],
+    planFeatureKey: null,
+  }),
+  feature({
+    slug: "walk-ins",
+    name: "Walk-in Bookings",
+    h1: "Add a walk-in in two taps",
+    description:
+      "Not every client books online. Add walk-ins and phone bookings to the same calendar so your day is always complete.",
+    answer:
+      "Not every client books through your link, and Iker does not pretend they do. Add a walk-in or a phone booking from the dashboard in a couple of taps, choosing the service, the time and the client. It lands on the same calendar as online bookings, so double-booking is avoided and your income and customer list stay complete.",
+    subline: "Add walk-ins and phone bookings to the same calendar.",
+    tour: [
+      ["Calendar", "One calendar for everyone.", "Walk-ins sit beside link bookings.", "calendar"],
+      ["Add", "Quick to add.", "Pick the service, time and client.", "open"],
+      ["Books", "Counted in your books.", "Walk-in payments feed income like any booking.", "saved"],
+    ],
+    points: [
+      { title: "Same calendar as online bookings", body: "Walk-ins and link bookings sit together, so you can see the whole day at a glance." },
+      { title: "Quick to add", body: "Pick the service, time and client and you are done." },
+      { title: "Counted in your books", body: "Payments on walk-ins feed income like any other booking." },
+    ],
+    faqs: [
+      { q: "Can I add a booking a client made by phone?", a: "Yes. Add it as a walk-in booking from the dashboard." },
+      { q: "Does a walk-in block that time for online clients?", a: "Yes. It takes the slot like any other booking." },
+    ],
+    secondary: ["walk-in appointment software", "phone booking tracker", "manual booking entry"],
+    related: ["booking-page", "availability", "deposits"],
+    industries: ["barbers", "hair-salons", "nail-technicians", "spas-massage"],
+    planFeatureKey: null,
+  }),
+  feature({
+    slug: "expenses",
+    name: "Expense Tracking",
+    h1: "Every cost recorded, by category, with receipts",
+    description:
+      "Record what you spend by category and attach receipts. Know what each month really costs before you work out profit.",
+    answer:
+      "Record every business cost under a category and attach a receipt when you have one. Iker keeps your expenses next to your income, so profit for the month is a number you can see rather than a guess. Entries are kept as records, and confirmed items are corrected with adjustments instead of silent edits, which keeps your books trustworthy.",
+    subline: "Record costs by category, with receipts, beside your income.",
+    tour: [
+      ["Categories", "Sort costs your way.", "Rent, products, transport, data.", "fill"],
+      ["Receipts", "Attach the receipt.", "A photo of it sits on the expense.", "save"],
+      ["Profit", "Right beside your income.", "Profit is always one screen away.", "saved"],
+    ],
+    points: [
+      { title: "Categories that make sense", body: "Rent, products, transport, data. Sort costs the way you think about them." },
+      { title: "Receipts attached", body: "Upload a photo of the receipt to the expense so it is there at tax or loan time." },
+      { title: "Beside your income", body: "Income and expenses live in one place, so profit is always one screen away." },
+    ],
+    faqs: [
+      { q: "Can I attach a receipt?", a: "Yes. You can upload a receipt to an expense entry." },
+      { q: "Is there a limit on entries?", a: "Entry limits depend on your plan. The plan badge on this page shows the current setting." },
+    ],
+    secondary: ["expense tracking for small business", "business expense app Nigeria", "receipt tracking small business"],
+    related: ["reports", "statements", "import-export"],
+    industries: ["photographers", "hair-salons", "consultants-coaches", "fitness-trainers"],
+    planFeatureKey: "expense_entries",
+  }),
+  feature({
+    slug: "reports",
+    name: "Business Reports",
+    h1: "Income, expenses and profit for any month",
+    description:
+      "See what came in, what went out and what you kept, month by month, then export the report as PDF, Excel or CSV.",
+    answer:
+      "Iker turns your confirmed payments and recorded expenses into reports. Pick a month and see income, expenses and profit, then download the report as PDF, Excel or CSV for your accountant or your own records. Because income comes from payments you confirmed, the report matches what actually happened rather than what you remember.",
+    subline: "Income, expenses and profit for any month, ready to export.",
+    tour: [
+      ["Month", "Earned, spent and kept.", "Pick a month and see the numbers.", "month"],
+      ["Period", "Month, quarter or year.", "Export any of them as PDF, Excel or CSV.", "quarter"],
+      ["Source", "Built from confirmed payments.", "Nothing is retyped from memory.", "year"],
+    ],
+    points: [
+      { title: "Income, expenses and profit", body: "Pick any month and see what you earned, spent and kept." },
+      { title: "Export when you need it", body: "Download as PDF, Excel or CSV and hand it to your accountant as it is." },
+      { title: "Built from confirmed payments", body: "Numbers come from payments you confirmed, so nothing is retyped." },
+    ],
+    faqs: [
+      { q: "Which formats can I export?", a: "PDF, Excel and CSV." },
+      { q: "Can my accountant use it?", a: "Yes. Export a report and share the file as it is." },
+    ],
+    secondary: ["small business profit report", "monthly income and expense report", "bookkeeping reports Nigeria"],
+    related: ["statements", "expenses", "import-export"],
+    industries: ["photographers", "hair-salons", "spas-massage", "consultants-coaches"],
+    planFeatureKey: "report_export",
+  }),
+  feature({
+    slug: "statements",
+    name: "Statements of Account",
+    h1: "A monthly statement ready for a loan or an accountant",
+    description:
+      "Generate a clean monthly statement of accounts in one click, ready to hand to a bank, a grant officer or your accountant.",
+    answer:
+      "Iker generates a monthly statement of accounts from the payments you confirmed and the expenses you recorded. Download it in one click and use it for a loan application, a grant, a landlord or your accountant. Because confirmed records cannot be silently edited, the statement reflects a history you can stand behind.",
+    subline: "A monthly statement of accounts, ready in one click.",
+    tour: [
+      ["Generate", "One click, ready to share.", "Pick a month and download it.", "period"],
+      ["History", "A history that holds up.", "Corrections show as adjustments, never silent edits.", "report"],
+      ["Share", "Clear to any reader.", "Loan officers and accountants read it as is.", "pdf"],
+    ],
+    points: [
+      { title: "One click, ready to share", body: "Generate the statement for a month and download it." },
+      { title: "A history that holds up", body: "Confirmed payments are permanent. Corrections show as adjustments, so the trail is clear." },
+      { title: "Useful beyond tax time", body: "Loan officers and accountants can read it without a walkthrough." },
+    ],
+    faqs: [
+      { q: "Which periods can I generate?", a: "Available periods depend on your plan. The plan badge on this page shows the current setting." },
+      { q: "Can Iker staff see my statements?", a: "No. Platform administrators cannot read a business's income, expenses, payments or statements." },
+    ],
+    secondary: ["statement of account small business", "bank statement for loan application small business", "monthly business statement"],
+    related: ["reports", "expenses", "deposits"],
+    industries: ["hair-salons", "photographers", "consultants-coaches", "tutors"],
+    planFeatureKey: "statement_periods",
+  }),
+  feature({
+    slug: "customers-email",
+    name: "Customer List and Email",
+    h1: "Know your clients and send them a promotion",
+    description:
+      "Every client who books is saved with visits and last booking. Email promotions to the ones who have not opted out.",
+    answer:
+      "Every client who books is added to your customer list with their contact details, number of visits and last booking date. When you have something to announce, such as a discount or a new service, send a promotional email to your customers. Clients who opt out are respected, so you only email people who are happy to hear from you.",
+    subline: "A customer list that builds itself, and email for promotions.",
+    tour: [
+      ["Customers", "A list that builds itself.", "Saved as they book, with visits and last booking.", "list"],
+      ["Email", "Send a promotion.", "Pick who gets it, write it, send it.", "audience"],
+      ["Opt-outs", "Opt-outs are respected.", "Opted-out clients are never counted or emailed.", "sent"],
+    ],
+    points: [
+      { title: "A customer list that builds itself", body: "Clients are saved as they book, with visits and last booking date." },
+      { title: "Promotional emails", body: "Send an announcement or offer from the dashboard." },
+      { title: "Opt-outs respected", body: "Clients who opt out are left off your campaigns." },
+    ],
+    faqs: [
+      { q: "Is promotional email on every plan?", a: "It depends on your plan. The plan badge on this page shows the current setting." },
+      { q: "Can clients opt out?", a: "Yes. A client marked as opted out is not emailed." },
+    ],
+    secondary: ["customer list for small business", "email promotions for salons", "client management app"],
+    related: ["discounts", "booking-page", "reports"],
+    industries: ["hair-salons", "nail-technicians", "lash-brow-artists", "spas-massage"],
+    planFeatureKey: "promotional_email",
+  }),
+  feature({
+    slug: "refunds-policies",
+    name: "Refund and Cancellation Policies",
+    h1: "Refund rules your clients see before they book",
+    description:
+      "Write your refund and cancellation policy once. Each booking keeps a copy of the policy as it was when the client booked.",
+    answer:
+      "Write your refund and cancellation policy and clients see it when they book. Iker saves a snapshot of the policy text on each booking, so if you change your policy later, past bookings still show the rules the client agreed to. Refunds are recorded as new entries linked to the original payment, never by editing it.",
+    subline: "Clients see your policy before booking. Each booking keeps a copy.",
+    tour: [
+      ["Policy", "Rules before they book.", "Clients see your policy before they commit.", "detail"],
+      ["Snapshot", "A snapshot per booking.", "Old bookings keep the wording the client saw.", "policy"],
+      ["Refunds", "Refunds as new entries.", "Linked to the payment. The original stays intact.", "paid"],
+    ],
+    points: [
+      { title: "Policy shown at booking", body: "Clients see your rules before they commit, which heads off arguments later." },
+      { title: "A snapshot on every booking", body: "Change the policy any time; old bookings keep the wording the client saw." },
+      { title: "Refunds as new entries", body: "A refund is a new record linked to the payment, so the original stays intact." },
+    ],
+    faqs: [
+      { q: "If I update my policy, do old bookings change?", a: "No. Each booking keeps the policy text from the time it was made." },
+      { q: "How many policies can I have?", a: "The limit depends on your plan. The plan badge on this page shows the current setting." },
+    ],
+    secondary: ["cancellation policy booking app", "refund policy for service business", "no-show deposit policy"],
+    related: ["deposits", "booking-forms", "statements"],
+    industries: ["makeup-artists", "photographers", "tattoo-artists", "aesthetics-clinics"],
+    planFeatureKey: "refund_policies",
+  }),
+  feature({
+    slug: "booking-forms",
+    name: "Custom Booking Forms",
+    h1: "Ask clients the right questions before they arrive",
+    description:
+      "Add your own questions to the booking flow, such as skin type, event date or design idea, so you arrive prepared.",
+    answer:
+      "Add your own questions to the booking flow, such as skin type, the event date, a reference photo link or a design idea, and clients answer them as they book. You see the answers on the booking, so you arrive prepared and stop collecting details over chat. Fields can be required or optional, and a choice field takes a list of options.",
+    subline: "Ask your own questions while clients book.",
+    tour: [
+      ["Questions", "Your questions, your wording.", "A short form in each package's booking flow.", "view"],
+      ["Choices", "Add a choice field.", "One option per line, shown as a dropdown.", "edit"],
+      ["Required", "Required or optional.", "Make the important answers compulsory.", "saved"],
+    ],
+    points: [
+      { title: "Your questions, your wording", body: "Build a short form for each package of services." },
+      { title: "Required or optional", body: "Make the important answers compulsory and the rest optional." },
+      { title: "Answers on the booking", body: "Everything the client told you sits with the booking." },
+    ],
+    faqs: [
+      { q: "Can a question have choices?", a: "Yes. Add a choice field with one option per line." },
+      { q: "Is this on every plan?", a: "It depends on your plan. The plan badge on this page shows the current setting." },
+    ],
+    secondary: ["custom booking form", "client intake form booking", "booking questionnaire"],
+    related: ["packages", "booking-page", "refunds-policies"],
+    industries: ["makeup-artists", "tattoo-artists", "aesthetics-clinics", "consultants-coaches"],
+    planFeatureKey: "custom_forms",
+  }),
+  feature({
+    slug: "packages",
+    name: "Service Packages",
+    h1: "Group your services and give each group its own booking flow",
+    description:
+      "Organise services into packages and set up a booking flow once per package, so every service in it shares the same steps.",
+    answer:
+      "In Iker, a package is a group of related services, such as bridal makeup or hair treatments. You set up the booking flow once for the package, and every service in it uses that flow, including any service you add later. It keeps your booking page tidy and saves you configuring the same steps repeatedly.",
+    subline: "Group services into packages, each with one booking flow.",
+    tour: [
+      ["Rate card", "Organise your rate card.", "Every service belongs to one package.", "list"],
+      ["Flow", "One flow per package.", "Set the steps once. New services follow them.", "builder"],
+      ["Status", "See what needs setting up.", "Which packages have a booking flow, at a glance.", "back"],
+    ],
+    points: [
+      { title: "Organise your rate card", body: "Every service belongs to one package, so clients find what they need." },
+      { title: "One flow per package", body: "Set the steps once. New services in the package pick them up automatically." },
+      { title: "Clear status", body: "See which packages have a booking flow and which still need one." },
+    ],
+    faqs: [
+      { q: "Can a service belong to two packages?", a: "No. Each service belongs to one package." },
+      { q: "Do I have to use packages?", a: "Services live inside packages, so you create at least one. A single package is fine for a small menu." },
+    ],
+    secondary: ["service packages booking", "rate card for service business", "group services booking app"],
+    related: ["booking-forms", "booking-page", "discounts"],
+    industries: ["makeup-artists", "photographers", "spas-massage", "fitness-trainers"],
+    planFeatureKey: null,
+  }),
+  feature({
+    slug: "discounts",
+    name: "Discounts and Promotions",
+    h1: "Run a promotion without doing the sums yourself",
+    description:
+      "Create a promo link with a percentage off chosen services. Iker applies it and records the discount in your books.",
+    answer:
+      "Create a promotion with its own link, choose which services it covers and set a percentage off each one. Clients who book through the link get the discount applied automatically, and Iker records the discount in your books so your income stays accurate. You can set an expiry date and see how the promotion has been used.",
+    subline: "Promo links with a percentage off, recorded in your books.",
+    tour: [
+      ["Link", "A link per promotion.", "Only people with the link get the offer.", "link"],
+      ["Per service", "A percentage per service.", "Different discounts for different services, one promotion.", "fill"],
+      ["Books", "Recorded in your books.", "The discount is posted, so profit stays right.", "recorded"],
+    ],
+    points: [
+      { title: "A link for each promotion", body: "Share it on a post or a broadcast. Only people with the link get the offer." },
+      { title: "Percentage per service", body: "Give different services different discounts in the same promotion." },
+      { title: "Recorded in your books", body: "The discount is posted for you, so income and profit stay correct." },
+    ],
+    faqs: [
+      { q: "Can a promotion expire?", a: "Yes. You can set an expiry date." },
+      { q: "How many promotions can I run?", a: "The number of active promotions depends on your plan. The plan badge on this page shows the current setting." },
+    ],
+    secondary: ["discount link booking", "promo code for salon", "sales and promotions app"],
+    related: ["customers-email", "packages", "reports"],
+    industries: ["hair-salons", "nail-technicians", "lash-brow-artists", "spas-massage"],
+    planFeatureKey: "sales",
+  }),
+  feature({
+    slug: "locations",
+    name: "Multiple Locations",
+    h1: "Run several branches from one dashboard",
+    description:
+      "Add branches and switch between them, or see every location together. Available on request for businesses with more than one site.",
+    answer:
+      "If your business has more than one branch, Iker lets you add each location and switch between them from one dashboard. Each location has its own bookings and team, and the owner can view all locations together. Multiple locations is available on request, so get in touch and we will switch it on for your account.",
+    subline: "Every branch in one dashboard. Available on request.",
+    tour: [
+      ["Branches", "A dashboard per branch.", "Each location keeps its own bookings and team.", "one"],
+      ["Switch", "Switch in one click.", "Pick a location from the switcher.", "pick"],
+      ["Together", "Every branch together.", "Owners see all locations in one view.", "all"],
+    ],
+    points: [
+      { title: "A dashboard for every branch", body: "Add locations and switch between them in a click." },
+      { title: "An all-locations view", body: "Owners can see every branch together." },
+      { title: "Per-location staff", body: "Assign staff to the branch they work at." },
+    ],
+    faqs: [
+      { q: "How do I get multiple locations?", a: "It is available on request. Contact us and we will enable it." },
+      { q: "Is it needed for one shop?", a: "No. A single location works without it." },
+    ],
+    secondary: ["multi-location booking software", "multiple branches salon software", "chain business booking app"],
+    related: ["staff-roles", "reports", "availability"],
+    industries: ["hair-salons", "spas-massage", "fitness-trainers", "aesthetics-clinics"],
+    planFeatureKey: "multi_location",
+    flagOnly: true,
+  }),
+  feature({
+    slug: "staff-roles",
+    name: "Staff Accounts and Roles",
+    h1: "Give your team their own logins",
+    description:
+      "Invite managers and staff with their own logins. Everyone signs in as themselves, and only the owner can add or remove people.",
+    answer:
+      "Invite your team to Iker with their own logins and label each person a manager or staff. Your team can take bookings, record walk-ins and confirm payments during the day. Everyone signs in as themselves, so there is no shared password. Only the owner can invite someone, remove them the day they leave, or cancel the plan.",
+    subline: "Your team gets their own logins. You decide who is in.",
+    tour: [
+      ["Logins", "Everyone signs in separately.", "No shared password. Label each person manager or staff.", "fill"],
+      ["Remove", "Remove access any time.", "Take someone off the day they leave.", "sent"],
+      ["Owner", "Only the owner manages people.", "Managers and staff cannot invite or remove anyone.", "view"],
+    ],
+    points: [
+      { title: "Their own accounts", body: "No shared password. Each person signs in as themselves." },
+      { title: "The owner controls the team", body: "Only the owner can invite or remove people. Managers and staff have the same access today." },
+      { title: "Remove access any time", body: "Take a team member off when they leave." },
+    ],
+    faqs: [
+      { q: "How many staff can I add?", a: "It depends on your plan. The plan badge on this page shows the current setting." },
+      { q: "Can staff see my income?", a: "Yes. Today managers and staff can see the business's bookings, payments and income. Only the owner can invite or remove people, or cancel the plan." },
+    ],
+    secondary: ["staff accounts booking software", "team access booking app", "salon staff management"],
+    related: ["locations", "walk-ins", "availability"],
+    industries: ["hair-salons", "barbers", "spas-massage", "aesthetics-clinics"],
+    planFeatureKey: "staff",
+  }),
+  feature({
+    slug: "import-export",
+    name: "Import and Export",
+    h1: "Bring your old records in and take your reports out",
+    description:
+      "Import income and expenses from before Iker, and export reports as PDF, Excel or CSV whenever you need them.",
+    answer:
+      "Bring in income and expenses from before you started using Iker, so your books begin with history rather than a blank page. When you need your numbers elsewhere, export reports as PDF, Excel or CSV. Your data stays yours, and moving it in or out does not need a developer.",
+    subline: "Bring in past income and expenses. Export reports any time.",
+    tour: [
+      ["Import", "Import your history.", "Fill the CSV template with past income and expenses.", "preview"],
+      ["Preview", "Check before it lands.", "Every row is checked before anything is added.", "review"],
+      ["Export", "Export to Excel, CSV, PDF.", "Take your numbers to your accountant.", "file"],
+    ],
+    points: [
+      { title: "Import your history", body: "Upload past income and expenses so your reports cover more than the last few weeks." },
+      { title: "Preview before it lands", body: "Check the rows before anything is added to your books." },
+      { title: "Export to Excel, CSV or PDF", body: "Take your data to your accountant or another tool." },
+    ],
+    faqs: [
+      { q: "What can I import?", a: "Past income and expenses, using the import template." },
+      { q: "What can I export?", a: "Reports as PDF, Excel or CSV. Report export follows your plan, so check the Reports page for the plan that includes it." },
+    ],
+    secondary: ["import expenses spreadsheet", "export bookkeeping to Excel", "small business data export"],
+    related: ["reports", "expenses", "statements"],
+    industries: ["photographers", "hair-salons", "consultants-coaches", "tutors"],
+    planFeatureKey: null,
+  }),
+];
+
+export function getFeature(slug: string): Feature | undefined {
+  return FEATURES.find((f) => f.slug === slug);
+}

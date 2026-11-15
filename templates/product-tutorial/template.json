@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "id": "product-tutorial",
+  "name": "Product Tutorial",
+  "description": "Teaches one task in Iker end to end: why it matters, the steps, a recorded walkthrough and the result. Includes a vertical cut.",
+  "contentTypes": ["PRODUCT_TUTORIAL", "PRODUCT_DEMO", "YOUTUBE_SHORT"],
+  "thumbnailVariants": ["product", "statement", "split"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 60,
+        "max": 180
+      },
+      "scenes": [
+        {
+          "id": "intro",
+          "type": "INTRO",
+          "title": "Title",
+          "guidance": "One line naming the task the viewer will be able to do.",
+          "visual": {
+            "kind": "title",
+            "headline": "Name the task in a few words"
+          }
+        },
+        {
+          "id": "problem",
+          "type": "PROBLEM",
+          "title": "Why this matters",
+          "guidance": "The situation that makes someone need this. A real scenario, not a slogan.",
+          "chapterTitle": "Why this matters",
+          "visual": {
+            "kind": "statement",
+            "headline": "State the problem in one line"
+          }
+        },
+        {
+          "id": "steps",
+          "type": "EXPLANATION",
+          "title": "The steps",
+          "guidance": "Name the two to five steps the viewer is about to see, in order.",
+          "visual": {
+            "kind": "steps",
+            "heading": "What you will do",
+            "steps": [
+              {
+                "title": "First step"
+              },
+              {
+                "title": "Second step"
+              },
+              {
+                "title": "Third step"
+              }
+            ]
+          }
+        },
+        {
+          "id": "chapter-setup",
+          "type": "EXPLANATION",
+          "title": "Chapter card",
+          "guidance": "Leave empty: this is a silent chapter card.",
+          "visual": {
+            "kind": "chapter",
+            "title": "Set it up"
+          }
+        },
+        {
+          "id": "setup",
+          "type": "DEMO",
+          "title": "Set it up",
+          "guidance": "Talk through the recorded flow as it happens. Name each button exactly as Iker labels it, and say why.",
+          "chapterTitle": "Set it up",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking"
+          }
+        },
+        {
+          "id": "result",
+          "type": "DEMO",
+          "title": "See the result",
+          "guidance": "Show what the viewer should now see, and how to tell it worked.",
+          "chapterTitle": "See the result",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "recap",
+          "type": "OUTCOME",
+          "title": "Recap",
+          "guidance": "What the viewer can do now. No claims the research does not support, and no plan or price promises.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What you can do now"
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One concrete next step.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One concrete next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "title": "Outro",
+          "guidance": "Leave empty: brand outro without narration.",
+          "visual": {
+            "kind": "outro"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 20,
+        "max": 60
+      },
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "The problem in one sentence.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The problem in one line"
+          }
+        },
+        {
+          "id": "short-demo",
+          "type": "DEMO",
+          "title": "The fix",
+          "guidance": "The single setting or action that solves it.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to try it.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Try it",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

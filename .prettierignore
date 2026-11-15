@@ -1,0 +1,11 @@
+node_modules
+dist
+output
+.cache
+coverage
+pnpm-lock.yaml
+.flitstack/CHANGELOG.md
+.agents
+.claude/skills/remotion-*
+knowledge/source/
+brand/tokens/

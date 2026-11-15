@@ -1,0 +1,22 @@
+// Copied from ../slot-books/apps/web/lib/marketing/content/site.ts (the live marketing copy on useiker.com) on 2026-11-15.
+// Snapshot for reference only; saved as .txt so the studio does not compile or lint it. slot-books wins on any disagreement.
+
+/** Named so pages can quote a fact without depending on its position in `SITE.facts`. */
+export const NO_COMMISSION_FACT = "Iker takes no commission on bookings or deposits.";
+
+export const SITE = {
+  name: "Iker" as const,
+  origin: "https://www.useiker.com" as const,
+  tagline: "Bookings, deposits and bookkeeping for service businesses.",
+  homeTitle: "Booking, deposits and bookkeeping for service businesses",
+  homeDescription:
+    "One booking link for clients. Every deposit tracked, every discount worked out, and your books kept for you. Built for Nigerian service businesses.",
+  facts: [
+    "Iker is booking, manual-payment tracking and bookkeeping software for service businesses such as salons, photographers and tutors.",
+    "Clients book through a public link with no app and no account.",
+    "Client deposits are paid by bank transfer straight to the business; the client uploads proof and the business confirms it.",
+    NO_COMMISSION_FACT,
+    "Payments and bookkeeping run in Naira (₦) today.",
+    "Confirmed payments are permanent; corrections are recorded as new adjustment entries.",
+  ],
+};

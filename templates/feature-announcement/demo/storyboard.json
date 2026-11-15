@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 20, "max": 90 },
+      "scenes": [
+        {
+          "id": "title",
+          "type": "INTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "title",
+            "headline": "Deposit tracking",
+            "subhead": "From transfer to confirmed, in Iker"
+          }
+        },
+        {
+          "id": "what",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Every deposit, on its booking",
+            "body": "Clients transfer straight to your account and upload proof when they book."
+          },
+          "chapterTitle": "What it is"
+        },
+        {
+          "id": "demo",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "heading": "Paid so far and balance remaining"
+          },
+          "chapterTitle": "See it"
+        },
+        {
+          "id": "how-it-works",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "pipeline",
+            "heading": "From transfer to confirmed",
+            "object": { "type": "transaction", "label": "Deposit" },
+            "stages": [
+              { "label": "Client transfers", "detail": "Straight to your account" },
+              { "label": "Proof uploaded", "detail": "Attached to the booking" },
+              { "label": "You confirm", "detail": "Or reject the payment" }
+            ],
+            "result": { "label": "Counted as income", "detail": "Balance updated" }
+          },
+          "chapterTitle": "How it works"
+        },
+        {
+          "id": "value",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Who has paid, at a glance",
+            "points": [
+              { "title": "Paid so far", "detail": "On every booking" },
+              { "title": "Balance remaining", "detail": "Until it is paid off" },
+              { "title": "No commission", "detail": "On bookings or deposits" }
+            ],
+            "tone": "positive"
+          },
+          "chapterTitle": "Why it matters"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "outro",
+            "tagline": "Get booked. Get paid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "format": "social-portrait",
+      "targetSeconds": { "min": 8, "max": 45 },
+      "scenes": [
+        {
+          "id": "social-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Who has paid their deposit?"
+          }
+        },
+        {
+          "id": "social-demo",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Deposit and balance on every booking"
+          }
+        },
+        {
+          "id": "social-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Deposit tracking",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

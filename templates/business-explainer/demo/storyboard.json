@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 30, "max": 180 },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "The client says the deposit is sent", "role": "lead" },
+              { "text": "The screenshot is somewhere in the chat", "role": "support" },
+              { "text": "Has she paid, or not?", "role": "key" }
+            ]
+          },
+          "chapterTitle": "The situation"
+        },
+        {
+          "id": "gap",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "comparison",
+            "heading": "A chat is not a record",
+            "left": {
+              "title": "In the chat",
+              "points": [
+                "Screenshots between messages",
+                "Amounts from memory",
+                "Balances worked out by hand"
+              ],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "On the booking",
+              "points": [
+                "Proof of payment attached",
+                "Paid so far and balance remaining",
+                "Confirmed by you"
+              ],
+              "tone": "primary"
+            }
+          },
+          "chapterTitle": "Why it breaks"
+        },
+        {
+          "id": "how-it-works",
+          "type": "DIAGRAM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "pipeline",
+            "heading": "Keep the payment with the booking",
+            "object": { "type": "transaction", "label": "Deposit" },
+            "stages": [
+              { "label": "Client transfers", "detail": "Straight to your account" },
+              { "label": "Proof uploaded", "detail": "Attached to the booking" },
+              { "label": "You confirm", "detail": "Or reject the payment" }
+            ],
+            "result": { "label": "Counted as income", "detail": "Balance updated" }
+          },
+          "chapterTitle": "A better way"
+        },
+        {
+          "id": "product-intro",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Your dashboard"
+          },
+          "chapterTitle": "In Iker"
+        },
+        {
+          "id": "booking",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking",
+            "heading": "Price, paid so far, balance remaining"
+          },
+          "chapterTitle": "On the booking"
+        },
+        {
+          "id": "payment",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "heading": "Record a payment"
+          },
+          "chapterTitle": "Recording a payment"
+        },
+        {
+          "id": "confirm",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "You stay in charge",
+            "steps": [
+              { "title": "Check the proof", "detail": "It sits on the booking" },
+              { "title": "Confirm booking", "detail": "Or reject the payment" },
+              {
+                "title": "Correct with a new entry",
+                "detail": "Confirmed payments stay as they are"
+              }
+            ]
+          },
+          "chapterTitle": "You stay in charge"
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "One answer, on the booking",
+            "points": [
+              { "title": "Who has paid", "detail": "Paid so far, per booking" },
+              { "title": "Who still owes", "detail": "Balance remaining" },
+              { "title": "What you made", "detail": "Reports from confirmed payments" }
+            ],
+            "tone": "positive"
+          },
+          "chapterTitle": "What changes"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short-60",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 15, "max": 60 },
+      "scenes": [
+        {
+          "id": "s60-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Stop chasing payments in DMs",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "s60-gap",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "A chat is not a record",
+            "body": "It cannot tell you who has paid and who still owes."
+          }
+        },
+        {
+          "id": "s60-how",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "pipeline",
+            "object": { "type": "transaction", "label": "Deposit" },
+            "stages": [
+              { "label": "Client transfers" },
+              { "label": "Proof uploaded" },
+              { "label": "You confirm" }
+            ]
+          }
+        },
+        {
+          "id": "s60-demo",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Paid so far. Balance remaining."
+          }
+        },
+        {
+          "id": "s60-outcome",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "No commission on your deposits",
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "s60-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "teaser-30",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 8, "max": 30 },
+      "scenes": [
+        {
+          "id": "t30-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Who has paid their deposit?",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "t30-gap",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Not a question for your DMs"
+          }
+        },
+        {
+          "id": "t30-how",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "The answer, on the booking"
+          }
+        },
+        {
+          "id": "t30-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "See how it works",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

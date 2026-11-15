@@ -1,0 +1,196 @@
+/* Iker design tokens. Import once: @import "iker-tokens.css";
+   Fonts: <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+   The UI is black and white. Terracotta is an accent: one primary highlight per view, focus rings, the logo dot. */
+:root {
+  --iker-brand-terracotta: #E05A38;
+  --iker-brand-palm-slate: #2C3E35;
+  --iker-brand-canvas: #F9F6F0;
+  --iker-brand-obsidian: #121518;
+  --iker-brand-paper: #FFFFFF;
+  --iker-brand-emblem-cream: #FFF5F2;
+  --iker-brand-emblem-ink: #1C1816;
+  --iker-terracotta-50: #FDF2EE;
+  --iker-terracotta-100: #FBE1D7;
+  --iker-terracotta-200: #F6C0AD;
+  --iker-terracotta-300: #EF9C80;
+  --iker-terracotta-400: #E87A58;
+  --iker-terracotta-500: #E05A38;
+  --iker-terracotta-600: #C4452A;
+  --iker-terracotta-700: #A13722;
+  --iker-terracotta-800: #7C2C1D;
+  --iker-terracotta-900: #5A2217;
+  --iker-terracotta-950: #3A170F;
+  --iker-slate-50: #EFF4F1;
+  --iker-slate-100: #D9E5DE;
+  --iker-slate-200: #B4CABE;
+  --iker-slate-300: #89A898;
+  --iker-slate-400: #638673;
+  --iker-slate-500: #4A6B5B;
+  --iker-slate-600: #3A5648;
+  --iker-slate-700: #31483D;
+  --iker-slate-800: #2C3E35;
+  --iker-slate-900: #1D2924;
+  --iker-neutral-0: #FFFFFF;
+  --iker-neutral-50: #F6F7F7;
+  --iker-neutral-100: #ECEDEE;
+  --iker-neutral-200: #DCDEE0;
+  --iker-neutral-300: #C2C6CA;
+  --iker-neutral-400: #A0A6AC;
+  --iker-neutral-500: #7A8188;
+  --iker-neutral-600: #5A6067;
+  --iker-neutral-700: #3F444A;
+  --iker-neutral-800: #272B30;
+  --iker-neutral-900: #1A1D21;
+  --iker-neutral-950: #121518;
+  --iker-semantic-success: #19744A;
+  --iker-semantic-success-bg: #E6F4EC;
+  --iker-semantic-warning: #985F00;
+  --iker-semantic-warning-bg: #FCF1DC;
+  --iker-semantic-danger: #C0283F;
+  --iker-semantic-danger-bg: #FCE8EB;
+  --iker-semantic-info: #2C5FB8;
+  --iker-semantic-info-bg: #E7EEFA;
+  --iker-chart-1: #E05A38;
+  --iker-chart-2: #4A6B5B;
+  --iker-chart-3: #D29A2E;
+  --iker-chart-4: #4F6FA8;
+  --iker-chart-5: #8C5A86;
+  --iker-chart-6: #7A8188;
+
+  --iker-font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --iker-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --iker-space-0: 0rem;
+  --iker-space-0_5: 0.125rem;
+  --iker-space-1: 0.25rem;
+  --iker-space-2: 0.5rem;
+  --iker-space-3: 0.75rem;
+  --iker-space-4: 1rem;
+  --iker-space-5: 1.25rem;
+  --iker-space-6: 1.5rem;
+  --iker-space-8: 2rem;
+  --iker-space-10: 2.5rem;
+  --iker-space-12: 3rem;
+  --iker-space-16: 4rem;
+  --iker-space-20: 5rem;
+  --iker-space-24: 6rem;
+  --iker-radius-xs: 6px;
+  --iker-radius-sm: 10px;
+  --iker-radius-md: 14px;
+  --iker-radius-lg: 20px;
+  --iker-radius-xl: 28px;
+  --iker-radius-tile: 23.6%;
+  --iker-radius-full: 9999px;
+  --iker-shadow-sm: 0 1px 2px rgba(18,21,24,.06), 0 1px 1px rgba(18,21,24,.04);
+  --iker-shadow-md: 0 4px 12px -2px rgba(18,21,24,.08), 0 2px 4px rgba(18,21,24,.04);
+  --iker-shadow-lg: 0 16px 40px -8px rgba(18,21,24,.16), 0 4px 10px rgba(18,21,24,.06);
+  --iker-motion-fast: 120ms;
+  --iker-motion-base: 200ms;
+  --iker-motion-slow: 320ms;
+  --iker-motion-ease: cubic-bezier(.2,.8,.2,1);
+  --iker-motion-ease-in-out: cubic-bezier(.65,0,.35,1);
+
+  /* roles: light */
+  --iker-bg: var(--iker-neutral-0);
+  --iker-bg-subtle: var(--iker-neutral-50);
+  --iker-surface: var(--iker-neutral-0);
+  --iker-surface-raised: var(--iker-neutral-0);
+  --iker-surface-sunken: var(--iker-neutral-100);
+  --iker-paper: var(--iker-brand-canvas);
+  --iker-border: var(--iker-neutral-200);
+  --iker-border-strong: var(--iker-neutral-300);
+  --iker-text: var(--iker-neutral-950);
+  --iker-text-muted: var(--iker-neutral-600);
+  --iker-text-faint: var(--iker-neutral-500);
+  --iker-text-inverse: var(--iker-neutral-0);
+  --iker-primary: var(--iker-neutral-950);
+  --iker-primary-hover: var(--iker-neutral-800);
+  --iker-on-primary: var(--iker-neutral-0);
+  --iker-accent: var(--iker-terracotta-600);
+  --iker-accent-hover: var(--iker-terracotta-700);
+  --iker-on-accent: var(--iker-neutral-0);
+  --iker-accent-graphic: var(--iker-terracotta-500);
+  --iker-accent-text: var(--iker-terracotta-700);
+  --iker-accent-subtle: var(--iker-terracotta-50);
+  --iker-focus: var(--iker-terracotta-500);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --iker-bg: var(--iker-neutral-950);
+    --iker-bg-subtle: var(--iker-neutral-900);
+    --iker-surface: var(--iker-neutral-900);
+    --iker-surface-raised: var(--iker-neutral-800);
+    --iker-surface-sunken: var(--iker-neutral-950);
+    --iker-paper: var(--iker-neutral-900);
+    --iker-border: var(--iker-neutral-800);
+    --iker-border-strong: var(--iker-neutral-700);
+    --iker-text: var(--iker-neutral-50);
+    --iker-text-muted: var(--iker-neutral-400);
+    --iker-text-faint: var(--iker-neutral-500);
+    --iker-text-inverse: var(--iker-neutral-950);
+    --iker-primary: var(--iker-neutral-0);
+    --iker-primary-hover: var(--iker-neutral-100);
+    --iker-on-primary: var(--iker-neutral-950);
+    --iker-accent: var(--iker-terracotta-600);
+    --iker-accent-hover: var(--iker-terracotta-500);
+    --iker-on-accent: var(--iker-neutral-0);
+    --iker-accent-graphic: var(--iker-terracotta-500);
+    --iker-accent-text: var(--iker-terracotta-400);
+    --iker-accent-subtle: var(--iker-terracotta-950);
+    --iker-focus: var(--iker-terracotta-400);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --iker-bg: var(--iker-neutral-950);
+  --iker-bg-subtle: var(--iker-neutral-900);
+  --iker-surface: var(--iker-neutral-900);
+  --iker-surface-raised: var(--iker-neutral-800);
+  --iker-surface-sunken: var(--iker-neutral-950);
+  --iker-paper: var(--iker-neutral-900);
+  --iker-border: var(--iker-neutral-800);
+  --iker-border-strong: var(--iker-neutral-700);
+  --iker-text: var(--iker-neutral-50);
+  --iker-text-muted: var(--iker-neutral-400);
+  --iker-text-faint: var(--iker-neutral-500);
+  --iker-text-inverse: var(--iker-neutral-950);
+  --iker-primary: var(--iker-neutral-0);
+  --iker-primary-hover: var(--iker-neutral-100);
+  --iker-on-primary: var(--iker-neutral-950);
+  --iker-accent: var(--iker-terracotta-600);
+  --iker-accent-hover: var(--iker-terracotta-500);
+  --iker-on-accent: var(--iker-neutral-0);
+  --iker-accent-graphic: var(--iker-terracotta-500);
+  --iker-accent-text: var(--iker-terracotta-400);
+  --iker-accent-subtle: var(--iker-terracotta-950);
+  --iker-focus: var(--iker-terracotta-400);
+  color-scheme: dark;
+}
+
+/* type: marketing website */
+.iker-web-display { font: 800 4rem/1.062 var(--iker-font-sans); letter-spacing: -0.03em; }
+.iker-web-h1 { font: 800 3rem/1.125 var(--iker-font-sans); letter-spacing: -0.025em; }
+.iker-web-h2 { font: 700 2.25rem/1.167 var(--iker-font-sans); letter-spacing: -0.02em; }
+.iker-web-h3 { font: 700 1.75rem/1.214 var(--iker-font-sans); letter-spacing: -0.015em; }
+.iker-web-h4 { font: 700 1.375rem/1.273 var(--iker-font-sans); letter-spacing: -0.01em; }
+.iker-web-body-lg { font: 400 1.125rem/1.556 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-web-body { font: 400 1rem/1.5 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-web-body-sm { font: 400 0.875rem/1.429 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-web-label { font: 600 0.875rem/1.429 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-web-caption { font: 600 0.75rem/1.333 var(--iker-font-sans); letter-spacing: 0.08em; text-transform: uppercase; }
+/* type: dashboard (denser) */
+.iker-dash-page-title { font: 700 1.5rem/1.25 var(--iker-font-sans); letter-spacing: -0.015em; }
+.iker-dash-section-title { font: 700 1.125rem/1.333 var(--iker-font-sans); letter-spacing: -0.01em; }
+.iker-dash-card-title { font: 600 0.9375rem/1.333 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-dash-body { font: 400 0.875rem/1.429 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-dash-body-sm { font: 400 0.8125rem/1.385 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-dash-label { font: 600 0.8125rem/1.385 var(--iker-font-sans); letter-spacing: 0em; }
+.iker-dash-table { font: 500 0.8125rem/1.538 var(--iker-font-sans); letter-spacing: 0em; font-variant-numeric: tabular-nums; }
+.iker-dash-micro { font: 600 0.6875rem/1.273 var(--iker-font-sans); letter-spacing: 0.06em; text-transform: uppercase; }
+.iker-dash-metric { font: 700 2rem/1.125 var(--iker-font-sans); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.iker-dash-metric-sm { font: 700 1.375rem/1.273 var(--iker-font-sans); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+
+.iker-money { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.iker-receipt { font-family: var(--iker-font-mono); }
+:where(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--iker-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { :root { --iker-motion-fast: 0ms; --iker-motion-base: 0ms; --iker-motion-slow: 0ms; } }

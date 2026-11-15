@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "Iker",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Brand name. No pronunciation is recorded anywhere in slot-books or the brand kit, so none is assumed. Preview the default reading, set an alias or IPA if it is wrong, then approve.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "useiker.com",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "The website, read in calls to action. Check it is said as 'use Iker dot com', not 'oo-SEE-ker'. A likely alias is 'use Iker dot com' once the reading of Iker is settled.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "Naira",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Nigerian currency. Check the voice says NYE-rah, as Nigerians do.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "₦",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Naira sign, as in ₦45,000 on screen. Kept here as a reminder rather than a rule: the term matcher ignores a term followed directly by a digit, so an alias would not apply to '₦45,000', and an alias could not move the word after the number anyway. Preview a sentence with an amount; if the voice skips the sign or says 'N', write the amount out in the narration ('45,000 naira').",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "kobo",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "A hundredth of a Naira. Rare in narration; check it is said KOH-boh.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "Paystack",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Payment provider Iker uses for subscription billing. Check it is said as 'pay stack'.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "Flutterwave",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Fallback payment provider for subscription billing. Check it is said as 'flutter wave'.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "Abuja",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Iker's pilot city. Check it is said ah-BOO-jah.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "Lagos",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Check it is said LAY-goss, as Nigerians do, not LAH-gohs.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "walk-in",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Product term ('Add walk-in'). Check the stress falls on WALK.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "CSV",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Initialism, normally spelled out: C-S-V. Used for import and export.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "PDF",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Initialism, normally spelled out: P-D-F. Used for reports and statements.",
+      "approvedBy": null,
+      "approvedAt": null
+    },
+    {
+      "term": "DMs",
+      "status": "pending",
+      "alias": null,
+      "ipa": null,
+      "notes": "Direct messages, spelled out: D-Ms ('dee-ems'). Used in 'Stop chasing payments in DMs'.",
+      "approvedBy": null,
+      "approvedAt": null
+    }
+  ]
+}
