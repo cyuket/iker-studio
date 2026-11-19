@@ -2,6 +2,12 @@
 
 Append-only, newest first. UTC timestamps.
 
+## 2026-11-19T22:58Z · Claude Code
+
+- **What:** `create --type` no longer defaults to `PRODUCT_TUTORIAL`. Without `--type`, the video takes its template's first content type. Added `tests/unit/application/create-video.test.ts`.
+- **Why:** `create --template business-explainer` (and other non-tutorial templates) failed with "does not support PRODUCT_TUTORIAL" unless `--type` was passed.
+- **Decisions:** An explicit `--type` is still checked against the template and refused if unsupported. `pnpm validate` and `tests/integration/cli.test.ts` passed; the real `create --template business-explainer` produced a `BUSINESS_EDUCATION` video. No commit.
+
 ## 2026-11-19T22:56Z · Claude Code
 
 - **What:** Added six templates, each with a finished `demo/` (script, research, storyboard): `quick-sketch`, `myth-vs-fact`, `faq-answer`, `monthly-money-check-in`, `day-in-the-life`, `how-your-client-sees-it`. Updated the template tables in `README.md` and `docs/IDEATION-AGENT-PROMPT.md`, and the integration test that lists and counts templates.

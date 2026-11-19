@@ -45,7 +45,8 @@ export interface CreateVideoInput {
   title?: string;
   id?: string;
   audience?: string;
-  contentType: ContentType;
+  /** Defaults to the template's first content type. */
+  contentType?: ContentType;
   template: string;
   voiceProvider: VoiceProvider;
   /** Start from the template's finished demo script and storyboard instead of a skeleton. */
@@ -71,10 +72,11 @@ export async function createVideo(deps: CoreDeps, input: CreateVideoInput): Prom
     });
   }
   const template = await loadTemplate(deps, input.template);
-  if (!template.contentTypes.includes(input.contentType)) {
+  const contentType = input.contentType ?? template.contentTypes[0];
+  if (contentType === undefined || !template.contentTypes.includes(contentType)) {
     throw new StudioError(
       "VALIDATION_FAILED",
-      `Template "${template.id}" does not support ${input.contentType}.`,
+      `Template "${template.id}" does not support ${input.contentType ?? "any content type"}.`,
       { hint: `It supports: ${template.contentTypes.join(", ")}` },
     );
   }
@@ -88,7 +90,7 @@ export async function createVideo(deps: CoreDeps, input: CreateVideoInput): Prom
     title,
     topic: input.topic,
     audience: input.audience ?? "",
-    contentType: input.contentType,
+    contentType,
     template: template.id,
     format: primary.format,
     durationTarget: {
@@ -111,7 +113,7 @@ export async function createVideo(deps: CoreDeps, input: CreateVideoInput): Prom
       paths.script,
       scriptSkeleton(template, {
         title,
-        contentType: input.contentType,
+        contentType,
         audience: input.audience ?? "",
       }),
     );
