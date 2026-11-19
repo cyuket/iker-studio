@@ -42,6 +42,11 @@ export interface SceneRenderProps {
   recording: ResolvedRecording | null;
   /** Position of this scene within its cut, as fractions of total duration. */
   progress: { start: number; end: number } | null;
+  /**
+   * Set when the cut has an animated background: the frame of the cut this scene starts on,
+   * so the canvas carries on where the previous scene left it. null keeps the still canvas.
+   */
+  backdrop: { startFrame: number } | null;
   reducedMotion: boolean;
   /**
    * Text stamped on every frame of the scene, used to mark synthetic demo footage so it

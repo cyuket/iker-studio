@@ -14,6 +14,18 @@ export const CharacterAlignmentSchema = z
   );
 export type CharacterAlignment = z.infer<typeof CharacterAlignmentSchema>;
 
+/** Timings of a clip that was played back `factor` times faster. */
+export function speedUpAlignment(
+  alignment: CharacterAlignment,
+  factor: number,
+): CharacterAlignment {
+  return {
+    characters: alignment.characters,
+    startSeconds: alignment.startSeconds.map((seconds) => seconds / factor),
+    endSeconds: alignment.endSeconds.map((seconds) => seconds / factor),
+  };
+}
+
 export const WordTimingSchema = z.object({
   text: z.string(),
   startSeconds: z.number(),

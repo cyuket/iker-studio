@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 1,
+  "id": "create-a-short-social-media-campaign-to-introduce-the-produc",
+  "title": "From Booking Link to Confirmed Booking: How Iker Works",
+  "topic": "Create a short social media campaign to introduce the product to users, now this is the first Social media video. it should cover the booking flow but public and client getting notified and confirming booking. I want this this pictorial and well explained illustrational",
+  "audience": "Nigerian service-business owners (makeup artists, salons, photographers, tutors) who take bookings and deposits over WhatsApp and Instagram DMs",
+  "contentType": "PRODUCT_TUTORIAL",
+  "template": "product-tutorial",
+  "format": "youtube-landscape",
+  "durationTarget": {
+    "minSeconds": 60,
+    "maxSeconds": 180
+  },
+  "createdAt": "2026-11-15T13:12:03.224Z",
+  "updatedAt": "2026-11-15T17:51:08.149Z",
+  "script": {
+    "version": 10,
+    "hash": "c9f60ee214c26520a593de29d9b430710743fcab296003da4f6c50e44ce3217e"
+  },
+  "storyboard": {
+    "version": 5,
+    "hash": "21aa81f0e0df1cc553db0e02c36f8947ad6052be0bdd2efc13761e9c9fa98888"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceId": null,
+    "modelId": null,
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speed": 1.2,
+    "speakerBoost": true,
+    "languageCode": null,
+    "seed": 20260101,
+    "preset": null,
+    "finishing": {
+      "level": true,
+      "targetLufs": -23,
+      "toleranceLu": 1,
+      "compression": false,
+      "edgeFade": "auto"
+    }
+  },
+  "voiceSelection": null,
+  "render": {
+    "quality": "final",
+    "reducedMotion": false
+  },
+  "stages": {
+    "idea": {
+      "status": "completed",
+      "inputHash": "c641f11002207f24caf42253f7fe2965a9405ea7ac9a806a63fa84e44caad1a2",
+      "attempts": 1,
+      "startedAt": "2026-11-15T13:12:03.244Z",
+      "completedAt": "2026-11-15T13:12:03.249Z",
+      "error": null
+    },
+    "research": {
+      "status": "completed",
+      "inputHash": "7b0668ee1eaf86052ef1e9b42ec02cf6828f47563845a7b1b68e4cf7cb2c3ef8",
+      "attempts": 1,
+      "startedAt": "2026-11-15T13:15:29.504Z",
+      "completedAt": "2026-11-15T13:15:29.515Z",
+      "error": null
+    },
+    "script": {
+      "status": "completed",
+      "inputHash": "c9f60ee214c26520a593de29d9b430710743fcab296003da4f6c50e44ce3217e",
+      "attempts": 10,
+      "startedAt": "2026-11-15T14:48:50.802Z",
+      "completedAt": "2026-11-15T14:48:50.811Z",
+      "error": null
+    },
+    "storyboard": {
+      "status": "completed",
+      "inputHash": "21aa81f0e0df1cc553db0e02c36f8947ad6052be0bdd2efc13761e9c9fa98888",
+      "attempts": 9,
+      "startedAt": "2026-11-15T14:52:34.886Z",
+      "completedAt": "2026-11-15T14:52:34.891Z",
+      "error": null
+    },
+    "recording": {
+      "status": "pending",
+      "inputHash": "22bd25bb347766ddefc5c7638070d36450962a3b9c1bca43186fd8e83b1fdb54",
+      "attempts": 5,
+      "startedAt": "2026-11-15T14:51:38.189Z",
+      "completedAt": "2026-11-15T14:52:20.702Z",
+      "error": null
+    },
+    "voice": {
+      "status": "completed",
+      "inputHash": "a5f680695b3dc93f861f0eec509610fc5fb25b76084e7c876689b8586db540f1",
+      "attempts": 11,
+      "startedAt": "2026-11-15T17:48:16.068Z",
+      "completedAt": "2026-11-15T17:48:22.852Z",
+      "error": null
+    },
+    "motion": {
+      "status": "completed",
+      "inputHash": "3ad0e751432965c7363a5e5d0c43016182bc8d95e1ae0065221211fcfd17057f",
+      "attempts": 6,
+      "startedAt": "2026-11-15T17:49:22.832Z",
+      "completedAt": "2026-11-15T17:49:22.851Z",
+      "error": null
+    },
+    "composition": {
+      "status": "completed",
+      "inputHash": "3ad0e751432965c7363a5e5d0c43016182bc8d95e1ae0065221211fcfd17057f",
+      "attempts": 6,
+      "startedAt": "2026-11-15T17:49:22.858Z",
+      "completedAt": "2026-11-15T17:51:00.172Z",
+      "error": null
+    },
+    "subtitles": {
+      "status": "completed",
+      "inputHash": "02ab5b8b75bde8c51e2a92675ef448f6f5077aafb9c9681b2b5e5141bfea8240",
+      "attempts": 6,
+      "startedAt": "2026-11-15T17:51:00.182Z",
+      "completedAt": "2026-11-15T17:51:00.216Z",
+      "error": null
+    },
+    "render": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 6,
+      "startedAt": "2026-11-15T17:51:00.222Z",
+      "completedAt": null,
+      "error": null
+    },
+    "qa": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "approval": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "export": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    }
+  },
+  "assets": {
+    "narration": {
+      "hook": {
+        "cacheKey": "c86c1f4e1d3ffb76584b8c4f1fe0c66246fb50c274d62e4ca0bb456fcc1d7416",
+        "textHash": "1d04d41363457b7a5d294d7a1b3ee1fc870887dbb403a957a817cfcc83d6caa2",
+        "file": "audio/hook.mp3",
+        "wordsFile": "audio/hook.words.json",
+        "durationSeconds": 4.086712,
+        "characters": 109,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:17.582Z"
+      },
+      "promise": {
+        "cacheKey": "81d0490003d69da86de1c7be6211a38822d9bc507ece2cbd87592897708cba95",
+        "textHash": "c07abd56f520b006979f5c4e218a2eb9d9b8f6ceb3c535f48d4895bdbd20076a",
+        "file": "audio/promise.mp3",
+        "wordsFile": "audio/promise.words.json",
+        "durationSeconds": 2.089796,
+        "characters": 44,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:17.948Z"
+      },
+      "link": {
+        "cacheKey": "d6a317e36c12bcb2826277ff419334f3e4262a57eae4866e3b6e303c08f92dac",
+        "textHash": "4156d1e7eb5ec40e15f05557716d9799d7de7afd32e30601f3b4451d0db9a809",
+        "file": "audio/link.mp3",
+        "wordsFile": "audio/link.words.json",
+        "durationSeconds": 7.662585,
+        "characters": 145,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:18.597Z"
+      },
+      "book": {
+        "cacheKey": "38df0b860c781245dec71dabd366c7a546d3e9e6a214a3e75885ca578fe36842",
+        "textHash": "6a82242235ac7cb7ecac117686509cdf60ad7022dbb2229c1ab574bf1183d5cb",
+        "file": "audio/book.mp3",
+        "wordsFile": "audio/book.words.json",
+        "durationSeconds": 5.944308,
+        "characters": 146,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:19.101Z"
+      },
+      "pay": {
+        "cacheKey": "e4fd502127e81b4a06cd3581f9ffd043f75d666bf8eb6fb231c037464d68b8ed",
+        "textHash": "ddb64c710687ef2fe9de846bf9f9e8ef9c174995c016614424dbb589c190fa87",
+        "file": "audio/pay.mp3",
+        "wordsFile": "audio/pay.words.json",
+        "durationSeconds": 5.758549,
+        "characters": 140,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:19.593Z"
+      },
+      "notify-business": {
+        "cacheKey": "2f61a9b2d2af1cd95bb73e4f3449b5ae58b12af536ca1b7666cc9768cfa2a183",
+        "textHash": "80ba8858cd65214521dae8056933309ee6d973a49b295419ebcac2bc1f4c94f4",
+        "file": "audio/notify-business.mp3",
+        "wordsFile": "audio/notify-business.words.json",
+        "durationSeconds": 4.92263,
+        "characters": 103,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:20.092Z"
+      },
+      "confirm": {
+        "cacheKey": "0a66555f5ba29f94b0c608bc6a5b80ecdefcf77abe273ffeead18c9febd97991",
+        "textHash": "adbe0fcedd9fb0b7f0dcf6002d6d7f53eced65ded099a4a45659a30ac01f54b3",
+        "file": "audio/confirm.mp3",
+        "wordsFile": "audio/confirm.words.json",
+        "durationSeconds": 7.523265,
+        "characters": 186,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:20.753Z"
+      },
+      "notify-client": {
+        "cacheKey": "9a6796fdb978301cf9fd9f3f09a7f9feeed2680ed862860d2905baa38ff18829",
+        "textHash": "006e210ddc1084c9e0d7fbd5a09effbd6c4428f686a7eacfdeaf66758b3832d4",
+        "file": "audio/notify-client.mp3",
+        "wordsFile": "audio/notify-client.words.json",
+        "durationSeconds": 2.043356,
+        "characters": 51,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:21.138Z"
+      },
+      "outcome": {
+        "cacheKey": "7e591a9892038abe9e1b7da1b0e28304f92efeb3a9b36974ef36064dd31f7c43",
+        "textHash": "593e14065a96b7772bf6f15e7d725f1a55faf75c1fd2d2697c4ecabc40e3621b",
+        "file": "audio/outcome.mp3",
+        "wordsFile": "audio/outcome.words.json",
+        "durationSeconds": 4.783311,
+        "characters": 126,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:21.630Z"
+      },
+      "cta": {
+        "cacheKey": "1c58677f016e39301a288b598ac59b306ba505287ce0d8ddda640d7aac1fcc73",
+        "textHash": "d6392ff00136a37d5946c9812d4d5fcebf3653be32c0833d80277cb2a34698c9",
+        "file": "audio/cta.mp3",
+        "wordsFile": "audio/cta.words.json",
+        "durationSeconds": 2.600635,
+        "characters": 49,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T14:18:00.714Z"
+      },
+      "short-hook": {
+        "cacheKey": "4f1f2f4b1668a674a1ff3530d4d8efc842f99b0c152702ffe77ee92fee0ced81",
+        "textHash": "790379acac2ebe9dfd5d83d5b7ee6f5ea7c8276c1379965a8fce8433d778930f",
+        "file": "audio/short-hook.mp3",
+        "wordsFile": "audio/short-hook.words.json",
+        "durationSeconds": 2.229116,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:21.991Z"
+      },
+      "short-flow": {
+        "cacheKey": "7388e412ffa41c466deca18b45849a03875fbccf033e8c717000f4c94f91d940",
+        "textHash": "899290b65764ce6137347f743ff2aa2cc93017b8ff32f03becc3ec6544fdc735",
+        "file": "audio/short-flow.mp3",
+        "wordsFile": "audio/short-flow.words.json",
+        "durationSeconds": 4.086712,
+        "characters": 112,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T14:18:01.588Z"
+      },
+      "short-confirm": {
+        "cacheKey": "91bbf722b7e89336ad2597bd942bf91f5e871d3cc0c3b8998c66f4df03224ca1",
+        "textHash": "2d36e1c28b7804b6dc7e317621e42b4bd465522ec0bf041cd4a8886ed47164d4",
+        "file": "audio/short-confirm.mp3",
+        "wordsFile": "audio/short-confirm.words.json",
+        "durationSeconds": 2.321995,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:22.411Z"
+      },
+      "short-told": {
+        "cacheKey": "32d98598af5a7f23c7a5e85e8cadc7f9b33b36d945185aa86586fce0749f1426",
+        "textHash": "627a021a2489030b47b17b047369d16f9e50afee9645f0569c0096b1ce899e62",
+        "file": "audio/short-told.mp3",
+        "wordsFile": "audio/short-told.words.json",
+        "durationSeconds": 4.086712,
+        "characters": 103,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T17:48:22.834Z"
+      },
+      "short-cta": {
+        "cacheKey": "1c58677f016e39301a288b598ac59b306ba505287ce0d8ddda640d7aac1fcc73",
+        "textHash": "d6392ff00136a37d5946c9812d4d5fcebf3653be32c0833d80277cb2a34698c9",
+        "file": "audio/short-cta.mp3",
+        "wordsFile": "audio/short-cta.words.json",
+        "durationSeconds": 2.600635,
+        "characters": 49,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-15T14:18:00.714Z"
+      }
+    },
+    "recordings": {
+      "iker-amaka-client-books-tablet": {
+        "hash": "a5842faa5bdadf20d1863afec86b3f42e92b1e6621cdbc0e5a8c4497a9b3a596",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-client-books-tablet/recording.mp4",
+        "timeline": "recordings/iker-amaka-client-books-tablet/timeline.json",
+        "screenshots": {
+          "pay-step-tablet": "recordings/iker-amaka-client-books-tablet/screenshots/pay-step-tablet.png"
+        },
+        "durationSeconds": 28.833333,
+        "viewport": {
+          "width": 1180,
+          "height": 820
+        },
+        "recordedAt": "2026-11-15T14:49:28.538Z"
+      },
+      "iker-amaka-client-books-phone": {
+        "hash": "fc6523197e98d041341d913dfff9db9fc41cb9e18ec1397f57940d405cd4dc95",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-client-books-phone/recording.mp4",
+        "timeline": "recordings/iker-amaka-client-books-phone/timeline.json",
+        "screenshots": {
+          "pay-step-phone": "recordings/iker-amaka-client-books-phone/screenshots/pay-step-phone.png"
+        },
+        "durationSeconds": 28.266667,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "recordedAt": "2026-11-15T14:50:05.778Z"
+      },
+      "iker-amaka-confirm-booking-tablet": {
+        "hash": "94e1b694420b3f8b42b5d4c08fcfc525a0f2e7d7926ab24cbdbee4eafbfaab9c",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-confirm-booking-tablet/recording.mp4",
+        "timeline": "recordings/iker-amaka-confirm-booking-tablet/timeline.json",
+        "screenshots": {
+          "confirm-tablet": "recordings/iker-amaka-confirm-booking-tablet/screenshots/confirm-tablet.png"
+        },
+        "durationSeconds": 16.866667,
+        "viewport": {
+          "width": 1180,
+          "height": 820
+        },
+        "recordedAt": "2026-11-15T14:52:00.027Z"
+      },
+      "iker-amaka-confirm-booking-phone": {
+        "hash": "481c8673454a2df241afcfee945fd49fb740a7ce0392804088bca19783665138",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-confirm-booking-phone/recording.mp4",
+        "timeline": "recordings/iker-amaka-confirm-booking-phone/timeline.json",
+        "screenshots": {
+          "confirm-phone": "recordings/iker-amaka-confirm-booking-phone/screenshots/confirm-phone.png"
+        },
+        "durationSeconds": 16.933333,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "recordedAt": "2026-11-15T14:52:20.696Z"
+      }
+    },
+    "sceneRenders": {
+      "full/preview/hook": {
+        "hash": "982bf22fe7e9e5e86523d2a88b1c665d04ad1730882dd0f45a1a613840b08fe8",
+        "file": "scenes/full/preview/hook.mkv",
+        "durationFrames": 150,
+        "renderedAt": "2026-11-15T17:49:32.391Z"
+      },
+      "full/preview/promise": {
+        "hash": "d573b5d8b4897ed4966aa1c6c19c1102f1acbc9e821ee45c2f612a4d8706b63c",
+        "file": "scenes/full/preview/promise.mkv",
+        "durationFrames": 90,
+        "renderedAt": "2026-11-15T17:49:34.712Z"
+      },
+      "full/preview/link": {
+        "hash": "1989fbfa4740ebd0434d6d1169dee3ab6171b0782d843f77d9cd13e4baf0411c",
+        "file": "scenes/full/preview/link.mkv",
+        "durationFrames": 257,
+        "renderedAt": "2026-11-15T17:49:40.925Z"
+      },
+      "full/preview/book": {
+        "hash": "23f9f015636eab924fafe49d95b4068ee5cab24150c654d6412d553327ad2bc5",
+        "file": "scenes/full/preview/book.mkv",
+        "durationFrames": 362,
+        "renderedAt": "2026-11-15T17:49:54.569Z"
+      },
+      "full/preview/pay": {
+        "hash": "497ffbbebb531368cdcd4a2776243156c0dc330fddd09bbc91adcee967ca3e09",
+        "file": "scenes/full/preview/pay.mkv",
+        "durationFrames": 264,
+        "renderedAt": "2026-11-15T17:50:06.919Z"
+      },
+      "full/preview/notify-business": {
+        "hash": "5c4b4432af70e576e6c1e4d7fee3a06827817c5dcee861efc60a11c840f6077d",
+        "file": "scenes/full/preview/notify-business.mkv",
+        "durationFrames": 175,
+        "renderedAt": "2026-11-15T17:50:10.653Z"
+      },
+      "full/preview/confirm": {
+        "hash": "ec56e2a0f549b4a8a7ea8056d3c3dc60b31fde970803533ed035d72ccb815e70",
+        "file": "scenes/full/preview/confirm.mkv",
+        "durationFrames": 286,
+        "renderedAt": "2026-11-15T17:50:21.972Z"
+      },
+      "full/preview/notify-client": {
+        "hash": "dbbc48a250370baca67a5401eb89369e3758569819e710f3789e48df154ffa65",
+        "file": "scenes/full/preview/notify-client.mkv",
+        "durationFrames": 89,
+        "renderedAt": "2026-11-15T17:50:24.869Z"
+      },
+      "full/preview/outcome": {
+        "hash": "154d8576da272c5c8325c0135b92afe6fe695e705545af17eb22b28e166f96f8",
+        "file": "scenes/full/preview/outcome.mkv",
+        "durationFrames": 171,
+        "renderedAt": "2026-11-15T17:50:28.544Z"
+      },
+      "full/preview/cta": {
+        "hash": "38e410ca2f1654f7f22e617467cbd319384af1ecb1d00ff30e5c2c28a69827fa",
+        "file": "scenes/full/preview/cta.mkv",
+        "durationFrames": 106,
+        "renderedAt": "2026-11-15T17:50:31.064Z"
+      },
+      "full/preview/outro": {
+        "hash": "972e942d0d10edea54e547715b4c97594d86d043e03c1611d770d5ccbd6f28b8",
+        "file": "scenes/full/preview/outro.mkv",
+        "durationFrames": 90,
+        "renderedAt": "2026-11-15T17:50:33.359Z"
+      },
+      "short/preview/short-hook": {
+        "hash": "7f014b7f7e1ed522be7cb9367ec8f85bb01a0efa5a78e1b3c2a6edf1de5d2c3a",
+        "file": "scenes/short/preview/short-hook.mkv",
+        "durationFrames": 94,
+        "renderedAt": "2026-11-15T17:50:35.778Z"
+      },
+      "short/preview/short-flow": {
+        "hash": "d8465cdc26adc9c54ce2c1545615a2f7b2a1c0a32c5debf83788d986b1e41a12",
+        "file": "scenes/short/preview/short-flow.mkv",
+        "durationFrames": 226,
+        "renderedAt": "2026-11-15T17:50:43.923Z"
+      },
+      "short/preview/short-confirm": {
+        "hash": "c2e015783033cbd94018ba33bb33b417124a3eede97e0c1df0bfd6f1fed2e02b",
+        "file": "scenes/short/preview/short-confirm.mkv",
+        "durationFrames": 296,
+        "renderedAt": "2026-11-15T17:50:53.117Z"
+      },
+      "short/preview/short-told": {
+        "hash": "dc105ef5f2223e29e048cbd258822223ead4792e9a547080dea422da65335268",
+        "file": "scenes/short/preview/short-told.mkv",
+        "durationFrames": 150,
+        "renderedAt": "2026-11-15T17:50:57.547Z"
+      },
+      "short/preview/short-cta": {
+        "hash": "ac5d48f40da3480df9c9f6a569f1033e35c56c9f1e3e9980d215c6e83fee3e4e",
+        "file": "scenes/short/preview/short-cta.mkv",
+        "durationFrames": 106,
+        "renderedAt": "2026-11-15T17:51:00.150Z"
+      }
+    },
+    "finals": {
+      "full/preview": {
+        "hash": "2e04e9ce4419fa5996e66c3f7dcc3cfd7a75befee9883fdd387750257ed520bb",
+        "file": "preview/create-a-short-social-media-campaign-to-introduce-the-produc-full.mp4",
+        "sha256": "be5ec13fb3b0ea80db60b2a124860d11083abfc6c3f92d8cf2adf033b27cd69d",
+        "width": 960,
+        "height": 540,
+        "durationSeconds": 68.085833,
+        "subtitles": {
+          "srt": "subtitles/full.srt",
+          "vtt": "subtitles/full.vtt"
+        },
+        "timeline": "scenes/full/timeline.json",
+        "renderedAt": "2026-11-15T17:51:05.755Z"
+      },
+      "short/preview": {
+        "hash": "2420c731bd87ddb8ad442a73e3a9994864d8b8a699fb2f2bea4837e2b55c7bed",
+        "file": "preview/create-a-short-social-media-campaign-to-introduce-the-produc-short.mp4",
+        "sha256": "3ced019335d3c4bf6ee509afd82b05f6422de14deb754139d890c76bf266db70",
+        "width": 540,
+        "height": 960,
+        "durationSeconds": 29.065,
+        "subtitles": {
+          "srt": "subtitles/short.srt",
+          "vtt": "subtitles/short.vtt"
+        },
+        "timeline": "scenes/short/timeline.json",
+        "renderedAt": "2026-11-15T17:51:08.143Z"
+      }
+    },
+    "thumbnails": []
+  },
+  "qa": {},
+  "approvals": {
+    "script": {
+      "subjectHash": "c9f60ee214c26520a593de29d9b430710743fcab296003da4f6c50e44ce3217e",
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-15T17:48:01.001Z",
+      "note": "",
+      "automated": false,
+      "voiceDirectionHash": null
+    },
+    "final": {}
+  },
+  "usage": {
+    "synthesisedCharacters": 11483,
+    "synthesisRequests": 112,
+    "cacheHits": 7,
+    "generatedSeconds": 593.7548520000003,
+    "credits": 11723,
+    "regenerations": 95
+  },
+  "exports": [],
+  "history": [
+    {
+      "at": "2026-11-15T13:12:03.249Z",
+      "stage": "idea",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:15:29.515Z",
+      "stage": "research",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:15:29.532Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:15:42.085Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:15:51.186Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:15:59.736Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:16:07.899Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:16:13.418Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:17:19.337Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:18:27.072Z",
+      "stage": "script",
+      "event": "approved",
+      "detail": "by cyuket"
+    },
+    {
+      "at": "2026-11-15T13:18:59.397Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:26:46.453Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:28:03.434Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:29:25.634Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:29:25.682Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:29:36.498Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:35:07.692Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:35:16.564Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:35:49.031Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:35:49.067Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:35:59.525Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:39:32.443Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:40:44.880Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:42:23.880Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:44:03.895Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:50:44.510Z",
+      "stage": "script",
+      "event": "approved",
+      "detail": "by cyuket"
+    },
+    {
+      "at": "2026-11-15T13:52:07.369Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:53:08.854Z",
+      "stage": "voice",
+      "event": "failed",
+      "detail": "ElevenLabs rejected the request as invalid. ElevenLabs said: Invalid setting for speed received, expected to be greater or equal to 0.7 and less or equal to 1.2, received 1.5."
+    },
+    {
+      "at": "2026-11-15T13:55:36.800Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:57:52.281Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:57:52.323Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:58:03.250Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T13:59:34.716Z",
+      "stage": "voice",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:01:45.185Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:04:01.765Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:05:41.655Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:05:41.695Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:05:49.194Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:17:03.644Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:17:39.891Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:18:02.532Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:19:03.699Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:20:35.115Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:20:35.156Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:20:41.854Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:32:34.375Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:32:50.623Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:33:06.089Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:46:38.926Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:46:59.769Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:47:34.945Z",
+      "stage": "recording",
+      "event": "failed",
+      "detail": "Recording failed at step 15 (highlight button \"10:30 AM\"): locator.waitFor: Timeout 15000ms exceeded."
+    },
+    {
+      "at": "2026-11-15T14:48:23.393Z",
+      "stage": "recording",
+      "event": "failed",
+      "detail": "Recording failed at step 21 (type field labelled \"Full name\"): locator.waitFor: Timeout 15000ms exceeded."
+    },
+    {
+      "at": "2026-11-15T14:48:50.811Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:48:51.967Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:49:28.545Z",
+      "stage": "recording",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:50:46.805Z",
+      "stage": "recording",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:52:20.702Z",
+      "stage": "recording",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T14:52:34.891Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T17:48:01.001Z",
+      "stage": "script",
+      "event": "approved",
+      "detail": "by cyuket"
+    },
+    {
+      "at": "2026-11-15T17:48:22.852Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T17:49:22.851Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T17:51:00.172Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T17:51:00.216Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-15T17:51:08.149Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    }
+  ]
+}

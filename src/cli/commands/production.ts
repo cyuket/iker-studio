@@ -151,6 +151,11 @@ export function registerProductionCommands(program: Command, context: Context): 
       ]),
     )
     .option("--voice-id <id>", "switch this video to another voice of the provider")
+    .option(
+      "--speed <pace>",
+      "set this video's speaking pace, 0.7 to 2 (1 is normal; above 1.2 the clip is time-stretched; a selected preset overrides it)",
+      Number,
+    )
     .addOption(
       new Option(
         "--preset <preset>",
@@ -165,6 +170,7 @@ export function registerProductionCommands(program: Command, context: Context): 
         force?: boolean;
         voiceProvider?: VoiceProvider;
         voiceId?: string;
+        speed?: number;
         preset?: PresetId;
       }) => {
         const { container, out } = context();
@@ -175,6 +181,7 @@ export function registerProductionCommands(program: Command, context: Context): 
           ...(options.scene === undefined ? {} : { sceneIds: options.scene }),
           ...(options.voiceProvider === undefined ? {} : { provider: options.voiceProvider }),
           ...(options.voiceId === undefined ? {} : { voiceId: options.voiceId }),
+          ...(options.speed === undefined ? {} : { speed: options.speed }),
           ...(options.preset === undefined ? {} : { preset: options.preset }),
         });
         const { plan } = result;

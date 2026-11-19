@@ -1,0 +1,144 @@
+<!doctype html>
+<!--
+  Fictional bank-transfer receipt used as Tunde's proof of payment in the local Iker demo.
+  Rendered to PNG by render-receipt.mjs. Not a real bank, account or transaction.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 720px;
+        height: 1100px;
+        background: #eef1f4;
+        font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+        color: #1c2430;
+      }
+      .card {
+        position: relative;
+        margin: 48px 40px;
+        background: #fff;
+        border-radius: 28px;
+        padding: 56px 48px 48px;
+        overflow: hidden;
+        box-shadow: 0 6px 24px rgba(20, 30, 50, 0.08);
+      }
+      .bank {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #3a4655;
+      }
+      .tick {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        background: #1f9d55;
+        margin: 40px auto 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tick svg {
+        width: 60px;
+        height: 60px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 38px;
+        font-weight: 700;
+      }
+      .amount {
+        text-align: center;
+        font-size: 72px;
+        font-weight: 800;
+        margin: 18px 0 8px;
+      }
+      .sub {
+        text-align: center;
+        font-size: 22px;
+        color: #6a7685;
+        margin-bottom: 36px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-top: 1px solid #e6e9ee;
+        font-size: 24px;
+      }
+      .row span:first-child {
+        color: #6a7685;
+      }
+      .row span:last-child {
+        font-weight: 600;
+        text-align: right;
+      }
+      .note {
+        margin-top: 28px;
+        text-align: center;
+        font-size: 20px;
+        color: #8a94a2;
+      }
+      .stamp {
+        position: absolute;
+        top: 470px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-24deg);
+        padding: 0 24px;
+        text-align: center;
+        font-size: 112px;
+        font-weight: 900;
+        letter-spacing: 12px;
+        color: rgba(214, 48, 49, 0.22);
+        border-top: 10px solid rgba(214, 48, 49, 0.22);
+        border-bottom: 10px solid rgba(214, 48, 49, 0.22);
+        pointer-events: none;
+      }
+      .ribbon {
+        background: #d63031;
+        color: #fff;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        padding: 12px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="ribbon">SAMPLE RECEIPT · DEMO DATA</div>
+      <div class="bank">Example Bank</div>
+      <div class="tick">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="4 12.5 9.5 18 20 6" />
+        </svg>
+      </div>
+      <h1>Transfer successful</h1>
+      <div class="amount">₦15,000</div>
+      <div class="sub">Deposit for Soft glam makeup</div>
+      <div class="row"><span>To</span><span>Amaka Studio</span></div>
+      <div class="row"><span>Account</span><span>Example Bank · 0123456789</span></div>
+      <div class="row"><span>From</span><span>Tunde Adeyemi</span></div>
+      <div class="row"><span>Reference</span><span>SAMPLE-000123</span></div>
+      <div class="row"><span>Status</span><span>Successful</span></div>
+      <p class="note">Sample image for a product demo. Not a real transaction.</p>
+      <div class="stamp">SAMPLE</div>
+    </div>
+  </body>
+</html>

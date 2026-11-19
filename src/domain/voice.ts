@@ -4,6 +4,26 @@ import { FinishingSchema } from "./voice-audio";
 import { capabilitiesFor } from "./voice-models";
 import { PresetIdSchema } from "./voice-presets";
 
+/** The pace range a video may ask for. */
+export const MIN_SPEED = 0.7;
+export const MAX_SPEED = 2;
+/** The fastest pace the ElevenLabs API accepts (documented range 0.7 to 1.2). */
+export const PROVIDER_MAX_SPEED = 1.2;
+
+/**
+ * Splits a pace into what the speech API is asked for and the time-stretch applied to the
+ * clip afterwards. Up to `PROVIDER_MAX_SPEED` the API does it all and nothing is stretched.
+ * A model with no speed control gets the whole pace as a stretch.
+ */
+export function splitSpeed(
+  speed: number,
+  modelHonoursSpeed: boolean,
+): { provider: number; stretch: number } {
+  if (!modelHonoursSpeed) return { provider: 1, stretch: speed };
+  const provider = Math.min(speed, PROVIDER_MAX_SPEED);
+  return { provider, stretch: speed / provider };
+}
+
 export const VOICE_PROVIDERS = ["elevenlabs", "system", "silent"] as const;
 export const VoiceProviderSchema = z.enum(VOICE_PROVIDERS);
 export type VoiceProvider = z.infer<typeof VoiceProviderSchema>;
@@ -20,8 +40,11 @@ export const VoiceSettingsSchema = z.object({
   stability: z.number().min(0).max(1).default(0.5),
   similarityBoost: z.number().min(0).max(1).default(0.75),
   style: z.number().min(0).max(1).default(0),
-  /** ElevenLabs accepts 0.7-1.2. */
-  speed: z.number().min(0.7).max(1.2).default(1),
+  /**
+   * Speaking pace, 0.7 to 2. The speech API itself accepts up to `PROVIDER_MAX_SPEED`; any
+   * pace above that is reached by time-stretching the clip afterwards (see `splitSpeed`).
+   */
+  speed: z.number().min(MIN_SPEED).max(MAX_SPEED).default(1),
   speakerBoost: z.boolean().default(true),
   /** ISO 639-1 code, for models that accept one. */
   languageCode: z.string().nullable().default(null),

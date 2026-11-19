@@ -73,7 +73,8 @@ is `storyboard-designer` work, not a component change.
    data, the beats and the frame: every animation must come to rest (springs are snapped to
    exactly 1), nothing may loop, and an element that is not visible must not be rendered at
    all. `tests/unit/remotion/continuity.test.ts` holds new graphics to this. Do not animate
-   the background.
+   the background, except through a cut's opt-in `"background": "animated"`, which is keyed
+   to the cut's frame (see `docs/MOTION-DESIGN.md`) and must stay in the margins and slow.
 6. **One vocabulary.** Every duration, curve, spring, distance and scale range is a token in
    `MOTION` (`tokens.ts`), read through `useMotion()` (`design/useBeat.ts`) or `tween`,
    `springProgress` and `durationFrames` (`design/motion.ts`). No timing number in a

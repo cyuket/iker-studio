@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "id": "last-price-dear",
+  "title": "Last price, dear: stop haggling in DMs",
+  "topic": "Last price, dear: stop haggling in DMs",
+  "audience": "Owners of Nigerian service businesses who quote prices in WhatsApp and Instagram DMs",
+  "contentType": "BUSINESS_EDUCATION",
+  "template": "business-explainer",
+  "format": "youtube-landscape",
+  "durationTarget": {
+    "minSeconds": 120,
+    "maxSeconds": 180
+  },
+  "createdAt": "2026-11-19T22:59:04.490Z",
+  "updatedAt": "2026-11-19T23:04:10.981Z",
+  "script": {
+    "version": 1,
+    "hash": "e9f2599c744f87b90b0aaba8964a47f029df12726e9f32d07bc8408762fac793"
+  },
+  "storyboard": {
+    "hash": "33b9c56188d3d24d49150176410a1aa895297247fbbfb417bd2274fc63ba0b89",
+    "version": 1
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceId": null,
+    "modelId": null,
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speed": 1,
+    "speakerBoost": true,
+    "languageCode": null,
+    "seed": 20260101,
+    "preset": null,
+    "finishing": {
+      "level": true,
+      "targetLufs": -23,
+      "toleranceLu": 1,
+      "compression": false,
+      "edgeFade": "auto"
+    }
+  },
+  "voiceSelection": null,
+  "render": {
+    "quality": "final",
+    "reducedMotion": false
+  },
+  "stages": {
+    "idea": {
+      "status": "completed",
+      "inputHash": "15f26e1b21ae989d8eb569d32bcbb0ffd798c048335ee7d30ace5bd01c5ac7da",
+      "attempts": 1,
+      "startedAt": "2026-11-19T22:59:04.512Z",
+      "completedAt": "2026-11-19T22:59:04.518Z",
+      "error": null
+    },
+    "research": {
+      "status": "completed",
+      "inputHash": "1e48d1de51084a80681ba071c99f84aa2d893052b05580d1b9f2cede459c1fff",
+      "attempts": 1,
+      "startedAt": "2026-11-19T23:02:41.172Z",
+      "completedAt": "2026-11-19T23:02:41.180Z",
+      "error": null
+    },
+    "script": {
+      "status": "completed",
+      "inputHash": "e9f2599c744f87b90b0aaba8964a47f029df12726e9f32d07bc8408762fac793",
+      "attempts": 1,
+      "startedAt": "2026-11-19T23:02:41.186Z",
+      "completedAt": "2026-11-19T23:02:41.191Z",
+      "error": null
+    },
+    "storyboard": {
+      "status": "completed",
+      "inputHash": "33b9c56188d3d24d49150176410a1aa895297247fbbfb417bd2274fc63ba0b89",
+      "attempts": 1,
+      "startedAt": "2026-11-19T23:04:10.974Z",
+      "completedAt": "2026-11-19T23:04:10.981Z",
+      "error": null
+    },
+    "recording": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "voice": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "motion": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "composition": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "subtitles": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "render": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "qa": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "approval": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "export": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    }
+  },
+  "assets": {
+    "narration": {},
+    "recordings": {},
+    "sceneRenders": {},
+    "finals": {},
+    "thumbnails": []
+  },
+  "qa": {},
+  "approvals": {
+    "script": null,
+    "final": {}
+  },
+  "usage": {
+    "synthesisedCharacters": 0,
+    "synthesisRequests": 0,
+    "cacheHits": 0,
+    "generatedSeconds": 0,
+    "credits": 0,
+    "regenerations": 0
+  },
+  "exports": [],
+  "history": [
+    {
+      "at": "2026-11-19T22:59:04.518Z",
+      "stage": "idea",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:02:41.180Z",
+      "stage": "research",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:02:41.191Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:04:10.981Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    }
+  ]
+}

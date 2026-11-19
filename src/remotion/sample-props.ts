@@ -124,6 +124,7 @@ const SAMPLE_VISUALS: Record<SceneVisualKind, SceneVisual> = {
     scenarioId: "sample-flow",
     mode: "screenshot",
     heading: "Every payment on the booking",
+    device: "browser",
     annotations: [
       {
         text: "Paid so far",
@@ -562,6 +563,8 @@ export interface SampleSceneOptions {
   recording?: ResolvedRecording | null;
   reducedMotion?: boolean;
   visual?: SceneVisual;
+  /** Start the scene this many frames into an animated background. Still canvas when unset. */
+  backdropStartFrame?: number;
 }
 
 /** Sample props for one visual kind in one format. Used by the studio and by visual checks. */
@@ -601,6 +604,8 @@ export function sampleSceneProps(
           : options.recording
         : null,
     progress: null,
+    backdrop:
+      options.backdropStartFrame === undefined ? null : { startFrame: options.backdropStartFrame },
     reducedMotion: options.reducedMotion ?? false,
     disclosure: kind === "product" ? SAMPLE_DISCLOSURE : null,
   };
@@ -623,6 +628,100 @@ export function sampleCutProps(formatId: FormatId): CutRenderProps {
       return { ...scene, progress: { start, end: elapsed / total } };
     }),
   };
+}
+
+/** A phone-sized placeholder capture (390 x 844), plainly marked as one. */
+const PLACEHOLDER_PHONE_CAPTURE =
+  svg(`<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<rect width="390" height="844" fill="#0d1018"/>
+<rect x="0" y="0" width="390" height="64" fill="#12151f"/>
+<rect x="20" y="22" width="120" height="20" rx="6" fill="#2a3044"/>
+<rect x="318" y="16" width="52" height="32" rx="10" fill="#e05a38"/>
+<g fill="#141826" stroke="#252b3d" stroke-width="2"><rect x="20" y="92" width="350" height="190" rx="16"/><rect x="20" y="302" width="350" height="190" rx="16"/><rect x="20" y="512" width="350" height="190" rx="16"/></g>
+<g fill="#2a3044"><rect x="40" y="116" width="150" height="16" rx="6"/><rect x="40" y="150" width="230" height="40" rx="10"/><rect x="40" y="214" width="290" height="12" rx="6"/><rect x="40" y="240" width="210" height="12" rx="6"/>
+<rect x="40" y="326" width="150" height="16" rx="6"/><rect x="40" y="360" width="190" height="40" rx="10"/><rect x="40" y="424" width="290" height="12" rx="6"/><rect x="40" y="450" width="230" height="12" rx="6"/>
+<rect x="40" y="536" width="150" height="16" rx="6"/><rect x="40" y="570" width="290" height="12" rx="6"/><rect x="40" y="596" width="290" height="12" rx="6"/><rect x="40" y="622" width="200" height="12" rx="6"/></g>
+<rect x="20" y="726" width="350" height="52" rx="14" fill="#e05a38"/>
+<text x="195" y="816" text-anchor="middle" font-family="monospace" font-size="12" fill="#858b9f">SAMPLE PLACEHOLDER - NOT PRODUCT UI</text>
+</svg>`);
+
+/** A tablet-sized placeholder capture (1180 x 820), plainly marked as one. */
+const PLACEHOLDER_TABLET_CAPTURE =
+  svg(`<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="820" viewBox="0 0 1180 820">
+<rect width="1180" height="820" fill="#0d1018"/>
+<rect x="0" y="0" width="230" height="820" fill="#12151f"/>
+<rect x="28" y="36" width="130" height="20" rx="6" fill="#2a3044"/>
+<g fill="#1c2132"><rect x="28" y="108" width="174" height="34" rx="8"/><rect x="28" y="156" width="174" height="34" rx="8"/><rect x="28" y="204" width="174" height="34" rx="8"/><rect x="28" y="252" width="174" height="34" rx="8"/></g>
+<rect x="270" y="48" width="360" height="32" rx="8" fill="#2a3044"/>
+<rect x="960" y="40" width="180" height="48" rx="12" fill="#e05a38"/>
+<g fill="#141826" stroke="#252b3d" stroke-width="2"><rect x="270" y="130" width="420" height="280" rx="16"/><rect x="720" y="130" width="420" height="280" rx="16"/><rect x="270" y="440" width="870" height="300" rx="16"/></g>
+<g fill="#2a3044"><rect x="300" y="164" width="190" height="18" rx="6"/><rect x="300" y="206" width="280" height="52" rx="10"/><rect x="300" y="290" width="330" height="14" rx="6"/><rect x="300" y="322" width="250" height="14" rx="6"/>
+<rect x="750" y="164" width="190" height="18" rx="6"/><rect x="750" y="206" width="220" height="52" rx="10"/><rect x="750" y="290" width="340" height="14" rx="6"/><rect x="750" y="322" width="270" height="14" rx="6"/>
+<rect x="300" y="474" width="220" height="18" rx="6"/><rect x="300" y="524" width="810" height="12" rx="6"/><rect x="300" y="560" width="810" height="12" rx="6"/><rect x="300" y="596" width="810" height="12" rx="6"/><rect x="300" y="632" width="560" height="12" rx="6"/></g>
+<text x="705" y="790" text-anchor="middle" font-family="monospace" font-size="20" fill="#858b9f">SAMPLE PLACEHOLDER CAPTURE - NOT PRODUCT UI</text>
+</svg>`);
+
+const deviceRecording = (
+  src: string,
+  viewport: { width: number; height: number },
+  displayUrl: string,
+): ResolvedRecording => ({
+  ...SAMPLE_RECORDING,
+  screenshotSrc: src,
+  displayUrl,
+  timeline: { ...SAMPLE_RECORDING.timeline, viewport, events: [] },
+});
+
+/** A capture made at a phone viewport, for the `iphone` device. */
+export const SAMPLE_PHONE_RECORDING = deviceRecording(
+  PLACEHOLDER_PHONE_CAPTURE,
+  { width: 390, height: 844 },
+  "demo-console.example/bookings",
+);
+
+/** A capture made at a landscape tablet viewport, for the `ipad` device. */
+export const SAMPLE_TABLET_RECORDING = deviceRecording(
+  PLACEHOLDER_TABLET_CAPTURE,
+  { width: 1180, height: 820 },
+  "demo-console.example/bookings",
+);
+
+/** Callout regions on the device placeholders: the first card and the primary button. */
+const DEVICE_CALLOUTS = {
+  iphone: [
+    { x: 0.051, y: 0.109, width: 0.897, height: 0.225 },
+    { x: 0.051, y: 0.86, width: 0.897, height: 0.062 },
+  ],
+  ipad: [
+    { x: 0.229, y: 0.159, width: 0.356, height: 0.341 },
+    { x: 0.814, y: 0.049, width: 0.153, height: 0.059 },
+  ],
+} as const;
+
+/** The sample product scene shown in a phone or a tablet, with a capture of matching size. */
+export function sampleDeviceSceneProps(
+  device: "iphone" | "ipad",
+  formatId: FormatId,
+  options: Omit<SampleSceneOptions, "visual"> = {},
+): SceneRenderProps {
+  const base = SAMPLE_VISUALS.product;
+  if (base.kind !== "product") throw new Error("The sample product visual is not a product.");
+  const [first, second] = DEVICE_CALLOUTS[device];
+  const visual: SceneVisual = {
+    ...base,
+    device,
+    focus: undefined,
+    annotations: base.annotations.map((annotation, index) => ({
+      ...annotation,
+      region: { ...(index === 0 ? first : second) },
+    })),
+  };
+  const recording = device === "iphone" ? SAMPLE_PHONE_RECORDING : SAMPLE_TABLET_RECORDING;
+  return sampleSceneProps("product", formatId, {
+    ...options,
+    visual,
+    recording: options.recording === undefined ? recording : options.recording,
+  });
 }
 
 export const SAMPLE_SCENE: SceneRenderProps = sampleSceneProps("statement", "youtube-landscape");

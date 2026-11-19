@@ -339,6 +339,7 @@ export function ProductFeatureReveal(props: ProductFeatureRevealProps): ReactNod
         mode: props.mode ?? "video",
         screenshot: props.screenshot,
         heading: props.heading,
+        device: "browser",
         annotations: [],
         zoom: false,
         showCursor: false,

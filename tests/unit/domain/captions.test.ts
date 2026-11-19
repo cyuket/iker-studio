@@ -4,6 +4,7 @@ import {
   estimateWordTimings,
   findOverflowingLines,
   offsetCues,
+  speedUpAlignment,
   toSrt,
   toVtt,
   wordsFromAlignment,
@@ -103,5 +104,19 @@ describe("subtitle files", () => {
 
   it("shifts word timings together with the cue", () => {
     expect(cues[0]?.words[0]?.startSeconds).toBeCloseTo(3661.5);
+  });
+});
+
+describe("speedUpAlignment", () => {
+  it("compresses every timing by the playback factor and keeps the characters", () => {
+    const sped = speedUpAlignment(
+      { characters: ["H", "i"], startSeconds: [0, 0.5], endSeconds: [0.5, 1] },
+      2,
+    );
+    expect(sped).toEqual({
+      characters: ["H", "i"],
+      startSeconds: [0, 0.25],
+      endSeconds: [0.25, 0.5],
+    });
   });
 });

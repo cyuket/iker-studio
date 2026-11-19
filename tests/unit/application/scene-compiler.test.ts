@@ -137,6 +137,20 @@ describe("compileCut", () => {
     expect(compiled.cues.map((cue) => cue.index)).toEqual(compiled.cues.map((_, i) => i + 1));
   });
 
+  it("keeps the still canvas, and the scene's identity, unless the cut animates it", async () => {
+    const still = await compileCut(core, context(), cut);
+    expect(still.scenes.map((scene) => scene.backdrop)).toEqual(still.scenes.map(() => null));
+    const animated = await compileCut(core, context(), { ...cut, background: "animated" });
+    expect(animated.scenes.map((scene) => scene.backdrop?.startFrame)).toEqual(
+      animated.timeline.scenes.map((timing) => timing.startFrame),
+    );
+    expect(animated.scenes[0]?.hash).not.toBe(still.scenes[0]?.hash);
+    const second = animated.scenes[1];
+    if (!second) throw new Error("no second scene");
+    const props = await buildSceneProps(core, context(), animated, second, assets);
+    expect(props.backdrop).toEqual({ startFrame: animated.timeline.scenes[1]?.startFrame });
+  });
+
   it("labels synthetic footage and only synthetic footage", async () => {
     const synthetic = await compileCut(core, context(), cut);
     expect(synthetic.scenes.map((scene) => scene.disclosure)).toEqual([

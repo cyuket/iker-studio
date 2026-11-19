@@ -189,6 +189,23 @@ export const MOTION = {
     waveDegrees: 13,
   },
   /**
+   * The animated background (a cut with `background: "animated"`). Everything is slow enough
+   * to sit behind narration without pulling the eye, and is driven by time since the start of
+   * the cut, so it carries on unbroken across the hard joins between scenes.
+   */
+  backdrop: {
+    /** How far the grid slides each second, in design pixels. */
+    gridDriftPerSecond: 16,
+    /** One full orbit of each glow, in seconds. Unequal so the pattern never visibly repeats. */
+    glowOrbitSeconds: [14, 19, 25],
+    /** How far a glow wanders from its home, as a fraction of the frame's short edge. */
+    glowTravel: 0.22,
+    /** One slow brighten and dim of the glows, in seconds. */
+    glowBreathSeconds: 5,
+    /** How fast the edge dots rise, in design pixels per second. */
+    dotRisePerSecond: 42,
+  },
+  /**
    * Motion blur is off. The only native option (@remotion/motion-blur) renders every frame
    * several times and smears text in footage; nothing here moves fast enough to need it.
    */

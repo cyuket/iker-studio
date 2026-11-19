@@ -89,6 +89,11 @@ const ProductVisual = z.object({
   /** Name of the screenshot step to show when mode is `screenshot`. */
   screenshot: z.string().optional(),
   heading: z.string().optional(),
+  /**
+   * What the footage is shown in: a browser window, a generic phone (for 9:16 cuts and
+   * phone-sized recordings) or a generic landscape tablet (for 16:9 cuts).
+   */
+  device: z.enum(["browser", "iphone", "ipad"]).default("browser"),
   /** Callouts placed over the recording, timed in seconds from the start of the scene. */
   annotations: z
     .array(
@@ -920,6 +925,13 @@ export const CutSchema = z.object({
    * scene re-renders every scene.
    */
   showProgress: z.boolean().default(false),
+  /**
+   * `static` is the still canvas. `animated` lets the canvas drift slowly behind the scenes
+   * (glows, grid and edge dots), driven by time since the start of the cut so it flows across
+   * the hard joins. Like the progress bar, it ties each scene to its position in the cut:
+   * changing the length of one scene re-renders the scenes after it.
+   */
+  background: z.enum(["static", "animated"]).default("static"),
   /** Licensed music bed, relative to the repository's assets/music directory. Optional. */
   music: z
     .object({

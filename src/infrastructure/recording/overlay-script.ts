@@ -74,7 +74,8 @@ export function overlayPageScript(config: OverlayConfig): void {
   const ripple = root.querySelector(".ripple") as HTMLElement;
 
   const maskStyle = document.createElement("style");
-  maskStyle.textContent = `[${config.maskAttribute}] { filter: blur(14px) !important; }`;
+  // The Next.js dev tools badge only exists on a local dev server and is not product UI.
+  maskStyle.textContent = `[${config.maskAttribute}] { filter: blur(14px) !important; } nextjs-portal { display: none !important; }`;
 
   const state = readStoredState() ?? {
     x: window.innerWidth * 0.62,

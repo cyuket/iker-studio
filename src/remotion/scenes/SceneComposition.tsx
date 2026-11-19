@@ -44,7 +44,7 @@ function SceneLayers(props: SceneRenderProps): ReactNode {
   const { scene, captions, progress, disclosure, narration } = props;
   return (
     <AbsoluteFill>
-      <Background />
+      <Background backdrop={props.backdrop} />
       {/*
         Everything in this layer fades to the bare background before the scene's last frame,
         unless the scene holds its exit for the next one to continue from.

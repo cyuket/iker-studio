@@ -45,6 +45,7 @@ export interface CompiledScene {
   burnCaptions: boolean;
   disclosure: string | null;
   progress: { start: number; end: number } | null;
+  backdrop: { startFrame: number } | null;
 }
 
 export interface CompiledCut {
@@ -203,6 +204,7 @@ export async function compileCut(
         }
       : null;
     const disclosure = recording?.target === "synthetic" ? SYNTHETIC_DISCLOSURE : null;
+    const backdrop = cut.background === "animated" ? { startFrame: timing.startFrame } : null;
 
     compiled.push({
       scene,
@@ -214,6 +216,7 @@ export async function compileCut(
       burnCaptions,
       disclosure,
       progress,
+      backdrop,
       hash: hashOf({
         scene,
         // An empty set hashes like no set at all, so scenes without cues keep their identity.
@@ -226,6 +229,8 @@ export async function compileCut(
         cues: burnCaptions ? cues : null,
         recording: recording?.hash ?? null,
         progress,
+        // Absent for a still canvas, so scenes of existing videos keep their identity.
+        backdrop: backdrop ?? undefined,
         disclosure,
         reducedMotion: context.reducedMotion,
         resolutionScale: context.resolutionScale,
@@ -323,6 +328,7 @@ export async function buildSceneProps(
         )
       : null,
     progress: compiled.progress,
+    backdrop: compiled.backdrop,
     reducedMotion: context.reducedMotion,
     disclosure: compiled.disclosure,
   };

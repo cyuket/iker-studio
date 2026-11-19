@@ -4,6 +4,7 @@ import { handoffSeconds } from "../../domain/cues";
 import type { ResolvedRecording } from "../../domain/render-props";
 import type { ProductSceneVisual } from "../../domain/storyboard";
 import { browserBarHeight } from "../components/BrowserFrame";
+import { DeviceFrame } from "../components/DeviceFrame";
 import { FeatureHighlight, featureHighlightHeaderHeight } from "../components/FeatureHighlight";
 import { resolveMediaSource } from "../components/RecordingMedia";
 import { RecordingUnavailable } from "../components/RecordingUnavailable";
@@ -14,7 +15,8 @@ import { MOTION } from "../design/tokens";
 import { graphicMetrics } from "../graphics/GraphicLayout";
 import { MotionGraphic } from "../graphics/MotionGraphic";
 import { motionGraphicAnchor } from "../lib/anchors";
-import { layoutProduct, regionOnScreen } from "../lib/product-layout";
+import { DEVICE_VIEWPORT_ASPECT, layoutDevice, PRODUCT_CALLOUT } from "../lib/device-layout";
+import { layoutProduct, regionOnScreen, type ProductGeometry } from "../lib/product-layout";
 import { clipRegion, detailCrop, mapRegion, NO_ZOOM } from "../lib/recording";
 import { ScreenRecordingTransition } from "../product/ScreenRecordingTransition";
 import {
@@ -39,6 +41,8 @@ const DEFAULT_VIEWPORT_ASPECT = 1440 / 900;
  * the virtual camera moves inside the frame. In 9:16 the frame is fitted to the safe width
  * and stays on the full view, while the camera's view is repeated below at a size that is
  * readable on a phone. A scene may open on a motion graphic that hands over to the footage.
+ * With `device` set to a phone or tablet the footage is shown in that device instead, the
+ * camera moves inside its screen in both orientations and there is no detail panel.
  */
 export function ProductLayout({ visual, recording }: ProductLayoutProps): ReactNode {
   const tokens = useTokens();
@@ -54,23 +58,62 @@ export function ProductLayout({ visual, recording }: ProductLayoutProps): ReactN
   const aspect =
     viewport && viewport.width > 0 && viewport.height > 0
       ? viewport.width / viewport.height
-      : DEFAULT_VIEWPORT_ASPECT;
+      : visual.device === "browser"
+        ? DEFAULT_VIEWPORT_ASPECT
+        : DEVICE_VIEWPORT_ASPECT[visual.device];
   const available = recording !== null && resolveMediaSource(recording, visual.mode) !== null;
   const directed = visual.camera !== undefined;
   const moving = directed && visual.camera?.mode !== "static";
   const detailHeader = featureHighlightHeaderHeight(u);
-  const geometry = layoutProduct({
-    content,
-    portrait: isPortrait,
-    u,
-    heading: visual.heading,
-    hasCallout: directed && visual.annotations.length > 0,
-    aspect,
-    barHeight: browserBarHeight(layout),
-    wantsDetail: available && (visual.focus !== undefined || moving),
-    detailHeader,
-  });
-  const camera = useProductCamera(visual, recording, geometry.frame.width, isPortrait);
+  const hasCallout = directed && visual.annotations.length > 0;
+  const deviceLayout =
+    visual.device === "browser"
+      ? null
+      : layoutDevice({
+          content,
+          portrait: isPortrait,
+          u,
+          device: visual.device,
+          heading: visual.heading,
+          hasCallout,
+          aspect,
+        });
+  const geometry: ProductGeometry = deviceLayout
+    ? {
+        text: deviceLayout.text,
+        headingSize: deviceLayout.headingSize,
+        frame: deviceLayout.frame,
+        // Only the browser frame reads this; a device draws from its own geometry.
+        frameSize: {
+          width: deviceLayout.frame.width,
+          height: deviceLayout.frame.height,
+          barHeight: 0,
+          viewportHeight: deviceLayout.viewport.height,
+        },
+        viewport: deviceLayout.viewport,
+        detail: null,
+      }
+    : layoutProduct({
+        content,
+        portrait: isPortrait,
+        u,
+        heading: visual.heading,
+        hasCallout,
+        aspect,
+        barHeight: browserBarHeight(layout),
+        wantsDetail: available && (visual.focus !== undefined || moving),
+        detailHeader,
+      });
+  // A device's screen is the whole picture, so the camera moves inside it in both
+  // orientations; the browser frame in portrait stays on the full view instead.
+  const applyCamera = deviceLayout !== null || !isPortrait;
+  const camera = useProductCamera(
+    visual,
+    recording,
+    deviceLayout ? deviceLayout.viewport.width : geometry.frame.width,
+    deviceLayout ? false : isPortrait,
+  );
+  const stackedCallout = deviceLayout !== null && isPortrait;
 
   const notes = visual.annotations.flatMap((annotation) => {
     const presence = annotationPresence(annotationWindow(annotation, beats, fps), frame, fps);
@@ -138,6 +181,7 @@ export function ProductLayout({ visual, recording }: ProductLayoutProps): ReactN
             flexDirection: "column",
             justifyContent: "center",
             gap: tokens.space[6],
+            textAlign: stackedCallout ? "center" : undefined,
           }}
         >
           {visual.heading ? (
@@ -167,15 +211,23 @@ export function ProductLayout({ visual, recording }: ProductLayoutProps): ReactN
               </div>
             </Reveal>
           ) : null}
-          {directed && !isPortrait && visual.annotations.length > 0 ? (
+          {hasCallout && (!isPortrait || stackedCallout) ? (
             // What the viewer should notice, set as a sentence beside the footage rather
-            // than as a tag on top of it. The row keeps its height so nothing jumps.
-            <div style={{ minHeight: u(132), display: "flex", alignItems: "flex-start" }}>
+            // than as a tag on top of it (above a device in portrait, which has no detail
+            // panel to carry it). The row keeps its height so nothing jumps.
+            <div
+              style={{
+                minHeight: stackedCallout ? deviceLayout.calloutHeight : u(132),
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: stackedCallout ? "center" : undefined,
+              }}
+            >
               <div
                 style={{
                   ...tokens.type.bodyLg,
-                  fontSize: u(34),
-                  lineHeight: 1.28,
+                  fontSize: u(PRODUCT_CALLOUT.size),
+                  lineHeight: PRODUCT_CALLOUT.lineHeight,
                   color: tokens.colours.textSoft,
                   textWrap: "balance",
                   opacity: note?.presence ?? 0,
@@ -197,10 +249,19 @@ export function ProductLayout({ visual, recording }: ProductLayoutProps): ReactN
             recording={recording}
             size={geometry.frameSize}
             camera={camera}
-            applyCamera={!isPortrait}
+            applyCamera={applyCamera}
             outline={geometry.detail && crop && detailPresence > 0.5 ? crop : null}
             landing={landing}
+            device={deviceLayout?.device ?? null}
           />
+        ) : deviceLayout ? (
+          <DeviceFrame geometry={deviceLayout.device}>
+            <RecordingUnavailable
+              scenarioId={visual.scenarioId}
+              width={deviceLayout.viewport.width}
+              height={deviceLayout.viewport.height}
+            />
+          </DeviceFrame>
         ) : (
           <RecordingUnavailable
             scenarioId={visual.scenarioId}
@@ -243,7 +304,7 @@ export function ProductLayout({ visual, recording }: ProductLayoutProps): ReactN
   const bounds = motionGraphicAnchor(prelude.visual, undefined, anchorContext);
   // The landing place is where the region is on screen right now, camera included.
   const landed = landsOn
-    ? (clipRegion(mapRegion(landsOn, isPortrait ? NO_ZOOM : camera.zoom)) ?? FULL_FRAME)
+    ? (clipRegion(mapRegion(landsOn, applyCamera ? camera.zoom : NO_ZOOM)) ?? FULL_FRAME)
     : FULL_FRAME;
   const to = regionOnScreen(landed, geometry.viewport);
   return (

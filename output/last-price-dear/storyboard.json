@@ -1,0 +1,644 @@
+{
+  "schemaVersion": 1,
+  "videoId": "last-price-dear",
+  "version": 1,
+  "scriptHash": "e9f2599c744f87b90b0aaba8964a47f029df12726e9f32d07bc8408762fac793",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 120,
+        "max": 180
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "A message lands at ten at night. \"How much for bridal makeup?\" You reply: ₦45,000. Two minutes later: \"Last price, dear?\" Then someone else asks the same thing. By morning you have quoted three different prices, and you cannot remember who got which. So how do you stop haggling in your DMs without losing the client?",
+          "estimatedDurationSeconds": 23.3,
+          "visualInstructions": "A phone at night: an Instagram DM thread. \"How much for bridal makeup?\", the reply \"₦45,000\", then \"Last price, dear?\". A second and third thread with the same question. All names fictional.",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              {
+                "text": "What happens",
+                "role": "lead"
+              },
+              {
+                "text": "Why it matters",
+                "role": "key"
+              }
+            ],
+            "recede": true,
+            "settled": []
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "The situation",
+          "assets": []
+        },
+        {
+          "id": "gap",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Haggling starts because your price lives in your head, not where the client can see it. Every chat starts from zero, so the client tests the number. When you are tired, or a slot is empty, you drop it. The client who pushed hardest pays the least. The loyal one who never asked pays full price.",
+          "estimatedDurationSeconds": 23.3,
+          "visualInstructions": "The price as a thought bubble over the owner, not written anywhere. Three chats, three different numbers.",
+          "visual": {
+            "kind": "comparison",
+            "left": {
+              "title": "The usual way",
+              "points": [
+                "First point"
+              ],
+              "tone": "neutral"
+            },
+            "right": {
+              "title": "A better way",
+              "points": [
+                "First point"
+              ],
+              "tone": "neutral"
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Why it breaks",
+          "assets": []
+        },
+        {
+          "id": "how-it-works",
+          "type": "DIAGRAM",
+          "enabled": true,
+          "narration": "This fix works with or without software. Write down every service, its price and what it includes. Put that list where clients see it before they message you. And decide your discounts in advance, not in the middle of a chat. You still set every price. You just stop renegotiating it one DM at a time.",
+          "estimatedDurationSeconds": 23.3,
+          "visualInstructions": "Three steps: 1. Write every price down. 2. Show it before the chat. 3. Decide discounts in advance. The owner stays in charge of every number.",
+          "visual": {
+            "kind": "pipeline",
+            "object": {
+              "type": "transaction",
+              "label": "Payment"
+            },
+            "stages": [
+              {
+                "label": "First step",
+                "status": "verified"
+              },
+              {
+                "label": "Second step",
+                "status": "verified"
+              },
+              {
+                "label": "Third step",
+                "status": "verified"
+              }
+            ],
+            "settled": []
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "A better way",
+          "assets": []
+        },
+        {
+          "id": "product-intro",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "In Iker, that list is your Rate card. Each service has a name, a price, a duration, and what is included and what is not. The business on screen is made up, with demo data.",
+          "estimatedDurationSeconds": 14.9,
+          "visualInstructions": "Dashboard sidebar, \"Rate card\" highlighted, then the services list. Point at price, duration, included and excluded items. Demo data, labelled.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "device": "browser",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "In Iker",
+          "assets": []
+        },
+        {
+          "id": "booking",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Clients see it on your booking link, the page you put in your Instagram bio or WhatsApp status. Every service shows its price, and they can sort by price. Then they pick a time that is really open. The question changes from \"how much?\" to \"which slot?\"",
+          "estimatedDurationSeconds": 19.7,
+          "visualInstructions": "The public booking page on a phone: services with prices, then \"Sort by price\", then the slot picker with open times only.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking",
+            "mode": "video",
+            "device": "browser",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "On the booking",
+          "assets": []
+        },
+        {
+          "id": "payment",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "If you take a deposit, it is set on the service as a percentage of the price, so the client sees it while booking. They transfer straight to your account and upload proof of payment. Iker records it but never holds the money.",
+          "estimatedDurationSeconds": 18.1,
+          "visualInstructions": "The slot step's header with the deposit and total split, then the payment details and proof of payment upload.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "video",
+            "device": "browser",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Recording a payment",
+          "assets": []
+        },
+        {
+          "id": "confirm",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Discounts are still yours to give. Depending on your plan, Sales and discounts creates a promotion with its own link and a percentage off the services you choose. Only people with that link get the offer, and the discount is recorded in your books.",
+          "estimatedDurationSeconds": 18.5,
+          "visualInstructions": "Sales & discounts: a promotion with its own link and a percentage off chosen services. Caption: \"Depending on your plan\".",
+          "visual": {
+            "kind": "steps",
+            "heading": "What you decide",
+            "steps": [
+              {
+                "title": "First"
+              },
+              {
+                "title": "Second"
+              },
+              {
+                "title": "Third"
+              }
+            ]
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "You stay in charge",
+          "assets": []
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "So the next time someone writes \"last price, dear?\", you send your booking link. Everyone sees the same price and what it includes, and any discount is one you planned. You answer with a link, not a negotiation.",
+          "estimatedDurationSeconds": 16.1,
+          "visualInstructions": "Back to the DM: a new \"Last price, dear?\" and the reply is the booking link. No promises about bookings or income.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What changes for the business",
+            "points": [],
+            "tone": "neutral"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "What changes",
+          "assets": []
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Want the Iker team to set up your Rate card and booking link with you? Go to useiker.com and tap Get started. Get booked. Get paid.",
+          "estimatedDurationSeconds": 11.3,
+          "visualInstructions": "useiker.com and \"Get started\". Tagline.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    },
+    {
+      "id": "short-60",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 45,
+        "max": 60
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "s60-hook",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "You quote ₦45,000 for bridal makeup. The reply comes back: \"Last price, dear?\"",
+          "estimatedDurationSeconds": 6.1,
+          "visualInstructions": "DM thread on a phone: \"₦45,000\" then \"Last price, dear?\".",
+          "visual": {
+            "kind": "statement",
+            "headline": "The situation",
+            "points": [],
+            "tone": "neutral"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "s60-gap",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "It happens because your price lives in your head and in old chats. So every client tests the number, and your price changes with your mood.",
+          "estimatedDurationSeconds": 11.3,
+          "visualInstructions": "Three chats, three different prices.",
+          "visual": {
+            "kind": "statement",
+            "headline": "Why it breaks",
+            "points": [],
+            "tone": "neutral"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "s60-how",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Write your prices down, put them where clients see them first, and decide discounts in advance.",
+          "estimatedDurationSeconds": 7.3,
+          "visualInstructions": "Three short steps on screen: write it down, show it first, plan discounts.",
+          "visual": {
+            "kind": "pipeline",
+            "object": {
+              "type": "transaction",
+              "label": "Payment"
+            },
+            "stages": [
+              {
+                "label": "First step",
+                "status": "verified"
+              },
+              {
+                "label": "Second step",
+                "status": "verified"
+              }
+            ],
+            "settled": []
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "s60-demo",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "In Iker, that is your Rate card. Clients see each service and its price on your booking link, pick an open slot, and upload proof of their deposit. This business is made-up demo data.",
+          "estimatedDurationSeconds": 14.5,
+          "visualInstructions": "Rate card, then the booking link on a phone with prices and open slots, then proof of payment upload. Demo data, labelled.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "device": "browser",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "s60-outcome",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "Next time someone asks for last price, send the link.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "The DM reply is the booking link.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What changes",
+            "points": [],
+            "tone": "neutral"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "s60-cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get started at useiker.com.",
+          "estimatedDurationSeconds": 2.5,
+          "visualInstructions": "useiker.com, \"Get started\".",
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    },
+    {
+      "id": "teaser-30",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 20,
+        "max": 30
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "t30-hook",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "You quote ₦45,000. The reply: \"Last price, dear?\"",
+          "estimatedDurationSeconds": 4.1,
+          "visualInstructions": "DM thread: \"₦45,000\", then \"Last price, dear?\".",
+          "visual": {
+            "kind": "statement",
+            "headline": "The situation",
+            "points": [],
+            "tone": "neutral"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "t30-gap",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "When your price only lives in your chats, every client starts to haggle.",
+          "estimatedDurationSeconds": 6.1,
+          "visualInstructions": "The price as a thought bubble, three different numbers.",
+          "visual": {
+            "kind": "statement",
+            "headline": "Why it breaks",
+            "points": [],
+            "tone": "neutral"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "t30-how",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "With Iker, your Rate card puts every service and its price on your booking link, so clients see it before they message you. The business shown is made up.",
+          "estimatedDurationSeconds": 12.5,
+          "visualInstructions": "Booking link on a phone with every service and its price. Demo data, labelled.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "device": "browser",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "t30-cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "See how at useiker.com.",
+          "estimatedDurationSeconds": 2.5,
+          "visualInstructions": "useiker.com.",
+          "visual": {
+            "kind": "cta",
+            "headline": "See how it works",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    }
+  ]
+}

@@ -186,6 +186,29 @@ TikTok, Instagram, Facebook, X and LinkedIn.
 - Do not alter approved media to add a title frame without renewed QA and human final
   approval.
 
+## 8c. Owner corrections
+
+- 2026-11-15, on the booking-link social campaign: "the video and narrations is very slow and
+  boring I want you to add a trending background and speed up the narraition to an ad speed and
+  make the script jovial and engaging". For social ads this overrides the "calm, never
+  playful" defaults in sections 1 and 5: write short, punchy, upbeat lines (light
+  exclamations such as "Ding!", "Boom.", "Easy." are fine), narrate at speed 1.15
+  (`pnpm studio narrate --speed 1.15`; he later asked for paces up to 2.0 to be allowed, and
+  anything above 1.2 is a pitch-preserving FFmpeg stretch of the ElevenLabs clip, since the
+  API stops at 1.2), and turn on `"background": "animated"` for each cut.
+  He chose an animated visual background over a music bed. Facts, Naira formatting, no
+  invented claims and no promised outcomes still apply unchanged. Whether this also applies to
+  longer tutorials is not settled (interpretation: ask before applying it there).
+
+- 2026-11-15, later the same day, superseding most of the entry above: "i want it include demo
+  from the app too and the backgroud is not nice and the narraction now is fast i wan t natural
+  talking and explaining voice for the demo reels should show the demo app in an iphone frame
+  while in the linkedln/ facebook it can be ipad frame". So: product videos show real app
+  footage (local slot-books demo data), in an iPhone frame for 9:16 reels and an iPad frame for
+  16:9 LinkedIn/Facebook cuts; the animated background is off (he chose the original still
+  canvas); narration is back at normal speed (1.0) and the wording is a calm, warm explainer
+  with no "Ding!"/"Boom." style exclamations.
+
 ## 9. How to report to the owner
 
 - Lead with what is ready and where the file is. Open the file when there is something to

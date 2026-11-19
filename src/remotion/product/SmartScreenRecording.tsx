@@ -4,12 +4,14 @@ import type { ResolvedRecording } from "../../domain/render-props";
 import type { ProductSceneVisual, Region } from "../../domain/storyboard";
 import { Annotation } from "../components/Annotation";
 import { CursorAnimation } from "../components/CursorAnimation";
+import { DeviceFrame } from "../components/DeviceFrame";
 import { RecordingMedia, resolveMediaSource } from "../components/RecordingMedia";
 import { SpotlightOverlay } from "../components/SpotlightOverlay";
 import type { Rect } from "../design/layout";
 import { durationFrames } from "../design/motion";
 import { useLayout, useSceneEnvironment, useTokens } from "../design/SceneContext";
 import { MOTION } from "../design/tokens";
+import type { DeviceGeometry } from "../lib/device-layout";
 import type { BrowserFrameSize } from "../lib/product-layout";
 import { clipRegion, mapRegion, NO_ZOOM } from "../lib/recording";
 import { CameraRig } from "./CameraRig";
@@ -58,6 +60,8 @@ export interface SmartScreenRecordingProps {
   outline: Region | null;
   /** Where a prelude has just landed, ringed briefly so the eye arrives with it. */
   landing: { region: Region; progress: number } | null;
+  /** Show the footage in a phone or tablet instead of the browser frame; `size` is then unused. */
+  device?: DeviceGeometry | null | undefined;
 }
 
 /**
@@ -73,12 +77,15 @@ export function SmartScreenRecording({
   applyCamera,
   outline,
   landing,
+  device = null,
 }: SmartScreenRecordingProps): ReactNode {
   const tokens = useTokens();
   const { u } = useLayout();
   const { fps, beats, reducedMotion } = useSceneEnvironment();
   const frame = useCurrentFrame();
-  const bounds = { width: size.width, height: size.viewportHeight };
+  const bounds = device
+    ? { width: device.screen.width, height: device.screen.height }
+    : { width: size.width, height: size.viewportHeight };
   const zoom = applyCamera ? camera.zoom : NO_ZOOM;
   const source = resolveMediaSource(recording, visual.mode);
   // A recorded video carries the recorder's own cursor; drawing a second one would double it.
@@ -101,8 +108,8 @@ export function SmartScreenRecording({
   });
   const outlineRect = outline ? toPixels(outline) : null;
 
-  return (
-    <CinematicProductFrame size={size} displayUrl={recording.displayUrl}>
+  const footage = (
+    <>
       <CameraRig zoom={zoom}>
         <RecordingMedia
           recording={recording}
@@ -180,6 +187,13 @@ export function SmartScreenRecording({
           opacity={1}
         />
       ) : null}
+    </>
+  );
+  return device ? (
+    <DeviceFrame geometry={device}>{footage}</DeviceFrame>
+  ) : (
+    <CinematicProductFrame size={size} displayUrl={recording.displayUrl}>
+      {footage}
     </CinematicProductFrame>
   );
 }

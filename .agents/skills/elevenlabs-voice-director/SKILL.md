@@ -203,3 +203,11 @@ pnpm studio costs --video <id>
 
 Do not run `pnpm studio cache clean --narration --yes` unless the human asks: regenerating
 that cache costs credits.
+
+## Pace
+
+`pnpm studio narrate --video <id> --speed <0.7-2>` sets the video's pace and regenerates every
+clip. ElevenLabs accepts 0.7 to 1.2; a pace above 1.2 is sent as 1.2 and the returned clip is
+time-stretched with FFmpeg `atempo` (pitch preserved), with its word timings compressed to
+match (`src/infrastructure/voice/tempo.ts`). A large stretch can sound rushed or
+artificial: listen before approving. A selected preset carries its own pace and overrides this.

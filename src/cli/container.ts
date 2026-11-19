@@ -31,6 +31,7 @@ import {
 } from "../infrastructure/render/remotion-renderer";
 import { createR2ObjectStore } from "../infrastructure/storage/r2-object-store";
 import { createElevenLabsSynthesizer } from "../infrastructure/voice/elevenlabs";
+import { ffmpegTempoStretch, withTimeStretch } from "../infrastructure/voice/tempo";
 import { createSilentSynthesizer, createSystemSynthesizer } from "../infrastructure/voice/offline";
 import { SCENARIOS, findScenario } from "../scenarios";
 
@@ -91,14 +92,18 @@ export function createContainer(
     if (!instance) {
       if (provider === "elevenlabs") {
         const eleven = config.elevenLabs();
-        instance = createElevenLabsSynthesizer({
-          apiKey: eleven.apiKey,
-          defaultVoiceId: eleven.voiceId,
-          defaultModelId: eleven.modelId,
-          ...(eleven.outputFormat === undefined ? {} : { outputFormat: eleven.outputFormat }),
-          dictionaryCacheFile: path.join(layout.cacheDir, "elevenlabs-dictionaries.json"),
-          logger,
-        });
+        // Paces above what the API accepts are finished with a pitch-preserving stretch.
+        instance = withTimeStretch(
+          createElevenLabsSynthesizer({
+            apiKey: eleven.apiKey,
+            defaultVoiceId: eleven.voiceId,
+            defaultModelId: eleven.modelId,
+            ...(eleven.outputFormat === undefined ? {} : { outputFormat: eleven.outputFormat }),
+            dictionaryCacheFile: path.join(layout.cacheDir, "elevenlabs-dictionaries.json"),
+            logger,
+          }),
+          ffmpegTempoStretch(),
+        );
       } else {
         instance =
           provider === "system" ? createSystemSynthesizer(media) : createSilentSynthesizer(media);
