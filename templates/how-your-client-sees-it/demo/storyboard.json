@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 60, "max": 150 },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "A long chat to agree a time", "role": "lead" },
+              { "text": "Your account number sent by DM", "role": "support" },
+              { "text": "A transfer screenshot to find later", "role": "key" }
+            ]
+          },
+          "chapterTitle": "The situation"
+        },
+        {
+          "id": "booking-link",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-public-booking-page",
+            "mode": "screenshot",
+            "screenshot": "booking-page",
+            "showCursor": false,
+            "heading": "Your booking link"
+          },
+          "chapterTitle": "The booking link"
+        },
+        {
+          "id": "choose-time",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "device": "ipad",
+            "heading": "Only open times"
+          },
+          "chapterTitle": "Choosing a time"
+        },
+        {
+          "id": "policy",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Your Refund Policy, before they pay",
+            "points": [
+              { "title": "They read it", "detail": "Before the payment step" },
+              { "title": "They tick to accept", "detail": "Required to continue" },
+              { "title": "The booking keeps a copy", "detail": "The exact text they agreed to" }
+            ],
+            "tone": "primary"
+          },
+          "chapterTitle": "The Refund Policy"
+        },
+        {
+          "id": "pay-proof",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "mode": "screenshot",
+            "screenshot": "pay-step-tablet",
+            "showCursor": false,
+            "device": "ipad",
+            "heading": "Pay by transfer, then upload proof"
+          },
+          "chapterTitle": "Paying the deposit"
+        },
+        {
+          "id": "chapter-owner",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "chapter",
+            "title": "What you see"
+          }
+        },
+        {
+          "id": "owner-confirm",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-confirm-booking-tablet",
+            "device": "ipad",
+            "heading": "Awaiting confirmation"
+          },
+          "chapterTitle": "What you see"
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Every booking arrives complete",
+            "points": [
+              { "title": "Proof of payment", "detail": "On the booking" },
+              { "title": "The policy they accepted", "detail": "Kept with the booking" },
+              { "title": "You confirm", "detail": "Then it counts as income" }
+            ],
+            "tone": "positive"
+          },
+          "chapterTitle": "What changes"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Set up your booking link",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "outro",
+            "tagline": "Get booked. Get paid."
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 30, "max": 60 },
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Your account number, in another DM",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "short-client",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-phone",
+            "device": "iphone",
+            "heading": "What your client sees"
+          }
+        },
+        {
+          "id": "short-owner",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-confirm-booking-phone",
+            "device": "iphone",
+            "heading": "What you see"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

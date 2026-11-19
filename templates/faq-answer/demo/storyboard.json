@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 30, "max": 60 },
+      "scenes": [
+        {
+          "id": "short-question",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Client uploaded proof. Now what?",
+            "body": "The deposit is sent and the proof is uploaded."
+          }
+        },
+        {
+          "id": "short-answer",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "The booking waits for you",
+            "body": "Nothing counts as income until you confirm it.",
+            "tone": "primary"
+          }
+        },
+        {
+          "id": "short-detail",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Waiting for your confirmation"
+          }
+        },
+        {
+          "id": "short-next",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Check the booking, not the chat",
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 60, "max": 120 },
+      "scenes": [
+        {
+          "id": "question",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "What happens when a client uploads proof of payment?",
+            "body": "She has sent the deposit and says she has paid."
+          },
+          "chapterTitle": "The question"
+        },
+        {
+          "id": "answer",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "The booking waits for you",
+            "points": [
+              { "title": "Not income yet", "detail": "Nothing counts until you confirm it" },
+              { "title": "You check", "detail": "Iker does not check the transfer" },
+              { "title": "Your account", "detail": "The money goes straight to you" }
+            ],
+            "tone": "primary"
+          },
+          "chapterTitle": "The short answer"
+        },
+        {
+          "id": "detail",
+          "type": "DIAGRAM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "decision",
+            "heading": "You make the call",
+            "signals": [
+              { "id": "proof", "label": "Proof of payment", "detail": "Attached to the booking" },
+              { "id": "account", "label": "Your bank account", "detail": "Is the money there?" }
+            ],
+            "rule": { "label": "You check", "detail": "Iker does not verify transfers" },
+            "outcomes": [
+              { "id": "confirm", "label": "Confirm booking", "status": "verified" },
+              { "id": "reject", "label": "Reject payment", "status": "declined" }
+            ]
+          },
+          "chapterTitle": "How it works"
+        },
+        {
+          "id": "in-iker",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Your dashboard"
+          },
+          "chapterTitle": "In Iker"
+        },
+        {
+          "id": "on-the-booking",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Paid so far and Balance remaining"
+          },
+          "chapterTitle": "On the booking"
+        },
+        {
+          "id": "next-step",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "When a client says she has paid",
+            "steps": [
+              { "title": "Check your account", "detail": "Is the transfer there?" },
+              { "title": "Open the booking", "detail": "The proof of payment is on it" },
+              { "title": "Confirm or reject", "detail": "Confirm booking or Reject payment" }
+            ]
+          },
+          "chapterTitle": "What to do next"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Keep every deposit on its booking",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "outro",
+            "tagline": "Get booked. Get paid."
+          }
+        }
+      ]
+    }
+  ]
+}

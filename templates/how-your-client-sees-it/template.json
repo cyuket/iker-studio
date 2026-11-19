@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "id": "how-your-client-sees-it",
+  "name": "How Your Client Sees It",
+  "description": "Walks through Iker from the client's side: the booking link, choosing a service and an open time, the Refund Policy they accept, the deposit they pay outside the app with proof of payment, then what the owner sees and confirms. Includes a vertical cut.",
+  "contentTypes": ["PRODUCT_DEMO", "PRODUCT_TUTORIAL"],
+  "thumbnailVariants": ["product", "split", "statement"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 60,
+        "max": 150
+      },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "title": "The situation",
+          "guidance": "How a booking happens without the link: a long chat, an account number sent by DM, a transfer screenshot to find later. Then promise to show the client's side of the link.",
+          "chapterTitle": "The situation",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "What the client has to do today", "role": "lead" },
+              { "text": "What it costs the owner", "role": "key" }
+            ]
+          }
+        },
+        {
+          "id": "booking-link",
+          "type": "DEMO",
+          "title": "The booking link",
+          "guidance": "The public booking page the client opens from the link: no app, no account, the services with name, price and duration. Say the footage uses made-up data.",
+          "chapterTitle": "The booking link",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-public-booking-page",
+            "mode": "screenshot",
+            "screenshot": "booking-page",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "choose-time",
+          "type": "DEMO",
+          "title": "Choosing a service and a time",
+          "guidance": "The client adds a service, picks a day and one of the open times, and enters their details. Only shipped steps, named as the page names them.",
+          "chapterTitle": "Choosing a time",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "device": "ipad"
+          }
+        },
+        {
+          "id": "policy",
+          "type": "EXPLANATION",
+          "title": "The Refund Policy",
+          "guidance": "The client reads and accepts the business's Refund Policy before the payment step, and the booking keeps a copy. Policies depend on the plan: say so.",
+          "chapterTitle": "The Refund Policy",
+          "visual": {
+            "kind": "statement",
+            "headline": "The policy comes before the payment"
+          }
+        },
+        {
+          "id": "pay-proof",
+          "type": "DEMO",
+          "title": "Paying and uploading proof",
+          "guidance": "The deposit and the business's bank details, the transfer made outside the app to the business's own account, and the proof of payment upload. Iker records the payment; it never takes or holds the money.",
+          "chapterTitle": "Paying the deposit",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "mode": "screenshot",
+            "screenshot": "pay-step-tablet",
+            "showCursor": false,
+            "device": "ipad"
+          }
+        },
+        {
+          "id": "chapter-owner",
+          "type": "EXPLANATION",
+          "title": "Chapter card",
+          "guidance": "Leave empty: this is a silent chapter card that switches to the owner's side.",
+          "visual": {
+            "kind": "chapter",
+            "title": "What you see"
+          }
+        },
+        {
+          "id": "owner-confirm",
+          "type": "DEMO",
+          "title": "What the owner sees",
+          "guidance": "The booking under Awaiting confirmation, the proof on the booking, the owner checking their own account, then Confirm booking or Reject payment.",
+          "chapterTitle": "What you see",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-confirm-booking-tablet",
+            "device": "ipad"
+          }
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "title": "What changes",
+          "guidance": "Answer the hook: what the owner now has, on the booking. No promised outcomes, no numbers the research does not support.",
+          "chapterTitle": "What changes",
+          "visual": {
+            "kind": "statement",
+            "headline": "What the owner has now"
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One next step, using the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "title": "Outro",
+          "guidance": "Leave empty: brand outro without narration.",
+          "visual": {
+            "kind": "outro"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 30,
+        "max": 60
+      },
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "The chat-and-screenshot problem in one or two sentences.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The problem in one line"
+          }
+        },
+        {
+          "id": "short-client",
+          "type": "DEMO",
+          "title": "The client's side",
+          "guidance": "The client books from the link and reaches the payment step. Say it is made-up data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-phone",
+            "device": "iphone"
+          }
+        },
+        {
+          "id": "short-owner",
+          "type": "DEMO",
+          "title": "The owner's side",
+          "guidance": "Awaiting confirmation, then Confirm booking once the owner has checked their account.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-confirm-booking-phone",
+            "device": "iphone"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to start.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

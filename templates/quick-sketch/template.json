@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "id": "quick-sketch",
+  "name": "Quick Sketch",
+  "description": "A 15 to 30 second vertical micro-sketch told with characters: one concrete moment an owner knows too well, a beat of reaction, the one Iker thing that handles it, and the call to action. Motion graphics first; a product screenshot scene is optional. Includes a YouTube Shorts cut and a social portrait cut.",
+  "contentTypes": ["YOUTUBE_SHORT", "BUSINESS_EDUCATION", "PRODUCT_DEMO"],
+  "thumbnailVariants": ["statement", "split", "product"],
+  "cuts": [
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 15,
+        "max": 30
+      },
+      "scenes": [
+        {
+          "id": "qs-moment",
+          "type": "PROBLEM",
+          "title": "The moment",
+          "guidance": "One concrete moment from a service business, as it happens: a client says they sent the money with no proof, a walk-in nobody wrote down. Fictional names, no statistics, no fear.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              { "id": "owner", "name": "Owner", "pose": "hold-phone" },
+              { "id": "client", "name": "Client", "pose": "idle" }
+            ],
+            "actions": [{ "who": "client", "say": "What the client says" }]
+          }
+        },
+        {
+          "id": "qs-reaction",
+          "type": "EXPLANATION",
+          "title": "The reaction",
+          "guidance": "A beat of reaction: what the owner now has to do or work out. One short sentence or two.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [{ "id": "owner", "name": "Owner", "pose": "think", "expression": "worried" }],
+            "actions": [{ "who": "owner", "think": "What the owner is wondering" }]
+          }
+        },
+        {
+          "id": "qs-fix",
+          "type": "EXPLANATION",
+          "title": "The Iker answer",
+          "guidance": "The one thing in Iker that handles this moment, named with the product's own labels. Iker records and tracks; the owner confirms. Swap in a product screenshot here if a real screen says it better, and say it is made-up data.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              { "id": "client", "name": "Client" },
+              { "id": "owner", "name": "Owner", "pose": "hold-phone" }
+            ],
+            "actions": [{ "who": "owner", "expression": "happy", "status": "verified" }]
+          }
+        },
+        {
+          "id": "qs-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One line, the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "format": "social-portrait",
+      "targetSeconds": {
+        "min": 15,
+        "max": 30
+      },
+      "scenes": [
+        {
+          "id": "sp-moment",
+          "type": "PROBLEM",
+          "title": "The moment",
+          "guidance": "The same moment, told for a feed: the line the client says, then what is missing.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              { "id": "owner", "name": "Owner", "pose": "hold-phone" },
+              { "id": "client", "name": "Client", "pose": "idle" }
+            ],
+            "actions": [{ "who": "client", "say": "What the client says" }]
+          }
+        },
+        {
+          "id": "sp-reaction",
+          "type": "EXPLANATION",
+          "title": "The reaction",
+          "guidance": "The owner's reaction as a few short lines, ending on the question the video answers.",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "What happened", "role": "lead" },
+              { "text": "The question it leaves", "role": "key" }
+            ]
+          }
+        },
+        {
+          "id": "sp-fix",
+          "type": "EXPLANATION",
+          "title": "The Iker answer",
+          "guidance": "The one Iker thing that handles it, with the product's own labels. Optional: a product screenshot instead, said to be made-up data.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              { "id": "client", "name": "Client" },
+              { "id": "owner", "name": "Owner", "pose": "hold-phone" }
+            ],
+            "actions": [{ "who": "owner", "expression": "happy", "status": "verified" }]
+          }
+        },
+        {
+          "id": "sp-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One line, the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

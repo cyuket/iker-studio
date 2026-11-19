@@ -2,6 +2,12 @@
 
 Append-only, newest first. UTC timestamps.
 
+## 2026-11-19T22:56Z · Claude Code
+
+- **What:** Added six templates, each with a finished `demo/` (script, research, storyboard): `quick-sketch`, `myth-vs-fact`, `faq-answer`, `monthly-money-check-in`, `day-in-the-life`, `how-your-client-sees-it`. Updated the template tables in `README.md` and `docs/IDEATION-AGENT-PROMPT.md`, and the integration test that lists and counts templates.
+- **Why:** The owner asked for these six template ids to be accepted by `create --template` and `templates validate`.
+- **Decisions:** Only existing content types are used; none were added. Demo claims cite pf-NNN facts from `knowledge/product-facts.md`. Product scenes use `synthetic-*` scenarios or the unverified `iker-*` / `iker-amaka-*` scenarios, so recordings stay blocked until those are verified. `templates validate` (9 ok), `pnpm validate` and `tests/integration/cli.test.ts` passed. No commit.
+
 ## 2026-11-15T00:00Z · Claude Code
 
 - **What:** Rewrote the studio's documentation, agent instructions and Claude Code skills for Iker. `README.md`, `CLAUDE.md`, `AGENTS.md`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE.md`, `brand/README.md` and every file in `docs/` now describe Iker's studio: booking and payment examples in place of identity-verification ones, `IKER_*` environment variables, `useiker.com` and all subdomains refused, recording against a local slot-books copy (`http://localhost:3000`) or a staging host (`staging.iker.example` in examples), templates `product-tutorial`, `feature-announcement` and `business-explainer`. Renamed the skills `toden-house-style` to `iker-house-style` and `toden-social-publishing` to `iker-social-publishing`, rewrote every non-Remotion skill, and made `.agents/skills/` an exact copy of `.claude/skills/` (four `.agents` copies had been older versions). `.env.example` drops the Sandbox opt-in and workspace variables. `PLAN.md` is reset to Iker's phases and blockers.

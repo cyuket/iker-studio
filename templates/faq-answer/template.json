@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "faq-answer",
+  "name": "FAQ Answer",
+  "description": "Answers one real question an owner or prospect asks about Iker: the question on screen, the short answer, the detail, what to do next and the call to action. The vertical Short is the primary cut, with a longer landscape cut.",
+  "contentTypes": ["PRODUCT_TUTORIAL", "BUSINESS_EDUCATION", "YOUTUBE_SHORT"],
+  "thumbnailVariants": ["statement", "split", "product"],
+  "cuts": [
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 30,
+        "max": 60
+      },
+      "scenes": [
+        {
+          "id": "short-question",
+          "type": "PROBLEM",
+          "title": "The question",
+          "guidance": "The question as an owner or prospect really asks it, set in the moment they ask it. Put the question itself on screen.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The question, in the viewer's words"
+          }
+        },
+        {
+          "id": "short-answer",
+          "type": "EXPLANATION",
+          "title": "The short answer",
+          "guidance": "The answer in one or two sentences, backed by a fact. If the honest answer is \"no\" or \"not yet\", say so.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The answer in one line"
+          }
+        },
+        {
+          "id": "short-detail",
+          "type": "DEMO",
+          "title": "The detail",
+          "guidance": "The one screen or detail that shows the answer is true. Name labels exactly as Iker shows them, and say when the data is made up.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "short-next",
+          "type": "OUTCOME",
+          "title": "What to do next",
+          "guidance": "What the viewer does with the answer, in one line. No promised outcome.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What to do next"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to start, using the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 60,
+        "max": 120
+      },
+      "scenes": [
+        {
+          "id": "question",
+          "type": "PROBLEM",
+          "title": "The question",
+          "guidance": "The question as it is really asked, with the everyday situation that makes someone ask it. Put the question on screen.",
+          "chapterTitle": "The question",
+          "visual": {
+            "kind": "statement",
+            "headline": "The question, in the viewer's words"
+          }
+        },
+        {
+          "id": "answer",
+          "type": "EXPLANATION",
+          "title": "The short answer",
+          "guidance": "The answer in two or three sentences, before any detail, so a viewer who stops here still has it. Include the limit if there is one.",
+          "chapterTitle": "The short answer",
+          "visual": {
+            "kind": "statement",
+            "headline": "The answer in one line"
+          }
+        },
+        {
+          "id": "detail",
+          "type": "DIAGRAM",
+          "title": "The detail",
+          "guidance": "How it works, as a decision or a short sequence. Say what stays in the owner's hands.",
+          "chapterTitle": "How it works",
+          "visual": {
+            "kind": "pipeline",
+            "object": { "type": "transaction", "label": "Payment" },
+            "stages": [
+              { "label": "First step" },
+              { "label": "Second step" },
+              { "label": "Third step" }
+            ]
+          }
+        },
+        {
+          "id": "in-iker",
+          "type": "DEMO",
+          "title": "Where to find it",
+          "guidance": "The screen in Iker where the answer lives, named as the product names it. Say the footage uses made-up data.",
+          "chapterTitle": "In Iker",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "on-the-booking",
+          "type": "DEMO",
+          "title": "A closer look",
+          "guidance": "Optional second screen: the record the answer is about. Only show states the product really has.",
+          "chapterTitle": "On the booking",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "next-step",
+          "type": "OUTCOME",
+          "title": "What to do next",
+          "guidance": "Two to four things the viewer does with the answer, in order. No promised outcome.",
+          "chapterTitle": "What to do next",
+          "visual": {
+            "kind": "steps",
+            "heading": "What to do next",
+            "steps": [{ "title": "First" }, { "title": "Second" }, { "title": "Third" }]
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One next step, using the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "title": "Outro",
+          "guidance": "Leave empty: brand outro without narration.",
+          "visual": {
+            "kind": "outro"
+          }
+        }
+      ]
+    }
+  ]
+}

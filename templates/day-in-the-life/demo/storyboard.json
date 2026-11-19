@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 90, "max": 180 },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "kemi",
+                "name": "Kemi (fictional)",
+                "seed": "kemi",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "hold-phone",
+                "expression": "curious"
+              }
+            ],
+            "actions": [
+              { "who": "kemi", "expression": "worried", "think": "Who has paid? Who still owes?" }
+            ]
+          },
+          "chapterTitle": "Meet the owner"
+        },
+        {
+          "id": "the-day",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "timeline",
+            "heading": "Kemi's day",
+            "events": [
+              { "label": "Bookings from her link", "time": "Morning" },
+              { "label": "A walk-in", "time": "Before lunch" },
+              { "label": "A deposit by transfer", "time": "Afternoon", "tone": "primary" },
+              { "label": "The rest is paid", "time": "Evening" },
+              { "label": "Balances checked", "time": "Closing time", "tone": "positive" }
+            ]
+          },
+          "chapterTitle": "The day ahead"
+        },
+        {
+          "id": "morning",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Awaiting confirmation"
+          },
+          "chapterTitle": "Morning"
+        },
+        {
+          "id": "walk-in",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking",
+            "heading": "Add walk-in"
+          },
+          "chapterTitle": "A walk-in"
+        },
+        {
+          "id": "deposit",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "heading": "Paid outside the app, proof on the booking",
+            "cast": [
+              {
+                "id": "bisi",
+                "name": "Bisi (fictional client)",
+                "seed": "bisi",
+                "skin": "brown",
+                "hair": "long",
+                "hairColour": "brown",
+                "outfit": "blue",
+                "pose": "hold-phone",
+                "expression": "happy"
+              },
+              {
+                "id": "kemi",
+                "name": "Kemi (fictional)",
+                "seed": "kemi",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "idle",
+                "expression": "neutral"
+              }
+            ],
+            "props": [
+              {
+                "kind": "tiles",
+                "id": "proof",
+                "items": [{ "icon": "phone", "label": "Proof of payment" }],
+                "with": "kemi"
+              }
+            ],
+            "actions": [
+              { "who": "bisi", "say": "Deposit sent to your account" },
+              { "who": "kemi", "expression": "curious", "think": "The proof is on the booking" }
+            ],
+            "sends": [
+              { "object": "money", "from": "bisi", "to": "kemi", "label": "₦15,000 by transfer" }
+            ]
+          },
+          "chapterTitle": "A deposit"
+        },
+        {
+          "id": "confirm",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "Kemi decides",
+            "steps": [
+              { "title": "Check the proof", "detail": "Against her own bank app" },
+              { "title": "Confirm booking", "detail": "Or Reject payment" },
+              { "title": "Counted as income", "detail": "Only once she confirms" }
+            ]
+          },
+          "chapterTitle": "Confirming it"
+        },
+        {
+          "id": "balance",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "heading": "Record a payment"
+          },
+          "chapterTitle": "The balance"
+        },
+        {
+          "id": "end-of-day",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "story",
+            "mode": "outcome",
+            "lines": [
+              {
+                "text": "Each booking shows its own balance",
+                "role": "lead",
+                "status": "verified"
+              },
+              {
+                "text": "Monthly report from confirmed payments",
+                "role": "support",
+                "status": "verified"
+              },
+              { "text": "Following up is still her call", "role": "support", "status": "pending" },
+              { "text": "No commission on her deposits", "role": "key", "status": "verified" }
+            ],
+            "recede": false
+          },
+          "chapterTitle": "End of the day"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "format": "social-portrait",
+      "targetSeconds": { "min": 30, "max": 60 },
+      "scenes": [
+        {
+          "id": "social-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "kemi",
+                "name": "Kemi (fictional)",
+                "seed": "kemi",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "hold-phone",
+                "expression": "curious"
+              }
+            ],
+            "actions": [{ "who": "kemi", "think": "Who has paid? Who still owes?" }]
+          }
+        },
+        {
+          "id": "social-day",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "timeline",
+            "events": [
+              { "label": "Add walk-in", "time": "Before lunch" },
+              { "label": "Deposit by transfer", "time": "Afternoon", "tone": "primary" },
+              { "label": "Proof of payment uploaded", "time": "Afternoon" }
+            ]
+          }
+        },
+        {
+          "id": "social-demo",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Paid so far. Balance remaining."
+          }
+        },
+        {
+          "id": "social-outcome",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Every balance on its booking",
+            "body": "Not buried in the chats.",
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "social-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

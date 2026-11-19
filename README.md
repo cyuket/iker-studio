@@ -553,17 +553,23 @@ A template (`templates/<id>/template.json`) defines the cuts a kind of video pro
 scenes in each cut, guidance for the writer and a starting visual for each scene. Each template
 ships a finished `demo/` (script, research and storyboard) that `create --demo` copies.
 
-| Template               | Content types                                                 | Cuts                                                                                  |
-| ---------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `product-tutorial`     | `PRODUCT_TUTORIAL`, `PRODUCT_DEMO`, `YOUTUBE_SHORT`           | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
-| `feature-announcement` | `FEATURE_ANNOUNCEMENT`, `RELEASE_UPDATE`, `PRODUCT_DEMO`      | `full` (youtube-landscape), `social` (social-portrait)                                |
-| `business-explainer`   | `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `PRODUCT_DEMO` | `full` (youtube-landscape), `short-60` (youtube-shorts), `teaser-30` (youtube-shorts) |
+| Template                  | Content types                                                  | Cuts                                                                                  |
+| ------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `product-tutorial`        | `PRODUCT_TUTORIAL`, `PRODUCT_DEMO`, `YOUTUBE_SHORT`            | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
+| `feature-announcement`    | `FEATURE_ANNOUNCEMENT`, `RELEASE_UPDATE`, `PRODUCT_DEMO`       | `full` (youtube-landscape), `social` (social-portrait)                                |
+| `business-explainer`      | `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `PRODUCT_DEMO`  | `full` (youtube-landscape), `short-60` (youtube-shorts), `teaser-30` (youtube-shorts) |
+| `myth-vs-fact`            | `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `YOUTUBE_SHORT` | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
+| `faq-answer`              | `PRODUCT_TUTORIAL`, `BUSINESS_EDUCATION`, `YOUTUBE_SHORT`      | `short` (youtube-shorts), `full` (youtube-landscape)                                  |
+| `quick-sketch`            | `YOUTUBE_SHORT`, `BUSINESS_EDUCATION`, `PRODUCT_DEMO`          | `short` (youtube-shorts), `social` (social-portrait)                                  |
+| `monthly-money-check-in`  | `BOOKKEEPING_EDUCATION`, `BUSINESS_EDUCATION`                  | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
+| `day-in-the-life`         | `BUSINESS_EDUCATION`, `PRODUCT_DEMO`                           | `full` (youtube-landscape), `social` (social-portrait)                                |
+| `how-your-client-sees-it` | `PRODUCT_DEMO`, `PRODUCT_TUTORIAL`                             | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
 
 Content types accepted by `create --type`: `PRODUCT_DEMO`, `PRODUCT_TUTORIAL`,
 `FEATURE_ANNOUNCEMENT`, `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `YOUTUBE_SHORT`,
 `RELEASE_UPDATE`.
 
-Every product scene in the shipped templates points at a `synthetic-*` scenario
+Most product scenes in the shipped templates point at a `synthetic-*` scenario
 (`synthetic-smoke`, `synthetic-new-booking`, `synthetic-record-payment`). These play the
 bundled, clearly labelled "Demo Console" fixture for a booking business, served from this
 machine. Run

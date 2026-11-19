@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "id": "day-in-the-life",
+  "name": "Day in the Life",
+  "description": "Follows one clearly fictional business owner through a working day: morning bookings, a walk-in, a client's deposit paid by transfer with proof of payment, confirming it, and the balance at the end of the day. Mixes a day timeline, character scenes and product footage. Includes a vertical social cut.",
+  "contentTypes": ["BUSINESS_EDUCATION", "PRODUCT_DEMO"],
+  "thumbnailVariants": ["split", "statement", "product"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 90,
+        "max": 180
+      },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "title": "Meet the owner",
+          "guidance": "Introduce one fictional owner and say plainly that they are made up. Open on a concrete moment from their morning and the question the day answers. No statistics.",
+          "chapterTitle": "Meet the owner",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [{ "id": "owner", "name": "Owner (fictional)", "pose": "hold-phone" }]
+          }
+        },
+        {
+          "id": "the-day",
+          "type": "EXPLANATION",
+          "title": "The day ahead",
+          "guidance": "Lay out the day the video follows, as times of day. Each event becomes a scene.",
+          "chapterTitle": "The day ahead",
+          "visual": {
+            "kind": "timeline",
+            "events": [
+              { "label": "First event", "time": "Morning" },
+              { "label": "Second event", "time": "Afternoon" },
+              { "label": "Third event", "time": "Evening" }
+            ]
+          }
+        },
+        {
+          "id": "morning",
+          "type": "DEMO",
+          "title": "Morning bookings",
+          "guidance": "Where the owner starts the day in Iker, named as the product names it. Say the footage uses made-up data.",
+          "chapterTitle": "Morning",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-smoke",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "walk-in",
+          "type": "DEMO",
+          "title": "A walk-in",
+          "guidance": "A client arrives without a booking. Show Add walk-in, naming each field as the product does.",
+          "chapterTitle": "A walk-in",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-new-booking"
+          }
+        },
+        {
+          "id": "deposit",
+          "type": "EXPLANATION",
+          "title": "A deposit by transfer",
+          "guidance": "A fictional client books from the link, transfers the deposit to the owner's own account and uploads proof of payment. Say that Iker does not take or hold the money.",
+          "chapterTitle": "A deposit",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              { "id": "client", "name": "Client (fictional)", "pose": "hold-phone" },
+              { "id": "owner", "name": "Owner (fictional)" }
+            ]
+          }
+        },
+        {
+          "id": "confirm",
+          "type": "EXPLANATION",
+          "title": "Confirming it",
+          "guidance": "The owner checks the proof and decides: Confirm booking or Reject payment. Nothing counts as income until it is confirmed.",
+          "chapterTitle": "Confirming it",
+          "visual": {
+            "kind": "steps",
+            "heading": "What the owner decides",
+            "steps": [{ "title": "First" }, { "title": "Second" }, { "title": "Third" }]
+          }
+        },
+        {
+          "id": "balance",
+          "type": "DEMO",
+          "title": "The rest of the payment",
+          "guidance": "The client pays the balance and the owner records it on the same booking. Show Paid so far and Balance remaining.",
+          "chapterTitle": "The balance",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment"
+          }
+        },
+        {
+          "id": "end-of-day",
+          "type": "OUTCOME",
+          "title": "End of the day",
+          "guidance": "Answer the hook's question with what the owner now has. Include the limits. No unsupported numbers or promised outcomes.",
+          "chapterTitle": "End of the day",
+          "visual": {
+            "kind": "story",
+            "mode": "outcome",
+            "lines": [{ "text": "What the owner knows now", "role": "lead" }]
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One next step, using the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "format": "social-portrait",
+      "targetSeconds": {
+        "min": 30,
+        "max": 60
+      },
+      "scenes": [
+        {
+          "id": "social-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "The fictional owner and the question of the day, in one or two sentences. Say they are made up.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [{ "id": "owner", "name": "Owner (fictional)", "pose": "hold-phone" }]
+          }
+        },
+        {
+          "id": "social-day",
+          "type": "EXPLANATION",
+          "title": "The day",
+          "guidance": "The day in three or four beats, one short sentence each.",
+          "visual": {
+            "kind": "timeline",
+            "events": [
+              { "label": "First event", "time": "Morning" },
+              { "label": "Second event", "time": "Afternoon" }
+            ]
+          }
+        },
+        {
+          "id": "social-demo",
+          "type": "DEMO",
+          "title": "In Iker",
+          "guidance": "One screen from Iker showing the balance on a booking. Say it is made-up data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "social-outcome",
+          "type": "OUTCOME",
+          "title": "Closing time",
+          "guidance": "What the owner knows at the end of the day, in one line.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What the owner knows now"
+          }
+        },
+        {
+          "id": "social-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to start.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 90, "max": 180 },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "Transfers from clients", "role": "lead" },
+              { "text": "Cash from a walk-in", "role": "support" },
+              { "text": "Costs in a notebook", "role": "support" },
+              { "text": "Did this month make money?", "role": "key" }
+            ]
+          },
+          "chapterTitle": "Month end"
+        },
+        {
+          "id": "basics",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "Read the month in three numbers",
+            "steps": [
+              { "title": "What came in", "detail": "Payments you confirmed" },
+              { "title": "What went out", "detail": "What you spent" },
+              { "title": "What was left", "detail": "In minus out" }
+            ]
+          },
+          "chapterTitle": "Three numbers"
+        },
+        {
+          "id": "example",
+          "type": "DIAGRAM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "data",
+            "heading": "A made-up month for an example salon",
+            "unit": "naira",
+            "series": [
+              { "label": "Came in", "value": 400000, "tone": "positive" },
+              { "label": "Went out", "value": 250000, "tone": "danger" },
+              { "label": "Left", "value": 150000, "tone": "primary" }
+            ],
+            "source": "Made-up example figures, not real data",
+            "illustrative": true
+          }
+        },
+        {
+          "id": "chapter-report",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "chapter",
+            "title": "Read it in Iker"
+          }
+        },
+        {
+          "id": "report",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-business-report",
+            "heading": "Money in, Money out, Profit"
+          },
+          "chapterTitle": "The Business report"
+        },
+        {
+          "id": "pending",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Confirm first, then read the month",
+            "body": "A payment waiting for your confirmation is not counted as income yet.",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "transactions",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-transactions",
+            "heading": "Statement of accounts"
+          },
+          "chapterTitle": "The statement of accounts"
+        },
+        {
+          "id": "decide",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "Decide one thing",
+            "steps": [
+              { "title": "Find the biggest cost", "detail": "Where the money went" },
+              {
+                "title": "Ask if it earned its place",
+                "detail": "Keep it, cut it or price for it"
+              },
+              { "title": "Choose one change", "detail": "For next month" }
+            ]
+          },
+          "chapterTitle": "One thing to decide"
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "You know what the month made",
+            "points": [
+              { "title": "What came in", "detail": "From payments you confirmed" },
+              { "title": "What went out", "detail": "By category" },
+              { "title": "One decision", "detail": "For next month" }
+            ],
+            "tone": "positive"
+          },
+          "chapterTitle": "What you have now"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "outro"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 30, "max": 60 },
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Did this month make money?",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "short-read",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "data",
+            "heading": "A made-up month",
+            "unit": "naira",
+            "series": [
+              { "label": "Came in", "value": 400000, "tone": "positive" },
+              { "label": "Went out", "value": 250000, "tone": "danger" },
+              { "label": "Left", "value": 150000, "tone": "primary" }
+            ],
+            "source": "Made-up example figures, not real data",
+            "illustrative": true
+          }
+        },
+        {
+          "id": "short-demo",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-business-report",
+            "mode": "screenshot",
+            "screenshot": "business-report",
+            "showCursor": false,
+            "heading": "The Business report"
+          }
+        },
+        {
+          "id": "short-decide",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "One decision for next month",
+            "body": "Find your biggest cost and choose one change.",
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

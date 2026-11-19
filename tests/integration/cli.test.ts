@@ -115,7 +115,7 @@ describe("studio CLI", () => {
     const badTemplate = await studio("create", "--topic", "A topic", "--template", "nope");
     expect(badTemplate.code).toBe(1);
     expect(badTemplate.stderr).toContain(
-      "Templates: business-explainer, feature-announcement, product-tutorial",
+      "Templates: business-explainer, day-in-the-life, faq-answer, feature-announcement, how-your-client-sees-it, monthly-money-check-in, myth-vs-fact, product-tutorial, quick-sketch",
     );
   });
 
@@ -210,6 +210,6 @@ describe("studio CLI", () => {
   it("validates the shipped templates", async () => {
     const result = await studio("templates", "validate");
     expect(result.code).toBe(0);
-    expect(result.stdout.match(/^ok {4}/gm)).toHaveLength(3);
+    expect(result.stdout.match(/^ok {4}/gm)).toHaveLength(9);
   });
 });
