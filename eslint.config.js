@@ -27,6 +27,7 @@ export default tseslint.config(
       ".cache",
       "coverage",
       "fixtures/**/*.js",
+      "fixtures/**/*.mjs",
       ".agents",
       ".claude/skills/remotion-*",
     ],

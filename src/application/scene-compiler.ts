@@ -7,6 +7,7 @@ import {
   resolveBeats,
   unresolvedCues,
 } from "../domain/cues";
+import { planActionSounds } from "../domain/action-sounds";
 import { StudioError } from "../domain/errors";
 import { FORMATS, type FormatSpec } from "../domain/formats";
 import { hashOf, sha256 } from "../domain/hash";
@@ -45,6 +46,29 @@ export interface CompiledScene {
   burnCaptions: boolean;
   disclosure: string | null;
   progress: { start: number; end: number } | null;
+  backdrop: { startFrame: number } | null;
+  /** Sound effects resolved to files on disk and frames of the scene. */
+  sounds: CompiledSound[];
+  /** The photo of a photo scene, resolved to its file; null for every other scene. */
+  image: CompiledImage | null;
+}
+
+export interface CompiledImage {
+  /** Absolute path in assets/images. */
+  file: string;
+  /** Content hash, so replacing the photo re-renders only the scenes that show it. */
+  hash: string;
+}
+
+export interface CompiledSound {
+  /** Absolute path in assets/sfx. */
+  file: string;
+  /** Content hash, so replacing a file re-renders only the scenes that play it. */
+  hash: string;
+  offsetFrames: number;
+  volume: number;
+  /** How long it may play; absent plays the whole file. */
+  durationFrames?: number;
 }
 
 export interface CompiledCut {
@@ -203,6 +227,20 @@ export async function compileCut(
         }
       : null;
     const disclosure = recording?.target === "synthetic" ? SYNTHETIC_DISCLOSURE : null;
+    const backdrop = cut.background === "animated" ? { startFrame: timing.startFrame } : null;
+    const sounds = [
+      ...(await compileSounds(deps, scene, beats, format.fps, timing.durationFrames)),
+      ...(await compileActionSounds(
+        deps,
+        manifest.id,
+        scene,
+        recording,
+        beats,
+        format.fps,
+        timing.durationFrames,
+      )),
+    ];
+    const image = await compileImage(deps, scene);
 
     compiled.push({
       scene,
@@ -214,6 +252,9 @@ export async function compileCut(
       burnCaptions,
       disclosure,
       progress,
+      backdrop,
+      sounds,
+      image,
       hash: hashOf({
         scene,
         // An empty set hashes like no set at all, so scenes without cues keep their identity.
@@ -226,6 +267,20 @@ export async function compileCut(
         cues: burnCaptions ? cues : null,
         recording: recording?.hash ?? null,
         progress,
+        // Absent for a still canvas, so scenes of existing videos keep their identity.
+        backdrop: backdrop ?? undefined,
+        // Absent without sounds, for the same reason. Files are named by content, not path.
+        sounds:
+          sounds.length > 0
+            ? sounds.map(({ hash, offsetFrames, volume, durationFrames }) => ({
+                hash,
+                offsetFrames,
+                volume,
+                durationFrames,
+              }))
+            : undefined,
+        // Absent for every scene but a photo scene. The photo is named by content, not path.
+        image: image ? image.hash : undefined,
         disclosure,
         reducedMotion: context.reducedMotion,
         resolutionScale: context.resolutionScale,
@@ -235,6 +290,117 @@ export async function compileCut(
     });
   }
   return { cut, format, timeline, scenes: compiled, cues: cutCues };
+}
+
+/** Resolves the photo a photo scene shows, refusing a file that is not in assets/images. */
+async function compileImage(deps: CoreDeps, scene: Scene): Promise<CompiledImage | null> {
+  if (scene.visual.kind !== "photo") return null;
+  const file = path.join(deps.layout.imagesDir, scene.visual.file);
+  if (!(await deps.files.exists(file))) {
+    throw new StudioError(
+      "NOT_FOUND",
+      `Scene "${scene.id}" shows photo "${scene.visual.file}", which is not in assets/images.`,
+      { hint: "Use a file listed in assets/images/README.md, or add the photo there first." },
+    );
+  }
+  return { file, hash: await deps.files.sha256(file) };
+}
+
+/**
+ * Places a scene's sound effects: on their cue's beat, at their fixed second, or on the first
+ * frame. A sound never starts after the scene's last frame.
+ */
+async function compileSounds(
+  deps: CoreDeps,
+  scene: Scene,
+  beats: Record<string, number>,
+  fps: number,
+  durationFrames: number,
+): Promise<CompiledSound[]> {
+  const compiled: CompiledSound[] = [];
+  for (const sound of scene.sounds ?? []) {
+    const file = path.join(deps.layout.sfxDir, sound.file);
+    if (!(await deps.files.exists(file))) {
+      throw new StudioError(
+        "NOT_FOUND",
+        `Scene "${scene.id}" plays sound "${sound.file}", which is not in assets/sfx.`,
+        { hint: "Use a file listed in assets/sfx/README.md, or add the file there first." },
+      );
+    }
+    const cueSeconds = sound.cue === undefined ? undefined : beats[sound.cue];
+    if (sound.cue !== undefined && cueSeconds === undefined) {
+      throw new StudioError(
+        "VALIDATION_FAILED",
+        `Scene "${scene.id}" plays sound "${sound.file}" on cue "${sound.cue}", which the scene does not define.`,
+      );
+    }
+    const seconds = cueSeconds ?? sound.atSeconds ?? 0;
+    compiled.push({
+      file,
+      hash: await deps.files.sha256(file),
+      offsetFrames: Math.min(Math.max(0, durationFrames - 1), Math.round(seconds * fps)),
+      volume: sound.volume,
+    });
+  }
+  return compiled;
+}
+
+/**
+ * The sounds of the actions in a product scene's footage: every click, key and scroll is
+ * heard where it happens on screen. A scene opts out with `actionSounds: false`.
+ */
+async function compileActionSounds(
+  deps: CoreDeps,
+  videoId: string,
+  scene: Scene,
+  recording: RecordingAsset | null,
+  beats: Record<string, number>,
+  fps: number,
+  durationFrames: number,
+): Promise<CompiledSound[]> {
+  if (scene.visual.kind !== "product" || !recording || scene.actionSounds === false) return [];
+  const timeline = RecordingTimelineSchema.parse(
+    await deps.files.readJson(deps.layout.video(videoId).absolute(recording.timeline)),
+  );
+  const planned = planActionSounds(scene.visual, timeline, beats, durationFrames / fps);
+  const hashes = new Map<string, string>();
+  const compiled: CompiledSound[] = [];
+  for (const sound of planned) {
+    const file = path.join(deps.layout.sfxDir, sound.file);
+    let hash = hashes.get(file);
+    if (hash === undefined) {
+      if (!(await deps.files.exists(file))) {
+        throw new StudioError(
+          "NOT_FOUND",
+          `Scene "${scene.id}" needs the action sound "${sound.file}", which is not in assets/sfx.`,
+          {
+            hint: 'Restore the file (see assets/sfx/README.md), or set "actionSounds": false on the scene.',
+          },
+        );
+      }
+      hash = await deps.files.sha256(file);
+      hashes.set(file, hash);
+    }
+    const offsetFrames = Math.min(
+      Math.max(0, durationFrames - 1),
+      Math.round(sound.atSeconds * fps),
+    );
+    compiled.push({
+      file,
+      hash,
+      offsetFrames,
+      volume: sound.volume,
+      ...(sound.durationSeconds === undefined
+        ? {}
+        : {
+            durationFrames: Math.max(
+              1,
+              Math.min(durationFrames - offsetFrames, Math.round(sound.durationSeconds * fps)),
+            ),
+          }),
+    });
+  }
+  return compiled;
 }
 
 export function resolveBrand(brand: LoadedBrand, assets: AssetServer): ResolvedBrand {
@@ -310,8 +476,15 @@ export async function buildSceneProps(
           volume: compiled.scene.audio.narrationVolume,
         }
       : null,
+    sounds: compiled.sounds.map((sound) => ({
+      src: assets.urlFor(sound.file),
+      offsetFrames: sound.offsetFrames,
+      volume: sound.volume,
+      ...(sound.durationFrames === undefined ? {} : { durationFrames: sound.durationFrames }),
+    })),
     beats: compiled.beats,
     captions: compiled.burnCaptions ? compiled.cues : null,
+    image: compiled.image ? { src: assets.urlFor(compiled.image.file) } : null,
     recording: compiled.recording
       ? await resolveRecording(
           deps,
@@ -323,6 +496,7 @@ export async function buildSceneProps(
         )
       : null,
     progress: compiled.progress,
+    backdrop: compiled.backdrop,
     reducedMotion: context.reducedMotion,
     disclosure: compiled.disclosure,
   };

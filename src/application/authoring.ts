@@ -45,7 +45,8 @@ export interface CreateVideoInput {
   title?: string;
   id?: string;
   audience?: string;
-  contentType: ContentType;
+  /** Defaults to the template's first content type. */
+  contentType?: ContentType;
   template: string;
   voiceProvider: VoiceProvider;
   /** Start from the template's finished demo script and storyboard instead of a skeleton. */
@@ -71,10 +72,11 @@ export async function createVideo(deps: CoreDeps, input: CreateVideoInput): Prom
     });
   }
   const template = await loadTemplate(deps, input.template);
-  if (!template.contentTypes.includes(input.contentType)) {
+  const contentType = input.contentType ?? template.contentTypes[0];
+  if (contentType === undefined || !template.contentTypes.includes(contentType)) {
     throw new StudioError(
       "VALIDATION_FAILED",
-      `Template "${template.id}" does not support ${input.contentType}.`,
+      `Template "${template.id}" does not support ${input.contentType ?? "any content type"}.`,
       { hint: `It supports: ${template.contentTypes.join(", ")}` },
     );
   }
@@ -88,7 +90,7 @@ export async function createVideo(deps: CoreDeps, input: CreateVideoInput): Prom
     title,
     topic: input.topic,
     audience: input.audience ?? "",
-    contentType: input.contentType,
+    contentType,
     template: template.id,
     format: primary.format,
     durationTarget: {
@@ -111,7 +113,7 @@ export async function createVideo(deps: CoreDeps, input: CreateVideoInput): Prom
       paths.script,
       scriptSkeleton(template, {
         title,
-        contentType: input.contentType,
+        contentType,
         audience: input.audience ?? "",
       }),
     );
@@ -349,6 +351,41 @@ export async function updateStoryboard(
       {
         hint: "A cue's phrase must be consecutive words of that scene's narration, and every cue a visual uses must be defined in the scene's cues or listed in the visual's settled list.",
       },
+    );
+  }
+
+  const soundFiles = new Set(
+    storyboard.cuts.flatMap((cut) =>
+      cut.scenes.flatMap((s) => (s.sounds ?? []).map((x) => x.file)),
+    ),
+  );
+  const missingSounds: string[] = [];
+  for (const file of [...soundFiles].sort()) {
+    if (!(await deps.files.exists(path.join(deps.layout.sfxDir, file)))) missingSounds.push(file);
+  }
+  if (missingSounds.length > 0) {
+    throw new StudioError(
+      "NOT_FOUND",
+      `The storyboard plays sounds that are not in assets/sfx: ${missingSounds.join(", ")}.`,
+      { hint: "Use a file listed in assets/sfx/README.md, or add the file there first." },
+    );
+  }
+
+  const photoFiles = new Set(
+    storyboard.cuts.flatMap((cut) =>
+      cut.scenes.flatMap((s) => (s.visual.kind === "photo" ? [s.visual.file] : [])),
+    ),
+  );
+  const missingPhotos: string[] = [];
+  for (const file of [...photoFiles].sort()) {
+    if (!(await deps.files.exists(path.join(deps.layout.imagesDir, file))))
+      missingPhotos.push(file);
+  }
+  if (missingPhotos.length > 0) {
+    throw new StudioError(
+      "NOT_FOUND",
+      `The storyboard shows photos that are not in assets/images: ${missingPhotos.join(", ")}.`,
+      { hint: "Use a file listed in assets/images/README.md, or add the photo there first." },
     );
   }
 

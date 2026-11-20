@@ -109,6 +109,11 @@ approvals.
   to the recording, a camera that follows the action.
 - Never draw product interface that does not exist. Illustrations must not look like the
   dashboard.
+- Use real photos (`photo` scenes, from `assets/images/`) where they are needed, not only
+  illustrations: to show the viewer's own world (their chair, their client, their phone, their
+  cash) so the pain feels real. Usually one to three photo scenes in a long cut, one in a short,
+  most often in the hook and setup. The owner's own photos (`own-*`) come first. Stock models
+  are never presented as Iker customers, and no photo stands in for the product.
 - The brand kit's tile pair (appointment tile, ledger tile, booking dot) is texture for edges,
   never behind text.
 - Before showing the owner anything, run `pnpm studio scene-review --video <id>`, open the
@@ -116,9 +121,11 @@ approvals.
 
 ## 5. Voice
 
-- ElevenLabs, model from `.env`. Audition before generating: `pnpm studio voice audition`,
-  then the owner listens and picks. Full narration waits for his choice and his script
-  approval. No Iker voice has been chosen yet.
+- ElevenLabs, with the voice and model set in `.env` (`ELEVENLABS_VOICE_ID`,
+  `ELEVENLABS_MODEL_ID`). That voice is the Iker voice for every video. Create videos with
+  `--voice-provider elevenlabs` and never pass `--voice-id` or switch voices unless the owner asks
+  for a different voice in the conversation. Auditions compare performances (presets) of that same
+  voice, never other voices. Full narration still waits for the owner's script approval.
 - Calm, warm and clear, like a competent friend explaining their own system. Not an announcer.
   Check how "Iker" and "naira" are spoken with `pnpm studio preview-voice` and record the
   result with `pnpm studio pronunciation`.
@@ -128,9 +135,27 @@ approvals.
 
 ## 6. Music
 
-- Optional. A royalty-free bed, about 12 dB under the voice, only with a licence you can state
-  in `storyboard.json`. No track is in `assets/music/` today.
+- A chill royalty-free bed, about 12 dB under the voice (volume about 0.08), only with a licence
+  you can state in `storyboard.json`. Tracks and their terms are listed in
+  `assets/music/README.md`. A CC BY track also needs `music.credit`, which export prints in the
+  description and long captions.
 - If the track is Content ID registered, warn the owner that a claim may appear after upload.
+  Kevin MacLeod's incompetech tracks are pre-registered.
+- Every cut of every video gets a music bed from `assets/music/` unless the owner says
+  otherwise. Pick by mood from `assets/music/README.md`: chill or lo-fi for tutorials and
+  explainers, upbeat for shorts and announcements. Prefer the Mixkit tracks (no credit needed);
+  a Kevin MacLeod track needs `music.credit`.
+- Sound effects from `assets/sfx/` go on a scene's cues with `sounds`. `assets/sfx/README.md`
+  lists every file by use and licence (CC0 interface sounds, Mixkit sounds, generated phone
+  vibrations). A pop or bubble for a chat message, a notification for a phone, a chime for a
+  confirmation, a thud for a stamp, a whoosh for a reveal or transition, typing for text being
+  entered, a hit or riser for a hook. Every visible action has a sound: a click, a tap, typing,
+  a message arriving, a status changing. Recorded product footage gets its click, typing and
+  scroll sounds automatically; motion graphics and photo scenes get theirs on cues. Volume 0.3
+  to 0.6, up to 8 per scene.
+- Only files in `assets/music/`, `assets/sfx/` and `assets/images/` are used. Never add a sound,
+  track or photo without a licence recorded in that folder's README. Photos may be downloaded
+  when none fits (Pexels or Unsplash, following "Adding a photo" in `assets/images/README.md`).
 
 ## 7. Recording
 
@@ -185,6 +210,53 @@ TikTok, Instagram, Facebook, X and LinkedIn.
   posting.
 - Do not alter approved media to add a title frame without renewed QA and human final
   approval.
+
+## 8c. Owner corrections
+
+- 2026-11-15, on the booking-link social campaign: "the video and narrations is very slow and
+  boring I want you to add a trending background and speed up the narraition to an ad speed and
+  make the script jovial and engaging". For social ads this overrides the "calm, never
+  playful" defaults in sections 1 and 5: write short, punchy, upbeat lines (light
+  exclamations such as "Ding!", "Boom.", "Easy." are fine), narrate at speed 1.15
+  (`pnpm studio narrate --speed 1.15`; he later asked for paces up to 2.0 to be allowed, and
+  anything above 1.2 is a pitch-preserving FFmpeg stretch of the ElevenLabs clip, since the
+  API stops at 1.2), and turn on `"background": "animated"` for each cut.
+  He chose an animated visual background over a music bed. Facts, Naira formatting, no
+  invented claims and no promised outcomes still apply unchanged. Whether this also applies to
+  longer tutorials is not settled (interpretation: ask before applying it there).
+
+- 2026-11-15, later the same day, superseding most of the entry above: "i want it include demo
+  from the app too and the backgroud is not nice and the narraction now is fast i wan t natural
+  talking and explaining voice for the demo reels should show the demo app in an iphone frame
+  while in the linkedln/ facebook it can be ipad frame". So: product videos show real app
+  footage (local slot-books demo data), in an iPhone frame for 9:16 reels and an iPad frame for
+  16:9 LinkedIn/Facebook cuts; the animated background is off (he chose the original still
+  canvas); narration is back at normal speed (1.0) and the wording is a calm, warm explainer
+  with no "Ding!"/"Boom." style exclamations.
+
+- 2026-11-20: "Now i want to add background musics and click sounds bubble sounds and
+  notification sounds find nice chill background music in the internet and download including
+  all the sounds". So videos now carry a chill music bed and sound effects on their key moments.
+  This reverses the 2026-11-15 choice of no music bed. Music is licence-checked
+  (Kevin MacLeod, CC BY 4.0, credited) and sounds are CC0. Interpretation: it applies to every
+  video, long and short.
+
+- 2026-11-20, later: "the voice selection should use the eleven laps vocie idea in the .env
+  file also i added sounds and sfx all videos should have access to those resources and use
+  them when need". So: every video narrates with the ElevenLabs voice in `ELEVENLABS_VOICE_ID`
+  (section 5), and every video uses the music in `assets/music/` and the sounds in
+  `assets/sfx/` where a moment calls for one (section 6).
+
+- 2026-11-20, later: "Also use pictures where it necessary and not just illustrations". So
+  videos mix real photos (`photo` scenes from `assets/images/`) with illustrations where a
+  picture of the real world helps (section 4). The owner chose a downloaded Pexels/Unsplash
+  starter set plus their own photos, which are preferred when one fits.
+
+- 2026-11-20, later: "the should be room to download images, also when there is a typing scene
+  or click button make sure it uses the sounds every actions should have sounds to make the
+  video captivating". So: when no catalogued photo fits, download one under the rules in
+  `assets/images/README.md`; and every visible action has a sound (section 6), automatically
+  for recorded clicks, typing and scrolls.
 
 ## 9. How to report to the owner
 

@@ -312,6 +312,23 @@ describe("buildMetadata", () => {
     expect(metadata.youtubeDescription).toContain("The demonstration uses simulated data.");
   });
 
+  it("credits licensed music in the description and the long captions, and nowhere without it", () => {
+    const credit =
+      '"Lobby Time" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0';
+    const withMusic = buildMetadata({ script, chapters, disclosures: [], credits: [credit] });
+    expect(withMusic.youtubeDescription).toContain(`Music\n${credit}`);
+    expect(withMusic.linkedinCaption).toContain(credit);
+    expect(withMusic.shortsCaption).toContain(credit);
+    const handWritten = buildMetadata({
+      script: { ...script, social: { shorts: "Short caption #Shorts" } },
+      chapters,
+      disclosures: [],
+      credits: [credit],
+    });
+    expect(handWritten.shortsCaption).toBe(`Short caption #Shorts\n\nMusic\n${credit}`);
+    expect(metadata.youtubeDescription).not.toContain("Music\n");
+  });
+
   it("keeps the X caption within the platform limit and includes the link", () => {
     const long = buildMetadata({
       script: { ...script, hook: "word ".repeat(120).trim() },

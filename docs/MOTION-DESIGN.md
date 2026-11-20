@@ -11,6 +11,15 @@ particles, spinning icons, floating cards, glowing borders, slide transitions, c
 background motion, gratuitous zooms and fake 3D. Stillness is allowed and wanted. A viewer
 with the sound off should still follow the story.
 
+The one sanctioned exception is the animated background, which a cut opts into with
+`"background": "animated"` in `storyboard.json` (the owner asked for it on 2026-11-15 for
+social ads). Glows orbit slowly, the grid drifts and brand booking dots rise in the margins
+outside the safe area, never behind text or footage. It is keyed to the frame of the cut
+(`backdrop.startFrame` in the scene props plus the scene's frame), so it flows across hard
+joins; reduced motion and the default `static` keep the still canvas. Like the progress bar,
+it ties scenes to their position, so changing one scene's length re-renders those after it.
+Its speeds are `MOTION.backdrop` and its geometry is `src/remotion/lib/backdrop.ts`.
+
 The canvas is obsidian with terracotta as the one accent, set in Plus Jakarta Sans (with
 JetBrains Mono for code only), all from `brand/brand.json`. Iker's personality is trustworthy,
 calm and efficient, so restraint is the default: one accent, few moving things, long holds.
@@ -723,6 +732,33 @@ are described under "Directed product footage".
   ]
 }
 ```
+
+#### Device frames
+
+`device` chooses what the footage is shown in: `"browser"` (default, the browser frame with
+its address bar), `"iphone"` (a generic dark phone with a camera pill, for 9:16 reels and
+shorts) or `"ipad"` (a generic dark landscape tablet with a camera dot, for 16:9 LinkedIn
+and Facebook cuts). Record the scenario at a matching viewport: about 390 x 844 for the
+phone, 1180 x 820 for the tablet. The device's screen always takes the recording's aspect,
+so nothing is cropped; a taller-than-wide recording gives a portrait device, a wider one a
+landscape device.
+
+```json
+{ "kind": "product", "scenarioId": "synthetic-new-booking", "device": "iphone" }
+```
+
+- **9:16.** The heading (and the callout sentence, when the visual has a `camera` and
+  annotations) sits centred above the device, and the device takes the rest of the content
+  zone's height. There is no magnified detail panel: a phone recording is already shown at
+  the size it was made for.
+- **16:9.** The device stands beside the text column, as the browser frame does.
+- **Camera.** The virtual camera, isolation, callout rings, the pill callouts and the cursor
+  all work inside the device's screen in both orientations (with the browser frame, portrait
+  keeps the frame on the full view and magnifies in the detail panel instead).
+- A missing recording shows `RecordingUnavailable` inside the device's screen.
+- The frames are drawn from tokens, flat and still: no maker's logo or artwork. Geometry is
+  `layoutDevice` and `fitDevice` in `src/remotion/lib/device-layout.ts`; the drawing is
+  `components/DeviceFrame.tsx`.
 
 The original kinds (`title`, `statement`, `steps`, `diagram`, `comparison`, `code`, `data`,
 `cta`, `outro`, `chapter`) work as before. They take `animation.enter` and `exit` `hold` and

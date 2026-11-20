@@ -1,0 +1,1235 @@
+{
+  "schemaVersion": 1,
+  "videoId": "now-now-confirm-deposit",
+  "version": 1,
+  "scriptHash": "fd6147167d5fb8ba1579e7935ace796cc9be1ceb9b46426697997a3bcc42bffc",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 105,
+        "max": 135
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "intro",
+          "type": "INTRO",
+          "enabled": true,
+          "narration": "Chioma sends a message. I'll send it now now. It is Monday. Now now. The two most dangerous words in booking.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "character-scene. Chioma, phone in hand, cheerful, shrugging. Speech bubble: \"I'll send it now now.\" Fictional client Chioma O. Labelled Illustration. [SFX: message pop]",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "chioma",
+                "name": "Chioma O.",
+                "seed": "chioma",
+                "skin": "brown",
+                "hair": "long",
+                "hairColour": "ink",
+                "outfit": "pink",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "happy"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "with": "chioma"
+              }
+            ],
+            "actions": [
+              {
+                "who": "chioma",
+                "cue": "say",
+                "expression": "happy",
+                "say": "I'll send it now now.",
+                "leave": false
+              },
+              {
+                "who": "chioma",
+                "cue": "shrug",
+                "pose": "shrug",
+                "expression": "happy",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "say",
+              "phrase": "send it now now",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "shrug",
+              "phrase": "the two most dangerous words",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Open on the client's promise, light and recognisable.",
+            "representation": "Chioma O., cheerful, phone in hand, shrugging. Bubble: I'll send it now now.",
+            "motion": "Bubble pops in with the line. [SFX: message pop]",
+            "finalFrame": "Chioma mid-shrug, bubble still up."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional people and amounts"
+          },
+          "assets": []
+        },
+        {
+          "id": "problem",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "Amaka is a makeup artist in Abuja. Chioma wants bridal makeup on Saturday at ten thirty. Forty-five thousand naira, with a fifteen thousand naira deposit. Amaka keeps the date for her. Tuesday, a reminder. Wednesday, another one. Thursday, abeg I forgot. Four days. Two reminders. One abeg I forgot. And a Saturday slot nobody else could take.",
+          "estimatedDurationSeconds": 23.7,
+          "visualInstructions": "timeline, labelled \"Amaka's week (illustration)\". Day 1 Monday \"now now\". Day 2 Tuesday reminder. Day 3 Wednesday reminder. Day 4 Thursday \"abeg I forgot\". Saturday 10:30 stays blocked the whole way across. The reminders are Amaka's own messages, not Iker's. [SFX: phone alarm repeating, cut on \"forgot\"] [GIF]",
+          "visual": {
+            "kind": "timeline",
+            "heading": "Amaka's week (illustration)",
+            "events": [
+              {
+                "label": "I'll send it now now",
+                "time": "Day 1",
+                "tone": "neutral",
+                "flagged": false,
+                "cue": "d1"
+              },
+              {
+                "label": "Reminder from Amaka",
+                "time": "Day 2",
+                "tone": "neutral",
+                "flagged": false,
+                "cue": "d2"
+              },
+              {
+                "label": "Another reminder",
+                "time": "Day 3",
+                "tone": "neutral",
+                "flagged": false,
+                "cue": "d3"
+              },
+              {
+                "label": "Abeg I forgot",
+                "time": "Day 4",
+                "tone": "warning",
+                "flagged": false,
+                "cue": "d4"
+              },
+              {
+                "label": "10:30 still held for Chioma O.",
+                "time": "Saturday",
+                "tone": "warning",
+                "flagged": true,
+                "cue": "sat"
+              }
+            ],
+            "flag": {
+              "cue": "sat",
+              "label": "Held all week, no deposit"
+            },
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "d1",
+              "phrase": "chioma wants bridal makeup",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "d2",
+              "phrase": "tuesday a reminder",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "d3",
+              "phrase": "wednesday another one",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "d4",
+              "phrase": "thursday abeg i forgot",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "sat",
+              "phrase": "a saturday slot nobody else could take",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Show the week the slot was held on a promise.",
+            "representation": "Day 1 now now, Day 2 and Day 3 Amaka's own reminders (not Iker's), Day 4 abeg I forgot. Saturday 10:30 blocked throughout.",
+            "motion": "Rail grows day by day. [SFX: phone alarm repeating, cut on \"forgot\"] [GIF]",
+            "finalFrame": "Saturday 10:30 ringed as held."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "A story, not a statistic"
+          },
+          "chapterTitle": "Amaka's week",
+          "assets": []
+        },
+        {
+          "id": "maybe-booked",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Here is the difference. A date with no deposit is a maybe. A date with proof is a booking. Proof of payment does not make anyone pay faster. It gives you something real to check before you confirm the slot.",
+          "estimatedDurationSeconds": 16.9,
+          "visualInstructions": "comparison. Left: a date with no deposit behind it, \"maybe\". Right: a date with proof behind it, \"booked\".",
+          "visual": {
+            "kind": "comparison",
+            "heading": "Maybe or booked",
+            "left": {
+              "title": "No deposit behind it",
+              "points": [
+                "Saturday 10:30",
+                "A maybe"
+              ],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "Proof behind it",
+              "points": [
+                "Saturday 10:30",
+                "A booking"
+              ],
+              "tone": "positive"
+            }
+          },
+          "direction": {
+            "objective": "One idea: a date is only a booking when there is proof behind it.",
+            "representation": "Same date twice: maybe on the left, booked on the right.",
+            "finalFrame": "Both columns visible, booked side in the accent."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Maybe or booked",
+          "assets": []
+        },
+        {
+          "id": "money-path",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "In Iker, your client pays you, the way they already do, by bank transfer to your own account. Then they upload proof. The booking shows Awaiting confirmation, and the slot is held while you check. Iker does not touch the money. It keeps track.",
+          "estimatedDurationSeconds": 18.5,
+          "visualInstructions": "pipeline. A payment object moves: client, bank transfer to Amaka, proof uploaded, \"Awaiting confirmation\". Label: \"The money goes to you, not through Iker.\"",
+          "visual": {
+            "kind": "pipeline",
+            "heading": "The money goes to you, not through Iker.",
+            "object": {
+              "type": "transaction",
+              "label": "Deposit ₦15,000"
+            },
+            "stages": [
+              {
+                "label": "Chioma O.",
+                "detail": "The client",
+                "status": "verified",
+                "cue": "pays"
+              },
+              {
+                "label": "Bank transfer",
+                "detail": "Straight to Amaka's account",
+                "status": "verified",
+                "cue": "transfer"
+              },
+              {
+                "label": "Proof uploaded",
+                "detail": "By the client",
+                "status": "verified",
+                "cue": "upload"
+              }
+            ],
+            "result": {
+              "label": "Awaiting confirmation",
+              "detail": "Slot held while you check",
+              "status": "pending",
+              "cue": "awaiting"
+            },
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "pays",
+              "phrase": "your client pays you",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "transfer",
+              "phrase": "by bank transfer",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "upload",
+              "phrase": "then they upload proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "awaiting",
+              "phrase": "the booking shows awaiting confirmation",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Make clear the money never passes through Iker.",
+            "representation": "A deposit travels client, bank transfer to Amaka, proof uploaded, then Awaiting confirmation.",
+            "finalFrame": "Object resting on Awaiting confirmation, label The money goes to you, not through Iker."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "assets": []
+        },
+        {
+          "id": "check-proof",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Here is a booking waiting on a phone. The business and client on screen are demo data. You see the booking, the amount and the proof. Check it against your bank app.",
+          "estimatedDurationSeconds": 13.7,
+          "visualInstructions": "product, iPhone frame. iker-amaka-chioma-proof-phone: the booking shows \"Awaiting confirmation\". Spotlight on the payment's proof (View proof). The proof image itself cannot be recorded (it opens in a new tab): any proof image shown is a labelled mock. Demo data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-chioma-proof-phone",
+            "mode": "video",
+            "heading": "Awaiting confirmation",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": true,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 0.6,
+              "toSeconds": 7,
+              "anchors": [
+                {
+                  "cue": "proof",
+                  "recordingSeconds": 4
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "proof",
+              "phrase": "and the proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Show where the owner sees the booking, the amount and the proof.",
+            "representation": "iker-amaka-chioma-proof-phone (unverified) in an iPhone frame: Chioma Okafor's Saturday 10:30 Bridal makeup booking (demo data, ₦45,000, ₦15,000 deposit) with Awaiting your confirmation and View proof. The proof image opens in a new tab the recorder cannot show; the lower third says any proof image is a mock.",
+            "camera": "Follow the recorder's highlights (Awaiting your confirmation, View proof, Confirm booking, Reject payment), isolate on. Trim with footage times after recording if the take runs long.",
+            "finalFrame": "View proof spotlit, buttons not yet pressed."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Demo data",
+            "subtitle": "Proof image is a mock"
+          },
+          "chapterTitle": "Check the proof",
+          "assets": []
+        },
+        {
+          "id": "decide",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Matches your account? Tap Confirm booking. Does not match? Tap Reject payment. Iker does not check your bank for you. You decide.",
+          "estimatedDurationSeconds": 9.7,
+          "visualInstructions": "decision, labelled Illustration. Matches your account: tap Confirm booking. Does not match: tap Reject payment. [SFX: confirm chime on Confirm]",
+          "visual": {
+            "kind": "decision",
+            "signals": [
+              {
+                "id": "proof",
+                "label": "Proof of payment",
+                "detail": "Chioma O., ₦15,000 deposit",
+                "tone": "neutral",
+                "cue": "matches"
+              }
+            ],
+            "rule": {
+              "label": "You check your bank app",
+              "detail": "Does it match?",
+              "cue": "matches"
+            },
+            "outcomes": [
+              {
+                "id": "confirm",
+                "label": "Confirm booking",
+                "status": "verified",
+                "cue": "confirm"
+              },
+              {
+                "id": "reject",
+                "label": "Reject payment",
+                "status": "declined",
+                "cue": "reject"
+              }
+            ],
+            "routes": [
+              {
+                "from": "proof",
+                "to": "confirm",
+                "cue": "decide"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "matches",
+              "phrase": "matches your account",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "tap confirm booking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "reject",
+              "phrase": "tap reject payment",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "decide",
+              "phrase": "you decide",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "The owner decides, not Iker.",
+            "representation": "Proof feeds You check your bank app, two outcomes Confirm booking and Reject payment. Nothing is said about what the client sees after Reject payment.",
+            "motion": "[SFX: confirm chime on Confirm]",
+            "finalFrame": "Route to Confirm booking lit."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "assets": []
+        },
+        {
+          "id": "result",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "After you confirm, the deposit counts as paid. Paid so far, fifteen thousand naira. Balance remaining, thirty thousand naira. Written down on the booking, not buried in a chat.",
+          "estimatedDurationSeconds": 12.5,
+          "visualInstructions": "product, iPhone frame. After confirming: Paid so far ₦15,000, Balance remaining ₦30,000. Calm check mark, no confetti. Demo data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-chioma-confirmed-phone",
+            "mode": "video",
+            "heading": "Deposit confirmed, balance written down",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": true,
+              "keyframes": []
+            }
+          },
+          "direction": {
+            "objective": "Show the booking after confirming: Paid so far ₦15,000, Balance remaining ₦30,000.",
+            "representation": "iker-amaka-chioma-confirmed-phone (unverified) in an iPhone frame: Chioma Okafor's demo booking after the deposit was confirmed (seed.sh confirm-chioma, the product's own confirm path), Paid so far ₦15,000 and Balance remaining ₦30,000 highlighted. Record after iker-amaka-chioma-proof-phone, then run seed.sh reset-chioma.",
+            "motion": "Calm check mark, no confetti.",
+            "camera": "Follow the recorder's highlights on Paid so far and Balance remaining, isolate on.",
+            "finalFrame": "Paid so far and Balance remaining readable."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Demo data",
+            "subtitle": "Fictional business and amounts"
+          },
+          "chapterTitle": "Written down",
+          "assets": []
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get started at useiker.com, and the Iker team sets up your booking page with you. No commission on bookings or deposits.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "cta. Amaka at ease, Saturday 10:30 \"Confirmed\". Terracotta slab.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Saturday 10:30. Confirmed.",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "direction": {
+            "objective": "One next step.",
+            "representation": "Terracotta slab. Brief asks for Amaka at ease with Saturday 10:30 Confirmed; the cta kind has no character, so the headline carries Saturday 10:30 Confirmed.",
+            "finalFrame": "Get started, useiker.com."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 40,
+        "max": 60
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "sh-intro",
+          "type": "INTRO",
+          "enabled": true,
+          "narration": "Now now. The two most dangerous words in booking.",
+          "estimatedDurationSeconds": 4.5,
+          "visualInstructions": "character-scene. Chioma, phone in hand, cheerful, shrugging. Speech bubble: \"I'll send it now now.\" Labelled Illustration. [SFX: message pop]",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "chioma",
+                "name": "Chioma O.",
+                "seed": "chioma",
+                "skin": "brown",
+                "hair": "long",
+                "hairColour": "ink",
+                "outfit": "pink",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "happy"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "with": "chioma"
+              }
+            ],
+            "actions": [
+              {
+                "who": "chioma",
+                "cue": "say",
+                "expression": "happy",
+                "say": "I'll send it now now.",
+                "leave": false
+              },
+              {
+                "who": "chioma",
+                "cue": "shrug",
+                "pose": "shrug",
+                "expression": "happy",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "say",
+              "phrase": "now now",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "shrug",
+              "phrase": "the two most dangerous words",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Open on the client's promise, light and recognisable.",
+            "representation": "Chioma O., cheerful, phone in hand, shrugging. Bubble: I'll send it now now.",
+            "motion": "Bubble pops in with the line. [SFX: message pop]",
+            "finalFrame": "Chioma mid-shrug, bubble still up."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional people and amounts"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-problem",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "Four days. Two reminders. One abeg I forgot. And a Saturday slot nobody else could take.",
+          "estimatedDurationSeconds": 7.3,
+          "visualInstructions": "timeline, labelled \"Amaka's week (illustration)\". Day 1 \"now now\". Day 2 reminder. Day 3 reminder. Day 4 \"abeg I forgot\". Saturday 10:30 stays blocked throughout. [SFX: phone alarm repeating, cut on \"forgot\"] [GIF]",
+          "visual": {
+            "kind": "timeline",
+            "heading": "Amaka's week (illustration)",
+            "events": [
+              {
+                "label": "I'll send it now now",
+                "time": "Day 1",
+                "tone": "neutral",
+                "flagged": false,
+                "cue": "d1"
+              },
+              {
+                "label": "Reminder from Amaka",
+                "time": "Day 2",
+                "tone": "neutral",
+                "flagged": false,
+                "cue": "d2"
+              },
+              {
+                "label": "Another reminder",
+                "time": "Day 3",
+                "tone": "neutral",
+                "flagged": false,
+                "cue": "d2"
+              },
+              {
+                "label": "Abeg I forgot",
+                "time": "Day 4",
+                "tone": "warning",
+                "flagged": false,
+                "cue": "d4"
+              },
+              {
+                "label": "10:30 still held for Chioma O.",
+                "time": "Saturday",
+                "tone": "warning",
+                "flagged": true,
+                "cue": "sat"
+              }
+            ],
+            "flag": {
+              "cue": "sat",
+              "label": "Held all week, no deposit"
+            },
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "d1",
+              "phrase": "four days",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "d2",
+              "phrase": "two reminders",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "d4",
+              "phrase": "one abeg i forgot",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "sat",
+              "phrase": "a saturday slot nobody else could take",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Show the week the slot was held on a promise.",
+            "representation": "Day 1 now now, Day 2 and Day 3 Amaka's own reminders (not Iker's), Day 4 abeg I forgot. Saturday 10:30 blocked throughout.",
+            "motion": "Rail grows day by day. [SFX: phone alarm repeating, cut on \"forgot\"] [GIF]",
+            "finalFrame": "Saturday 10:30 ringed as held."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "A story, not a statistic"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-maybe-booked",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "A date with no deposit is a maybe. A date with proof is a booking.",
+          "estimatedDurationSeconds": 6.9,
+          "visualInstructions": "comparison. A date with no deposit behind it: \"maybe\". A date with proof behind it: \"booked\".",
+          "visual": {
+            "kind": "comparison",
+            "heading": "Maybe or booked",
+            "left": {
+              "title": "No deposit behind it",
+              "points": [
+                "Saturday 10:30",
+                "A maybe"
+              ],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "Proof behind it",
+              "points": [
+                "Saturday 10:30",
+                "A booking"
+              ],
+              "tone": "positive"
+            }
+          },
+          "direction": {
+            "objective": "One idea: a date is only a booking when there is proof behind it.",
+            "representation": "Same date twice: maybe on the left, booked on the right.",
+            "finalFrame": "Both columns visible, booked side in the accent."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-money-path",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Your client pays you, the way they already do, then uploads proof. Iker does not touch the money. It keeps track.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "pipeline. Client, bank transfer to Amaka, proof uploaded, \"Awaiting confirmation\". Label: \"The money goes to you, not through Iker.\"",
+          "visual": {
+            "kind": "pipeline",
+            "heading": "The money goes to you, not through Iker.",
+            "object": {
+              "type": "transaction",
+              "label": "Deposit ₦15,000"
+            },
+            "stages": [
+              {
+                "label": "Chioma O.",
+                "detail": "The client",
+                "status": "verified",
+                "cue": "pays"
+              },
+              {
+                "label": "Bank transfer",
+                "detail": "Straight to Amaka's account",
+                "status": "verified",
+                "cue": "transfer"
+              },
+              {
+                "label": "Proof uploaded",
+                "detail": "By the client",
+                "status": "verified",
+                "cue": "upload"
+              }
+            ],
+            "result": {
+              "label": "Awaiting confirmation",
+              "detail": "Slot held while you check",
+              "status": "pending",
+              "cue": "track"
+            },
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "pays",
+              "phrase": "your client pays you",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "transfer",
+              "phrase": "the way they already do",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "upload",
+              "phrase": "then uploads proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "track",
+              "phrase": "it keeps track",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Make clear the money never passes through Iker.",
+            "representation": "A deposit travels client, bank transfer to Amaka, proof uploaded, then Awaiting confirmation.",
+            "finalFrame": "Object resting on Awaiting confirmation, label The money goes to you, not through Iker."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-check-proof",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "You see the booking, the amount and the proof. Check it against your bank app.",
+          "estimatedDurationSeconds": 6.9,
+          "visualInstructions": "product, iPhone frame. iker-amaka-chioma-proof-phone: \"Awaiting confirmation\", spotlight on the proof (labelled mock). Demo data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-chioma-proof-phone",
+            "mode": "video",
+            "heading": "Awaiting confirmation",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": true,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 2.4,
+              "toSeconds": 6.9,
+              "anchors": [
+                {
+                  "cue": "proof",
+                  "recordingSeconds": 4
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "proof",
+              "phrase": "and the proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Show where the owner sees the booking, the amount and the proof.",
+            "representation": "iker-amaka-chioma-proof-phone (unverified) in an iPhone frame: Chioma Okafor's Saturday 10:30 Bridal makeup booking (demo data, ₦45,000, ₦15,000 deposit) with Awaiting your confirmation and View proof. The proof image opens in a new tab the recorder cannot show; the lower third says any proof image is a mock.",
+            "camera": "Follow the recorder's highlights (Awaiting your confirmation, View proof, Confirm booking, Reject payment), isolate on. Trim with footage times after recording if the take runs long.",
+            "finalFrame": "View proof spotlit, buttons not yet pressed."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Demo data",
+            "subtitle": "Proof image is a mock"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-decide",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Matches? Confirm booking. Does not? Reject payment. You decide.",
+          "estimatedDurationSeconds": 4.5,
+          "visualInstructions": "decision, labelled Illustration. Matches: Confirm booking. Does not: Reject payment. [SFX: confirm chime on Confirm]",
+          "visual": {
+            "kind": "decision",
+            "signals": [
+              {
+                "id": "proof",
+                "label": "Proof of payment",
+                "detail": "Chioma O., ₦15,000 deposit",
+                "tone": "neutral",
+                "cue": "matches"
+              }
+            ],
+            "rule": {
+              "label": "You check your bank app",
+              "detail": "Does it match?",
+              "cue": "matches"
+            },
+            "outcomes": [
+              {
+                "id": "confirm",
+                "label": "Confirm booking",
+                "status": "verified",
+                "cue": "confirm"
+              },
+              {
+                "id": "reject",
+                "label": "Reject payment",
+                "status": "declined",
+                "cue": "reject"
+              }
+            ],
+            "routes": [
+              {
+                "from": "proof",
+                "to": "confirm",
+                "cue": "decide"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "matches",
+              "phrase": "matches",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "confirm booking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "reject",
+              "phrase": "reject payment",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "decide",
+              "phrase": "you decide",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "The owner decides, not Iker.",
+            "representation": "Proof feeds You check your bank app, two outcomes Confirm booking and Reject payment. Nothing is said about what the client sees after Reject payment.",
+            "motion": "[SFX: confirm chime on Confirm]",
+            "finalFrame": "Route to Confirm booking lit."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-result",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Fifteen thousand naira paid. Thirty thousand to go. Written down.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "product, iPhone frame. After confirming: Paid so far ₦15,000, Balance remaining ₦30,000. Calm check mark, no confetti. Demo data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-chioma-confirmed-phone",
+            "mode": "video",
+            "heading": "Deposit confirmed, balance written down",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": false,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": true,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 0.9,
+              "toSeconds": 6,
+              "anchors": [
+                {
+                  "cue": "balance",
+                  "recordingSeconds": 4
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "balance",
+              "phrase": "Thirty thousand",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Show the booking after confirming: Paid so far ₦15,000, Balance remaining ₦30,000.",
+            "representation": "iker-amaka-chioma-confirmed-phone (unverified) in an iPhone frame: Chioma Okafor's demo booking after the deposit was confirmed (seed.sh confirm-chioma, the product's own confirm path), Paid so far ₦15,000 and Balance remaining ₦30,000 highlighted. Record after iker-amaka-chioma-proof-phone, then run seed.sh reset-chioma.",
+            "motion": "Calm check mark, no confetti.",
+            "camera": "Follow the recorder's highlights on Paid so far and Balance remaining, isolate on.",
+            "finalFrame": "Paid so far and Balance remaining readable."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "lowerThird": {
+            "title": "Demo data",
+            "subtitle": "Fictional business and amounts"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get started at useiker.com. No commission on bookings or deposits.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "cta. Amaka at ease, Saturday 10:30 \"Confirmed\". Terracotta slab.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Saturday 10:30. Confirmed.",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "direction": {
+            "objective": "One next step.",
+            "representation": "Terracotta slab. Brief asks for Amaka at ease with Saturday 10:30 Confirmed; the cta kind has no character, so the headline carries Saturday 10:30 Confirmed.",
+            "finalFrame": "Get started, useiker.com."
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    }
+  ]
+}

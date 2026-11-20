@@ -195,6 +195,10 @@ export const RecordingTimelineSchema = z.object({
       /** Element bounds in viewport fractions, when the step acted on an element. */
       region: BoxSchema.nullable(),
       label: z.string().nullable(),
+      /** When the pointer pressed, for steps that press; absent in older recordings. */
+      pressSeconds: z.number().optional(),
+      /** When the first key went down, for typing steps; absent in older recordings. */
+      keysFromSeconds: z.number().optional(),
     }),
   ),
 });

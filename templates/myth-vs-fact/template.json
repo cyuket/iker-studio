@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "id": "myth-vs-fact",
+  "name": "Myth vs Fact",
+  "description": "Takes one belief owners hold about running their business or about what Iker does, sets it against the sourced fact, explains what that means for the owner, and ends on one next step. Includes a vertical short.",
+  "contentTypes": ["BUSINESS_EDUCATION", "BOOKKEEPING_EDUCATION", "YOUTUBE_SHORT"],
+  "thumbnailVariants": ["split", "statement", "product"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 45,
+        "max": 90
+      },
+      "scenes": [
+        {
+          "id": "myth",
+          "type": "PROBLEM",
+          "title": "The myth",
+          "guidance": "State the belief the way an owner would say it, fairly and without mocking it. A question or a worry, never an invented statistic about how many people believe it.",
+          "chapterTitle": "The myth",
+          "visual": {
+            "kind": "statement",
+            "headline": "Myth: state the belief in a few words",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "fact",
+          "type": "EXPLANATION",
+          "title": "The fact",
+          "guidance": "Answer the myth directly with the fact, worded as close to its source as possible. Every sentence here needs a claims entry tied to a research fact.",
+          "chapterTitle": "The fact",
+          "visual": {
+            "kind": "comparison",
+            "heading": "Myth vs fact",
+            "left": {
+              "title": "Myth",
+              "points": ["What people think"],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "Fact",
+              "points": ["What is true, from the source"],
+              "tone": "positive"
+            }
+          }
+        },
+        {
+          "id": "how-it-works",
+          "type": "DIAGRAM",
+          "title": "How it really works",
+          "guidance": "The real sequence in two to four plain steps, including what stays in the owner's hands.",
+          "chapterTitle": "How it really works",
+          "visual": {
+            "kind": "steps",
+            "heading": "How it really works",
+            "steps": [
+              { "title": "First step" },
+              { "title": "Second step" },
+              { "title": "Third step" }
+            ]
+          }
+        },
+        {
+          "id": "proof",
+          "type": "DEMO",
+          "title": "See it in Iker",
+          "guidance": "One screen that shows the fact in the product, named with the product's own labels. Say the footage uses made-up data. Only show states the product really has.",
+          "chapterTitle": "See it in Iker",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "meaning",
+          "type": "OUTCOME",
+          "title": "What it means for you",
+          "guidance": "What the fact changes for the owner day to day, set against what the myth would have meant. No promised outcomes, no numbers.",
+          "chapterTitle": "What it means for you",
+          "visual": {
+            "kind": "transformation",
+            "heading": "What it means for you",
+            "before": { "title": "If the myth were true" },
+            "after": { "title": "What actually happens" },
+            "items": [{ "before": "Myth consequence", "after": "Real consequence" }]
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One next step, using the site's own call to action.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 20,
+        "max": 45
+      },
+      "scenes": [
+        {
+          "id": "s-myth",
+          "type": "PROBLEM",
+          "title": "Myth",
+          "guidance": "The myth in one line, labelled as a myth.",
+          "visual": {
+            "kind": "statement",
+            "headline": "Myth: the belief",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "s-fact",
+          "type": "EXPLANATION",
+          "title": "Fact",
+          "guidance": "The fact in one or two sentences, each backed by a claims entry.",
+          "visual": {
+            "kind": "comparison",
+            "left": {
+              "title": "Myth",
+              "points": ["What people think"],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "Fact",
+              "points": ["What is true"],
+              "tone": "positive"
+            }
+          }
+        },
+        {
+          "id": "s-meaning",
+          "type": "OUTCOME",
+          "title": "What it means",
+          "guidance": "What the fact means for the owner, in one or two sentences.",
+          "visual": {
+            "kind": "statement",
+            "headline": "What it means for you",
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "s-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to start.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -3,30 +3,30 @@
   "entries": [
     {
       "term": "Iker",
-      "status": "pending",
-      "alias": null,
+      "status": "approved",
+      "alias": "EYE-kerr",
       "ipa": null,
-      "notes": "Brand name. No pronunciation is recorded anywhere in slot-books or the brand kit, so none is assumed. Preview the default reading, set an alias or IPA if it is wrong, then approve.",
-      "approvedBy": null,
-      "approvedAt": null
+      "notes": "Said EE-ker, per the team",
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-15T13:34:45.498Z"
     },
     {
       "term": "useiker.com",
-      "status": "pending",
-      "alias": null,
+      "status": "approved",
+      "alias": "use Eye-ker dot com",
       "ipa": null,
       "notes": "The website, read in calls to action. Check it is said as 'use Iker dot com', not 'oo-SEE-ker'. A likely alias is 'use Iker dot com' once the reading of Iker is settled.",
-      "approvedBy": null,
-      "approvedAt": null
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-15T13:26:30.157Z"
     },
     {
       "term": "Naira",
-      "status": "pending",
+      "status": "approved",
       "alias": null,
       "ipa": null,
       "notes": "Nigerian currency. Check the voice says NYE-rah, as Nigerians do.",
-      "approvedBy": null,
-      "approvedAt": null
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-15T13:51:45.874Z"
     },
     {
       "term": "₦",
@@ -66,12 +66,12 @@
     },
     {
       "term": "Abuja",
-      "status": "pending",
+      "status": "approved",
       "alias": null,
       "ipa": null,
       "notes": "Iker's pilot city. Check it is said ah-BOO-jah.",
-      "approvedBy": null,
-      "approvedAt": null
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-20T00:35:06.917Z"
     },
     {
       "term": "Lagos",

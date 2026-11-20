@@ -181,6 +181,40 @@ This exact sequence has not been run for Iker yet. The same steps are exercised 
 repository so far. The first one will appear under `output/<id>/` with its `script.md`,
 `research.md`, `storyboard.json` and `manifest.json` tracked in Git and its media ignored.
 
+## From one idea to a video with Claude Code
+
+The `/iker` skill ([.claude/skills/iker/SKILL.md](.claude/skills/iker/SKILL.md)) takes one full
+idea and makes the video in your Claude Code conversation. It runs every `pnpm studio` command
+itself: research, script, storyboard, recording, narration, preview, render, QA and the local
+export. You do not type any commands. The CLI itself never needs Claude.
+
+Open Claude Code in this repository and type:
+
+```
+/iker <your full idea: the pain, who it is for, the angle, the length or platform>
+```
+
+To continue a video it started, type `/iker <video-id>`.
+
+It stops and asks you twice, with Approve / Improve / Stop here buttons:
+
+1. **Script.** It opens the storyboard preview and script, shows the narration, each cut's
+   length and the ElevenLabs cost. Approve, or write what to change and it revises and asks again.
+2. **Final video.** It opens each rendered cut and its QA report and lists the warnings and what
+   you should check by eye and ear. Approve, or say what to fix.
+
+When you choose Approve, it records the approval in your name (your `git user.name`) with a note
+that you gave it in a Claude Code conversation. Nothing is approved unless you click Approve at
+that gate. After the final approval it exports the local package to `output/<id>/export/`.
+
+It narrates with ElevenLabs when `pnpm studio doctor` shows it configured, otherwise with the
+`system` stand-in voice. If the local slot-books demo at `http://localhost:3000` is not running,
+it asks whether you will start it or whether to use synthetic footage or illustrations. It never
+publishes or uploads (ask separately for that) and never commits.
+
+To be walked through one stage at a time instead, with a pause at each human gate, use the
+`video-director` skill: `/video-director <id or topic>`.
+
 ## Production workflow for a real video
 
 Run `pnpm studio plan --video <id>` at any point. It prints what is stale, what narration will
@@ -235,6 +269,11 @@ kinds (`identity-story`, `network`, `pipeline`, `decision`, `timeline`, `story`,
 `transformation`) draw the explanation, and a product scene can carry a virtual `camera` and
 a `prelude` that hands a graphic over to real footage. See
 [docs/MOTION-DESIGN.md](docs/MOTION-DESIGN.md).
+
+A `photo` scene shows a real photograph from `assets/images/` (catalogued with its source and
+licence in `assets/images/README.md`) with a slow zoom or pan and an optional caption:
+`"visual": { "kind": "photo", "file": "salon-braiding-client.jpg", "alt": "A stylist braiding a client's hair", "caption": "Mid-braid, the phone keeps buzzing" }`.
+Add your own photos there as `own-<description>.jpg`. Photos are not committed to Git.
 
 ### 4. Human gate 1: approve the script
 
@@ -553,17 +592,23 @@ A template (`templates/<id>/template.json`) defines the cuts a kind of video pro
 scenes in each cut, guidance for the writer and a starting visual for each scene. Each template
 ships a finished `demo/` (script, research and storyboard) that `create --demo` copies.
 
-| Template               | Content types                                                 | Cuts                                                                                  |
-| ---------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `product-tutorial`     | `PRODUCT_TUTORIAL`, `PRODUCT_DEMO`, `YOUTUBE_SHORT`           | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
-| `feature-announcement` | `FEATURE_ANNOUNCEMENT`, `RELEASE_UPDATE`, `PRODUCT_DEMO`      | `full` (youtube-landscape), `social` (social-portrait)                                |
-| `business-explainer`   | `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `PRODUCT_DEMO` | `full` (youtube-landscape), `short-60` (youtube-shorts), `teaser-30` (youtube-shorts) |
+| Template                  | Content types                                                  | Cuts                                                                                  |
+| ------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `product-tutorial`        | `PRODUCT_TUTORIAL`, `PRODUCT_DEMO`, `YOUTUBE_SHORT`            | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
+| `feature-announcement`    | `FEATURE_ANNOUNCEMENT`, `RELEASE_UPDATE`, `PRODUCT_DEMO`       | `full` (youtube-landscape), `social` (social-portrait)                                |
+| `business-explainer`      | `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `PRODUCT_DEMO`  | `full` (youtube-landscape), `short-60` (youtube-shorts), `teaser-30` (youtube-shorts) |
+| `myth-vs-fact`            | `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `YOUTUBE_SHORT` | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
+| `faq-answer`              | `PRODUCT_TUTORIAL`, `BUSINESS_EDUCATION`, `YOUTUBE_SHORT`      | `short` (youtube-shorts), `full` (youtube-landscape)                                  |
+| `quick-sketch`            | `YOUTUBE_SHORT`, `BUSINESS_EDUCATION`, `PRODUCT_DEMO`          | `short` (youtube-shorts), `social` (social-portrait)                                  |
+| `monthly-money-check-in`  | `BOOKKEEPING_EDUCATION`, `BUSINESS_EDUCATION`                  | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
+| `day-in-the-life`         | `BUSINESS_EDUCATION`, `PRODUCT_DEMO`                           | `full` (youtube-landscape), `social` (social-portrait)                                |
+| `how-your-client-sees-it` | `PRODUCT_DEMO`, `PRODUCT_TUTORIAL`                             | `full` (youtube-landscape), `short` (youtube-shorts)                                  |
 
 Content types accepted by `create --type`: `PRODUCT_DEMO`, `PRODUCT_TUTORIAL`,
 `FEATURE_ANNOUNCEMENT`, `BUSINESS_EDUCATION`, `BOOKKEEPING_EDUCATION`, `YOUTUBE_SHORT`,
 `RELEASE_UPDATE`.
 
-Every product scene in the shipped templates points at a `synthetic-*` scenario
+Most product scenes in the shipped templates point at a `synthetic-*` scenario
 (`synthetic-smoke`, `synthetic-new-booking`, `synthetic-record-payment`). These play the
 bundled, clearly labelled "Demo Console" fixture for a booking business, served from this
 machine. Run

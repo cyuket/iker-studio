@@ -36,10 +36,12 @@ the numbers do and do not show, give the human the file paths and wait.
 ## Required inputs
 
 - A validated storyboard (`pnpm studio storyboard --video <id>`).
-- `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID` in `.env` (`ELEVENLABS_MODEL_ID` defaults
-  to `eleven_multilingual_v2` when empty). No ElevenLabs credentials are configured for Iker
-  yet: until they are, narration can only be the `system` or `silent` stand-in, and you must
-  say so. A key may be allowed to synthesise without being allowed to read the subscription
+- `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID` in `.env`. `ELEVENLABS_VOICE_ID` is the Iker
+  voice for every video (house style section 5): leave the manifest's `voiceId` null so it is
+  used, and do not pass `--voice-id` unless the owner asks for another voice.
+  `ELEVENLABS_MODEL_ID` defaults to `eleven_multilingual_v2` when empty. Check with
+  `pnpm studio doctor`: when ElevenLabs is not configured, narration can only be the `system` or
+  `silent` stand-in, and you must say so. A key may be allowed to synthesise without being allowed to read the subscription
   or the model list: never depend on those endpoints, and never print the key.
 - The audience: Nigerian service-business owners. Choose a calm, clear English voice that
   sounds trustworthy and unhurried (see `iker-house-style`); the human makes the choice.
@@ -203,3 +205,11 @@ pnpm studio costs --video <id>
 
 Do not run `pnpm studio cache clean --narration --yes` unless the human asks: regenerating
 that cache costs credits.
+
+## Pace
+
+`pnpm studio narrate --video <id> --speed <0.7-2>` sets the video's pace and regenerates every
+clip. ElevenLabs accepts 0.7 to 1.2; a pace above 1.2 is sent as 1.2 and the returned clip is
+time-stretched with FFmpeg `atempo` (pitch preserved), with its word timings compressed to
+match (`src/infrastructure/voice/tempo.ts`). A large stretch can sound rushed or
+artificial: listen before approving. A selected preset carries its own pace and overrides this.

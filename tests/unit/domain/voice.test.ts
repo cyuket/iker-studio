@@ -3,12 +3,15 @@ import {
   activeRules,
   applyAliases,
   estimateSynthesisCost,
+  MAX_SPEED,
   narrationCacheKey,
-  termsUsedIn,
-  VoiceSettingsSchema,
-  voiceConfigurationHash,
   type NarrationRequest,
   type PronunciationEntry,
+  PROVIDER_MAX_SPEED,
+  splitSpeed,
+  termsUsedIn,
+  voiceConfigurationHash,
+  VoiceSettingsSchema,
 } from "../../../src/domain/voice";
 
 const voice = VoiceSettingsSchema.parse({ provider: "elevenlabs" });
@@ -203,5 +206,30 @@ describe("estimateSynthesisCost", () => {
       credits: 0,
       usd: 0,
     });
+  });
+});
+
+describe("splitSpeed", () => {
+  it("lets the API do the whole pace up to its limit", () => {
+    expect(splitSpeed(1.15, true)).toEqual({ provider: 1.15, stretch: 1 });
+    expect(splitSpeed(PROVIDER_MAX_SPEED, true)).toEqual({
+      provider: PROVIDER_MAX_SPEED,
+      stretch: 1,
+    });
+  });
+
+  it("stretches the clip for the rest of a pace above the API's limit", () => {
+    const { provider, stretch } = splitSpeed(MAX_SPEED, true);
+    expect(provider).toBe(PROVIDER_MAX_SPEED);
+    expect(provider * stretch).toBeCloseTo(MAX_SPEED, 10);
+  });
+
+  it("stretches the whole pace on a model with no speed control", () => {
+    expect(splitSpeed(1.5, false)).toEqual({ provider: 1, stretch: 1.5 });
+  });
+
+  it("accepts paces up to 2 in the voice settings and no further", () => {
+    expect(VoiceSettingsSchema.shape.speed.safeParse(2).success).toBe(true);
+    expect(VoiceSettingsSchema.shape.speed.safeParse(2.01).success).toBe(false);
   });
 });

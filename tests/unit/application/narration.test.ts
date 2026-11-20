@@ -106,6 +106,20 @@ describe("narrate", () => {
     expect(voice.requests.at(-1)?.voiceId).toBe("another-voice");
   });
 
+  it("regenerates everything at the new pace when the speed changes, and records it", async () => {
+    await narrate(deps, { videoId, dryRun: false, force: false });
+    const result = await narrate(deps, { videoId, dryRun: false, force: false, speed: 1.15 });
+    expect(result.generated).toEqual(["hook", "demo", "cta"]);
+    expect(voice.requests.at(-1)?.voice.speed).toBe(1.15);
+    expect((await core.manifests.load(videoId)).voice.speed).toBe(1.15);
+  });
+
+  it("refuses a speed the speech API does not accept", async () => {
+    await expect(
+      narrate(deps, { videoId, dryRun: true, force: false, speed: 2.5 }),
+    ).rejects.toMatchObject({ code: "VALIDATION_FAILED" });
+  });
+
   it("drops a voice id that belonged to another provider when the provider changes", async () => {
     const manifest = await core.manifests.load(videoId);
     await core.manifests.save({

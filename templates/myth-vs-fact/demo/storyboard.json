@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": { "min": 45, "max": 90 },
+      "scenes": [
+        {
+          "id": "myth",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Myth: Iker takes my money",
+            "body": "Does Iker take the deposit and pay you later?",
+            "tone": "warning"
+          },
+          "chapterTitle": "The myth"
+        },
+        {
+          "id": "fact",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "comparison",
+            "heading": "Myth vs fact",
+            "left": {
+              "title": "Myth",
+              "points": ["Iker takes the deposit", "You get paid later"],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "Fact",
+              "points": [
+                "Clients transfer to your own account",
+                "Iker never holds the money",
+                "No commission on bookings or deposits"
+              ],
+              "tone": "positive"
+            }
+          },
+          "chapterTitle": "The fact"
+        },
+        {
+          "id": "how-it-works",
+          "type": "DIAGRAM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "steps",
+            "heading": "Iker keeps the record",
+            "steps": [
+              { "title": "Client transfers", "detail": "Straight to your account" },
+              { "title": "Proof of payment", "detail": "Uploaded with the booking" },
+              { "title": "You confirm", "detail": "Then it counts as income" }
+            ]
+          },
+          "chapterTitle": "How it really works"
+        },
+        {
+          "id": "proof",
+          "type": "DEMO",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "product",
+            "scenarioId": "synthetic-record-payment",
+            "mode": "screenshot",
+            "showCursor": false,
+            "heading": "Paid so far, balance remaining"
+          },
+          "chapterTitle": "See it in Iker"
+        },
+        {
+          "id": "meaning",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "transformation",
+            "heading": "What it means for you",
+            "before": { "title": "The myth" },
+            "after": { "title": "What happens" },
+            "items": [
+              { "before": "Iker holds the deposit", "after": "It reaches your account" },
+              { "before": "The app decides", "after": "You confirm each payment" },
+              { "before": "A cut for the app", "after": "No commission" }
+            ]
+          },
+          "chapterTitle": "What it means for you"
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 20, "max": 45 },
+      "scenes": [
+        {
+          "id": "s-myth",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "Myth: Iker takes my money",
+            "tone": "warning"
+          }
+        },
+        {
+          "id": "s-fact",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "comparison",
+            "left": {
+              "title": "Myth",
+              "points": ["Iker takes the deposit"],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "Fact",
+              "points": ["Clients transfer to your own account", "Iker never holds the money"],
+              "tone": "positive"
+            }
+          }
+        },
+        {
+          "id": "s-meaning",
+          "type": "OUTCOME",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "statement",
+            "headline": "You confirm. Iker keeps the record.",
+            "body": "No commission on bookings or deposits.",
+            "tone": "positive"
+          }
+        },
+        {
+          "id": "s-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

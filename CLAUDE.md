@@ -86,6 +86,10 @@ hint on stderr. The error code (`STAGE_BLOCKED`, `APPROVAL_REQUIRED`, `VALIDATIO
    records an automated approval, which unlocks only the `system` and `silent` voices. It
    never unlocks ElevenLabs narration, final approval, export or publishing, and QA reports
    it as a failure until a person approves the script. Say so when you report the result.
+   The other exception is the `/iker` skill: at each gate it asks the human in the conversation
+   (`AskUserQuestion`: Approve, Improve, Stop here). Only when they choose Approve there may you
+   run the approval, with `--by` set to their `git user.name` and a note saying it was given in
+   a Claude Code conversation. A general "do everything" or an earlier approval is not consent.
 7. Publishing happens only when the human explicitly asks for it in the conversation.
    `publish`, `publish-auth`, `export --r2` and `storage prune --yes` are never part of an
    automatic run.
@@ -103,9 +107,9 @@ hint on stderr. The error code (`STAGE_BLOCKED`, `APPROVAL_REQUIRED`, `VALIDATIO
    go in the script. No invented prices, plan limits or statistics.
 10. No unsupported claims and no generic AI marketing phrases (`BANNED_PHRASES` in
     `src/domain/script.ts`). No em dashes in viewer-facing copy.
-11. Stand-ins are not production output. Today there are no ElevenLabs or demo-environment
-    credentials on this machine, so the `system` and `silent` voices and the `synthetic-*`
-    scenarios are all that can run. Describe anything made with them as a pipeline check.
+11. Stand-ins are not production output. Anything made with the `system` or `silent` voice or a
+    `synthetic-*` scenario is a pipeline check. Run `pnpm studio doctor` to see whether
+    ElevenLabs and the demo environment are configured on this machine.
 
 ## Iker product wording
 
@@ -158,17 +162,18 @@ Commit only when asked.
 Skills live in `.claude/skills/<name>/SKILL.md` (mirrored in `.agents/skills/`). Most take a
 video id as their argument.
 
-| Need                                                            | Skill                                                                                 |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| The owner's standing rules: hook, names, brand, taste, voice    | `iker-house-style` (read before any script, storyboard or publish)                    |
-| Take a video through the whole pipeline, or find the next step  | `video-director`                                                                      |
-| Establish and source product facts in `research.md`             | `researcher`                                                                          |
-| Write or fix `script.md`, satisfy the lint                      | `technical-scriptwriter`                                                              |
-| Design scene visuals in `storyboard.json`                       | `storyboard-designer`                                                                 |
-| Record product flows, write or verify a scenario                | `product-demo-recorder`                                                               |
-| Voice settings, pronunciations, narration and its cost          | `elevenlabs-voice-director`                                                           |
-| Change the Remotion design system or a component                | `motion-graphics-designer`                                                            |
-| Preview, render, re-render, music, thumbnails, caches           | `video-editor`                                                                        |
-| Run QA and read the report with the reviewer                    | `quality-assurance-reviewer`                                                          |
-| Required covers, pain-led captions and platform delivery checks | `iker-social-publishing` (every platform, every upload)                               |
-| Titles, description, chapters, export package, publishing       | `youtube-content-strategist` (human-invoked only: `/youtube-content-strategist <id>`) |
+| Need                                                                  | Skill                                                                                 |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| The owner's standing rules: hook, names, brand, taste, voice          | `iker-house-style` (read before any script, storyboard or publish)                    |
+| Take a video through the whole pipeline, or find the next step        | `video-director`                                                                      |
+| Turn a full idea into a finished video, asking the human at each gate | `/iker <idea>`: runs every command, asks Approve / Improve / Stop at script and final |
+| Establish and source product facts in `research.md`                   | `researcher`                                                                          |
+| Write or fix `script.md`, satisfy the lint                            | `technical-scriptwriter`                                                              |
+| Design scene visuals in `storyboard.json`                             | `storyboard-designer`                                                                 |
+| Record product flows, write or verify a scenario                      | `product-demo-recorder`                                                               |
+| Voice settings, pronunciations, narration and its cost                | `elevenlabs-voice-director`                                                           |
+| Change the Remotion design system or a component                      | `motion-graphics-designer`                                                            |
+| Preview, render, re-render, music, thumbnails, caches                 | `video-editor`                                                                        |
+| Run QA and read the report with the reviewer                          | `quality-assurance-reviewer`                                                          |
+| Required covers, pain-led captions and platform delivery checks       | `iker-social-publishing` (every platform, every upload)                               |
+| Titles, description, chapters, export package, publishing             | `youtube-content-strategist` (human-invoked only: `/youtube-content-strategist <id>`) |

@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "videoId": "template-demo",
+  "version": 1,
+  "scriptHash": "",
+  "cuts": [
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": { "min": 15, "max": 30 },
+      "scenes": [
+        {
+          "id": "qs-moment",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              },
+              {
+                "id": "tunde",
+                "name": "Tunde (client)",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "blue",
+                "pose": "hold-phone",
+                "expression": "neutral",
+                "cue": "sent"
+              }
+            ],
+            "props": [
+              {
+                "kind": "tiles",
+                "id": "message",
+                "with": "tunde",
+                "cue": "no-proof",
+                "items": [
+                  { "icon": "phone", "label": "No screenshot", "status": "flagged" },
+                  { "icon": "money", "label": "No amount", "status": "flagged", "cue": "no-amount" }
+                ]
+              }
+            ],
+            "actions": [
+              { "who": "tunde", "cue": "sent", "say": "I sent the money" },
+              { "who": "amaka", "cue": "no-proof", "expression": "curious" }
+            ]
+          },
+          "cues": [
+            { "id": "sent", "phrase": "I sent the money" },
+            { "id": "no-proof", "phrase": "No screenshot" },
+            { "id": "no-amount", "phrase": "No amount" }
+          ],
+          "direction": {
+            "objective": "Open on the moment: a payment claim with nothing to check",
+            "finalFrame": "Tunde's bubble up, both tiles flagged"
+          }
+        },
+        {
+          "id": "qs-reaction",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "think",
+                "expression": "worried"
+              }
+            ],
+            "actions": [
+              { "who": "amaka", "cue": "when", "think": "Which transfer was his?" },
+              { "who": "amaka", "cue": "scrolling", "pose": "hold-phone" }
+            ]
+          },
+          "cues": [
+            { "id": "when", "phrase": "Sent when" },
+            { "id": "scrolling", "phrase": "scrolling your bank app" }
+          ]
+        },
+        {
+          "id": "qs-fix",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "tunde",
+                "name": "Tunde (client)",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "blue",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              },
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "sends": [
+              {
+                "object": "money",
+                "from": "tunde",
+                "to": "amaka",
+                "label": "₦15,000 to your account",
+                "cue": "pays"
+              },
+              {
+                "object": "phone",
+                "from": "tunde",
+                "to": "amaka",
+                "label": "Proof of payment",
+                "cue": "proof"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "confirm",
+                "expression": "happy",
+                "say": "Confirm booking",
+                "status": "verified"
+              }
+            ]
+          },
+          "cues": [
+            { "id": "pays", "phrase": "pays into your account" },
+            { "id": "proof", "phrase": "uploads proof of payment" },
+            { "id": "confirm", "phrase": "tap Confirm booking" }
+          ],
+          "direction": {
+            "objective": "The one Iker answer: proof arrives with the booking and the owner confirms",
+            "finalFrame": "Amaka happy, verified, the proof beside her"
+          }
+        },
+        {
+          "id": "qs-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "format": "social-portrait",
+      "targetSeconds": { "min": 15, "max": 30 },
+      "scenes": [
+        {
+          "id": "sp-moment",
+          "type": "PROBLEM",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              },
+              {
+                "id": "tunde",
+                "name": "Tunde (client)",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "blue",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "actions": [
+              { "who": "tunde", "cue": "sent", "say": "I sent the money" },
+              {
+                "who": "amaka",
+                "cue": "no-proof",
+                "expression": "curious",
+                "think": "No screenshot. No amount."
+              }
+            ]
+          },
+          "cues": [
+            { "id": "sent", "phrase": "I sent the money" },
+            { "id": "no-proof", "phrase": "No screenshot" }
+          ]
+        },
+        {
+          "id": "sp-reaction",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "You stop work", "role": "lead", "cue": "stop" },
+              { "text": "You scroll your bank app", "role": "support", "cue": "scroll" },
+              { "text": "Which transfer is his?", "role": "key", "cue": "match" }
+            ]
+          },
+          "cues": [
+            { "id": "stop", "phrase": "you stop work" },
+            { "id": "scroll", "phrase": "scroll your bank app" },
+            { "id": "match", "phrase": "match a transfer to a name" }
+          ]
+        },
+        {
+          "id": "sp-fix",
+          "type": "EXPLANATION",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "tunde",
+                "name": "Tunde (client)",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "blue",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              },
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "sends": [
+              {
+                "object": "money",
+                "from": "tunde",
+                "to": "amaka",
+                "label": "₦15,000 to your account",
+                "cue": "pays"
+              },
+              {
+                "object": "phone",
+                "from": "tunde",
+                "to": "amaka",
+                "label": "Proof of payment",
+                "cue": "proof"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "confirm",
+                "expression": "happy",
+                "say": "Confirm booking",
+                "status": "verified"
+              }
+            ]
+          },
+          "cues": [
+            { "id": "pays", "phrase": "pay into your account" },
+            { "id": "proof", "phrase": "upload proof of payment" },
+            { "id": "confirm", "phrase": "tap Confirm booking" }
+          ]
+        },
+        {
+          "id": "sp-cta",
+          "type": "CTA",
+          "narration": "",
+          "estimatedDurationSeconds": 0,
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

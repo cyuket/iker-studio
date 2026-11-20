@@ -46,6 +46,10 @@ export interface TimelineRecorder {
   stopCapture(): void;
   /** Marks a step as started. Call the returned function once when the step has finished. */
   begin(index: number, step: Step): (box: Box | null) => void;
+  /** Marks the moment the running step's pointer pressed. Only the first press counts. */
+  markPress(): void;
+  /** Marks the moment the running step started typing. Only the first mark counts. */
+  markKeys(): void;
   build(): RecordingTimeline;
 }
 
@@ -56,6 +60,7 @@ export function createTimelineRecorder(
   const events: TimelineEvent[] = [];
   let startedAtMs: number | null = null;
   let stoppedAtMs: number | null = null;
+  let marks: { press?: number; keys?: number } = {};
 
   /** Steps that run before the capture starts all sit at zero: they are not in the video. */
   const seconds = (): number =>
@@ -70,6 +75,7 @@ export function createTimelineRecorder(
     },
     begin: (index, step) => {
       const startSeconds = seconds();
+      marks = {};
       return (box) => {
         events.push({
           index,
@@ -78,8 +84,17 @@ export function createTimelineRecorder(
           endSeconds: seconds(),
           region: box ? toRegion(box, scenario.viewport) : null,
           label: stepLabel(step),
+          ...(marks.press === undefined ? {} : { pressSeconds: marks.press }),
+          ...(marks.keys === undefined ? {} : { keysFromSeconds: marks.keys }),
         });
+        marks = {};
       };
+    },
+    markPress: () => {
+      marks.press ??= seconds();
+    },
+    markKeys: () => {
+      marks.keys ??= seconds();
     },
     build: () => ({
       schemaVersion: 1,

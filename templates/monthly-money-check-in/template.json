@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "id": "monthly-money-check-in",
+  "name": "Monthly Money Check-in",
+  "description": "Bookkeeping education for the end of the month: how to read what came in and what went out, where Iker shows it (the Business report and the statement of accounts), and one thing to decide from it. Includes a vertical cut.",
+  "contentTypes": ["BOOKKEEPING_EDUCATION", "BUSINESS_EDUCATION"],
+  "thumbnailVariants": ["statement", "split", "product"],
+  "cuts": [
+    {
+      "id": "full",
+      "format": "youtube-landscape",
+      "targetSeconds": {
+        "min": 90,
+        "max": 180
+      },
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "title": "Month end",
+          "guidance": "The last day of the month, told as it happens: money came in different ways, costs sit in a notebook, and the owner cannot say whether the month made money. No statistics.",
+          "chapterTitle": "Month end",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              { "text": "What the month looked like", "role": "lead" },
+              { "text": "The question the owner cannot answer", "role": "key" }
+            ]
+          }
+        },
+        {
+          "id": "basics",
+          "type": "EXPLANATION",
+          "title": "Three numbers",
+          "guidance": "Teach first: what came in, what went out, and what was left. Plain words, no jargon such as ledger or reconciliation.",
+          "chapterTitle": "Three numbers",
+          "visual": {
+            "kind": "steps",
+            "heading": "Read the month in three numbers",
+            "steps": [
+              { "title": "What came in" },
+              { "title": "What went out" },
+              { "title": "What was left" }
+            ]
+          }
+        },
+        {
+          "id": "example",
+          "type": "DIAGRAM",
+          "title": "A made-up month",
+          "guidance": "One fictional business's month as a worked example. Every figure is made up and the narration says so. Never present the numbers as a real business or as an Iker result.",
+          "visual": {
+            "kind": "data",
+            "heading": "A made-up month",
+            "unit": "naira",
+            "series": [
+              { "label": "Came in", "value": 400000, "tone": "positive" },
+              { "label": "Went out", "value": 250000, "tone": "danger" },
+              { "label": "Left", "value": 150000, "tone": "primary" }
+            ],
+            "source": "Made-up example figures, not real data",
+            "illustrative": true
+          }
+        },
+        {
+          "id": "chapter-report",
+          "type": "EXPLANATION",
+          "title": "Chapter card",
+          "guidance": "Leave empty: this is a silent chapter card.",
+          "visual": {
+            "kind": "chapter",
+            "title": "Read it in Iker"
+          }
+        },
+        {
+          "id": "report",
+          "type": "DEMO",
+          "title": "The Business report",
+          "guidance": "Open Report under Accounting and name what the Business report shows, using the product's labels. Say the footage uses made-up data.",
+          "chapterTitle": "The Business report",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-business-report"
+          }
+        },
+        {
+          "id": "pending",
+          "type": "EXPLANATION",
+          "title": "Confirm before you read",
+          "guidance": "Payments waiting for the owner's confirmation are not counted as income yet. Say why that matters before reading the month.",
+          "visual": {
+            "kind": "statement",
+            "headline": "Confirm first, then read the month"
+          }
+        },
+        {
+          "id": "transactions",
+          "type": "DEMO",
+          "title": "The statement of accounts",
+          "guidance": "Show Transactions: every payment, refund and expense in one list. Name the statement of accounts as the product does.",
+          "chapterTitle": "The statement of accounts",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-transactions"
+          }
+        },
+        {
+          "id": "decide",
+          "type": "EXPLANATION",
+          "title": "One thing to decide",
+          "guidance": "Turn the numbers into one decision for next month. This is advice, not a product promise. Add 'depending on your plan' for expense entries.",
+          "chapterTitle": "One thing to decide",
+          "visual": {
+            "kind": "steps",
+            "heading": "Decide one thing",
+            "steps": [{ "title": "First" }, { "title": "Second" }, { "title": "Third" }]
+          }
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "title": "What you have now",
+          "guidance": "Answer the hook's question with what the owner now has. No promised profit, no unsupported numbers.",
+          "chapterTitle": "What you have now",
+          "visual": {
+            "kind": "statement",
+            "headline": "What the owner knows now"
+          }
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "One next step, using the site's own call to action. Teach first; this is not an advert.",
+          "visual": {
+            "kind": "cta",
+            "headline": "One next step",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "title": "Outro",
+          "guidance": "Leave empty: brand outro without narration.",
+          "visual": {
+            "kind": "outro"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "youtube-shorts",
+      "targetSeconds": {
+        "min": 30,
+        "max": 60
+      },
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "title": "Hook",
+          "guidance": "The month-end question in one or two sentences.",
+          "visual": {
+            "kind": "statement",
+            "headline": "The month-end question"
+          }
+        },
+        {
+          "id": "short-read",
+          "type": "EXPLANATION",
+          "title": "Three numbers",
+          "guidance": "What came in, what went out, what was left, on made-up figures the narration calls examples.",
+          "visual": {
+            "kind": "data",
+            "heading": "A made-up month",
+            "unit": "naira",
+            "series": [
+              { "label": "Came in", "value": 400000, "tone": "positive" },
+              { "label": "Went out", "value": 250000, "tone": "danger" },
+              { "label": "Left", "value": 150000, "tone": "primary" }
+            ],
+            "source": "Made-up example figures, not real data",
+            "illustrative": true
+          }
+        },
+        {
+          "id": "short-demo",
+          "type": "DEMO",
+          "title": "In Iker",
+          "guidance": "One screen of the Business report. Say it is made-up data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-business-report",
+            "mode": "screenshot",
+            "screenshot": "business-report",
+            "showCursor": false
+          }
+        },
+        {
+          "id": "short-decide",
+          "type": "OUTCOME",
+          "title": "One decision",
+          "guidance": "The one thing to decide for next month, in one line.",
+          "visual": {
+            "kind": "statement",
+            "headline": "One decision for next month"
+          }
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "title": "Next step",
+          "guidance": "Where to start.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Start here",
+            "action": "Get started",
+            "url": "useiker.com"
+          }
+        }
+      ]
+    }
+  ]
+}

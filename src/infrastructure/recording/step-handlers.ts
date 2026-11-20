@@ -23,14 +23,21 @@ export interface StepContext {
   /** Filled in by screenshot steps: step name to absolute file path. */
   screenshots: Record<string, string>;
   masks: MaskRegistry;
+  /** Told when the pointer presses and when typing starts, so sounds can land on them. */
+  marks?: { press(): void; keys(): void };
 }
 
 type StepOf<A extends Step["action"]> = Extract<Step, { action: A }>;
 
 /** Brings the element on screen, glides the cursor to its centre and shows the press. */
-async function pointAndPress(page: Page, locator: Locator): Promise<Box> {
+async function pointAndPress(
+  page: Page,
+  locator: Locator,
+  marks?: StepContext["marks"],
+): Promise<Box> {
   const box = await settleInView(locator);
   await moveCursor(page, centreOf(box));
+  marks?.press();
   await pressCursor(page);
   return box;
 }
@@ -41,18 +48,19 @@ async function navigate(step: StepOf<"navigate">, context: StepContext): Promise
   return null;
 }
 
-async function click(step: StepOf<"click">, { page }: StepContext): Promise<Box> {
+async function click(step: StepOf<"click">, { page, marks }: StepContext): Promise<Box> {
   const locator = resolveTarget(page, step.target);
-  const box = await pointAndPress(page, locator);
+  const box = await pointAndPress(page, locator, marks);
   await locator.click({ timeout: TIMEOUTS.elementMs });
   return box;
 }
 
-async function type(step: StepOf<"type">, { page }: StepContext): Promise<Box> {
+async function type(step: StepOf<"type">, { page, marks }: StepContext): Promise<Box> {
   const locator = resolveTarget(page, step.target);
-  const box = await pointAndPress(page, locator);
+  const box = await pointAndPress(page, locator, marks);
   await locator.click({ timeout: TIMEOUTS.elementMs });
   if (step.replace) await locator.fill("");
+  marks?.keys();
   await locator.pressSequentially(step.text, { delay: PACING.keyDelayMs });
   return box;
 }
@@ -73,9 +81,9 @@ async function dismiss(step: StepOf<"dismiss">, { page }: StepContext): Promise<
  * operating system and cannot be clicked. Custom listboxes are opened and the option is
  * clicked like any other element.
  */
-async function select(step: StepOf<"select">, { page }: StepContext): Promise<Box> {
+async function select(step: StepOf<"select">, { page, marks }: StepContext): Promise<Box> {
   const locator = resolveTarget(page, step.target);
-  const box = await pointAndPress(page, locator);
+  const box = await pointAndPress(page, locator, marks);
   const isNative = await locator.evaluate((element) => element instanceof HTMLSelectElement);
   if (isNative) {
     await locator.selectOption({ label: step.option }, { timeout: TIMEOUTS.elementMs });
@@ -162,12 +170,13 @@ function closest(locator: Locator, role: string | undefined): Locator {
  * Presses at the grab point, glides to the drop point in small moves so the page sees a real
  * drag, and releases. The on-screen cursor follows the same path.
  */
-async function drag(step: StepOf<"drag">, { page }: StepContext): Promise<Box> {
+async function drag(step: StepOf<"drag">, { page, marks }: StepContext): Promise<Box> {
   const fromBox = await settleInView(closest(resolveTarget(page, step.from), step.fromClosest));
   const toBox = await settleInView(closest(resolveTarget(page, step.to), step.toClosest));
   const start = pointIn(fromBox, step.fromPoint);
   const end = pointIn(toBox, step.toPoint);
   await moveCursor(page, start);
+  marks?.press();
   await pressCursor(page);
   await page.mouse.move(start.x, start.y);
   await page.mouse.down();
@@ -177,7 +186,8 @@ async function drag(step: StepOf<"drag">, { page }: StepContext): Promise<Box> {
   return toBox;
 }
 
-async function press(step: StepOf<"press">, { page }: StepContext): Promise<null> {
+async function press(step: StepOf<"press">, { page, marks }: StepContext): Promise<null> {
+  marks?.press();
   await page.keyboard.press(step.key);
   return null;
 }

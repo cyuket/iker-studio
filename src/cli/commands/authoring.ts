@@ -31,9 +31,10 @@ export function registerAuthoringCommands(program: Command, context: Context): v
     .option("--id <id>", "video id (default: derived from the title)")
     .option("--audience <audience>", "who the video is for")
     .addOption(
-      new Option("--type <type>", "content type")
-        .choices([...CONTENT_TYPES])
-        .default("PRODUCT_TUTORIAL"),
+      new Option(
+        "--type <type>",
+        "content type (default: the template's first content type)",
+      ).choices([...CONTENT_TYPES]),
     )
     .option(
       "--template <id>",
@@ -52,7 +53,7 @@ export function registerAuthoringCommands(program: Command, context: Context): v
         title?: string;
         id?: string;
         audience?: string;
-        type: ContentType;
+        type?: ContentType;
         template: string;
         voiceProvider: VoiceProvider;
         demo?: boolean;
@@ -60,10 +61,10 @@ export function registerAuthoringCommands(program: Command, context: Context): v
         const { container, out } = context();
         const manifest = await createVideo(container.core, {
           topic: options.topic,
-          contentType: options.type,
           template: options.template,
           voiceProvider: options.voiceProvider,
           demo: options.demo ?? false,
+          ...(options.type === undefined ? {} : { contentType: options.type }),
           ...(options.title === undefined ? {} : { title: options.title }),
           ...(options.id === undefined ? {} : { id: options.id }),
           ...(options.audience === undefined ? {} : { audience: options.audience }),

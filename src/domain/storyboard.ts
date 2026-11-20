@@ -89,6 +89,11 @@ const ProductVisual = z.object({
   /** Name of the screenshot step to show when mode is `screenshot`. */
   screenshot: z.string().optional(),
   heading: z.string().optional(),
+  /**
+   * What the footage is shown in: a browser window, a generic phone (for 9:16 cuts and
+   * phone-sized recordings) or a generic landscape tablet (for 16:9 cuts).
+   */
+  device: z.enum(["browser", "iphone", "ipad"]).default("browser"),
   /** Callouts placed over the recording, timed in seconds from the start of the scene. */
   annotations: z
     .array(
@@ -239,6 +244,36 @@ const OutroVisual = z.object({
 const ChapterVisual = z.object({
   kind: z.literal("chapter"),
   title: z.string().min(1),
+});
+
+/** File name of a photo in assets/images. */
+export const IMAGE_FILE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:jpg|jpeg|png|webp)$/;
+
+/** How a photo moves while it is on screen. `still` holds it, as reduced motion always does. */
+export const PHOTO_MOTIONS = ["zoom-in", "zoom-out", "pan-left", "pan-right", "still"] as const;
+
+/**
+ * A real photograph from assets/images, framed in the content zone: a person at work, a phone
+ * in a hand, a shop. Used where a picture of the real world says more than an illustration.
+ * Stock models are never presented as Iker customers, and a photo never stands in for the
+ * product's interface.
+ */
+const PhotoVisual = z.object({
+  kind: z.literal("photo"),
+  heading: z.string().optional(),
+  /** File in assets/images, for example "salon-braiding-client.jpg". */
+  file: z.string().regex(IMAGE_FILE, 'photo files are lowercase-hyphen names such as "salon.jpg"'),
+  /** What the photo shows, for reviewers and the storyboard preview. Never shown on screen. */
+  alt: z.string().min(1),
+  /** Short line laid over the bottom of the photo. */
+  caption: z.string().optional(),
+  /** Cue on which the caption appears; with the photo when omitted. */
+  captionCue: CueRef.optional(),
+  /** Point of interest, as fractions of the photo's width and height, kept in frame. */
+  focus: z
+    .object({ x: z.number().min(0).max(1).default(0.5), y: z.number().min(0).max(1).default(0.5) })
+    .prefault({}),
+  motion: z.enum(PHOTO_MOTIONS).default("zoom-in"),
 });
 
 const IDENTITY_FIELD_ICONS = [
@@ -856,6 +891,7 @@ export const SceneVisualSchema = z.discriminatedUnion("kind", [
   CtaVisual,
   OutroVisual,
   ChapterVisual,
+  PhotoVisual,
   IdentityStoryVisual,
   NetworkVisual,
   PipelineVisual,
@@ -868,6 +904,26 @@ export const SceneVisualSchema = z.discriminatedUnion("kind", [
 export type SceneVisual = z.infer<typeof SceneVisualSchema>;
 export type SceneVisualKind = SceneVisual["kind"];
 export type ProductSceneVisual = z.infer<typeof ProductVisual>;
+export type PhotoSceneVisual = z.infer<typeof PhotoVisual>;
+
+/** File name of a sound effect in assets/sfx. */
+export const SOUND_FILE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:wav|mp3|ogg)$/;
+
+/**
+ * A short sound effect played once during a scene: a click, a pop, a notification. It plays
+ * on a cue, so it stays in step with the voice when narration is regenerated, or at a fixed
+ * second when the scene has no narration to time it by.
+ */
+export const SoundSchema = z.object({
+  /** File in assets/sfx, for example "message-pop.wav". */
+  file: z.string().regex(SOUND_FILE, 'sound files are lowercase-hyphen names such as "pop.wav"'),
+  /** Cue of this scene the sound plays on; takes precedence over `atSeconds`. */
+  cue: CueRef.optional(),
+  /** Seconds from the start of the scene; the first frame when neither this nor a cue is set. */
+  atSeconds: z.number().min(0).optional(),
+  volume: z.number().min(0).max(1).default(0.5),
+});
+export type Sound = z.infer<typeof SoundSchema>;
 
 export const SceneSchema = z.object({
   id: SceneIdSchema,
@@ -900,6 +956,16 @@ export const SceneSchema = z.object({
     .prefault({}),
   captions: z.object({ enabled: z.boolean().default(true) }).prefault({}),
   audio: z.object({ narrationVolume: z.number().min(0).max(1).default(1) }).prefault({}),
+  /**
+   * Sound effects of this scene. Optional rather than defaulting to an empty list, so scenes
+   * without sounds keep their render identity.
+   */
+  sounds: z.array(SoundSchema).max(8).optional(),
+  /**
+   * Product scenes play a sound for every recorded action (click, typing, scroll). Set false
+   * to keep a scene's footage silent; absent means on.
+   */
+  actionSounds: z.boolean().optional(),
   lowerThird: z.object({ title: z.string().min(1), subtitle: z.string().optional() }).optional(),
   /** Marks the start of a YouTube chapter. */
   chapterTitle: z.string().optional(),
@@ -920,12 +986,24 @@ export const CutSchema = z.object({
    * scene re-renders every scene.
    */
   showProgress: z.boolean().default(false),
+  /**
+   * `static` is the still canvas. `animated` lets the canvas drift slowly behind the scenes
+   * (glows, grid and edge dots), driven by time since the start of the cut so it flows across
+   * the hard joins. Like the progress bar, it ties each scene to its position in the cut:
+   * changing the length of one scene re-renders the scenes after it.
+   */
+  background: z.enum(["static", "animated"]).default("static"),
   /** Licensed music bed, relative to the repository's assets/music directory. Optional. */
   music: z
     .object({
       file: z.string().min(1),
       volume: z.number().min(0).max(1).default(0.12),
       licence: z.string().min(1),
+      /**
+       * Attribution the licence requires, printed in the export description and captions.
+       * Required in practice for CC BY music; omit only for licences that ask for none.
+       */
+      credit: z.string().min(1).optional(),
     })
     .nullable()
     .default(null),

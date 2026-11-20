@@ -1,5 +1,6 @@
 import type { Scenario } from "../domain/recording";
 import { IKER_ACCOUNTING_SCENARIOS } from "./iker-accounting";
+import { IKER_AMAKA_SCENARIOS } from "./iker-amaka";
 import { IKER_BOOKING_SCENARIOS } from "./iker-bookings";
 import { IKER_CUSTOMER_SCENARIOS } from "./iker-customers";
 import { IKER_PAYMENT_SCENARIOS } from "./iker-payments";
@@ -19,4 +20,5 @@ export const IKER_SCENARIOS: readonly Scenario[] = [
   ...IKER_CUSTOMER_SCENARIOS,
   ...IKER_PUBLIC_SCENARIOS,
   ...IKER_SETTINGS_SCENARIOS,
+  ...IKER_AMAKA_SCENARIOS,
 ];

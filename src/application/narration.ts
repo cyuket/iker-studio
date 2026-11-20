@@ -13,6 +13,8 @@ import { enabledScenes, type Storyboard } from "../domain/storyboard";
 import {
   activeRules,
   estimateSynthesisCost,
+  MAX_SPEED,
+  MIN_SPEED,
   narrationCacheKey,
   termsUsedIn,
   VoiceProviderSchema,
@@ -355,6 +357,11 @@ export interface NarrateInput {
   /** Switch this video to another voice of the provider before narrating. */
   voiceId?: string;
   /**
+   * Set this video's speaking pace (0.7 to 2; above 1.2 the clip is time-stretched after
+   * synthesis) before narrating. A selected preset carries its own pace and replaces this one.
+   */
+  speed?: number;
+  /**
    * Plan with this preset instead of the recorded one. Meant for dry runs: it shows what a
    * performance would cost before anyone commits to it. A real run still requires the
    * preset to be the one a person selected.
@@ -551,11 +558,18 @@ export async function narrate(deps: NarrationDeps, input: NarrateInput): Promise
   // A voice id belongs to one provider. Switching provider without naming a voice falls
   // back to that provider's default instead of carrying the old provider's id across.
   const switching = input.provider !== undefined && input.provider !== loaded.voice.provider;
+  if (input.speed !== undefined && !(input.speed >= MIN_SPEED && input.speed <= MAX_SPEED)) {
+    throw new StudioError(
+      "VALIDATION_FAILED",
+      `Speed ${String(input.speed)} is out of range. Use a value from ${String(MIN_SPEED)} to ${String(MAX_SPEED)}.`,
+    );
+  }
   const voice: VoiceSettings = {
     ...loaded.voice,
     ...(switching ? { voiceId: null, modelId: null } : {}),
     ...(input.provider === undefined ? {} : { provider: input.provider }),
     ...(input.voiceId === undefined ? {} : { voiceId: input.voiceId }),
+    ...(input.speed === undefined ? {} : { speed: input.speed }),
     ...(input.preset === undefined ? {} : { preset: input.preset }),
   };
   const plan = await planNarration(deps, loaded, storyboard, voice, input.sceneIds);

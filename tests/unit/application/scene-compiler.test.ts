@@ -32,7 +32,11 @@ let videoId: string;
 let manifest: Manifest;
 let cut: Cut;
 
-function withRecording(target: "synthetic" | "iker", durationSeconds = 6): Manifest {
+function withRecording(
+  target: "synthetic" | "iker",
+  durationSeconds = 6,
+  events: unknown[] = [],
+): Manifest {
   const paths = core.layout.video(videoId);
   core.files.seed(
     paths.absolute("recordings/synthetic-smoke/timeline.json"),
@@ -42,7 +46,7 @@ function withRecording(target: "synthetic" | "iker", durationSeconds = 6): Manif
       target,
       viewport: { width: 1440, height: 900 },
       durationSeconds,
-      events: [],
+      events,
     }),
   );
   return {
@@ -137,6 +141,20 @@ describe("compileCut", () => {
     expect(compiled.cues.map((cue) => cue.index)).toEqual(compiled.cues.map((_, i) => i + 1));
   });
 
+  it("keeps the still canvas, and the scene's identity, unless the cut animates it", async () => {
+    const still = await compileCut(core, context(), cut);
+    expect(still.scenes.map((scene) => scene.backdrop)).toEqual(still.scenes.map(() => null));
+    const animated = await compileCut(core, context(), { ...cut, background: "animated" });
+    expect(animated.scenes.map((scene) => scene.backdrop?.startFrame)).toEqual(
+      animated.timeline.scenes.map((timing) => timing.startFrame),
+    );
+    expect(animated.scenes[0]?.hash).not.toBe(still.scenes[0]?.hash);
+    const second = animated.scenes[1];
+    if (!second) throw new Error("no second scene");
+    const props = await buildSceneProps(core, context(), animated, second, assets);
+    expect(props.backdrop).toEqual({ startFrame: animated.timeline.scenes[1]?.startFrame });
+  });
+
   it("labels synthetic footage and only synthetic footage", async () => {
     const synthetic = await compileCut(core, context(), cut);
     expect(synthetic.scenes.map((scene) => scene.disclosure)).toEqual([
@@ -163,6 +181,198 @@ describe("compileCut", () => {
     await expect(compileCut(core, context(), none)).rejects.toMatchObject({
       code: "VALIDATION_FAILED",
     });
+  });
+});
+
+describe("sounds", () => {
+  const sfx = (name: string) => `${core.layout.sfxDir}/${name}`;
+  const withSounds = (sounds: NonNullable<Cut["scenes"][number]["sounds"]>): Cut => ({
+    ...cut,
+    scenes: cut.scenes.map((scene, i) => (i === 0 ? { ...scene, sounds } : scene)),
+  });
+
+  it("plays nothing, and keeps the scene's identity, when a scene has no sounds", async () => {
+    const plain = await compileCut(core, context(), cut);
+    const first = plain.scenes[0];
+    if (!first) throw new Error("no scene");
+    expect(first.sounds).toEqual([]);
+    expect((await buildSceneProps(core, context(), plain, first, assets)).sounds).toEqual([]);
+  });
+
+  it("places a sound at its second, from assets/sfx, at its volume", async () => {
+    core.files.seed(sfx("pop.wav"), "pop-v1");
+    const compiled = await compileCut(
+      core,
+      context(),
+      withSounds([{ file: "pop.wav", atSeconds: 1, volume: 0.4 }]),
+    );
+    const first = compiled.scenes[0];
+    if (!first) throw new Error("no scene");
+    const props = await buildSceneProps(core, context(), compiled, first, assets);
+    expect(props.sounds).toEqual([
+      {
+        src: `http://127.0.0.1:9999${sfx("pop.wav")}`,
+        offsetFrames: compiled.format.fps,
+        volume: 0.4,
+      },
+    ]);
+  });
+
+  it("never starts a sound after the scene's last frame", async () => {
+    core.files.seed(sfx("pop.wav"), "pop-v1");
+    const compiled = await compileCut(
+      core,
+      context(),
+      withSounds([{ file: "pop.wav", atSeconds: 999, volume: 0.5 }]),
+    );
+    const first = compiled.scenes[0];
+    expect(first?.sounds[0]?.offsetFrames).toBe((first?.timing.durationFrames ?? 0) - 1);
+  });
+
+  it("refuses a sound file that is not in assets/sfx", async () => {
+    await expect(
+      compileCut(core, context(), withSounds([{ file: "missing.wav", volume: 0.5 }])),
+    ).rejects.toMatchObject({ code: "NOT_FOUND" });
+  });
+
+  it("re-renders only the scene whose sound file changed", async () => {
+    core.files.seed(sfx("pop.wav"), "pop-v1");
+    const before = await compileCut(
+      core,
+      context(),
+      withSounds([{ file: "pop.wav", volume: 0.5 }]),
+    );
+    core.files.seed(sfx("pop.wav"), "pop-v2");
+    const after = await compileCut(core, context(), withSounds([{ file: "pop.wav", volume: 0.5 }]));
+    expect(after.scenes[0]?.hash).not.toBe(before.scenes[0]?.hash);
+    expect(after.scenes[1]?.hash).toBe(before.scenes[1]?.hash);
+  });
+});
+
+describe("action sounds", () => {
+  const sfx = (name: string) => `${core.layout.sfxDir}/${name}`;
+  const clickAt = (pressSeconds: number) => ({
+    index: 0,
+    action: "click",
+    startSeconds: pressSeconds - 0.5,
+    endSeconds: pressSeconds + 0.4,
+    region: { x: 0.1, y: 0.1, width: 0.1, height: 0.05 },
+    label: null,
+    pressSeconds,
+  });
+  const typing = {
+    index: 1,
+    action: "type",
+    startSeconds: 2,
+    endSeconds: 4,
+    region: { x: 0.1, y: 0.3, width: 0.3, height: 0.05 },
+    label: null,
+    pressSeconds: 2.5,
+    keysFromSeconds: 2.8,
+  };
+  const demoSounds = async (cutOverride: Cut = cut) => {
+    const compiled = await compileCut(core, context(), cutOverride);
+    const demo = compiled.scenes.find((scene) => scene.scene.id === "demo");
+    if (!demo) throw new Error("no demo scene");
+    return { compiled, demo };
+  };
+  const seedLibrary = () => {
+    core.files.seed(sfx("click.wav"), "click");
+    core.files.seed(sfx("mixkit-keyboard-typing.mp3"), "typing");
+  };
+
+  it("plays a click where the pointer presses and typing for as long as keys go down", async () => {
+    seedLibrary();
+    manifest = withRecording("synthetic", 6, [clickAt(1), typing]);
+    const { compiled, demo } = await demoSounds();
+    const fps = compiled.format.fps;
+    expect(
+      demo.sounds.map(({ file, offsetFrames, durationFrames }) => ({
+        file,
+        offsetFrames,
+        durationFrames,
+      })),
+    ).toEqual([
+      { file: sfx("click.wav"), offsetFrames: fps, durationFrames: undefined },
+      { file: sfx("click.wav"), offsetFrames: Math.round(2.5 * fps), durationFrames: undefined },
+      {
+        file: sfx("mixkit-keyboard-typing.mp3"),
+        offsetFrames: Math.round(2.8 * fps),
+        durationFrames: Math.round(1.2 * fps),
+      },
+    ]);
+    const props = await buildSceneProps(core, context(), compiled, demo, assets);
+    expect(props.sounds[2]).toMatchObject({ durationFrames: Math.round(1.2 * fps), volume: 0.35 });
+  });
+
+  it("keeps a scene silent that opts out with actionSounds: false", async () => {
+    seedLibrary();
+    manifest = withRecording("synthetic", 6, [clickAt(1)]);
+    const quiet: Cut = {
+      ...cut,
+      scenes: cut.scenes.map((scene) =>
+        scene.id === "demo" ? { ...scene, actionSounds: false } : scene,
+      ),
+    };
+    expect((await demoSounds(quiet)).demo.sounds).toEqual([]);
+  });
+
+  it("refuses to render when an action sound is missing from assets/sfx", async () => {
+    manifest = withRecording("synthetic", 6, [clickAt(1)]);
+    await expect(compileCut(core, context(), cut)).rejects.toMatchObject({ code: "NOT_FOUND" });
+  });
+});
+
+describe("photos", () => {
+  const image = (name: string) => `${core.layout.imagesDir}/${name}`;
+  const withPhoto = (file: string): Cut => ({
+    ...cut,
+    scenes: cut.scenes.map((scene, i) =>
+      i === 0
+        ? {
+            ...scene,
+            visual: {
+              kind: "photo" as const,
+              file,
+              alt: "A stylist braiding a client's hair.",
+              focus: { x: 0.5, y: 0.5 },
+              motion: "zoom-in" as const,
+            },
+          }
+        : scene,
+    ),
+  });
+
+  it("gives every scene but a photo scene no image", async () => {
+    const plain = await compileCut(core, context(), cut);
+    const first = plain.scenes[0];
+    if (!first) throw new Error("no scene");
+    expect(first.image).toBeNull();
+    expect((await buildSceneProps(core, context(), plain, first, assets)).image).toBeNull();
+  });
+
+  it("serves a photo scene's photo from assets/images", async () => {
+    core.files.seed(image("salon.jpg"), "photo-v1");
+    const compiled = await compileCut(core, context(), withPhoto("salon.jpg"));
+    const first = compiled.scenes[0];
+    if (!first) throw new Error("no scene");
+    const props = await buildSceneProps(core, context(), compiled, first, assets);
+    expect(props.image).toEqual({ src: `http://127.0.0.1:9999${image("salon.jpg")}` });
+  });
+
+  it("refuses a photo that is not in assets/images", async () => {
+    await expect(compileCut(core, context(), withPhoto("missing.jpg"))).rejects.toMatchObject({
+      code: "NOT_FOUND",
+    });
+  });
+
+  it("re-renders only the scene whose photo changed", async () => {
+    core.files.seed(image("salon.jpg"), "photo-v1");
+    const before = await compileCut(core, context(), withPhoto("salon.jpg"));
+    core.files.seed(image("salon.jpg"), "photo-v2");
+    const after = await compileCut(core, context(), withPhoto("salon.jpg"));
+    expect(after.scenes[0]?.hash).not.toBe(before.scenes[0]?.hash);
+    expect(after.scenes[1]?.hash).toBe(before.scenes[1]?.hash);
   });
 });
 

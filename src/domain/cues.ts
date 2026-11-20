@@ -176,7 +176,10 @@ export function visualSettled(visual: unknown): string[] {
   return [...settled].sort();
 }
 
-type CueScene = Pick<Scene, "id" | "narration" | "visual"> & { cues?: Scene["cues"] };
+type CueScene = Pick<Scene, "id" | "narration" | "visual"> & {
+  cues?: Scene["cues"];
+  sounds?: Scene["sounds"];
+};
 
 /**
  * Cues whose phrase is not among the words that were actually spoken, in the order given.
@@ -229,6 +232,13 @@ export function cueProblems(scene: CueScene, spokenText: string = scene.narratio
     if (!seen.has(ref) && !settled.has(ref)) {
       problems.push(
         `${where}: the visual uses cue "${ref}", which is neither defined in the scene's cues nor listed as settled.`,
+      );
+    }
+  }
+  for (const sound of scene.sounds ?? []) {
+    if (sound.cue !== undefined && !seen.has(sound.cue)) {
+      problems.push(
+        `${where}: sound "${sound.file}" plays on cue "${sound.cue}", which is not defined in the scene's cues.`,
       );
     }
   }

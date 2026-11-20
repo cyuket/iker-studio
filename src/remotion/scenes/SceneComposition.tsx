@@ -20,7 +20,9 @@ import { SceneRenderer } from "./SceneRenderer";
  * across a hard cut is tested against.
  */
 export function SceneVisualLayer(
-  props: Pick<SceneRenderProps, "scene" | "brand" | "recording">,
+  props: Pick<SceneRenderProps, "scene" | "brand" | "recording"> & {
+    image?: SceneRenderProps["image"];
+  },
 ): ReactNode {
   const { zones } = useSceneEnvironment();
   return (
@@ -33,9 +35,22 @@ export function SceneVisualLayer(
         height: zones.content.height,
       }}
     >
-      <SceneRenderer visual={props.scene.visual} brand={props.brand} recording={props.recording} />
+      <SceneRenderer
+        visual={props.scene.visual}
+        brand={props.brand}
+        recording={props.recording}
+        image={props.image ?? null}
+      />
     </div>
   );
+}
+
+/** Frames over which a cut-short sound (typing) fades out instead of stopping dead. */
+const SOUND_FADE_FRAMES = 6;
+
+function fadeOut(volume: number, durationFrames: number): (frame: number) => number {
+  const fade = Math.min(SOUND_FADE_FRAMES, Math.max(1, Math.floor(durationFrames / 2)));
+  return (frame) => volume * Math.min(1, Math.max(0, (durationFrames - frame) / fade));
 }
 
 function SceneLayers(props: SceneRenderProps): ReactNode {
@@ -44,13 +59,18 @@ function SceneLayers(props: SceneRenderProps): ReactNode {
   const { scene, captions, progress, disclosure, narration } = props;
   return (
     <AbsoluteFill>
-      <Background />
+      <Background backdrop={props.backdrop} />
       {/*
         Everything in this layer fades to the bare background before the scene's last frame,
         unless the scene holds its exit for the next one to continue from.
       */}
       <AbsoluteFill style={{ opacity: exitOpacity(frame, timing, exit) }}>
-        <SceneVisualLayer scene={scene} brand={props.brand} recording={props.recording} />
+        <SceneVisualLayer
+          scene={scene}
+          brand={props.brand}
+          recording={props.recording}
+          image={props.image}
+        />
         {scene.lowerThird && zones.lowerThird ? (
           <LowerThird
             title={scene.lowerThird.title}
@@ -74,6 +94,26 @@ function SceneLayers(props: SceneRenderProps): ReactNode {
           <Html5Audio src={narration.src} volume={narration.volume} />
         </Sequence>
       ) : null}
+      {props.sounds.map((sound, index) => (
+        <Sequence
+          key={`${String(index)}-${sound.src}`}
+          from={sound.offsetFrames}
+          {...(sound.durationFrames === undefined
+            ? {}
+            : { durationInFrames: sound.durationFrames })}
+          layout="none"
+          name="Sound"
+        >
+          <Html5Audio
+            src={sound.src}
+            volume={
+              sound.durationFrames === undefined
+                ? sound.volume
+                : fadeOut(sound.volume, sound.durationFrames)
+            }
+          />
+        </Sequence>
+      ))}
     </AbsoluteFill>
   );
 }

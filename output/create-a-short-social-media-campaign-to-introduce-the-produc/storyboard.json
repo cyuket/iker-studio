@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": 1,
+  "videoId": "create-a-short-social-media-campaign-to-introduce-the-produc",
+  "version": 5,
+  "scriptHash": "c9f60ee214c26520a593de29d9b430710743fcab296003da4f6c50e44ce3217e",
+  "cuts": [
+    {
+      "id": "full",
+      "format": "social-landscape",
+      "targetSeconds": {
+        "min": 45,
+        "max": 90
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "hook",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "It's ten at night. A client says she's sent the deposit, and you're scrolling through three chats to find it.",
+          "estimatedDurationSeconds": 8.9,
+          "visualInstructions": "Illustration: a phone at night, chat bubbles stacking up (\"Are you free Saturday?\", \"How much is the deposit?\", \"I sent it, check\"). A thumb scrolls up through three chats. Fictional names only. No product UI.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
+              },
+              {
+                "id": "ada",
+                "name": "Ada (client)",
+                "seed": "ada",
+                "skin": "tan",
+                "hair": "puffs",
+                "hairColour": "brown",
+                "outfit": "blue",
+                "hidden": false,
+                "pose": "idle",
+                "expression": "neutral",
+                "cue": "sent"
+              }
+            ],
+            "props": [],
+            "actions": [
+              {
+                "who": "ada",
+                "cue": "sent",
+                "say": "I sent the deposit last night",
+                "leave": false
+              },
+              {
+                "who": "amaka",
+                "cue": "scroll",
+                "expression": "worried",
+                "think": "Which chat was it in?",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "sent",
+              "phrase": "sent the deposit",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "scroll",
+              "phrase": "scrolling through three chats",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "direction": {
+            "objective": "Open on the pain: a deposit claim nobody can find",
+            "representation": "Amaka on her phone at night, a client's speech bubble, Amaka's worried thought",
+            "layout": "Two figures, client on the right",
+            "motion": "Bubble on 'sent', worry on 'scroll'",
+            "camera": "Static",
+            "transition": "Rise in",
+            "finalFrame": "Amaka worried, thought bubble up"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "The problem",
+          "assets": []
+        },
+        {
+          "id": "promise",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Here's one booking in Iker, start to finish.",
+          "estimatedDurationSeconds": 4.1,
+          "visualInstructions": "Title-style card: Iker logo, then \"One booking, from link to confirmed\". The two characters are introduced in the next scene.",
+          "visual": {
+            "kind": "statement",
+            "headline": "One booking, from link to confirmed",
+            "points": [],
+            "tone": "primary"
+          },
+          "cues": [],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "link",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Amaka is a makeup artist. Her Iker booking link sits in her Instagram bio. Her client Tunde taps it. No app to download and no account to create.",
+          "estimatedDurationSeconds": 12.1,
+          "visualInstructions": "Illustration: Amaka's Instagram profile with a booking link in the bio. Tunde taps it on his phone. Show \"no app, no account\" as two struck-through icons.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "hidden": false,
+                "pose": "idle",
+                "expression": "happy"
+              },
+              {
+                "id": "tunde",
+                "name": "Tunde",
+                "seed": "tunde",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "cyan",
+                "hidden": false,
+                "pose": "idle",
+                "expression": "neutral"
+              }
+            ],
+            "props": [
+              {
+                "kind": "checklist",
+                "id": "easy",
+                "items": [
+                  {
+                    "label": "No app to download",
+                    "cue": "noapp",
+                    "status": "verified",
+                    "statusCue": "noapp"
+                  },
+                  {
+                    "label": "No account to create",
+                    "cue": "noaccount",
+                    "status": "verified",
+                    "statusCue": "noaccount"
+                  }
+                ],
+                "with": "tunde",
+                "cue": "noapp"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "puts",
+                "pose": "point",
+                "leave": false
+              },
+              {
+                "who": "tunde",
+                "cue": "taps",
+                "pose": "hold-phone",
+                "expression": "curious",
+                "leave": false
+              }
+            ],
+            "sends": [
+              {
+                "object": "link",
+                "from": "amaka",
+                "to": "tunde",
+                "label": "Booking link in her Instagram bio",
+                "cue": "taps"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "puts",
+              "phrase": "her iker booking link",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "taps",
+              "phrase": "tunde taps it",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "noapp",
+              "phrase": "no app to download",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "noaccount",
+              "phrase": "no account to create",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "How a booking works",
+          "assets": []
+        },
+        {
+          "id": "book",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "This is Tunde's view. He picks a service, then a time, and he only sees times that are really open. Then he adds his name, phone number and email.",
+          "estimatedDurationSeconds": 12.5,
+          "visualInstructions": "Illustration: a simple calendar with open slots lit and booked slots greyed out. Tunde picks one, then fills in name, phone and email. Do not draw a copy of the Iker booking page.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "mode": "video",
+            "heading": "Book from the link",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 1.6,
+              "isolate": false,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 0,
+              "toSeconds": 20,
+              "anchors": [
+                {
+                  "cue": "service",
+                  "recordingSeconds": 1.51
+                },
+                {
+                  "cue": "open",
+                  "recordingSeconds": 8.29
+                },
+                {
+                  "cue": "details",
+                  "recordingSeconds": 13.75
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "service",
+              "phrase": "picks a service",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "open",
+              "phrase": "times that are really open",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "details",
+              "phrase": "name phone number and email",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "pay",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "He sees Amaka's bank details, pays the deposit straight into her bank account, and uploads his proof of payment. Iker never holds the money.",
+          "estimatedDurationSeconds": 10.5,
+          "visualInstructions": "Illustration: money moving from Tunde's bank straight to Amaka's bank (not through Iker), labelled \"₦15,000 deposit, illustrative\". Then a receipt image going up as proof of payment, and a status chip \"Awaiting confirmation\".",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "mode": "video",
+            "heading": "Pay, then upload proof",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 1.6,
+              "isolate": false,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 20,
+              "anchors": [
+                {
+                  "cue": "details",
+                  "recordingSeconds": 21.42
+                },
+                {
+                  "cue": "proof",
+                  "recordingSeconds": 24.55
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "details",
+              "phrase": "sees amaka's bank details",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "paid",
+              "phrase": "pays the deposit",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "proof",
+              "phrase": "uploads his proof of payment",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "awaiting",
+              "phrase": "never holds the money",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "notify-business",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Iker emails Amaka. New booking from Tunde. It also waits on her dashboard, under Awaiting confirmation.",
+          "estimatedDurationSeconds": 7.3,
+          "visualInstructions": "Illustration: an email arriving on Amaka's phone, subject \"New booking from Tunde\", with a button \"Review and confirm this booking\". Then a card labelled \"Awaiting confirmation\" with Tunde's booking in it.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "props": [
+              {
+                "kind": "checklist",
+                "id": "waiting",
+                "title": "Awaiting confirmation",
+                "items": [
+                  {
+                    "label": "Tunde, bridal makeup",
+                    "cue": "waits",
+                    "status": "pending",
+                    "statusCue": "waits"
+                  }
+                ],
+                "with": "amaka",
+                "cue": "waits"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "email",
+                "expression": "curious",
+                "think": "Email: New booking from Tunde",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "email",
+              "phrase": "iker emails amaka",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "waits",
+              "phrase": "waits on her dashboard",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "confirm",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Amaka opens it and checks the proof against her bank app. When the money is there, she taps Confirm booking. If not, she taps Reject payment. Nothing counts as income until she confirms.",
+          "estimatedDurationSeconds": 14.1,
+          "visualInstructions": "Illustration: Amaka compares the proof with her bank app, then taps a button labelled \"Confirm booking\". A smaller \"Reject payment\" button sits beside it. Keep labels exact.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-confirm-booking-tablet",
+            "mode": "video",
+            "heading": "Check and confirm",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 1.6,
+              "isolate": false,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 0,
+              "anchors": [
+                {
+                  "cue": "checks",
+                  "recordingSeconds": 6.93
+                },
+                {
+                  "cue": "confirm",
+                  "recordingSeconds": 9.88
+                },
+                {
+                  "cue": "reject",
+                  "recordingSeconds": 13.21
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "checks",
+              "phrase": "checks the proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "bank",
+              "phrase": "her bank app",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "taps confirm booking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "reject",
+              "phrase": "she taps reject payment",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "income",
+              "phrase": "nothing counts as income",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Confirming",
+          "assets": []
+        },
+        {
+          "id": "notify-client",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "Tunde gets an email. Your appointment is confirmed.",
+          "estimatedDurationSeconds": 4.1,
+          "visualInstructions": "Illustration: an email landing on Tunde's phone, subject \"Your appointment is confirmed with Amaka Studio\", with the date and time and a \"View your booking\" button. Tunde smiles.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "hidden": false,
+                "pose": "idle",
+                "expression": "happy"
+              },
+              {
+                "id": "tunde",
+                "name": "Tunde",
+                "seed": "tunde",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "cyan",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "props": [],
+            "actions": [
+              {
+                "who": "tunde",
+                "cue": "confirmed",
+                "expression": "happy",
+                "say": "Booking confirmed!",
+                "status": "verified",
+                "leave": false
+              }
+            ],
+            "sends": [
+              {
+                "object": "phone",
+                "from": "amaka",
+                "to": "tunde",
+                "label": "Your appointment is confirmed",
+                "cue": "email"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "email",
+              "phrase": "tunde gets an email",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirmed",
+              "phrase": "your appointment is confirmed",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "Every booking arrives with its proof, and you both know when it's confirmed. Iker takes no commission on bookings or deposits.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "Diagram recap: Link, Book, Proof, Confirm, Both told. End on Amaka's calm evening, phone face down.",
+          "visual": {
+            "kind": "story",
+            "mode": "outcome",
+            "lines": [
+              {
+                "text": "Every booking arrives with its proof",
+                "role": "lead",
+                "cue": "proof"
+              },
+              {
+                "text": "You both know when it is confirmed",
+                "role": "support",
+                "cue": "know"
+              },
+              {
+                "text": "No commission on bookings or deposits",
+                "role": "key",
+                "cue": "commission"
+              }
+            ],
+            "recede": true,
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "proof",
+              "phrase": "every booking arrives",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "know",
+              "phrase": "you both know",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "commission",
+              "phrase": "no commission",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Where you stand",
+          "assets": []
+        },
+        {
+          "id": "cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get booked. Get paid. Get started at useiker.com.",
+          "estimatedDurationSeconds": 4.1,
+          "visualInstructions": "CTA card: \"Get started\" and useiker.com, with the tagline \"Get booked. Get paid.\"",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "cues": [],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "outro",
+          "type": "OUTRO",
+          "enabled": true,
+          "narration": "",
+          "estimatedDurationSeconds": 3,
+          "visualInstructions": "Brand outro without narration.",
+          "visual": {
+            "kind": "outro",
+            "tagline": "Get booked. Get paid."
+          },
+          "cues": [],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    },
+    {
+      "id": "short",
+      "format": "social-portrait",
+      "targetSeconds": {
+        "min": 20,
+        "max": 60
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": null,
+      "scenes": [
+        {
+          "id": "short-hook",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "Still scrolling through WhatsApp to find out who paid the deposit?",
+          "estimatedDurationSeconds": 5.3,
+          "visualInstructions": "Portrait illustration: chat bubbles piling up, a thumb scrolling. \"Who paid?\" as the only on-screen line.",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              {
+                "text": "Deposits buried in WhatsApp chats",
+                "role": "lead",
+                "cue": "chats"
+              },
+              {
+                "text": "Who paid?",
+                "role": "key",
+                "cue": "who"
+              }
+            ],
+            "recede": true,
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "chats",
+              "phrase": "scrolling through whatsapp",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "who",
+              "phrase": "who paid the deposit",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "short-flow",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "With Iker, your client books from your link, picks an open time, pays you directly and uploads proof of payment.",
+          "estimatedDurationSeconds": 8.9,
+          "visualInstructions": "Portrait illustration sequence: booking link tapped, open slot chosen, money going bank to bank, proof of payment uploaded.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-phone",
+            "mode": "video",
+            "heading": "Book from the link",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 1.6,
+              "isolate": false,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 0,
+              "toSeconds": 27.2,
+              "anchors": [
+                {
+                  "cue": "link",
+                  "recordingSeconds": 1.5
+                },
+                {
+                  "cue": "open",
+                  "recordingSeconds": 7.88
+                },
+                {
+                  "cue": "pays",
+                  "recordingSeconds": 21.02
+                },
+                {
+                  "cue": "proof",
+                  "recordingSeconds": 24.02
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "link",
+              "phrase": "books from your link",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "open",
+              "phrase": "picks an open time",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "pays",
+              "phrase": "pays you directly",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "proof",
+              "phrase": "uploads proof of payment",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "short-confirm",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Iker emails you. You check the proof, and you tap Confirm booking.",
+          "estimatedDurationSeconds": 5.7,
+          "visualInstructions": "Email \"New booking from Tunde\" arrives, then the \"Confirm booking\" button is tapped.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-confirm-booking-phone",
+            "mode": "video",
+            "heading": "Check and confirm",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 1.6,
+              "isolate": false,
+              "keyframes": []
+            },
+            "footage": {
+              "startSeconds": 0,
+              "fromSeconds": 4.7,
+              "anchors": [
+                {
+                  "cue": "check",
+                  "recordingSeconds": 6.86
+                },
+                {
+                  "cue": "confirm",
+                  "recordingSeconds": 9.83
+                }
+              ]
+            }
+          },
+          "cues": [
+            {
+              "id": "email",
+              "phrase": "iker emails you",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "check",
+              "phrase": "check the proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "tap confirm booking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "short-told",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "Your client gets an email that the booking is confirmed. One link, and everyone knows where they stand.",
+          "estimatedDurationSeconds": 8.1,
+          "visualInstructions": "Email \"Your appointment is confirmed\" lands on the client's phone.",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "bun",
+                "hairColour": "ink",
+                "outfit": "violet",
+                "hidden": false,
+                "pose": "idle",
+                "expression": "happy"
+              },
+              {
+                "id": "tunde",
+                "name": "Tunde",
+                "seed": "tunde",
+                "skin": "brown",
+                "hair": "crop",
+                "hairColour": "ink",
+                "outfit": "cyan",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "props": [],
+            "actions": [
+              {
+                "who": "tunde",
+                "cue": "confirmed",
+                "expression": "happy",
+                "status": "verified",
+                "leave": false
+              }
+            ],
+            "sends": [
+              {
+                "object": "phone",
+                "from": "amaka",
+                "to": "tunde",
+                "label": "Booking confirmed",
+                "cue": "email"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "email",
+              "phrase": "your client gets an email",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirmed",
+              "phrase": "booking is confirmed",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "short-cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get booked. Get paid. Get started at useiker.com.",
+          "estimatedDurationSeconds": 4.1,
+          "visualInstructions": "CTA card: useiker.com and \"Get booked. Get paid.\"",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "cues": [],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    }
+  ]
+}
