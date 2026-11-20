@@ -19,6 +19,14 @@ export class Workspace {
   get musicDir(): string {
     return path.join(this.projectRoot, "assets", "music");
   }
+  /** Photos that storyboard photo scenes show by file name. */
+  get imagesDir(): string {
+    return path.join(this.projectRoot, "assets", "images");
+  }
+  /** Sound effects that storyboard scenes play by file name. */
+  get sfxDir(): string {
+    return path.join(this.projectRoot, "assets", "sfx");
+  }
   get templatesDir(): string {
     return path.join(this.projectRoot, "templates");
   }

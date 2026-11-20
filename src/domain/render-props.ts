@@ -32,6 +32,8 @@ export interface SceneRenderProps {
   scene: Scene;
   durationFrames: number;
   narration: { src: string; offsetFrames: number; volume: number } | null;
+  /** Sound effects, each starting on its frame of the scene. */
+  sounds: { src: string; offsetFrames: number; volume: number; durationFrames?: number }[];
   /**
    * When each of the scene's cues fires, in seconds from the start of the scene, resolved
    * from the narration's word timings. Motion graphics key their animation to these.
@@ -40,6 +42,8 @@ export interface SceneRenderProps {
   /** Cues timed from the start of the scene; null when captions are not burned in. */
   captions: CaptionCue[] | null;
   recording: ResolvedRecording | null;
+  /** The photo of a photo scene, resolved to a URL; null for every other scene. */
+  image: { src: string } | null;
   /** Position of this scene within its cut, as fractions of total duration. */
   progress: { start: number; end: number } | null;
   /**

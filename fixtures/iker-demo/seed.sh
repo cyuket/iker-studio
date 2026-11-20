@@ -4,6 +4,8 @@
 #
 #   fixtures/iker-demo/seed.sh               seed (idempotent, additive; safe to re-run)
 #   fixtures/iker-demo/seed.sh reset-tunde   put Tunde's booking back to "Awaiting confirmation"
+#   fixtures/iker-demo/seed.sh reset-chioma  put Chioma's Saturday booking back to "Awaiting confirmation"
+#   fixtures/iker-demo/seed.sh confirm-chioma confirm Chioma's deposit (as Amaka) before recording scene 7
 #
 # Reads:
 #   Iker-studio/.env                     IKER_DEMO_PASSWORD (owner password, never printed)
@@ -21,6 +23,7 @@ SLOT_BOOKS_DIR="${SLOT_BOOKS_DIR:-$(cd "$STUDIO/.." && pwd)/slot-books}"
 DB_URL="${IKER_DEMO_DB_URL:-postgresql://postgres:postgres@127.0.0.1:54322/postgres}"
 BUSINESS_ID="7a3e0000-0000-4000-a000-000000000002"
 PROOF_PATH="$BUSINESS_ID/7a3e0000-0000-4000-a000-000000000051-sample-transfer-receipt.png"
+CHIOMA_PROOF_PATH="$BUSINESS_ID/7a3e0000-0000-4000-a000-000000000057-sample-transfer-receipt.png"
 
 die() { echo "Error: $*" >&2; exit 1; }
 
@@ -42,7 +45,11 @@ if [[ "${1:-}" == "reset-tunde" ]]; then
   psql "$DB_URL" -X -q -f "$HERE/reset-tunde.sql"
   exit 0
 fi
-[[ -z "${1:-}" ]] || die "unknown argument '$1'. Use no argument to seed, or 'reset-tunde'."
+if [[ "${1:-}" == "reset-chioma" || "${1:-}" == "confirm-chioma" ]]; then
+  psql "$DB_URL" -X -q -f "$HERE/$1.sql"
+  exit 0
+fi
+[[ -z "${1:-}" ]] || die "unknown argument '$1'. Use no argument to seed, 'reset-tunde', 'reset-chioma' or 'confirm-chioma'."
 
 ENV_LOCAL="$SLOT_BOOKS_DIR/apps/web/.env.local"
 [[ -f "$ENV_LOCAL" ]] || die "$ENV_LOCAL not found. Set SLOT_BOOKS_DIR."
@@ -59,15 +66,27 @@ export IKER_DEMO_PASSWORD
 echo "Seeding Amaka Studio into $DB_HOST ..."
 psql "$DB_URL" -X -q -f "$HERE/seed.sql"
 
-echo "Rendering and uploading the sample proof of payment ..."
+echo "Rendering and uploading the sample proofs of payment ..."
 mkdir -p "$HERE/.cache"
+
+# upload_proof <local png> <storage path>
+upload_proof() {
+  local status
+  status="$(curl -sS -o /dev/null -w '%{http_code}' -X POST \
+    "$SUPABASE_URL/storage/v1/object/payment-proofs/$2" \
+    -H "Authorization: Bearer $SERVICE_KEY" -H "apikey: $SERVICE_KEY" \
+    -H "Content-Type: image/png" -H "x-upsert: true" \
+    --data-binary "@$1")"
+  [[ "$status" == "200" ]] || die "uploading the proof of payment to $2 failed (HTTP $status)."
+  echo "Proof of payment stored at payment-proofs/$2"
+}
+
 RECEIPT="$HERE/.cache/sample-transfer-receipt.png"
 (cd "$STUDIO" && node "$HERE/render-receipt.mjs" "$RECEIPT" >/dev/null)
-STATUS="$(curl -sS -o /dev/null -w '%{http_code}' -X POST \
-  "$SUPABASE_URL/storage/v1/object/payment-proofs/$PROOF_PATH" \
-  -H "Authorization: Bearer $SERVICE_KEY" -H "apikey: $SERVICE_KEY" \
-  -H "Content-Type: image/png" -H "x-upsert: true" \
-  --data-binary "@$RECEIPT")"
-[[ "$STATUS" == "200" ]] || die "uploading the proof of payment failed (HTTP $STATUS)."
-echo "Proof of payment stored at payment-proofs/$PROOF_PATH"
+upload_proof "$RECEIPT" "$PROOF_PATH"
+
+CHIOMA_RECEIPT="$HERE/.cache/sample-transfer-receipt-chioma.png"
+(cd "$STUDIO" && node "$HERE/render-receipt.mjs" "$CHIOMA_RECEIPT" \
+  "Chioma Okafor" "Deposit for Bridal makeup" "SAMPLE-000124" >/dev/null)
+upload_proof "$CHIOMA_RECEIPT" "$CHIOMA_PROOF_PATH"
 echo "Done. Public page: http://localhost:3000/amaka-studio  Owner: amaka.owner@example.com"

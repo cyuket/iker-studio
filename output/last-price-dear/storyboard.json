@@ -1,44 +1,78 @@
 {
   "schemaVersion": 1,
   "videoId": "last-price-dear",
-  "version": 1,
-  "scriptHash": "e9f2599c744f87b90b0aaba8964a47f029df12726e9f32d07bc8408762fac793",
+  "version": 4,
+  "scriptHash": "397900517f5959c19a960181188ecdd4aafe1765dea393392d08a63b903c8bd0",
   "cuts": [
     {
       "id": "full",
       "format": "youtube-landscape",
       "targetSeconds": {
-        "min": 120,
-        "max": 180
+        "min": 110,
+        "max": 135
       },
       "burnCaptions": null,
       "showProgress": false,
       "background": "static",
-      "music": null,
+      "music": {
+        "file": "kevin-macleod-study-and-relax.mp3",
+        "volume": 0.08,
+        "licence": "CC BY 4.0",
+        "credit": "\"Study And Relax\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0, https://creativecommons.org/licenses/by/4.0/"
+      },
       "scenes": [
         {
-          "id": "hook",
-          "type": "PROBLEM",
+          "id": "intro",
+          "type": "INTRO",
           "enabled": true,
-          "narration": "A message lands at ten at night. \"How much for bridal makeup?\" You reply: ₦45,000. Two minutes later: \"Last price, dear?\" Then someone else asks the same thing. By morning you have quoted three different prices, and you cannot remember who got which. So how do you stop haggling in your DMs without losing the client?",
-          "estimatedDurationSeconds": 23.3,
-          "visualInstructions": "A phone at night: an Instagram DM thread. \"How much for bridal makeup?\", the reply \"₦45,000\", then \"Last price, dear?\". A second and third thread with the same question. All names fictional.",
+          "narration": "Nine forty at night. Amaka is cleaning her brushes after a long day. Hands full. The phone buzzes. \"Hi dear, how much for bridal makeup?\"",
+          "estimatedDurationSeconds": 10.9,
+          "visualInstructions": "character-scene. Amaka at her station, a brush in one hand, phone in the other, worried. Phone lights up. [SFX: message pop]",
           "visual": {
-            "kind": "story",
-            "mode": "problem",
-            "lines": [
+            "kind": "character-scene",
+            "cast": [
               {
-                "text": "What happens",
-                "role": "lead"
-              },
-              {
-                "text": "Why it matters",
-                "role": "key"
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
               }
             ],
-            "recede": true,
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Hi dear, how much for bridal makeup?",
+                "with": "amaka",
+                "cue": "buzz"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "buzz",
+                "expression": "worried",
+                "leave": false
+              }
+            ],
+            "sends": [],
             "settled": []
           },
+          "cues": [
+            {
+              "id": "buzz",
+              "phrase": "the phone buzzes",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
           "animation": {
             "enter": "rise",
             "leadInSeconds": 0.4,
@@ -51,31 +85,255 @@
           "audio": {
             "narrationVolume": 1
           },
-          "chapterTitle": "The situation",
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "buzz",
+              "volume": 0.6
+            }
+          ],
           "assets": []
         },
         {
-          "id": "gap",
+          "id": "chat",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "She types the answer she has typed many times. Forty-five thousand naira. Last price? It is the last price. Let me check and get back to you.",
+          "estimatedDurationSeconds": 11.7,
+          "visualInstructions": "story, mocked DM, labelled Illustration. Five messages one at a time: \"Hi dear, how much for bridal makeup?\", \"₦45,000\", \"Ahh. Last price?\", \"That's the last price dear\", \"Ok let me check and get back to you\", then \"Seen · 3 days ago\". Fictional client Chioma O. One full beat of silence after the narration. [SFX: seen tick] [GIF]",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              {
+                "text": "Chioma O.: Hi dear, how much for bridal makeup?",
+                "role": "lead"
+              },
+              {
+                "text": "Amaka: ₦45,000",
+                "role": "support",
+                "cue": "price"
+              },
+              {
+                "text": "Chioma O.: Ahh. Last price?",
+                "role": "support",
+                "cue": "last-price"
+              },
+              {
+                "text": "Amaka: That's the last price dear",
+                "role": "support",
+                "cue": "its-last"
+              },
+              {
+                "text": "Chioma O.: Ok let me check and get back to you",
+                "role": "support",
+                "cue": "check"
+              },
+              {
+                "text": "Seen · 3 days ago",
+                "role": "key",
+                "status": "pending",
+                "cue": "seen"
+              }
+            ],
+            "recede": false,
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "price",
+              "phrase": "forty-five thousand naira",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "last-price",
+              "phrase": "last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "check",
+              "phrase": "let me check",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "seen",
+              "phrase": "get back to you",
+              "at": "end",
+              "offsetSeconds": 0.6,
+              "occurrence": 1
+            },
+            {
+              "id": "its-last",
+              "phrase": "it is the last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 1.6,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "bubble-small.wav",
+              "atSeconds": 0.3,
+              "volume": 0.35
+            },
+            {
+              "file": "bubble.wav",
+              "cue": "price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "last-price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble.wav",
+              "cue": "its-last",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "check",
+              "volume": 0.35
+            },
+            {
+              "file": "seen-tick.wav",
+              "cue": "seen",
+              "volume": 0.4
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
+          "assets": []
+        },
+        {
+          "id": "pile",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "Then nothing. Tomorrow someone else asks the same question, and it starts again. And checking. And checking.",
+          "estimatedDurationSeconds": 7.7,
+          "visualInstructions": "transformation, labelled Illustration. A \"Still checking.\" stamp lands on the chat, then the chat slides into a pile of the same chat from Bisi A. and Kemi T. [SFX: stamp thud] [GIF]",
+          "visual": {
+            "kind": "transformation",
+            "mode": "in-place",
+            "before": {
+              "title": "The chat"
+            },
+            "after": {
+              "title": "Still checking."
+            },
+            "items": [
+              {
+                "before": "Chioma O.: Let me check",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-1"
+              },
+              {
+                "before": "Bisi A.: Last price?",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-2"
+              },
+              {
+                "before": "Kemi T.: Last price?",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-2"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "checking-1",
+              "phrase": "and checking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "checking-2",
+              "phrase": "and checking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 2
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "stamp-thud.wav",
+              "cue": "checking-1",
+              "volume": 0.6
+            },
+            {
+              "file": "stamp-thud.wav",
+              "cue": "checking-2",
+              "volume": 0.6
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
+          "assets": []
+        },
+        {
+          "id": "compare",
           "type": "EXPLANATION",
           "enabled": true,
-          "narration": "Haggling starts because your price lives in your head, not where the client can see it. Every chat starts from zero, so the client tests the number. When you are tired, or a slot is empty, you drop it. The client who pushed hardest pays the least. The loyal one who never asked pays full price.",
-          "estimatedDurationSeconds": 23.3,
-          "visualInstructions": "The price as a thought bubble over the owner, not written anywhere. Three chats, three different numbers.",
+          "narration": "The price only lives inside each chat, so every client has to ask. The usual way, you type it again in every chat. A better way, one link with the price already on it. What if the price was already there before they asked?",
+          "estimatedDurationSeconds": 18.5,
+          "visualInstructions": "comparison. The usual way: the price typed again in every chat. A better way: one link with the price already on it. [SFX: reveal]",
           "visual": {
             "kind": "comparison",
             "left": {
               "title": "The usual way",
               "points": [
-                "First point"
+                "The price typed again in every chat",
+                "Every client has to ask"
               ],
-              "tone": "neutral"
+              "tone": "warning"
             },
             "right": {
               "title": "A better way",
               "points": [
-                "First point"
+                "One link with the price already on it",
+                "There before anyone asks"
               ],
-              "tone": "neutral"
+              "tone": "positive"
             }
           },
           "animation": {
@@ -90,36 +348,307 @@
           "audio": {
             "narrationVolume": 1
           },
-          "chapterTitle": "Why it breaks",
+          "sounds": [
+            {
+              "file": "reveal.wav",
+              "atSeconds": 0.2,
+              "volume": 0.4
+            }
+          ],
           "assets": []
         },
         {
-          "id": "how-it-works",
-          "type": "DIAGRAM",
+          "id": "setup",
+          "type": "DEMO",
           "enabled": true,
-          "narration": "This fix works with or without software. Write down every service, its price and what it includes. Put that list where clients see it before they message you. And decide your discounts in advance, not in the middle of a chat. You still set every price. You just stop renegotiating it one DM at a time.",
-          "estimatedDurationSeconds": 23.3,
-          "visualInstructions": "Three steps: 1. Write every price down. 2. Show it before the chat. 3. Decide discounts in advance. The owner stays in charge of every number.",
+          "narration": "In Iker, you set it up once. On the Rate card, each service gets its price, its duration and its deposit.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "product, iPad frame. iker-rate-card: the Rate card with each service's price. Demo data.",
           "visual": {
-            "kind": "pipeline",
-            "object": {
-              "type": "transaction",
-              "label": "Payment"
-            },
-            "stages": [
+            "kind": "product",
+            "scenarioId": "iker-rate-card",
+            "mode": "video",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "Set it up once",
+          "assets": []
+        },
+        {
+          "id": "packages",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Services sit in packages, each with its own booking steps.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "product, iPad frame. iker-packages: services grouped into packages. Demo data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-packages",
+            "mode": "video",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "hours",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "And on Availability, you set your weekly hours and block the days you are away.",
+          "estimatedDurationSeconds": 6.9,
+          "visualInstructions": "product, iPad frame. iker-availability: Weekly hours, then Blocked dates. Demo data.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-availability",
+            "mode": "video",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "link",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Clients only see your link. Every service shows its price, and only times you are really open can be picked. Before they pay, they read your policy and tick to accept it. All of this is there before the first message. The business on screen is made-up demo data.",
+          "estimatedDurationSeconds": 20.5,
+          "visualInstructions": "product, iPad frame. iker-amaka-client-books-tablet: booking page with the rate card and price, open times, then Pay & confirm with the policy. Zoom on the price, then on the policy line.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-tablet",
+            "mode": "video",
+            "device": "ipad",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "chapterTitle": "What clients see",
+          "assets": []
+        },
+        {
+          "id": "decide",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "They pay the deposit by bank transfer, straight to your account, and upload their proof. Iker records it. It does not take the money. You look at the proof. If it is right, tap Confirm booking, and the slot is booked. If not, tap Reject payment.",
+          "estimatedDurationSeconds": 19.3,
+          "visualInstructions": "decision, motion graphic, labelled Illustration. Proof uploaded, then two branches: Confirm booking, or Reject payment. [SFX: confirm chime]",
+          "visual": {
+            "kind": "decision",
+            "signals": [
               {
-                "label": "First step",
-                "status": "verified"
-              },
-              {
-                "label": "Second step",
-                "status": "verified"
-              },
-              {
-                "label": "Third step",
-                "status": "verified"
+                "id": "proof",
+                "label": "Proof of payment uploaded",
+                "detail": "Chioma O. · Deposit",
+                "tone": "neutral",
+                "cue": "proof"
               }
             ],
+            "rule": {
+              "label": "You look at the proof",
+              "cue": "look"
+            },
+            "outcomes": [
+              {
+                "id": "confirm",
+                "label": "Confirm booking",
+                "status": "verified",
+                "cue": "confirm"
+              },
+              {
+                "id": "reject",
+                "label": "Reject payment",
+                "status": "declined",
+                "cue": "reject"
+              }
+            ],
+            "routes": [
+              {
+                "from": "proof",
+                "to": "confirm",
+                "cue": "booked"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "proof",
+              "phrase": "upload their proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "look",
+              "phrase": "you look at",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "tap confirm booking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "booked",
+              "phrase": "the slot is booked",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "reject",
+              "phrase": "tap reject payment",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "proof",
+              "volume": 0.5
+            },
+            {
+              "file": "confirm-chime.wav",
+              "cue": "confirm",
+              "volume": 0.5
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "chapterTitle": "You confirm",
+          "assets": []
+        },
+        {
+          "id": "outcome",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "Next time someone asks how much, send the link. Same price. Same Amaka. One less chat.",
+          "estimatedDurationSeconds": 7.3,
+          "visualInstructions": "character-scene, labelled Illustration. Amaka relaxed. Phone shows \"Deposit paid ₦15,000, Chioma O.\".",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "happy"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Deposit paid ₦15,000, Chioma O.",
+                "with": "amaka"
+              }
+            ],
+            "actions": [],
+            "sends": [],
             "settled": []
           },
           "animation": {
@@ -134,163 +663,16 @@
           "audio": {
             "narrationVolume": 1
           },
-          "chapterTitle": "A better way",
-          "assets": []
-        },
-        {
-          "id": "product-intro",
-          "type": "DEMO",
-          "enabled": true,
-          "narration": "In Iker, that list is your Rate card. Each service has a name, a price, a duration, and what is included and what is not. The business on screen is made up, with demo data.",
-          "estimatedDurationSeconds": 14.9,
-          "visualInstructions": "Dashboard sidebar, \"Rate card\" highlighted, then the services list. Point at price, duration, included and excluded items. Demo data, labelled.",
-          "visual": {
-            "kind": "product",
-            "scenarioId": "synthetic-smoke",
-            "mode": "screenshot",
-            "device": "browser",
-            "annotations": [],
-            "zoom": false,
-            "showCursor": false
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "chapterTitle": "In Iker",
-          "assets": []
-        },
-        {
-          "id": "booking",
-          "type": "DEMO",
-          "enabled": true,
-          "narration": "Clients see it on your booking link, the page you put in your Instagram bio or WhatsApp status. Every service shows its price, and they can sort by price. Then they pick a time that is really open. The question changes from \"how much?\" to \"which slot?\"",
-          "estimatedDurationSeconds": 19.7,
-          "visualInstructions": "The public booking page on a phone: services with prices, then \"Sort by price\", then the slot picker with open times only.",
-          "visual": {
-            "kind": "product",
-            "scenarioId": "synthetic-new-booking",
-            "mode": "video",
-            "device": "browser",
-            "annotations": [],
-            "zoom": false,
-            "showCursor": true
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "chapterTitle": "On the booking",
-          "assets": []
-        },
-        {
-          "id": "payment",
-          "type": "DEMO",
-          "enabled": true,
-          "narration": "If you take a deposit, it is set on the service as a percentage of the price, so the client sees it while booking. They transfer straight to your account and upload proof of payment. Iker records it but never holds the money.",
-          "estimatedDurationSeconds": 18.1,
-          "visualInstructions": "The slot step's header with the deposit and total split, then the payment details and proof of payment upload.",
-          "visual": {
-            "kind": "product",
-            "scenarioId": "synthetic-record-payment",
-            "mode": "video",
-            "device": "browser",
-            "annotations": [],
-            "zoom": false,
-            "showCursor": true
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "chapterTitle": "Recording a payment",
-          "assets": []
-        },
-        {
-          "id": "confirm",
-          "type": "EXPLANATION",
-          "enabled": true,
-          "narration": "Discounts are still yours to give. Depending on your plan, Sales and discounts creates a promotion with its own link and a percentage off the services you choose. Only people with that link get the offer, and the discount is recorded in your books.",
-          "estimatedDurationSeconds": 18.5,
-          "visualInstructions": "Sales & discounts: a promotion with its own link and a percentage off chosen services. Caption: \"Depending on your plan\".",
-          "visual": {
-            "kind": "steps",
-            "heading": "What you decide",
-            "steps": [
-              {
-                "title": "First"
-              },
-              {
-                "title": "Second"
-              },
-              {
-                "title": "Third"
-              }
-            ]
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "chapterTitle": "You stay in charge",
-          "assets": []
-        },
-        {
-          "id": "outcome",
-          "type": "OUTCOME",
-          "enabled": true,
-          "narration": "So the next time someone writes \"last price, dear?\", you send your booking link. Everyone sees the same price and what it includes, and any discount is one you planned. You answer with a link, not a negotiation.",
-          "estimatedDurationSeconds": 16.1,
-          "visualInstructions": "Back to the DM: a new \"Last price, dear?\" and the reply is the booking link. No promises about bookings or income.",
-          "visual": {
-            "kind": "statement",
-            "headline": "What changes for the business",
-            "points": [],
-            "tone": "neutral"
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
+          "sounds": [
+            {
+              "file": "notification.wav",
+              "atSeconds": 0.4,
+              "volume": 0.5
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional people and amounts"
           },
           "chapterTitle": "What changes",
           "assets": []
@@ -299,12 +681,12 @@
           "id": "cta",
           "type": "CTA",
           "enabled": true,
-          "narration": "Want the Iker team to set up your Rate card and booking link with you? Go to useiker.com and tap Get started. Get booked. Get paid.",
-          "estimatedDurationSeconds": 11.3,
-          "visualInstructions": "useiker.com and \"Get started\". Tagline.",
+          "narration": "Get started at useiker.com, and the Iker team sets up your booking page with you. No commission on bookings or deposits.",
+          "estimatedDurationSeconds": 9.3,
+          "visualInstructions": "cta. Terracotta slab, emblem, white headline.",
           "visual": {
             "kind": "cta",
-            "headline": "One next step",
+            "headline": "Get booked. Get paid.",
             "action": "Get started",
             "url": "useiker.com"
           },
@@ -325,94 +707,531 @@
       ]
     },
     {
-      "id": "short-60",
+      "id": "shorts",
       "format": "youtube-shorts",
       "targetSeconds": {
-        "min": 45,
-        "max": 60
+        "min": 40,
+        "max": 50
       },
       "burnCaptions": null,
       "showProgress": false,
       "background": "static",
-      "music": null,
+      "music": {
+        "file": "kevin-macleod-lobby-time.mp3",
+        "volume": 0.08,
+        "licence": "CC BY 4.0",
+        "credit": "\"Lobby Time\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0, https://creativecommons.org/licenses/by/4.0/"
+      },
       "scenes": [
         {
-          "id": "s60-hook",
-          "type": "PROBLEM",
+          "id": "sh-intro",
+          "type": "INTRO",
           "enabled": true,
-          "narration": "You quote ₦45,000 for bridal makeup. The reply comes back: \"Last price, dear?\"",
-          "estimatedDurationSeconds": 6.1,
-          "visualInstructions": "DM thread on a phone: \"₦45,000\" then \"Last price, dear?\".",
+          "narration": "Nine forty at night. Hands full. The phone buzzes.",
+          "estimatedDurationSeconds": 4.5,
+          "visualInstructions": "character-scene. Amaka at her station, a brush in one hand, phone in the other, worried. [SFX: message pop]",
           "visual": {
-            "kind": "statement",
-            "headline": "The situation",
-            "points": [],
-            "tone": "neutral"
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "assets": []
-        },
-        {
-          "id": "s60-gap",
-          "type": "EXPLANATION",
-          "enabled": true,
-          "narration": "It happens because your price lives in your head and in old chats. So every client tests the number, and your price changes with your mood.",
-          "estimatedDurationSeconds": 11.3,
-          "visualInstructions": "Three chats, three different prices.",
-          "visual": {
-            "kind": "statement",
-            "headline": "Why it breaks",
-            "points": [],
-            "tone": "neutral"
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "assets": []
-        },
-        {
-          "id": "s60-how",
-          "type": "EXPLANATION",
-          "enabled": true,
-          "narration": "Write your prices down, put them where clients see them first, and decide discounts in advance.",
-          "estimatedDurationSeconds": 7.3,
-          "visualInstructions": "Three short steps on screen: write it down, show it first, plan discounts.",
-          "visual": {
-            "kind": "pipeline",
-            "object": {
-              "type": "transaction",
-              "label": "Payment"
-            },
-            "stages": [
+            "kind": "character-scene",
+            "cast": [
               {
-                "label": "First step",
-                "status": "verified"
-              },
-              {
-                "label": "Second step",
-                "status": "verified"
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
               }
             ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Hi dear, how much for bridal makeup?",
+                "with": "amaka",
+                "cue": "buzz"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "buzz",
+                "expression": "worried",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "buzz",
+              "phrase": "the phone buzzes",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "buzz",
+              "volume": 0.6
+            }
+          ],
+          "assets": []
+        },
+        {
+          "id": "sh-chat",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "Forty-five thousand naira. Last price? It is the last price. Let me check and get back to you.",
+          "estimatedDurationSeconds": 8.1,
+          "visualInstructions": "story, mocked DM, labelled Illustration. Five messages one at a time, then \"Seen · 3 days ago\". One full beat of silence after the narration. [SFX: seen tick] [GIF]",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              {
+                "text": "Chioma O.: Hi dear, how much for bridal makeup?",
+                "role": "lead"
+              },
+              {
+                "text": "Amaka: ₦45,000",
+                "role": "support",
+                "cue": "price"
+              },
+              {
+                "text": "Chioma O.: Ahh. Last price?",
+                "role": "support",
+                "cue": "last-price"
+              },
+              {
+                "text": "Amaka: That's the last price dear",
+                "role": "support",
+                "cue": "its-last"
+              },
+              {
+                "text": "Chioma O.: Ok let me check and get back to you",
+                "role": "support",
+                "cue": "check"
+              },
+              {
+                "text": "Seen · 3 days ago",
+                "role": "key",
+                "status": "pending",
+                "cue": "seen"
+              }
+            ],
+            "recede": false,
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "price",
+              "phrase": "forty-five thousand naira",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "last-price",
+              "phrase": "last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "check",
+              "phrase": "let me check",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "seen",
+              "phrase": "get back to you",
+              "at": "end",
+              "offsetSeconds": 0.6,
+              "occurrence": 1
+            },
+            {
+              "id": "its-last",
+              "phrase": "it is the last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 1.6,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "bubble-small.wav",
+              "atSeconds": 0.3,
+              "volume": 0.35
+            },
+            {
+              "file": "bubble.wav",
+              "cue": "price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "last-price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble.wav",
+              "cue": "its-last",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "check",
+              "volume": 0.35
+            },
+            {
+              "file": "seen-tick.wav",
+              "cue": "seen",
+              "volume": 0.4
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-pile",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "And checking. And checking.",
+          "estimatedDurationSeconds": 2.5,
+          "visualInstructions": "transformation, labelled Illustration. \"Still checking.\" stamp, then a pile of the same chat. [SFX: stamp thud] [GIF]",
+          "visual": {
+            "kind": "transformation",
+            "mode": "in-place",
+            "before": {
+              "title": "The chat"
+            },
+            "after": {
+              "title": "Still checking."
+            },
+            "items": [
+              {
+                "before": "Chioma O.: Let me check",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-1"
+              },
+              {
+                "before": "Bisi A.: Last price?",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-2"
+              },
+              {
+                "before": "Kemi T.: Last price?",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-2"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "checking-1",
+              "phrase": "and checking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "checking-2",
+              "phrase": "and checking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 2
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "stamp-thud.wav",
+              "cue": "checking-1",
+              "volume": 0.6
+            },
+            {
+              "file": "stamp-thud.wav",
+              "cue": "checking-2",
+              "volume": 0.6
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-compare",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "What if the price was already there before they asked?",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "comparison. The usual way: the price typed again in every chat. A better way: one link with the price already on it. [SFX: reveal]",
+          "visual": {
+            "kind": "comparison",
+            "left": {
+              "title": "The usual way",
+              "points": [
+                "The price typed again in every chat",
+                "Every client has to ask"
+              ],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "A better way",
+              "points": [
+                "One link with the price already on it",
+                "There before anyone asks"
+              ],
+              "tone": "positive"
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "reveal.wav",
+              "atSeconds": 0.2,
+              "volume": 0.4
+            }
+          ],
+          "assets": []
+        },
+        {
+          "id": "sh-link",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Clients open your link. They see your prices, your open times and your policy, all before the first message.",
+          "estimatedDurationSeconds": 8.5,
+          "visualInstructions": "product, iPhone frame. iker-amaka-client-books-phone: rate card with the price, open times, then the policy on Pay & confirm. Zoom on the price, then on the policy line.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-phone",
+            "mode": "video",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-decide",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "They pay you the deposit and upload their proof. You look at it and confirm. The slot is booked.",
+          "estimatedDurationSeconds": 8.5,
+          "visualInstructions": "decision, motion graphic, labelled Illustration. Proof uploaded, then Confirm booking or Reject payment. [SFX: confirm chime]",
+          "visual": {
+            "kind": "decision",
+            "signals": [
+              {
+                "id": "proof",
+                "label": "Proof of payment uploaded",
+                "detail": "Chioma O. · Deposit",
+                "tone": "neutral",
+                "cue": "proof"
+              }
+            ],
+            "rule": {
+              "label": "You look at the proof",
+              "cue": "look"
+            },
+            "outcomes": [
+              {
+                "id": "confirm",
+                "label": "Confirm booking",
+                "status": "verified",
+                "cue": "confirm"
+              },
+              {
+                "id": "reject",
+                "label": "Reject payment",
+                "status": "declined"
+              }
+            ],
+            "routes": [
+              {
+                "from": "proof",
+                "to": "confirm",
+                "cue": "booked"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "proof",
+              "phrase": "upload their proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "look",
+              "phrase": "you look at",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "and confirm",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "booked",
+              "phrase": "the slot is booked",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "proof",
+              "volume": 0.5
+            },
+            {
+              "file": "confirm-chime.wav",
+              "cue": "confirm",
+              "volume": 0.5
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "assets": []
+        },
+        {
+          "id": "sh-outcome",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "Same price. Same Amaka. One less chat.",
+          "estimatedDurationSeconds": 3.7,
+          "visualInstructions": "character-scene, labelled Illustration. Amaka relaxed. Phone shows \"Deposit paid ₦15,000, Chioma O.\".",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "happy"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Deposit paid ₦15,000, Chioma O.",
+                "with": "amaka"
+              }
+            ],
+            "actions": [],
+            "sends": [],
             "settled": []
           },
           "animation": {
@@ -427,75 +1246,29 @@
           "audio": {
             "narrationVolume": 1
           },
-          "assets": []
-        },
-        {
-          "id": "s60-demo",
-          "type": "DEMO",
-          "enabled": true,
-          "narration": "In Iker, that is your Rate card. Clients see each service and its price on your booking link, pick an open slot, and upload proof of their deposit. This business is made-up demo data.",
-          "estimatedDurationSeconds": 14.5,
-          "visualInstructions": "Rate card, then the booking link on a phone with prices and open slots, then proof of payment upload. Demo data, labelled.",
-          "visual": {
-            "kind": "product",
-            "scenarioId": "synthetic-record-payment",
-            "mode": "screenshot",
-            "device": "browser",
-            "annotations": [],
-            "zoom": false,
-            "showCursor": false
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
+          "sounds": [
+            {
+              "file": "notification.wav",
+              "atSeconds": 0.4,
+              "volume": 0.5
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional people and amounts"
           },
           "assets": []
         },
         {
-          "id": "s60-outcome",
-          "type": "OUTCOME",
-          "enabled": true,
-          "narration": "Next time someone asks for last price, send the link.",
-          "estimatedDurationSeconds": 4.9,
-          "visualInstructions": "The DM reply is the booking link.",
-          "visual": {
-            "kind": "statement",
-            "headline": "What changes",
-            "points": [],
-            "tone": "neutral"
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "assets": []
-        },
-        {
-          "id": "s60-cta",
+          "id": "sh-cta",
           "type": "CTA",
           "enabled": true,
-          "narration": "Get started at useiker.com.",
-          "estimatedDurationSeconds": 2.5,
-          "visualInstructions": "useiker.com, \"Get started\".",
+          "narration": "Get started at useiker.com. No commission on bookings or deposits.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "cta. Terracotta slab, emblem, white headline.",
           "visual": {
             "kind": "cta",
-            "headline": "Start here",
+            "headline": "Get booked. Get paid.",
             "action": "Get started",
             "url": "useiker.com"
           },
@@ -516,7 +1289,589 @@
       ]
     },
     {
-      "id": "teaser-30",
+      "id": "portrait",
+      "format": "social-portrait",
+      "targetSeconds": {
+        "min": 40,
+        "max": 50
+      },
+      "burnCaptions": null,
+      "showProgress": false,
+      "background": "static",
+      "music": {
+        "file": "kevin-macleod-lobby-time.mp3",
+        "volume": 0.08,
+        "licence": "CC BY 4.0",
+        "credit": "\"Lobby Time\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0, https://creativecommons.org/licenses/by/4.0/"
+      },
+      "scenes": [
+        {
+          "id": "pt-intro",
+          "type": "INTRO",
+          "enabled": true,
+          "narration": "Nine forty at night. Hands full. The phone buzzes.",
+          "estimatedDurationSeconds": 4.5,
+          "visualInstructions": "character-scene. Amaka at her station, a brush in one hand, phone in the other, worried. [SFX: message pop]",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Hi dear, how much for bridal makeup?",
+                "with": "amaka",
+                "cue": "buzz"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "buzz",
+                "expression": "worried",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "buzz",
+              "phrase": "the phone buzzes",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "buzz",
+              "volume": 0.6
+            }
+          ],
+          "assets": []
+        },
+        {
+          "id": "pt-chat",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "Forty-five thousand naira. Last price? It is the last price. Let me check and get back to you.",
+          "estimatedDurationSeconds": 8.1,
+          "visualInstructions": "story, mocked DM, labelled Illustration. Five messages one at a time, then \"Seen · 3 days ago\". One full beat of silence after the narration. [SFX: seen tick] [GIF]",
+          "visual": {
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              {
+                "text": "Chioma O.: Hi dear, how much for bridal makeup?",
+                "role": "lead"
+              },
+              {
+                "text": "Amaka: ₦45,000",
+                "role": "support",
+                "cue": "price"
+              },
+              {
+                "text": "Chioma O.: Ahh. Last price?",
+                "role": "support",
+                "cue": "last-price"
+              },
+              {
+                "text": "Amaka: That's the last price dear",
+                "role": "support",
+                "cue": "its-last"
+              },
+              {
+                "text": "Chioma O.: Ok let me check and get back to you",
+                "role": "support",
+                "cue": "check"
+              },
+              {
+                "text": "Seen · 3 days ago",
+                "role": "key",
+                "status": "pending",
+                "cue": "seen"
+              }
+            ],
+            "recede": false,
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "price",
+              "phrase": "forty-five thousand naira",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "last-price",
+              "phrase": "last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "check",
+              "phrase": "let me check",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "seen",
+              "phrase": "get back to you",
+              "at": "end",
+              "offsetSeconds": 0.6,
+              "occurrence": 1
+            },
+            {
+              "id": "its-last",
+              "phrase": "it is the last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 1.6,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "bubble-small.wav",
+              "atSeconds": 0.3,
+              "volume": 0.35
+            },
+            {
+              "file": "bubble.wav",
+              "cue": "price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "last-price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble.wav",
+              "cue": "its-last",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "check",
+              "volume": 0.35
+            },
+            {
+              "file": "seen-tick.wav",
+              "cue": "seen",
+              "volume": 0.4
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
+          "assets": []
+        },
+        {
+          "id": "pt-pile",
+          "type": "PROBLEM",
+          "enabled": true,
+          "narration": "And checking. And checking.",
+          "estimatedDurationSeconds": 2.5,
+          "visualInstructions": "transformation, labelled Illustration. \"Still checking.\" stamp, then a pile of the same chat. [SFX: stamp thud] [GIF]",
+          "visual": {
+            "kind": "transformation",
+            "mode": "in-place",
+            "before": {
+              "title": "The chat"
+            },
+            "after": {
+              "title": "Still checking."
+            },
+            "items": [
+              {
+                "before": "Chioma O.: Let me check",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-1"
+              },
+              {
+                "before": "Bisi A.: Last price?",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-2"
+              },
+              {
+                "before": "Kemi T.: Last price?",
+                "after": "Still checking.",
+                "status": "pending",
+                "cue": "checking-2"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "checking-1",
+              "phrase": "and checking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "checking-2",
+              "phrase": "and checking",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 2
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "stamp-thud.wav",
+              "cue": "checking-1",
+              "volume": 0.6
+            },
+            {
+              "file": "stamp-thud.wav",
+              "cue": "checking-2",
+              "volume": 0.6
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
+          "assets": []
+        },
+        {
+          "id": "pt-compare",
+          "type": "EXPLANATION",
+          "enabled": true,
+          "narration": "What if the price was already there before they asked?",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "comparison. The usual way: the price typed again in every chat. A better way: one link with the price already on it. [SFX: reveal]",
+          "visual": {
+            "kind": "comparison",
+            "left": {
+              "title": "The usual way",
+              "points": [
+                "The price typed again in every chat",
+                "Every client has to ask"
+              ],
+              "tone": "warning"
+            },
+            "right": {
+              "title": "A better way",
+              "points": [
+                "One link with the price already on it",
+                "There before anyone asks"
+              ],
+              "tone": "positive"
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "reveal.wav",
+              "atSeconds": 0.2,
+              "volume": 0.4
+            }
+          ],
+          "assets": []
+        },
+        {
+          "id": "pt-link",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "Clients open your link. They see your prices, your open times and your policy, all before the first message.",
+          "estimatedDurationSeconds": 8.5,
+          "visualInstructions": "product, iPhone frame. iker-amaka-client-books-phone: rate card with the price, open times, then the policy on Pay & confirm.",
+          "visual": {
+            "kind": "product",
+            "scenarioId": "iker-amaka-client-books-phone",
+            "mode": "video",
+            "device": "iphone",
+            "annotations": [],
+            "zoom": false,
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        },
+        {
+          "id": "pt-decide",
+          "type": "DEMO",
+          "enabled": true,
+          "narration": "They pay you the deposit and upload their proof. You look at it and confirm. The slot is booked.",
+          "estimatedDurationSeconds": 8.5,
+          "visualInstructions": "decision, motion graphic, labelled Illustration. Proof uploaded, then Confirm booking or Reject payment. [SFX: confirm chime]",
+          "visual": {
+            "kind": "decision",
+            "signals": [
+              {
+                "id": "proof",
+                "label": "Proof of payment uploaded",
+                "detail": "Chioma O. · Deposit",
+                "tone": "neutral",
+                "cue": "proof"
+              }
+            ],
+            "rule": {
+              "label": "You look at the proof",
+              "cue": "look"
+            },
+            "outcomes": [
+              {
+                "id": "confirm",
+                "label": "Confirm booking",
+                "status": "verified",
+                "cue": "confirm"
+              },
+              {
+                "id": "reject",
+                "label": "Reject payment",
+                "status": "declined"
+              }
+            ],
+            "routes": [
+              {
+                "from": "proof",
+                "to": "confirm",
+                "cue": "booked"
+              }
+            ],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "proof",
+              "phrase": "upload their proof",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "look",
+              "phrase": "you look at",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "confirm",
+              "phrase": "and confirm",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "booked",
+              "phrase": "the slot is booked",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "proof",
+              "volume": 0.5
+            },
+            {
+              "file": "confirm-chime.wav",
+              "cue": "confirm",
+              "volume": 0.5
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Not the Iker screen"
+          },
+          "assets": []
+        },
+        {
+          "id": "pt-outcome",
+          "type": "OUTCOME",
+          "enabled": true,
+          "narration": "Same price. Same Amaka. One less chat.",
+          "estimatedDurationSeconds": 3.7,
+          "visualInstructions": "character-scene, labelled Illustration. Amaka relaxed. Phone shows \"Deposit paid ₦15,000, Chioma O.\".",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "happy"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Deposit paid ₦15,000, Chioma O.",
+                "with": "amaka"
+              }
+            ],
+            "actions": [],
+            "sends": [],
+            "settled": []
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "notification.wav",
+              "atSeconds": 0.4,
+              "volume": 0.5
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional people and amounts"
+          },
+          "assets": []
+        },
+        {
+          "id": "pt-cta",
+          "type": "CTA",
+          "enabled": true,
+          "narration": "Get started at useiker.com. No commission on bookings or deposits.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "cta. Terracotta slab, emblem, white headline.",
+          "visual": {
+            "kind": "cta",
+            "headline": "Get booked. Get paid.",
+            "action": "Get started",
+            "url": "useiker.com"
+          },
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "assets": []
+        }
+      ]
+    },
+    {
+      "id": "teaser",
       "format": "youtube-shorts",
       "targetSeconds": {
         "min": 20,
@@ -525,52 +1880,156 @@
       "burnCaptions": null,
       "showProgress": false,
       "background": "static",
-      "music": null,
+      "music": {
+        "file": "kevin-macleod-lobby-time.mp3",
+        "volume": 0.08,
+        "licence": "CC BY 4.0",
+        "credit": "\"Lobby Time\" Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0, https://creativecommons.org/licenses/by/4.0/"
+      },
       "scenes": [
         {
-          "id": "t30-hook",
+          "id": "tz-intro",
+          "type": "INTRO",
+          "enabled": true,
+          "narration": "Nine forty at night. The phone buzzes.",
+          "estimatedDurationSeconds": 3.7,
+          "visualInstructions": "Scene 1 compressed. character-scene, Amaka with brush and phone. [SFX: message pop]",
+          "visual": {
+            "kind": "character-scene",
+            "cast": [
+              {
+                "id": "amaka",
+                "name": "Amaka",
+                "seed": "amaka",
+                "skin": "deep",
+                "hair": "puffs",
+                "hairColour": "ink",
+                "outfit": "lilac",
+                "hidden": false,
+                "pose": "hold-phone",
+                "expression": "neutral"
+              }
+            ],
+            "props": [
+              {
+                "kind": "app",
+                "id": "phone",
+                "label": "Hi dear, how much for bridal makeup?",
+                "with": "amaka",
+                "cue": "buzz"
+              }
+            ],
+            "actions": [
+              {
+                "who": "amaka",
+                "cue": "buzz",
+                "expression": "worried",
+                "leave": false
+              }
+            ],
+            "sends": [],
+            "settled": []
+          },
+          "cues": [
+            {
+              "id": "buzz",
+              "phrase": "the phone buzzes",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            }
+          ],
+          "animation": {
+            "enter": "rise",
+            "leadInSeconds": 0.4,
+            "tailSeconds": 0.5,
+            "minDurationSeconds": 0
+          },
+          "captions": {
+            "enabled": true
+          },
+          "audio": {
+            "narrationVolume": 1
+          },
+          "sounds": [
+            {
+              "file": "message-pop.wav",
+              "cue": "buzz",
+              "volume": 0.6
+            }
+          ],
+          "assets": []
+        },
+        {
+          "id": "tz-chat",
           "type": "PROBLEM",
           "enabled": true,
-          "narration": "You quote ₦45,000. The reply: \"Last price, dear?\"",
-          "estimatedDurationSeconds": 4.1,
-          "visualInstructions": "DM thread: \"₦45,000\", then \"Last price, dear?\".",
-          "visual": {
-            "kind": "statement",
-            "headline": "The situation",
-            "points": [],
-            "tone": "neutral"
-          },
-          "animation": {
-            "enter": "rise",
-            "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
-            "minDurationSeconds": 0
-          },
-          "captions": {
-            "enabled": true
-          },
-          "audio": {
-            "narrationVolume": 1
-          },
-          "assets": []
-        },
-        {
-          "id": "t30-gap",
-          "type": "EXPLANATION",
-          "enabled": true,
-          "narration": "When your price only lives in your chats, every client starts to haggle.",
+          "narration": "Forty-five thousand naira. Last price? Let me check and get back to you.",
           "estimatedDurationSeconds": 6.1,
-          "visualInstructions": "The price as a thought bubble, three different numbers.",
+          "visualInstructions": "Scene 2 compressed, labelled Illustration: \"₦45,000\", \"Ahh. Last price?\", \"Ok let me check and get back to you\", \"Seen · 3 days ago\". [SFX: seen tick] [GIF]",
           "visual": {
-            "kind": "statement",
-            "headline": "Why it breaks",
-            "points": [],
-            "tone": "neutral"
+            "kind": "story",
+            "mode": "problem",
+            "lines": [
+              {
+                "text": "Amaka: ₦45,000",
+                "role": "lead",
+                "cue": "price"
+              },
+              {
+                "text": "Chioma O.: Ahh. Last price?",
+                "role": "support",
+                "cue": "last-price"
+              },
+              {
+                "text": "Chioma O.: Ok let me check and get back to you",
+                "role": "support",
+                "cue": "check"
+              },
+              {
+                "text": "Seen · 3 days ago",
+                "role": "key",
+                "status": "pending",
+                "cue": "seen"
+              }
+            ],
+            "recede": false,
+            "settled": []
           },
+          "cues": [
+            {
+              "id": "price",
+              "phrase": "forty-five thousand naira",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "last-price",
+              "phrase": "last price",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "check",
+              "phrase": "let me check",
+              "at": "start",
+              "offsetSeconds": 0,
+              "occurrence": 1
+            },
+            {
+              "id": "seen",
+              "phrase": "get back to you",
+              "at": "end",
+              "offsetSeconds": 0.6,
+              "occurrence": 1
+            }
+          ],
           "animation": {
             "enter": "rise",
             "leadInSeconds": 0.4,
-            "tailSeconds": 0.5,
+            "tailSeconds": 0.8,
             "minDurationSeconds": 0
           },
           "captions": {
@@ -579,23 +2038,55 @@
           "audio": {
             "narrationVolume": 1
           },
+          "sounds": [
+            {
+              "file": "bubble.wav",
+              "cue": "price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "last-price",
+              "volume": 0.35
+            },
+            {
+              "file": "bubble-small.wav",
+              "cue": "check",
+              "volume": 0.35
+            },
+            {
+              "file": "seen-tick.wav",
+              "cue": "seen",
+              "volume": 0.4
+            }
+          ],
+          "lowerThird": {
+            "title": "Illustration",
+            "subtitle": "Fictional chat and people"
+          },
           "assets": []
         },
         {
-          "id": "t30-how",
+          "id": "tz-link",
           "type": "DEMO",
           "enabled": true,
-          "narration": "With Iker, your Rate card puts every service and its price on your booking link, so clients see it before they message you. The business shown is made up.",
-          "estimatedDurationSeconds": 12.5,
-          "visualInstructions": "Booking link on a phone with every service and its price. Demo data, labelled.",
+          "narration": "With Iker, clients open your link and see your prices, your open times and your policy first.",
+          "estimatedDurationSeconds": 7.7,
+          "visualInstructions": "Scene 5 compressed. product, iPhone frame, iker-amaka-client-books-phone: price, open times, policy.",
           "visual": {
             "kind": "product",
-            "scenarioId": "synthetic-record-payment",
-            "mode": "screenshot",
-            "device": "browser",
+            "scenarioId": "iker-amaka-client-books-phone",
+            "mode": "video",
+            "device": "iphone",
             "annotations": [],
             "zoom": false,
-            "showCursor": false
+            "showCursor": true,
+            "camera": {
+              "mode": "follow",
+              "maxZoom": 2,
+              "isolate": false,
+              "keyframes": []
+            }
           },
           "animation": {
             "enter": "rise",
@@ -612,15 +2103,15 @@
           "assets": []
         },
         {
-          "id": "t30-cta",
+          "id": "tz-cta",
           "type": "CTA",
           "enabled": true,
-          "narration": "See how at useiker.com.",
-          "estimatedDurationSeconds": 2.5,
-          "visualInstructions": "useiker.com.",
+          "narration": "Get started at useiker.com. No commission on bookings or deposits.",
+          "estimatedDurationSeconds": 4.9,
+          "visualInstructions": "cta. Terracotta slab, emblem, white headline.",
           "visual": {
             "kind": "cta",
-            "headline": "See how it works",
+            "headline": "Get booked. Get paid.",
             "action": "Get started",
             "url": "useiker.com"
           },

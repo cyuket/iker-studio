@@ -37,8 +37,23 @@ Video: `$ARGUMENTS`. If empty, run `pnpm studio status` and ask which video.
 ## What you may edit
 
 Per scene: `visual`, `cues`, `direction`, `enabled`, `visualInstructions`, `animation`,
-`captions.enabled`, `audio.narrationVolume`, `lowerThird`, `chapterTitle`, `assets`. Per cut: `burnCaptions`,
+`captions.enabled`, `audio.narrationVolume`, `lowerThird`, `chapterTitle`, `assets`, `sounds`, `actionSounds`. Per cut: `burnCaptions`,
 `showProgress`, `music` (see `video-editor`).
+
+Sounds on every action: every visible action makes a sound, so the video never goes quiet
+while something happens on screen. Product footage does this by itself: each recorded click,
+selection, key press, scroll and drag gets a click or sweep, and typing gets a keyboard (or,
+on a phone viewport, a phone keyboard) sound for exactly as long as the typing lasts, in
+step with the footage. Leave it on; `"actionSounds": false` silences a scene only when the
+owner asks. In motion graphics and photo scenes, add `sounds` on the cue of each action the
+viewer sees: a message or card arriving (pop, bubble, notification), a tap or button
+(`click.wav`, a Mixkit tap), text typing in (a typing sound), a status landing (stamp,
+chime), a reveal or transition (whoosh), the hook (a hit or riser). Up to 8 per scene.
+
+Sounds and music: every video uses the shared library (house style section 6). Put sound effects
+on the scene's cues: `"sounds": [{ "file": "message-pop.wav", "cue": "<cue>", "volume": 0.5 }]`
+(or `atSeconds` when the scene has no narration). Choose files from `assets/sfx/README.md` and
+tracks from `assets/music/README.md`; a file that is not in those folders fails the render.
 
 Do not edit `narration`, `id`, `type`, `estimatedDurationSeconds`, `scriptHash`, `version`,
 the scene order, or a cut's `format` and `targetSeconds`: the next sync overwrites them from
@@ -53,19 +68,32 @@ drops scenes the script no longer has. Renaming a scene id therefore discards it
 `tone` is one of `neutral`, `primary`, `positive`, `warning`, `danger`. A region is
 `{ x, y, width, height }` in fractions (0 to 1) of the recorded viewport.
 
-| `kind`       | Fields                                                                                                                                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`      | `headline` (required), `subhead`                                                                                                                                                                                                            |
-| `statement`  | `headline` (required), `body`, `points` (up to 4 of `{ title, detail? }`), `tone` (default `neutral`)                                                                                                                                       |
-| `steps`      | `heading` (required), `steps` (2 to 5 of `{ title, detail? }`)                                                                                                                                                                              |
-| `product`    | `scenarioId` (required), `mode` `video` or `screenshot` (default `video`), `screenshot` (name of a screenshot step, for `screenshot` mode), `heading`, `annotations`, `focus` (region), `zoom` (default false), `showCursor` (default true) |
-| `diagram`    | `nodes` (2 to 9 of `{ id, label, sublabel?, tone, column }`, `column` 0 to 4, left to right; nodes sharing a column stack), `edges` (`{ from, to, label?, tone }`), `heading`                                                               |
-| `comparison` | `left` and `right`, each `{ title, points (1 to 4 strings), tone }`, `heading`                                                                                                                                                              |
-| `code`       | `language`, `code` (both required), `heading`, `highlightLines` (1-based line numbers)                                                                                                                                                      |
-| `data`       | `heading`, `series` (1 to 6 of `{ label, value, tone }`), `source`, `illustrative` (all required), `unit`                                                                                                                                   |
-| `cta`        | `headline`, `action`, `url` (all required)                                                                                                                                                                                                  |
-| `outro`      | `tagline`                                                                                                                                                                                                                                   |
-| `chapter`    | `title` (required)                                                                                                                                                                                                                          |
+| `kind`       | Fields                                                                                                                                                                                                                                                                     |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`      | `headline` (required), `subhead`                                                                                                                                                                                                                                           |
+| `statement`  | `headline` (required), `body`, `points` (up to 4 of `{ title, detail? }`), `tone` (default `neutral`)                                                                                                                                                                      |
+| `steps`      | `heading` (required), `steps` (2 to 5 of `{ title, detail? }`)                                                                                                                                                                                                             |
+| `product`    | `scenarioId` (required), `mode` `video` or `screenshot` (default `video`), `screenshot` (name of a screenshot step, for `screenshot` mode), `heading`, `annotations`, `focus` (region), `zoom` (default false), `showCursor` (default true)                                |
+| `diagram`    | `nodes` (2 to 9 of `{ id, label, sublabel?, tone, column }`, `column` 0 to 4, left to right; nodes sharing a column stack), `edges` (`{ from, to, label?, tone }`), `heading`                                                                                              |
+| `comparison` | `left` and `right`, each `{ title, points (1 to 4 strings), tone }`, `heading`                                                                                                                                                                                             |
+| `code`       | `language`, `code` (both required), `heading`, `highlightLines` (1-based line numbers)                                                                                                                                                                                     |
+| `data`       | `heading`, `series` (1 to 6 of `{ label, value, tone }`), `source`, `illustrative` (all required), `unit`                                                                                                                                                                  |
+| `cta`        | `headline`, `action`, `url` (all required)                                                                                                                                                                                                                                 |
+| `outro`      | `tagline`                                                                                                                                                                                                                                                                  |
+| `chapter`    | `title` (required)                                                                                                                                                                                                                                                         |
+| `photo`      | `file` (required, in `assets/images/`), `alt` (required: what it shows, for review only), `heading`, `caption`, `captionCue`, `focus` (`{ x, y }` 0 to 1, point kept in frame, default centre), `motion` (`zoom-in` default, `zoom-out`, `pan-left`, `pan-right`, `still`) |
+
+Photos: use a `photo` scene where a picture of the real world says more than an illustration:
+the person and the place the story is about (a stylist mid-braid, a barber's chair, a tutor at a
+table), a phone buzzing in someone's hand, cash or a POS terminal, a shop before opening. Keep
+illustrations and motion graphics for explaining how something works, and recordings for the
+product. Pick from `assets/images/README.md`; prefer the owner's `own-*` photos when one fits. When
+nothing there fits, download a new one by following "Adding a photo" in that README (Pexels or
+Unsplash only, look at it before using it, catalogue it with its source and licence).
+Never use a photo to show Iker's interface, never present a stock model as an Iker customer or
+user, and never imply a result ("this salon doubled its bookings"). Match the photo to the
+narration at that moment and to the format (a portrait photo for 9:16 where possible); set
+`focus` on the face or hands so the 9:16 crop keeps them.
 
 Motion graphic kinds, each data-driven and timed by cues. Fields, cue hooks and a JSON
 example for every one are in `docs/MOTION-DESIGN.md`:

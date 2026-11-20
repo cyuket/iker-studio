@@ -12,7 +12,7 @@
 --   * re-dates the demo bookings relative to today (Africa/Lagos), so the dashboard and calendar
 --     always show a live week. Only start_at / end_at move; amounts and payments never change.
 -- To put Tunde's booking back to "Awaiting confirmation" after a take, run reset-tunde.sql
--- (`fixtures/iker-demo/seed.sh reset-tunde`).
+-- (`fixtures/iker-demo/seed.sh reset-tunde`); for Chioma's Saturday booking, `seed.sh reset-chioma`.
 --
 -- Everything is fictional: example.com emails, +234800000xxxx phone numbers, "Example Bank",
 -- account number 0123456789.
@@ -46,6 +46,14 @@ end $$;
 
 create or replace function pg_temp.iker_demo_at(n int, t time) returns timestamptz
 language sql as $$ select (pg_temp.iker_demo_workday(n) + t) at time zone 'Africa/Lagos' $$;
+
+-- The Saturday 7 to 13 days from today in Lagos, at time t. Far enough out to clear the
+-- workday-offset bookings above and the day the client-books scenario picks (today + 5 or 6).
+create or replace function pg_temp.iker_demo_saturday_at(t time) returns timestamptz
+language sql as $$
+  select (d + ((13 - extract(dow from d)::int) % 7) + t) at time zone 'Africa/Lagos'
+  from (select (now() at time zone 'Africa/Lagos')::date + 7 as d) base
+$$;
 
 do $$
 declare
@@ -92,14 +100,15 @@ begin
   on conflict (provider_id, provider) do nothing;
 
   -- Business group and its subscription first, so the business insert's starter-plan trigger
-  -- (assign_starter_subscription, ON CONFLICT DO NOTHING) leaves this one alone. Growth allows
-  -- 8 rate card items and 5 policies; Starter allows only 1 rate card item.
+  -- (assign_starter_subscription, ON CONFLICT DO NOTHING) leaves this one alone. Team has no
+  -- service or policy limit. Starter and Growth allow 1 service and Pro 3
+  -- (slot-books supabase/migrations/0048_plan_feature_flags.sql), and this seed adds 3.
   insert into business_group (id, name, owner_id)
   values (v_group, 'Amaka Studio', null)
   on conflict (id) do nothing;
 
-  select id into v_plan from plan where code = 'growth';
-  if v_plan is null then raise exception 'plan "growth" not found'; end if;
+  select id into v_plan from plan where code = 'team';
+  if v_plan is null then raise exception 'plan "team" not found'; end if;
 
   insert into subscription (
     business_group_id, plan_id, billing_cycle, status, price_locked_kobo,
@@ -210,6 +219,22 @@ on conflict (id) do update
   set start_at = excluded.start_at, end_at = excluded.end_at
   where booking.start_at is distinct from excluded.start_at;
 
+-- Chioma's Saturday booking for the "now now" video (output/now-now-confirm-deposit): Bridal
+-- makeup at ₦45,000 for this booking (the rate card item stays ₦120,000; the booking's own price
+-- is what the booking page and its line item show), ₦15,000 deposit proof pending review,
+-- Saturday 10:30 WAT. To put it back to "Awaiting confirmation" after a take, run
+-- `fixtures/iker-demo/seed.sh reset-chioma`.
+insert into booking (id, business_id, service_id, client_id, source, status, start_at, end_at,
+                     price_kobo, deposit_required_kobo, created_at)
+values ('7a3e0000-0000-4000-a000-000000000046', '7a3e0000-0000-4000-a000-000000000002',
+        '7a3e0000-0000-4000-a000-000000000012', '7a3e0000-0000-4000-a000-000000000032', 'link',
+        'awaiting_confirmation', pg_temp.iker_demo_saturday_at(time '10:30'),
+        pg_temp.iker_demo_saturday_at(time '10:30') + interval '150 minutes',
+        4500000, 1500000, now() - interval '4 days')
+on conflict (id) do update
+  set start_at = excluded.start_at, end_at = excluded.end_at
+  where booking.start_at is distinct from excluded.start_at;
+
 -- Payments. Tunde's deposit is the client's claim (pending review) with the sample receipt as
 -- proof, exactly as the public booking flow writes it (method manual, payment_type deposit). The
 -- others were confirmed by the owner. Payments are immutable, so re-runs leave them alone.
@@ -234,7 +259,11 @@ values
    'confirmed', now() - interval '2 days', now() - interval '2 days', '7a3e0000-0000-4000-a000-000000000003'),
   ('7a3e0000-0000-4000-a000-000000000056', '7a3e0000-0000-4000-a000-000000000002',
    '7a3e0000-0000-4000-a000-000000000045', 1500000, 'manual', 'deposit', null,
-   'confirmed', now() - interval '1 day', now() - interval '1 day', '7a3e0000-0000-4000-a000-000000000003')
+   'confirmed', now() - interval '1 day', now() - interval '1 day', '7a3e0000-0000-4000-a000-000000000003'),
+  ('7a3e0000-0000-4000-a000-000000000057', '7a3e0000-0000-4000-a000-000000000002',
+   '7a3e0000-0000-4000-a000-000000000046', 1500000, 'manual', 'deposit',
+   '7a3e0000-0000-4000-a000-000000000002/7a3e0000-0000-4000-a000-000000000057-sample-transfer-receipt.png',
+   'pending_review', now() - interval '3 hours', null, null)
 on conflict (id) do nothing;
 
 commit;

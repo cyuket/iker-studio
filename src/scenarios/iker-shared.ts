@@ -29,9 +29,21 @@ export const READ_ONLY_PREREQUISITE =
   "Saves nothing: the take opens forms and dialogs to explain them, then closes them with Escape without submitting.";
 
 /** Sign-in happens off camera; these steps put the settled page in front of the viewer. */
-export function openPage(path: string, heading: string): ScenarioInput["steps"] {
+/**
+ * The sidebar's plan card ("<plan> plan"). The demo business sits on a plan Iker does not sell,
+ * whose name a business cannot read, so the card falls back to "Free plan". Iker is not free,
+ * so dashboard footage blurs the card.
+ */
+export const PLAN_CARD: Target = { text: "Free plan", exact: true };
+
+export function openPage(
+  path: string,
+  heading: string,
+  masks: readonly Target[] = [],
+): ScenarioInput["steps"] {
   return [
     { action: "authenticate" },
+    ...(masks.length > 0 ? [{ action: "mask" as const, targets: [...masks] }] : []),
     { action: "navigate", path },
     { action: "waitFor", target: { role: "heading", name: heading, exact: true } },
     { action: "dwell", ms: 1200 },

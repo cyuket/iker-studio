@@ -186,6 +186,31 @@ describe("updateStoryboard", () => {
     ]);
   });
 
+  it("accepts a photo scene only when its photo is in assets/images", async () => {
+    const file = core.layout.video(videoId).storyboard;
+    const board = JSON.parse((await core.files.readText(file)) ?? "{}") as {
+      cuts: { scenes: Record<string, unknown>[] }[];
+    };
+    const hook = board.cuts[0]?.scenes[0];
+    if (!hook) throw new Error("no hook");
+    hook.visual = { kind: "photo", file: "salon-at-work.jpg", alt: "A stylist at work." };
+    core.files.seed(file, JSON.stringify(board));
+
+    const missing = updateStoryboard(core, videoId, [], renderStoryboardPreview);
+    await expect(missing).rejects.toMatchObject({ code: "NOT_FOUND" });
+    await expect(missing).rejects.toThrow(/salon-at-work\.jpg/);
+
+    core.files.seed(`${core.layout.imagesDir}/salon-at-work.jpg`, "photo");
+    const accepted = await updateStoryboard(core, videoId, [], renderStoryboardPreview);
+    expect(accepted.storyboard.cuts[0]?.scenes[0]?.visual).toMatchObject({
+      kind: "photo",
+      focus: { x: 0.5, y: 0.5 },
+      motion: "zoom-in",
+    });
+    const page = (await core.files.readText(accepted.previewFile)) ?? "";
+    expect(page).toContain("A stylist at work.");
+  });
+
   it("keeps the hash of a storyboard that uses none of the new fields", async () => {
     const before = await requireCurrentStoryboard(core, videoId);
     const scene = before.storyboard.cuts[0]?.scenes[0];

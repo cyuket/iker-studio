@@ -354,6 +354,41 @@ export async function updateStoryboard(
     );
   }
 
+  const soundFiles = new Set(
+    storyboard.cuts.flatMap((cut) =>
+      cut.scenes.flatMap((s) => (s.sounds ?? []).map((x) => x.file)),
+    ),
+  );
+  const missingSounds: string[] = [];
+  for (const file of [...soundFiles].sort()) {
+    if (!(await deps.files.exists(path.join(deps.layout.sfxDir, file)))) missingSounds.push(file);
+  }
+  if (missingSounds.length > 0) {
+    throw new StudioError(
+      "NOT_FOUND",
+      `The storyboard plays sounds that are not in assets/sfx: ${missingSounds.join(", ")}.`,
+      { hint: "Use a file listed in assets/sfx/README.md, or add the file there first." },
+    );
+  }
+
+  const photoFiles = new Set(
+    storyboard.cuts.flatMap((cut) =>
+      cut.scenes.flatMap((s) => (s.visual.kind === "photo" ? [s.visual.file] : [])),
+    ),
+  );
+  const missingPhotos: string[] = [];
+  for (const file of [...photoFiles].sort()) {
+    if (!(await deps.files.exists(path.join(deps.layout.imagesDir, file))))
+      missingPhotos.push(file);
+  }
+  if (missingPhotos.length > 0) {
+    throw new StudioError(
+      "NOT_FOUND",
+      `The storyboard shows photos that are not in assets/images: ${missingPhotos.join(", ")}.`,
+      { hint: "Use a file listed in assets/images/README.md, or add the photo there first." },
+    );
+  }
+
   const hash = hashOf(storyboard.cuts);
   await deps.files.writeJson(paths.storyboard, storyboard);
   const run = await runStage(deps, videoId, "storyboard", hash, {}, (current) =>

@@ -105,7 +105,9 @@ patch an approved MP4 or silently shorten its cover title to fit a publisher.
 
 ## Music and loudness
 
-- Music is optional. Default is none, and none is correct for most tutorials.
+- Every cut gets a music bed from `assets/music/` by default (house style section 6). Use
+  `"music": null` only when the owner asks for none. Sound effects are per scene (`sounds`), with
+  files from `assets/sfx/` (see `assets/sfx/README.md`).
 - A track must be licensed for this use. Put the file in `assets/music/` (create the
   directory; MP3 files there are tracked by Git) and set, on the cut in `storyboard.json`:
   `"music": { "file": "<name>.mp3", "volume": 0.12, "licence": "<licence, source and holder>" }`.

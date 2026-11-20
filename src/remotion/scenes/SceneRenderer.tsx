@@ -7,6 +7,7 @@ import { DataVisualisation } from "../components/DataVisualisation";
 import { DiagramScene } from "../components/DiagramScene";
 import { IntroSequence } from "../components/IntroSequence";
 import { OutroSequence } from "../components/OutroSequence";
+import { PhotoScene } from "../components/PhotoScene";
 import { Reveal } from "../components/Reveal";
 import { StatementLayout } from "../components/StatementLayout";
 import { StepIndicator } from "../components/StepIndicator";
@@ -20,10 +21,12 @@ export interface SceneRendererProps {
   visual: SceneVisual;
   brand: ResolvedBrand;
   recording: ResolvedRecording | null;
+  /** URL of a photo scene's photo; null for every other scene. */
+  image?: { src: string } | null;
 }
 
 /** Maps a storyboard visual onto its layout. Rendered inside the scene's content zone. */
-export function SceneRenderer({ visual, brand, recording }: SceneRendererProps): ReactNode {
+export function SceneRenderer({ visual, brand, recording, image }: SceneRendererProps): ReactNode {
   switch (visual.kind) {
     case "title":
       return <IntroSequence brand={brand} headline={visual.headline} subhead={visual.subhead} />;
@@ -109,6 +112,8 @@ export function SceneRenderer({ visual, brand, recording }: SceneRendererProps):
       return <OutroSequence brand={brand} tagline={visual.tagline} />;
     case "chapter":
       return <ChapterTransition title={visual.title} />;
+    case "photo":
+      return <PhotoScene visual={visual} src={image?.src ?? null} />;
     default:
       return <MotionGraphic visual={visual} />;
   }

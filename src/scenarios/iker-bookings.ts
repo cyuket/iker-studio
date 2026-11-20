@@ -8,6 +8,7 @@ import {
   heading,
   link,
   openPage,
+  PLAN_CARD,
   READ_ONLY_PREREQUISITE,
 } from "./iker-shared";
 
@@ -249,7 +250,7 @@ export const ikerAvailability: Scenario = defineScenario({
     },
   ],
   steps: [
-    ...openPage("/availability", "Availability"),
+    ...openPage("/availability", "Availability", [PLAN_CARD]),
     {
       action: "highlight",
       target: { role: "tab", name: "Weekly hours", exact: true },

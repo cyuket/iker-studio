@@ -27,6 +27,16 @@ export const SAMPLE_DISCLOSURE = "Synthetic demo · Not the live product";
 
 const svg = (markup: string): string => `data:image/svg+xml;utf8,${encodeURIComponent(markup)}`;
 
+/** A soft gradient that announces itself as a placeholder photo; it depicts nobody. */
+const PLACEHOLDER_PHOTO =
+  svg(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1067" viewBox="0 0 1600 1067">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a2a22"/><stop offset="1" stop-color="#8a5a3c"/></linearGradient></defs>
+<rect width="1600" height="1067" fill="url(#g)"/>
+<circle cx="800" cy="460" r="170" fill="#c08a64" opacity="0.5"/>
+<rect x="560" y="660" width="480" height="300" rx="140" fill="#c08a64" opacity="0.4"/>
+<text x="800" y="1010" font-family="sans-serif" font-size="40" fill="#f3e6dc" text-anchor="middle">Sample photo</text>
+</svg>`);
+
 /** A neutral block layout that announces itself as a placeholder; it depicts no real screen. */
 const PLACEHOLDER_CAPTURE =
   svg(`<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
@@ -92,6 +102,15 @@ const SAMPLE_VISUALS: Record<SceneVisualKind, SceneVisual> = {
     subhead: "How Iker keeps every deposit on its booking.",
   },
   chapter: { kind: "chapter", title: "Where deposits get lost" },
+  photo: {
+    kind: "photo",
+    heading: "Your hands are busy",
+    file: "sample-photo.jpg",
+    alt: "A placeholder standing in for a photo of a stylist at work.",
+    caption: "Mid-braid, the phone keeps buzzing",
+    focus: { x: 0.5, y: 0.45 },
+    motion: "zoom-in",
+  },
   statement: {
     kind: "statement",
     headline: "A chat is not a payment record",
@@ -464,6 +483,7 @@ const SAMPLE_VISUALS: Record<SceneVisualKind, SceneVisual> = {
 const SCENE_TYPES: Record<SceneVisualKind, SceneType> = {
   title: "INTRO",
   chapter: "EXPLANATION",
+  photo: "PROBLEM",
   statement: "PROBLEM",
   steps: "EXPLANATION",
   product: "DEMO",
@@ -495,6 +515,7 @@ const SAMPLE_NARRATION: Partial<Record<SceneVisualKind, string>> = {
 export const SAMPLE_KIND_ORDER: readonly SceneVisualKind[] = [
   "title",
   "chapter",
+  "photo",
   "statement",
   "steps",
   "product",
@@ -517,6 +538,7 @@ export const SAMPLE_KIND_ORDER: readonly SceneVisualKind[] = [
 const SAMPLE_SECONDS: Record<SceneVisualKind, number> = {
   title: 4,
   chapter: 2.5,
+  photo: 6,
   statement: 7,
   steps: 8,
   product: 7,
@@ -595,6 +617,7 @@ export function sampleSceneProps(
     scene,
     durationFrames: Math.round(seconds * format.fps),
     narration: null,
+    sounds: [],
     beats: {},
     captions: cues,
     recording:
@@ -603,6 +626,7 @@ export function sampleSceneProps(
           ? SAMPLE_RECORDING
           : options.recording
         : null,
+    image: kind === "photo" ? { src: PLACEHOLDER_PHOTO } : null,
     progress: null,
     backdrop:
       options.backdropStartFrame === undefined ? null : { startFrame: options.backdropStartFrame },

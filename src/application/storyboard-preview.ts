@@ -24,6 +24,8 @@ function visualSummary(scene: Scene): string {
       return `${visual.heading} (${visual.illustrative ? "illustrative" : visual.source})`;
     case "chapter":
       return `Chapter card: ${visual.title}`;
+    case "photo":
+      return `Photo "${visual.file}": ${visual.alt}${visual.caption ? `. Caption: ${visual.caption}` : ""}`;
     case "outro":
       return visual.tagline ?? "Brand outro";
     default:

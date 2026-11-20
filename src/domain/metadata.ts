@@ -16,6 +16,11 @@ export interface MetadataInput {
   chapters: readonly Chapter[];
   /** Statements that must accompany the video, e.g. that the demo uses simulated data. */
   disclosures: readonly string[];
+  /**
+   * Attributions the video's licensed media require, such as a CC BY music credit. They go
+   * into every long caption, hand-written or not, because the licence asks for them there.
+   */
+  credits?: readonly string[];
 }
 
 const X_LIMIT = 280;
@@ -43,6 +48,9 @@ function hashtags(keywords: readonly string[], count: number): string {
  */
 export function buildMetadata(input: MetadataInput): VideoMetadata {
   const { script, chapters, disclosures } = input;
+  const creditText = (input.credits ?? []).length
+    ? `Music\n${(input.credits ?? []).join("\n")}`
+    : "";
   const cta = `${script.callToAction.label}: ${script.callToAction.url}`;
   const chapterText = chapters
     .map((c) => `${formatChapterTime(c.startSeconds)} ${c.title}`)
@@ -55,24 +63,29 @@ export function buildMetadata(input: MetadataInput): VideoMetadata {
     cta,
     chapterText ? `Chapters\n${chapterText}` : "",
     disclosures.length ? disclosures.join("\n") : "",
+    creditText,
     hashtags(script.keywords, 3),
   ]
     .filter(Boolean)
     .join("\n\n");
 
-  const linkedinCaption =
+  const withCredit = (caption: string): string =>
+    creditText ? `${caption}\n\n${creditText}` : caption;
+  const linkedinCaption = withCredit(
     script.social.linkedin ??
-    [script.audienceProblem, script.coreExplanation, cta, hashtags(script.keywords, 4)]
-      .filter(Boolean)
-      .join("\n\n");
+      [script.audienceProblem, script.coreExplanation, cta, hashtags(script.keywords, 4)]
+        .filter(Boolean)
+        .join("\n\n"),
+  );
 
   const link = script.callToAction.url;
   const xCaption =
     script.social.x ?? `${truncate(script.hook, X_LIMIT - link.length - 2)}\n\n${link}`;
 
-  const shortsCaption =
+  const shortsCaption = withCredit(
     script.social.shorts ??
-    `${truncate(script.hook, 120)} ${hashtags(script.keywords, 3)} #Shorts`.trim();
+      `${truncate(script.hook, 120)} ${hashtags(script.keywords, 3)} #Shorts`.trim(),
+  );
 
   return {
     titles: script.titleCandidates,

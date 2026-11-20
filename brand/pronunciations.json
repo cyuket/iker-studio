@@ -66,12 +66,12 @@
     },
     {
       "term": "Abuja",
-      "status": "pending",
+      "status": "approved",
       "alias": null,
       "ipa": null,
       "notes": "Iker's pilot city. Check it is said ah-BOO-jah.",
-      "approvedBy": null,
-      "approvedAt": null
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-20T00:35:06.917Z"
     },
     {
       "term": "Lagos",

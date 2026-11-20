@@ -212,6 +212,22 @@ describe("cueProblems", () => {
     ).toEqual([]);
   });
 
+  it("reports a sound that plays on a cue the scene does not define", () => {
+    const problems = cueProblems(
+      scene({
+        cues: [{ id: "signup", phrase: "signs up" }],
+        sounds: [
+          { file: "pop.wav", cue: "signup" },
+          { file: "click.wav", cue: "nowhere" },
+          { file: "reveal.wav", atSeconds: 1 },
+        ],
+      }),
+    );
+    expect(problems).toEqual([
+      'Scene "hook": sound "click.wav" plays on cue "nowhere", which is not defined in the scene\'s cues.',
+    ]);
+  });
+
   it("does not check phrases of a scene with no narration", () => {
     expect(cueProblems(scene({ narration: "", cues: [{ id: "a", phrase: "anything" }] }))).toEqual(
       [],

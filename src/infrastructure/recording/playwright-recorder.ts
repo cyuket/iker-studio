@@ -173,7 +173,8 @@ async function runSteps(
       failure.targetDescription = describeStepTarget(step);
       logger.debug("Recording step", { step: index + 1, action: step.action });
       const finish = timeline.begin(index, step);
-      finish(await runStep(step, context));
+      const marks = { press: () => timeline.markPress(), keys: () => timeline.markKeys() };
+      finish(await runStep(step, { ...context, marks }));
     }
     // A scenario made only of setup steps still yields a video, of its final page.
     capture ??= await beginCapture(context.page, scenario, video, timeline);

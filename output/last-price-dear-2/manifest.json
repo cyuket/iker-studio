@@ -1,0 +1,1288 @@
+{
+  "schemaVersion": 1,
+  "id": "last-price-dear-2",
+  "title": "Last price, dear: stop haggling in DMs",
+  "topic": "Last price, dear: stop haggling in DMs",
+  "audience": "Owners of Nigerian service businesses, makeup artists first, who quote prices in WhatsApp and Instagram DMs",
+  "contentType": "BUSINESS_EDUCATION",
+  "template": "business-explainer",
+  "format": "youtube-landscape",
+  "durationTarget": {
+    "minSeconds": 120,
+    "maxSeconds": 180
+  },
+  "createdAt": "2026-11-20T00:17:14.908Z",
+  "updatedAt": "2026-11-20T02:21:52.866Z",
+  "script": {
+    "version": 1,
+    "hash": "397900517f5959c19a960181188ecdd4aafe1765dea393392d08a63b903c8bd0"
+  },
+  "storyboard": {
+    "version": 4,
+    "hash": "e03058f7ca78894626233ea5a690a94e4d3001cf032c97d2594bf9c0668a2dfb"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceId": null,
+    "modelId": null,
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speed": 1,
+    "speakerBoost": true,
+    "languageCode": null,
+    "seed": 20260101,
+    "preset": null,
+    "finishing": {
+      "level": true,
+      "targetLufs": -23,
+      "toleranceLu": 1,
+      "compression": false,
+      "edgeFade": "auto"
+    }
+  },
+  "voiceSelection": null,
+  "render": {
+    "quality": "final",
+    "reducedMotion": false
+  },
+  "stages": {
+    "idea": {
+      "status": "completed",
+      "inputHash": "15f26e1b21ae989d8eb569d32bcbb0ffd798c048335ee7d30ace5bd01c5ac7da",
+      "attempts": 1,
+      "startedAt": "2026-11-20T00:17:14.932Z",
+      "completedAt": "2026-11-20T00:17:14.937Z",
+      "error": null
+    },
+    "research": {
+      "status": "completed",
+      "inputHash": "bbcb566235051cfa9a1dcce9de41fcead4dcc25c62dd5d79d66f5dd3be1fa8ad",
+      "attempts": 1,
+      "startedAt": "2026-11-20T00:17:16.148Z",
+      "completedAt": "2026-11-20T00:17:16.157Z",
+      "error": null
+    },
+    "script": {
+      "status": "completed",
+      "inputHash": "397900517f5959c19a960181188ecdd4aafe1765dea393392d08a63b903c8bd0",
+      "attempts": 1,
+      "startedAt": "2026-11-20T00:17:16.164Z",
+      "completedAt": "2026-11-20T00:17:16.169Z",
+      "error": null
+    },
+    "storyboard": {
+      "status": "completed",
+      "inputHash": "e03058f7ca78894626233ea5a690a94e4d3001cf032c97d2594bf9c0668a2dfb",
+      "attempts": 4,
+      "startedAt": "2026-11-20T02:04:50.414Z",
+      "completedAt": "2026-11-20T02:04:50.422Z",
+      "error": null
+    },
+    "recording": {
+      "status": "pending",
+      "inputHash": "0b6c62e0298e542ffc9ec790cb2becebcdd43418492ef2aff6f319aecf11c54c",
+      "attempts": 2,
+      "startedAt": "2026-11-20T00:20:10.533Z",
+      "completedAt": "2026-11-20T00:20:57.511Z",
+      "error": null
+    },
+    "voice": {
+      "status": "pending",
+      "inputHash": "c5d1e8b56218c5f9f2c9c2247f01c5e9a403927cd8141b5adccc1dd709f37c99",
+      "attempts": 1,
+      "startedAt": "2026-11-20T00:21:18.619Z",
+      "completedAt": "2026-11-20T00:21:37.349Z",
+      "error": null
+    },
+    "motion": {
+      "status": "completed",
+      "inputHash": "163d3e1dbc69caa508efaa4f34b38105e3d0cb3313bde8316833ef46e72c68f9",
+      "attempts": 4,
+      "startedAt": "2026-11-20T02:05:28.595Z",
+      "completedAt": "2026-11-20T02:05:28.632Z",
+      "error": null
+    },
+    "composition": {
+      "status": "running",
+      "inputHash": "cf4797193390da1570288ab3e4a2bcd1f970c2af2bbb387d175956fb35654360",
+      "attempts": 4,
+      "startedAt": "2026-11-20T02:05:28.638Z",
+      "completedAt": "2026-11-20T02:02:40.557Z",
+      "error": null
+    },
+    "subtitles": {
+      "status": "pending",
+      "inputHash": "6543a23a21746ad5beab301d588cad379ba896f2fee7957c43d85a37031d9a59",
+      "attempts": 2,
+      "startedAt": "2026-11-20T02:02:40.570Z",
+      "completedAt": "2026-11-20T02:02:40.626Z",
+      "error": null
+    },
+    "render": {
+      "status": "pending",
+      "inputHash": "cf4797193390da1570288ab3e4a2bcd1f970c2af2bbb387d175956fb35654360",
+      "attempts": 2,
+      "startedAt": "2026-11-20T02:02:40.657Z",
+      "completedAt": "2026-11-20T02:03:11.980Z",
+      "error": null
+    },
+    "qa": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 1,
+      "startedAt": "2026-11-20T02:03:28.733Z",
+      "completedAt": null,
+      "error": null
+    },
+    "approval": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    },
+    "export": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    }
+  },
+  "assets": {
+    "narration": {
+      "intro": {
+        "cacheKey": "f750f63b618eceefe82ce363cab63c609e231bf9022838fd87fca45b4e81dc19",
+        "textHash": "843a0df105fde7afea75eeb669728f619b8dac77db88d742f1a60729854e9f4c",
+        "file": "audio/intro.mp3",
+        "wordsFile": "audio/intro.words.json",
+        "durationSeconds": 9.427302,
+        "characters": 137,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:21.690Z"
+      },
+      "chat": {
+        "cacheKey": "82a46efd1343fca94ec666a95f80b0b22867a92d4fe3da63dd139c87bb14c58c",
+        "textHash": "7d6074f24420b972871e0ac9ba3902e7a56b857bb8d2cd10d5d2965464525939",
+        "file": "audio/chat.mp3",
+        "wordsFile": "audio/chat.words.json",
+        "durationSeconds": 10.3561,
+        "characters": 141,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:22.618Z"
+      },
+      "pile": {
+        "cacheKey": "25b559331fbc7cc05eba76c893835f6c1137946ef1eb957c119456403f827344",
+        "textHash": "bcdde22db75ac598bd261aaa60e0b23bdbd46d1e4f9fd0407558b8c6f876618f",
+        "file": "audio/pile.mp3",
+        "wordsFile": "audio/pile.words.json",
+        "durationSeconds": 7.012426,
+        "characters": 108,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:23.291Z"
+      },
+      "compare": {
+        "cacheKey": "b7f61bd661627deba0d4ccc4885b2264686b687037f930370f6411dbd3a027c1",
+        "textHash": "d3545bee1fd621bf516f6ee221566ce106f42242fbff4ab84dba5077492a8d82",
+        "file": "audio/compare.mp3",
+        "wordsFile": "audio/compare.words.json",
+        "durationSeconds": 16.579048,
+        "characters": 222,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:24.603Z"
+      },
+      "setup": {
+        "cacheKey": "290ad80b5cc90e35f28f514703bcbaa056d2aee08f1735f0c7051b06a7b0cd05",
+        "textHash": "d5bfc3191d2918125add3e8ff8ade3a0cee648d0198e8b7aad0e2ae77721796a",
+        "file": "audio/setup.mp3",
+        "wordsFile": "audio/setup.words.json",
+        "durationSeconds": 5.990748,
+        "characters": 105,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:25.268Z"
+      },
+      "packages": {
+        "cacheKey": "03c63c8331f3d5cd1f7be6af7365521d9d5372fd97f6c38923d1ac0722511122",
+        "textHash": "baa16b64f0bf7ff410f702ea3cf8c3b41dec4b29de96a84f1b4e3626e2e8667d",
+        "file": "audio/packages.mp3",
+        "wordsFile": "audio/packages.words.json",
+        "durationSeconds": 4.086712,
+        "characters": 58,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:25.809Z"
+      },
+      "hours": {
+        "cacheKey": "5c9eaeb4fae84a66817c7d3c00f795b107ee4958f1a63aa9dc48967bfb8cff6c",
+        "textHash": "b33980e8a3957d6dab4928d3874f938bc2d00b484ecc58fc3140147238fdc090",
+        "file": "audio/hours.mp3",
+        "wordsFile": "audio/hours.words.json",
+        "durationSeconds": 5.15483,
+        "characters": 79,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:26.413Z"
+      },
+      "link": {
+        "cacheKey": "2f09dde6b73c52cad0c28647f14650ecc5ba7a3953f7738e837c576822bbdabb",
+        "textHash": "59b6b3e375792c0622f5256b982ee0406818e3cfe4cecbe877e2dbad432b8d43",
+        "file": "audio/link.mp3",
+        "wordsFile": "audio/link.words.json",
+        "durationSeconds": 21.780317,
+        "characters": 262,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:28.053Z"
+      },
+      "decide": {
+        "cacheKey": "ea6fa1713de02bc2089932f669521afbc29d4dfb042e454813f65769f57a6106",
+        "textHash": "eb32e15b0b7c29d95f2165ebfa9d1d16d9b183d3786a6f0607a5dcdfa22bc57c",
+        "file": "audio/decide.mp3",
+        "wordsFile": "audio/decide.words.json",
+        "durationSeconds": 18.854603,
+        "characters": 245,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:29.482Z"
+      },
+      "outcome": {
+        "cacheKey": "dd4022736064c344dc6fdca90fb87a33e7d18c010b15c8f82550409e61330d9d",
+        "textHash": "5f53ea902d4aec06f4a09aef380186b1bd4f835582b696d3ce23635c016881a1",
+        "file": "audio/outcome.mp3",
+        "wordsFile": "audio/outcome.words.json",
+        "durationSeconds": 6.965986,
+        "characters": 86,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:30.203Z"
+      },
+      "cta": {
+        "cacheKey": "5e5ba6eec7fccf0ebc42368819ff70d7b6e16a5349879233d811c080d299bbce",
+        "textHash": "758cfec69da84c118454089c3ee374233e4471d63f612ef6512938d5400a94c0",
+        "file": "audio/cta.mp3",
+        "wordsFile": "audio/cta.words.json",
+        "durationSeconds": 8.405624,
+        "characters": 120,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:30.986Z"
+      },
+      "sh-intro": {
+        "cacheKey": "d71086a4c61db3256ef72d823c02a9a5fd51af3e4ddfb04467adf1a7c01061fb",
+        "textHash": "1dd7afad1676c3723e9ac71c2787b1c4e14b8d719c3b4f3e56af0f00521e24fa",
+        "file": "audio/sh-intro.mp3",
+        "wordsFile": "audio/sh-intro.words.json",
+        "durationSeconds": 3.436553,
+        "characters": 50,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:31.487Z"
+      },
+      "sh-chat": {
+        "cacheKey": "46106554ec3b1df6033244171566d020c85b68e55e2ef9673a6cf48c08665ced",
+        "textHash": "d363ee7376a2a8d86ce94384bb779ea59fad26564b99b843cfc1366c942aff8a",
+        "file": "audio/sh-chat.mp3",
+        "wordsFile": "audio/sh-chat.words.json",
+        "durationSeconds": 7.198186,
+        "characters": 94,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:32.179Z"
+      },
+      "sh-pile": {
+        "cacheKey": "151b0eac8cbb4dbda398a5edb066dc010d4a80bf9b13e71a0c60f7afac5a301f",
+        "textHash": "fce65999820148e15c75cebceeaabfabe70e52c8131c63d258f113a5d20f73c4",
+        "file": "audio/sh-pile.mp3",
+        "wordsFile": "audio/sh-pile.words.json",
+        "durationSeconds": 1.671837,
+        "characters": 27,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:32.609Z"
+      },
+      "sh-compare": {
+        "cacheKey": "aa8ae29974a43d68f6092ab0a344f32d10ac5b6fde1fc16b583c1ca6e7d0007b",
+        "textHash": "267a54f8e1d0a246ee4764ed5d081deb7b8114b77f5f8c778d1f31096ecf9fad",
+        "file": "audio/sh-compare.mp3",
+        "wordsFile": "audio/sh-compare.words.json",
+        "durationSeconds": 2.739955,
+        "characters": 54,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:33.080Z"
+      },
+      "sh-link": {
+        "cacheKey": "4e1bae47e503047669373d4d93f9228cc6d04e17d432a03594da257f2537139c",
+        "textHash": "2015266e16d86e5315f8c8ae5b4447cb77ab0368fb226682b91e8c1d012ce21e",
+        "file": "audio/sh-link.mp3",
+        "wordsFile": "audio/sh-link.words.json",
+        "durationSeconds": 7.430385,
+        "characters": 108,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:33.808Z"
+      },
+      "sh-decide": {
+        "cacheKey": "187b8273b124872161be4a93fc082637d65ce3e8d4a8d5b314da5f2da993956a",
+        "textHash": "b9bfd120fae4e2ee12624890348085f4b3a8a161eda07a3c49cad669da17d91c",
+        "file": "audio/sh-decide.mp3",
+        "wordsFile": "audio/sh-decide.words.json",
+        "durationSeconds": 5.897868,
+        "characters": 96,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:34.452Z"
+      },
+      "sh-outcome": {
+        "cacheKey": "2bebc5caba525cf5643e068d5537b27ae6256e0bfc0ac9dd0fe9a42478c18626",
+        "textHash": "872bed594fc690bc985204c8ba16e5f69fecbcd6eee9255b2a45397b8275dce3",
+        "file": "audio/sh-outcome.mp3",
+        "wordsFile": "audio/sh-outcome.words.json",
+        "durationSeconds": 2.925714,
+        "characters": 38,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:34.917Z"
+      },
+      "sh-cta": {
+        "cacheKey": "25dfe9d040d8f81d45afe0d7c4a94784d0bffc564f93d60673c1fbfbadf4f183",
+        "textHash": "c9888cff91898270ed70aab8803fd60e236d9c11445c918fd3f4936e671a7538",
+        "file": "audio/sh-cta.mp3",
+        "wordsFile": "audio/sh-cta.words.json",
+        "durationSeconds": 4.96907,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:35.509Z"
+      },
+      "pt-intro": {
+        "cacheKey": "d71086a4c61db3256ef72d823c02a9a5fd51af3e4ddfb04467adf1a7c01061fb",
+        "textHash": "1dd7afad1676c3723e9ac71c2787b1c4e14b8d719c3b4f3e56af0f00521e24fa",
+        "file": "audio/pt-intro.mp3",
+        "wordsFile": "audio/pt-intro.words.json",
+        "durationSeconds": 3.436553,
+        "characters": 50,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:31.487Z"
+      },
+      "pt-chat": {
+        "cacheKey": "46106554ec3b1df6033244171566d020c85b68e55e2ef9673a6cf48c08665ced",
+        "textHash": "d363ee7376a2a8d86ce94384bb779ea59fad26564b99b843cfc1366c942aff8a",
+        "file": "audio/pt-chat.mp3",
+        "wordsFile": "audio/pt-chat.words.json",
+        "durationSeconds": 7.198186,
+        "characters": 94,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:32.179Z"
+      },
+      "pt-pile": {
+        "cacheKey": "151b0eac8cbb4dbda398a5edb066dc010d4a80bf9b13e71a0c60f7afac5a301f",
+        "textHash": "fce65999820148e15c75cebceeaabfabe70e52c8131c63d258f113a5d20f73c4",
+        "file": "audio/pt-pile.mp3",
+        "wordsFile": "audio/pt-pile.words.json",
+        "durationSeconds": 1.671837,
+        "characters": 27,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:32.609Z"
+      },
+      "pt-compare": {
+        "cacheKey": "aa8ae29974a43d68f6092ab0a344f32d10ac5b6fde1fc16b583c1ca6e7d0007b",
+        "textHash": "267a54f8e1d0a246ee4764ed5d081deb7b8114b77f5f8c778d1f31096ecf9fad",
+        "file": "audio/pt-compare.mp3",
+        "wordsFile": "audio/pt-compare.words.json",
+        "durationSeconds": 2.739955,
+        "characters": 54,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:33.080Z"
+      },
+      "pt-link": {
+        "cacheKey": "4e1bae47e503047669373d4d93f9228cc6d04e17d432a03594da257f2537139c",
+        "textHash": "2015266e16d86e5315f8c8ae5b4447cb77ab0368fb226682b91e8c1d012ce21e",
+        "file": "audio/pt-link.mp3",
+        "wordsFile": "audio/pt-link.words.json",
+        "durationSeconds": 7.430385,
+        "characters": 108,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:33.808Z"
+      },
+      "pt-decide": {
+        "cacheKey": "187b8273b124872161be4a93fc082637d65ce3e8d4a8d5b314da5f2da993956a",
+        "textHash": "b9bfd120fae4e2ee12624890348085f4b3a8a161eda07a3c49cad669da17d91c",
+        "file": "audio/pt-decide.mp3",
+        "wordsFile": "audio/pt-decide.words.json",
+        "durationSeconds": 5.897868,
+        "characters": 96,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:34.452Z"
+      },
+      "pt-outcome": {
+        "cacheKey": "2bebc5caba525cf5643e068d5537b27ae6256e0bfc0ac9dd0fe9a42478c18626",
+        "textHash": "872bed594fc690bc985204c8ba16e5f69fecbcd6eee9255b2a45397b8275dce3",
+        "file": "audio/pt-outcome.mp3",
+        "wordsFile": "audio/pt-outcome.words.json",
+        "durationSeconds": 2.925714,
+        "characters": 38,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:34.917Z"
+      },
+      "pt-cta": {
+        "cacheKey": "25dfe9d040d8f81d45afe0d7c4a94784d0bffc564f93d60673c1fbfbadf4f183",
+        "textHash": "c9888cff91898270ed70aab8803fd60e236d9c11445c918fd3f4936e671a7538",
+        "file": "audio/pt-cta.mp3",
+        "wordsFile": "audio/pt-cta.words.json",
+        "durationSeconds": 4.96907,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:35.509Z"
+      },
+      "tz-intro": {
+        "cacheKey": "5d3f44a65adfdc45a16e34b0754af4cd5f56da79cb0111bc6b5c8f6950d4752f",
+        "textHash": "c8a1e52a2418c8e4b2bb3e4b3d7c25aedc1bbb7fce84fc65afc416ae471f7d3a",
+        "file": "audio/tz-intro.mp3",
+        "wordsFile": "audio/tz-intro.words.json",
+        "durationSeconds": 2.321995,
+        "characters": 38,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:36.065Z"
+      },
+      "tz-chat": {
+        "cacheKey": "19ea29c84c50d92b80d84055fc1bcbf892c0cb9fe8df048682874c3d88a36bd3",
+        "textHash": "b30293c4ca14f789e69c2a6fb7a0840e74cd72118d275f12cf73f629ae7f12a6",
+        "file": "audio/tz-chat.mp3",
+        "wordsFile": "audio/tz-chat.words.json",
+        "durationSeconds": 4.690431,
+        "characters": 72,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:36.633Z"
+      },
+      "tz-link": {
+        "cacheKey": "5026b5419e35a872f44491796e72c59d072c55babd3d1cc1ed0309c2558ffae4",
+        "textHash": "fc5c6cd266da7b95b964f18347f212fc66ac9e271dbf38e914752e95e9949c6d",
+        "file": "audio/tz-link.mp3",
+        "wordsFile": "audio/tz-link.words.json",
+        "durationSeconds": 7.291066,
+        "characters": 93,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:37.321Z"
+      },
+      "tz-cta": {
+        "cacheKey": "25dfe9d040d8f81d45afe0d7c4a94784d0bffc564f93d60673c1fbfbadf4f183",
+        "textHash": "c9888cff91898270ed70aab8803fd60e236d9c11445c918fd3f4936e671a7538",
+        "file": "audio/tz-cta.mp3",
+        "wordsFile": "audio/tz-cta.words.json",
+        "durationSeconds": 4.96907,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:35.509Z"
+      }
+    },
+    "recordings": {
+      "iker-amaka-client-books-phone": {
+        "hash": "55887a12014350de4f031c0e131d78fbdf87c5acee6a6e60f4fd91b001e0de11",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-client-books-phone/recording.mp4",
+        "timeline": "recordings/iker-amaka-client-books-phone/timeline.json",
+        "screenshots": {
+          "pay-step-phone": "recordings/iker-amaka-client-books-phone/screenshots/pay-step-phone.png"
+        },
+        "durationSeconds": 28.4,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "recordedAt": "2026-11-19T23:21:25.381Z"
+      },
+      "iker-amaka-client-books-tablet": {
+        "hash": "df009090d6fab1a8b775f18ead6924276fd55a658d12f68aade52e65664e07a0",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-client-books-tablet/recording.mp4",
+        "timeline": "recordings/iker-amaka-client-books-tablet/timeline.json",
+        "screenshots": {
+          "pay-step-tablet": "recordings/iker-amaka-client-books-tablet/screenshots/pay-step-tablet.png"
+        },
+        "durationSeconds": 28.666667,
+        "viewport": {
+          "width": 1180,
+          "height": 820
+        },
+        "recordedAt": "2026-11-19T23:25:05.252Z"
+      },
+      "iker-availability": {
+        "hash": "e19d525c72e3d057d7f9b0492154bd4b40062479f8321696c21c7ce9592acaee",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-availability/recording.mp4",
+        "timeline": "recordings/iker-availability/timeline.json",
+        "screenshots": {
+          "weekly-hours": "recordings/iker-availability/screenshots/weekly-hours.png",
+          "blocked-dates": "recordings/iker-availability/screenshots/blocked-dates.png"
+        },
+        "durationSeconds": 11.866667,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "recordedAt": "2026-11-20T00:20:25.472Z"
+      },
+      "iker-packages": {
+        "hash": "9bdb4acc3bde6808f4f0a54422ea120f46bb8b8d4d445cd42e6e7f05d69b1e27",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-packages/recording.mp4",
+        "timeline": "recordings/iker-packages/timeline.json",
+        "screenshots": {
+          "packages": "recordings/iker-packages/screenshots/packages.png"
+        },
+        "durationSeconds": 6.1,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "recordedAt": "2026-11-20T00:20:34.512Z"
+      },
+      "iker-rate-card": {
+        "hash": "e863e277f2afdbdc4d717d294a706eb43236bafe43c85e98423afe9a5af1ec6b",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-rate-card/recording.mp4",
+        "timeline": "recordings/iker-rate-card/timeline.json",
+        "screenshots": {
+          "rate-card": "recordings/iker-rate-card/screenshots/rate-card.png",
+          "rate-card-pricing": "recordings/iker-rate-card/screenshots/rate-card-pricing.png"
+        },
+        "durationSeconds": 18.966667,
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "recordedAt": "2026-11-20T00:20:57.505Z"
+      }
+    },
+    "sceneRenders": {
+      "full/preview/intro": {
+        "hash": "144c0d7ed8b9fea281dd538b88797c9b72d212496fb3f2483d8817975451d72d",
+        "file": "scenes/full/preview/intro.mkv",
+        "durationFrames": 310,
+        "renderedAt": "2026-11-20T00:23:25.778Z"
+      },
+      "full/preview/chat": {
+        "hash": "e7e78583d806c99a7388cd1c825ca6af564be9b41c5bb4300777c4962a16fdc1",
+        "file": "scenes/full/preview/chat.mkv",
+        "durationFrames": 371,
+        "renderedAt": "2026-11-20T00:23:43.626Z"
+      },
+      "full/preview/pile": {
+        "hash": "7030bfdea8d19fd5ff7c944deef8a413e1d0400eb3622da8cb499eb326140320",
+        "file": "scenes/full/preview/pile.mkv",
+        "durationFrames": 238,
+        "renderedAt": "2026-11-20T00:23:55.746Z"
+      },
+      "full/preview/compare": {
+        "hash": "169412109d4f0f6eeb25e31fb473c69611bcc21b653c2f4be704e8cc26eb6270",
+        "file": "scenes/full/preview/compare.mkv",
+        "durationFrames": 525,
+        "renderedAt": "2026-11-20T00:24:20.444Z"
+      },
+      "full/preview/setup": {
+        "hash": "95d19bb263319824f5bf9438260a8f2c140e42f1c70dfb82f9e316611325426d",
+        "file": "scenes/full/preview/setup.mkv",
+        "durationFrames": 597,
+        "renderedAt": "2026-11-20T00:26:55.286Z"
+      },
+      "full/preview/packages": {
+        "hash": "7b99f8a664ad8fbfbdff222e1d55cf873ab54073bf7189865f3823b8ca0c1fe8",
+        "file": "scenes/full/preview/packages.mkv",
+        "durationFrames": 210,
+        "renderedAt": "2026-11-20T00:28:29.511Z"
+      },
+      "full/preview/hours": {
+        "hash": "174510a08d0a0e888581e488f24c1d624854c06bbdf37f6c4145a44815e89ee9",
+        "file": "scenes/full/preview/hours.mkv",
+        "durationFrames": 384,
+        "renderedAt": "2026-11-20T00:30:36.462Z"
+      },
+      "full/preview/link": {
+        "hash": "b2f63d9a8dbf876b4d0c81c14c4e46200f6bed060dc88f801b6edf7aa2954053",
+        "file": "scenes/full/preview/link.mkv",
+        "durationFrames": 888,
+        "renderedAt": "2026-11-20T00:35:06.656Z"
+      },
+      "full/preview/decide": {
+        "hash": "74a724905c0998830994441aaef9c0bb7150f535b186924689c2c6571ab2c23c",
+        "file": "scenes/full/preview/decide.mkv",
+        "durationFrames": 593,
+        "renderedAt": "2026-11-20T00:36:08.443Z"
+      },
+      "full/preview/outcome": {
+        "hash": "39b9fcc46c30dee275e3561165748f8c78aa125cddd68a1ad07e4a46ba89c17b",
+        "file": "scenes/full/preview/outcome.mkv",
+        "durationFrames": 236,
+        "renderedAt": "2026-11-20T00:36:36.778Z"
+      },
+      "full/preview/cta": {
+        "hash": "0e536e3a1b1c9c21dfa390cd60eb7ff0d4c6cac34f5878d40cd87efdbb7df6af",
+        "file": "scenes/full/preview/cta.mkv",
+        "durationFrames": 280,
+        "renderedAt": "2026-11-20T00:36:58.859Z"
+      },
+      "shorts/preview/sh-intro": {
+        "hash": "24ae0087a6de6e2ea36dadf0c53362ef79372862af9fba3e278d419e049e8299",
+        "file": "scenes/shorts/preview/sh-intro.mkv",
+        "durationFrames": 131,
+        "renderedAt": "2026-11-20T00:37:20.090Z"
+      },
+      "shorts/preview/sh-chat": {
+        "hash": "0e31a504409cb2255837c151dbf069519b2d81db8eafb144fca630b7d425a9b0",
+        "file": "scenes/shorts/preview/sh-chat.mkv",
+        "durationFrames": 276,
+        "renderedAt": "2026-11-20T00:37:54.079Z"
+      },
+      "shorts/preview/sh-pile": {
+        "hash": "550736f837831470feec05c7f2dfb030baaad9ebb8d19969489b3e2661830afd",
+        "file": "scenes/shorts/preview/sh-pile.mkv",
+        "durationFrames": 78,
+        "renderedAt": "2026-11-20T00:38:15.586Z"
+      },
+      "shorts/preview/sh-compare": {
+        "hash": "df3f7235d5651876341cb9c0c608741fd8973d307c37993df020104321f4392d",
+        "file": "scenes/shorts/preview/sh-compare.mkv",
+        "durationFrames": 110,
+        "renderedAt": "2026-11-20T00:38:32.373Z"
+      },
+      "shorts/preview/sh-link": {
+        "hash": "c56e472c55907f484f96126f8a85ff3a7f277e692518cad2509185f0602d808c",
+        "file": "scenes/shorts/preview/sh-link.mkv",
+        "durationFrames": 879,
+        "renderedAt": "2026-11-20T00:42:11.937Z"
+      },
+      "shorts/preview/sh-decide": {
+        "hash": "b82e4e6cccfdec92053c84839ba89aefd174ad5ecb54b3c109bfda26fec378b4",
+        "file": "scenes/shorts/preview/sh-decide.mkv",
+        "durationFrames": 204,
+        "renderedAt": "2026-11-20T00:42:35.968Z"
+      },
+      "shorts/preview/sh-outcome": {
+        "hash": "4ec320d58669b2c07d79e4388b6b1bf1a1c8671595ed226b5b19d349d175c2c4",
+        "file": "scenes/shorts/preview/sh-outcome.mkv",
+        "durationFrames": 115,
+        "renderedAt": "2026-11-20T00:42:54.444Z"
+      },
+      "shorts/preview/sh-cta": {
+        "hash": "b73c51755ea21405054598ed4786ed4011cb9efc744efeb29036fb72d0d739fd",
+        "file": "scenes/shorts/preview/sh-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T00:43:19.809Z"
+      },
+      "portrait/preview/pt-intro": {
+        "hash": "619f95a87f6d58ffc0c139da0f369a8d1d439cfe855b1690572733e44886331d",
+        "file": "scenes/portrait/preview/pt-intro.mkv",
+        "durationFrames": 131,
+        "renderedAt": "2026-11-20T00:43:38.461Z"
+      },
+      "portrait/preview/pt-chat": {
+        "hash": "775d529fd03ad00e07cb716c820d593eedac19582187705e2a1acfbf0d57bd09",
+        "file": "scenes/portrait/preview/pt-chat.mkv",
+        "durationFrames": 276,
+        "renderedAt": "2026-11-20T00:44:09.296Z"
+      },
+      "portrait/preview/pt-pile": {
+        "hash": "641ad789c2a9d3e17bbe7b27f5af745a03d589e4fc4ba3797efffd219f76c42b",
+        "file": "scenes/portrait/preview/pt-pile.mkv",
+        "durationFrames": 78,
+        "renderedAt": "2026-11-20T00:44:27.424Z"
+      },
+      "portrait/preview/pt-compare": {
+        "hash": "e24e469ca9d194c3779dcb64f2b0cb6ee6566faf898c552dcca4c3501c0f3f0d",
+        "file": "scenes/portrait/preview/pt-compare.mkv",
+        "durationFrames": 110,
+        "renderedAt": "2026-11-20T00:44:46.584Z"
+      },
+      "portrait/preview/pt-link": {
+        "hash": "d1207cf136c079b8f14c478f4660bce93b7b255b2be3939dd3a8ffa3b5b05ce8",
+        "file": "scenes/portrait/preview/pt-link.mkv",
+        "durationFrames": 879,
+        "renderedAt": "2026-11-20T00:47:41.574Z"
+      },
+      "portrait/preview/pt-decide": {
+        "hash": "656834ab591ce051a80e0b2bc8e21ce431573f98335d6be66dd366e9a75ddf53",
+        "file": "scenes/portrait/preview/pt-decide.mkv",
+        "durationFrames": 204,
+        "renderedAt": "2026-11-20T00:48:09.426Z"
+      },
+      "portrait/preview/pt-outcome": {
+        "hash": "e87f318381623008b7b3d00902adab1a04023dbab39812effc5c11d1e717ac16",
+        "file": "scenes/portrait/preview/pt-outcome.mkv",
+        "durationFrames": 115,
+        "renderedAt": "2026-11-20T00:48:31.055Z"
+      },
+      "portrait/preview/pt-cta": {
+        "hash": "73d4b306678f800856b2147a39bcae9d4948888b842b1dd8e70714612e8cbb5e",
+        "file": "scenes/portrait/preview/pt-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T00:48:54.279Z"
+      },
+      "teaser/preview/tz-intro": {
+        "hash": "dbcd7e63f6fd2e0053ec4a8e1107ac0a2d346f80fe6151846d7317286b54d37c",
+        "file": "scenes/teaser/preview/tz-intro.mkv",
+        "durationFrames": 97,
+        "renderedAt": "2026-11-20T00:49:15.316Z"
+      },
+      "teaser/preview/tz-chat": {
+        "hash": "7d3edb37f57cc8efd46daa8e482913a692ba071a91c618ad010bb12ecfe7773f",
+        "file": "scenes/teaser/preview/tz-chat.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T00:49:44.514Z"
+      },
+      "teaser/preview/tz-link": {
+        "hash": "ef75e37fdcdbb6f7ad6ae6fcce311b5886da4dfd6e3119c19b95c0d117de612e",
+        "file": "scenes/teaser/preview/tz-link.mkv",
+        "durationFrames": 879,
+        "renderedAt": "2026-11-20T00:52:46.938Z"
+      },
+      "teaser/preview/tz-cta": {
+        "hash": "07dd71a4263e2367ce606757a639dab45a5e9ef23ec86862dd736a5e2e9c831f",
+        "file": "scenes/teaser/preview/tz-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T00:53:00.496Z"
+      },
+      "full/final/intro": {
+        "hash": "6732244b5808fa95ed907c18e342c32a4099621366123500b760f2490d556d6a",
+        "file": "scenes/full/final/intro.mkv",
+        "durationFrames": 310,
+        "renderedAt": "2026-11-20T02:06:16.578Z"
+      },
+      "full/final/chat": {
+        "hash": "686559709ddbb1cc026346258ac0f8de159cb228629aff222172a4b11cbd3ee5",
+        "file": "scenes/full/final/chat.mkv",
+        "durationFrames": 371,
+        "renderedAt": "2026-11-20T02:07:06.024Z"
+      },
+      "full/final/pile": {
+        "hash": "c75f4ca959960b6a5d879c4e0260ca059d717df578eb3899f71428db5c3db952",
+        "file": "scenes/full/final/pile.mkv",
+        "durationFrames": 238,
+        "renderedAt": "2026-11-20T02:07:36.802Z"
+      },
+      "full/final/compare": {
+        "hash": "107ee1dabe05523ad7f55f870c10d0ca3443337e2f374543456d300fd69ac377",
+        "file": "scenes/full/final/compare.mkv",
+        "durationFrames": 525,
+        "renderedAt": "2026-11-20T02:08:39.351Z"
+      },
+      "full/final/setup": {
+        "hash": "a04f1ca0afcc9db56bd4475c99f6dfc4308c4a5f1156c29ae95fe92853dacdea",
+        "file": "scenes/full/final/setup.mkv",
+        "durationFrames": 281,
+        "renderedAt": "2026-11-20T02:09:29.185Z"
+      },
+      "full/final/packages": {
+        "hash": "9aad0efddf96b89ce07f832c2f8629bf1705dcfadff49b926b73890ca7db2967",
+        "file": "scenes/full/final/packages.mkv",
+        "durationFrames": 175,
+        "renderedAt": "2026-11-20T02:09:58.730Z"
+      },
+      "full/final/hours": {
+        "hash": "8b6bf7d801ab26b569f7a02b17d90f801b4e0f41ae9c90e7baf6f628ef3e62a1",
+        "file": "scenes/full/final/hours.mkv",
+        "durationFrames": 219,
+        "renderedAt": "2026-11-20T02:10:35.478Z"
+      },
+      "full/final/link": {
+        "hash": "b9a2a67b6cd3abf0524c39ab7ff97ba1b70915a8515bc1642a91fd102cc9e210",
+        "file": "scenes/full/final/link.mkv",
+        "durationFrames": 681,
+        "renderedAt": "2026-11-20T02:12:17.043Z"
+      },
+      "full/final/decide": {
+        "hash": "03a291894c80659362edd80d2b342faa6118dfb3f331859863c20dff1c832a6b",
+        "file": "scenes/full/final/decide.mkv",
+        "durationFrames": 593,
+        "renderedAt": "2026-11-20T02:13:38.808Z"
+      },
+      "full/final/outcome": {
+        "hash": "1365014fae1b5d8cad9cf96088b20390a88026657ce714c4788a77b7a9fdefac",
+        "file": "scenes/full/final/outcome.mkv",
+        "durationFrames": 236,
+        "renderedAt": "2026-11-20T02:14:08.407Z"
+      },
+      "full/final/cta": {
+        "hash": "9f077d115b0541c9862514276a652df4d162f9776a822a521d7883776debf19e",
+        "file": "scenes/full/final/cta.mkv",
+        "durationFrames": 280,
+        "renderedAt": "2026-11-20T02:14:40.620Z"
+      },
+      "shorts/final/sh-intro": {
+        "hash": "639ab9b3399edaaec784a203aa7283ca4f0be668bcaf9dd3a3157c3355c1c277",
+        "file": "scenes/shorts/final/sh-intro.mkv",
+        "durationFrames": 131,
+        "renderedAt": "2026-11-20T02:14:56.299Z"
+      },
+      "shorts/final/sh-chat": {
+        "hash": "3cbbbf917e560b6d70030e5ebcff6998de20ea3a94b850daf32cf5e2f260ed03",
+        "file": "scenes/shorts/final/sh-chat.mkv",
+        "durationFrames": 276,
+        "renderedAt": "2026-11-20T02:15:29.611Z"
+      },
+      "shorts/final/sh-pile": {
+        "hash": "28037889782659c9058182853dacf46f1feca47cd287390bed57d7e902ff64e9",
+        "file": "scenes/shorts/final/sh-pile.mkv",
+        "durationFrames": 78,
+        "renderedAt": "2026-11-20T02:15:39.988Z"
+      },
+      "shorts/final/sh-compare": {
+        "hash": "0be83405ea0e0e09b6047faa456237c58963bc8faef0e2616da92e0e87caa79d",
+        "file": "scenes/shorts/final/sh-compare.mkv",
+        "durationFrames": 110,
+        "renderedAt": "2026-11-20T02:15:53.953Z"
+      },
+      "shorts/final/sh-link": {
+        "hash": "f8990c1d90751b5b32df2251ba84225e4970a16359614d0629c82758d148dae0",
+        "file": "scenes/shorts/final/sh-link.mkv",
+        "durationFrames": 282,
+        "renderedAt": "2026-11-20T02:16:41.761Z"
+      },
+      "shorts/final/sh-decide": {
+        "hash": "31ca801e4bab8e6359296aa0d6ee4cc3ebda22299e52727f1245ba6b9ed24e80",
+        "file": "scenes/shorts/final/sh-decide.mkv",
+        "durationFrames": 204,
+        "renderedAt": "2026-11-20T02:17:05.968Z"
+      },
+      "shorts/final/sh-outcome": {
+        "hash": "3668713b258c3f9abad5b1646738d3315e3a702899d38f2747e16ff01526d6b3",
+        "file": "scenes/shorts/final/sh-outcome.mkv",
+        "durationFrames": 115,
+        "renderedAt": "2026-11-20T02:17:21.465Z"
+      },
+      "shorts/final/sh-cta": {
+        "hash": "0a454299d683c4456b00c098f900ce36a9148a5f6ec103c55f72fa4ceb7ea4de",
+        "file": "scenes/shorts/final/sh-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T02:17:42.203Z"
+      },
+      "portrait/final/pt-intro": {
+        "hash": "98d3e883c4cd62248897ff3c69f5f476af5a04db88b28523ffcc6540aa749e16",
+        "file": "scenes/portrait/final/pt-intro.mkv",
+        "durationFrames": 131,
+        "renderedAt": "2026-11-20T02:18:01.806Z"
+      },
+      "portrait/final/pt-chat": {
+        "hash": "8ab2ca748366f10e6619814356393a866a41fbb695a27fec9572337efb8a1647",
+        "file": "scenes/portrait/final/pt-chat.mkv",
+        "durationFrames": 276,
+        "renderedAt": "2026-11-20T02:18:47.178Z"
+      },
+      "portrait/final/pt-pile": {
+        "hash": "0e8ed8dd541e44d45361a93e68da720d303e9d07451add25a29e1c957af5aebe",
+        "file": "scenes/portrait/final/pt-pile.mkv",
+        "durationFrames": 78,
+        "renderedAt": "2026-11-20T02:19:04.032Z"
+      },
+      "portrait/final/pt-compare": {
+        "hash": "6be1c562d5e4a54a81fc52699569a6a87db76f7a7bb6e8be612dae8405604def",
+        "file": "scenes/portrait/final/pt-compare.mkv",
+        "durationFrames": 110,
+        "renderedAt": "2026-11-20T02:19:26.029Z"
+      },
+      "portrait/final/pt-link": {
+        "hash": "1df0c9de401814b1b3b5917a76fdeea161acf37a06d6c3b8ce2176db2674e39c",
+        "file": "scenes/portrait/final/pt-link.mkv",
+        "durationFrames": 282,
+        "renderedAt": "2026-11-20T02:20:17.597Z"
+      },
+      "portrait/final/pt-decide": {
+        "hash": "1da9c44f11db71961357cdb5131eda80c2d2a24a71a5d12b7795c6571c7af69d",
+        "file": "scenes/portrait/final/pt-decide.mkv",
+        "durationFrames": 204,
+        "renderedAt": "2026-11-20T02:20:45.802Z"
+      },
+      "portrait/final/pt-outcome": {
+        "hash": "4811403d16380d057ef7224197c757e5947713c00ff161087644f058e3aaaf9b",
+        "file": "scenes/portrait/final/pt-outcome.mkv",
+        "durationFrames": 115,
+        "renderedAt": "2026-11-20T02:21:06.811Z"
+      },
+      "portrait/final/pt-cta": {
+        "hash": "c4f2d3dcf0b7da4b48614b93c6d7848183158e57e1239e5c97aa469b46a93e44",
+        "file": "scenes/portrait/final/pt-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T02:21:37.306Z"
+      },
+      "teaser/final/tz-intro": {
+        "hash": "4fa89f3fb2667b1dd11806637dfd255c683a84cd35712a1faaa0f4818186a2db",
+        "file": "scenes/teaser/final/tz-intro.mkv",
+        "durationFrames": 97,
+        "renderedAt": "2026-11-20T02:21:52.866Z"
+      },
+      "teaser/final/tz-chat": {
+        "hash": "f013fc8b2f120d5219d98046269a9ff9518dd772280935dc68766cb54376f448",
+        "file": "scenes/teaser/final/tz-chat.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T02:00:55.994Z"
+      },
+      "teaser/final/tz-link": {
+        "hash": "85d833d64597e4d6c8c9275f24eb23e842706873f1f15de7ebaf5e9aca24eb7e",
+        "file": "scenes/teaser/final/tz-link.mkv",
+        "durationFrames": 332,
+        "renderedAt": "2026-11-20T02:02:08.958Z"
+      },
+      "teaser/final/tz-cta": {
+        "hash": "2d26a6afeb0fba8212f4455867f04fea8006a9fe42dc1618a3f77e05a15d8321",
+        "file": "scenes/teaser/final/tz-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T02:02:40.533Z"
+      }
+    },
+    "finals": {
+      "full/preview": {
+        "hash": "7427b38530c2a3bd56d0773972a1879e00f5c0e2b912712f7e89d9787d10b4cc",
+        "file": "preview/last-price-dear-2-full.mp4",
+        "sha256": "1072f2f80f00f711305389ff67d2e470cd4b8f4839b119eefc5f293831bbc5db",
+        "width": 960,
+        "height": 540,
+        "durationSeconds": 154.460125,
+        "subtitles": {
+          "srt": "subtitles/full.srt",
+          "vtt": "subtitles/full.vtt"
+        },
+        "timeline": "scenes/full/timeline.json",
+        "renderedAt": "2026-11-20T00:56:14.165Z"
+      },
+      "shorts/preview": {
+        "hash": "1217cdff1539702be4df171ed0a614834a67636c63fc271417a862db091a3300",
+        "file": "preview/last-price-dear-2-shorts.mp4",
+        "sha256": "266fb63afadc9282d0575c2e66895eb3e41a7047dc81452c8cbce41bc5c2ebe8",
+        "width": 540,
+        "height": 960,
+        "durationSeconds": 65.668,
+        "subtitles": {
+          "srt": "subtitles/shorts.srt",
+          "vtt": "subtitles/shorts.vtt"
+        },
+        "timeline": "scenes/shorts/timeline.json",
+        "renderedAt": "2026-11-20T00:57:25.274Z"
+      },
+      "portrait/preview": {
+        "hash": "e180871c1609b531b0d68394396c2d9119186e79a56fa63e29abafefdf662ca7",
+        "file": "preview/last-price-dear-2-portrait.mp4",
+        "sha256": "92f39ba1dd60cf1f9c98b9ab6a3b083468b251fd01e7428ba89d9ee8af8a9aa9",
+        "width": 540,
+        "height": 960,
+        "durationSeconds": 65.668,
+        "subtitles": {
+          "srt": "subtitles/portrait.srt",
+          "vtt": "subtitles/portrait.vtt"
+        },
+        "timeline": "scenes/portrait/timeline.json",
+        "renderedAt": "2026-11-20T00:58:39.239Z"
+      },
+      "teaser/preview": {
+        "hash": "737bc7889f6aa22d20e8166b937d5e499a9b95180a631e68b0f4ec7cc24b6d4a",
+        "file": "preview/last-price-dear-2-teaser.mp4",
+        "sha256": "c1e2aff7c9d44ae80d8b2bcbd70fd60e565d7e3bd6eb521ac395751555532c27",
+        "width": 540,
+        "height": 960,
+        "durationSeconds": 44.349333,
+        "subtitles": {
+          "srt": "subtitles/teaser.srt",
+          "vtt": "subtitles/teaser.vtt"
+        },
+        "timeline": "scenes/teaser/timeline.json",
+        "renderedAt": "2026-11-20T00:59:37.463Z"
+      },
+      "full/final": {
+        "hash": "0df682830d179cdeaf8400cb72b1cd871f11d3c794a31820a5e5f9ab336163ff",
+        "file": "final/last-price-dear-2-full.mp4",
+        "sha256": "c1cdcd2efb50d207b9bc88584e4b5615506bf154c82cab8ad7ad28324bf46660",
+        "width": 3840,
+        "height": 2160,
+        "durationSeconds": 130.359125,
+        "subtitles": {
+          "srt": "subtitles/full.srt",
+          "vtt": "subtitles/full.vtt"
+        },
+        "timeline": "scenes/full/timeline.json",
+        "renderedAt": "2026-11-20T02:02:55.586Z"
+      },
+      "shorts/final": {
+        "hash": "df88428e9ab80cefaa7645c6f7c7e2ce39678e32e8c6aee5f1a3b6c1d262ef3c",
+        "file": "final/last-price-dear-2-shorts.mp4",
+        "sha256": "3146a57224694b730493a6b28f20c76fa4aadc6926beacaa499a7f71a005cb5f",
+        "width": 2160,
+        "height": 3840,
+        "durationSeconds": 45.768,
+        "subtitles": {
+          "srt": "subtitles/shorts.srt",
+          "vtt": "subtitles/shorts.vtt"
+        },
+        "timeline": "scenes/shorts/timeline.json",
+        "renderedAt": "2026-11-20T02:03:01.008Z"
+      },
+      "portrait/final": {
+        "hash": "87414b505154b8820164e1a74cfcf2094d8990987f989eeba484324fd0d48be0",
+        "file": "final/last-price-dear-2-portrait.mp4",
+        "sha256": "3146a57224694b730493a6b28f20c76fa4aadc6926beacaa499a7f71a005cb5f",
+        "width": 2160,
+        "height": 3840,
+        "durationSeconds": 45.768,
+        "subtitles": {
+          "srt": "subtitles/portrait.srt",
+          "vtt": "subtitles/portrait.vtt"
+        },
+        "timeline": "scenes/portrait/timeline.json",
+        "renderedAt": "2026-11-20T02:03:06.828Z"
+      },
+      "teaser/final": {
+        "hash": "838bbd3f7d89aea5b6b8799b7c0838ecf58feb469b37fc8d443e2b115c41467f",
+        "file": "final/last-price-dear-2-teaser.mp4",
+        "sha256": "9f50c27a6b96ae56755fb3373a86ed20285333066ae553b5a627a4dca7c32662",
+        "width": 2160,
+        "height": 3840,
+        "durationSeconds": 26.148667,
+        "subtitles": {
+          "srt": "subtitles/teaser.srt",
+          "vtt": "subtitles/teaser.vtt"
+        },
+        "timeline": "scenes/teaser/timeline.json",
+        "renderedAt": "2026-11-20T02:03:11.968Z"
+      }
+    },
+    "thumbnails": [
+      {
+        "variant": "statement",
+        "file": "thumbnails/statement.png",
+        "hash": "e49f1e939bf4e33f34a8204a35dec7d653db05c2123117338a07d8ecc0bf4ad7"
+      },
+      {
+        "variant": "split",
+        "file": "thumbnails/split.png",
+        "hash": "795c6a6883df9b677c78006ac16787a84d3cee4261e37a98c4b00eb45b821a82"
+      },
+      {
+        "variant": "product",
+        "file": "thumbnails/product.png",
+        "hash": "1e54afd1a66e9cdb612d0413efb3829251be711a2eac12353fbd847680995a47"
+      }
+    ]
+  },
+  "qa": {
+    "full/final": {
+      "subjectHash": "c1cdcd2efb50d207b9bc88584e4b5615506bf154c82cab8ad7ad28324bf46660",
+      "passed": false,
+      "failures": 1,
+      "warnings": 1,
+      "report": "qa/full-final/report.html",
+      "checkedAt": "2026-11-20T02:03:48.430Z"
+    },
+    "shorts/final": {
+      "subjectHash": "3146a57224694b730493a6b28f20c76fa4aadc6926beacaa499a7f71a005cb5f",
+      "passed": false,
+      "failures": 1,
+      "warnings": 1,
+      "report": "qa/shorts-final/report.html",
+      "checkedAt": "2026-11-20T02:04:02.596Z"
+    },
+    "portrait/final": {
+      "subjectHash": "3146a57224694b730493a6b28f20c76fa4aadc6926beacaa499a7f71a005cb5f",
+      "passed": false,
+      "failures": 1,
+      "warnings": 1,
+      "report": "qa/portrait-final/report.html",
+      "checkedAt": "2026-11-20T02:04:22.377Z"
+    },
+    "teaser/final": {
+      "subjectHash": "9f50c27a6b96ae56755fb3373a86ed20285333066ae553b5a627a4dca7c32662",
+      "passed": true,
+      "failures": 0,
+      "warnings": 1,
+      "report": "qa/teaser-final/report.html",
+      "checkedAt": "2026-11-20T02:04:33.083Z"
+    }
+  },
+  "approvals": {
+    "script": {
+      "subjectHash": "397900517f5959c19a960181188ecdd4aafe1765dea393392d08a63b903c8bd0",
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-20T00:18:31.003Z",
+      "note": "Approved by cyuket in a Claude Code conversation (/iker), after reviewing script.md and storyboard.html.",
+      "automated": false,
+      "voiceDirectionHash": null
+    },
+    "final": {}
+  },
+  "usage": {
+    "synthesisedCharacters": 2299,
+    "synthesisRequests": 22,
+    "cacheHits": 9,
+    "generatedSeconds": 165.18675599999995,
+    "credits": 2331,
+    "regenerations": 0
+  },
+  "exports": [],
+  "history": [
+    {
+      "at": "2026-11-20T00:17:14.937Z",
+      "stage": "idea",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:17:16.157Z",
+      "stage": "research",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:17:16.169Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:17:27.092Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:18:31.003Z",
+      "stage": "script",
+      "event": "approved",
+      "detail": "by cyuket"
+    },
+    {
+      "at": "2026-11-20T00:20:00.639Z",
+      "stage": "recording",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:20:57.511Z",
+      "stage": "recording",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:21:37.349Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:22:01.582Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:22:03.667Z",
+      "stage": "composition",
+      "event": "failed",
+      "detail": "/Users/cyriluket/work/iker/Iker-studio/assets/sfx/message-pop.wav is outside the directories being served."
+    },
+    {
+      "at": "2026-11-20T00:23:08.968Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:53:00.633Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:53:00.778Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:59:37.557Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:01:03.098Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:09:04.980Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:09:12.324Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T02:02:40.557Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T02:02:40.626Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T02:03:11.980Z",
+      "stage": "render",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T02:04:33.094Z",
+      "stage": "qa",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T02:04:50.422Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T02:05:28.632Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    }
+  ]
+}

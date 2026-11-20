@@ -197,11 +197,138 @@ function ownerConfirms(device: DeviceViewport): Scenario {
   });
 }
 
+/** Chioma Okafor's Saturday bridal booking (₦45,000, ₦15,000 deposit) from seed.sql. */
+const CHIOMA_BOOKING_PATH = "/bookings/7a3e0000-0000-4000-a000-000000000046";
+
+const CHIOMA_PREREQUISITE =
+  "Chioma Okafor's Saturday 10:30 Bridal makeup booking from fixtures/iker-demo/seed.sql (₦45,000, ₦15,000 deposit proof pending review) is awaiting confirmation. If it was confirmed, run `fixtures/iker-demo/seed.sh reset-chioma` first.";
+
+const CHIOMA_EVIDENCE = [
+  'app/(dashboard)/bookings/[id]/page.tsx ("Booking price", "Paid so far", "Balance remaining", "Awaiting your confirmation", "View proof")',
+  'components/shared/booking-actions.tsx ("Confirm booking", "Reject payment", toast "Booking confirmed", then router.refresh())',
+] as const;
+
+/** Scene 5 of now-now-confirm-deposit: the owner looks at the deposit and the two choices. */
+function chiomaProof(): Scenario {
+  return defineScenario({
+    id: "iker-amaka-chioma-proof-phone",
+    title: "The owner opens a booking awaiting confirmation and checks the deposit (phone)",
+    feature: "Booking detail",
+    target: "iker",
+    status: "unverified",
+    viewport: DEVICE_VIEWPORTS.phone,
+    evidence: evidence(...CHIOMA_EVIDENCE),
+    prerequisites: [
+      ...DASHBOARD_PREREQUISITES,
+      AMAKA_PREREQUISITE,
+      CHIOMA_PREREQUISITE,
+      "Saves nothing: the take points at Confirm booking and Reject payment but presses neither.",
+    ],
+    preflight: [
+      {
+        path: CHIOMA_BOOKING_PATH,
+        expect: [heading("Chioma Okafor"), button("Confirm booking")],
+      },
+    ],
+    steps: [
+      { action: "authenticate" },
+      { action: "navigate", path: CHIOMA_BOOKING_PATH },
+      MASK_LOCAL_ADDRESS,
+      { action: "waitFor", target: heading("Chioma Okafor") },
+      { action: "dwell", ms: 1200 },
+      {
+        action: "highlight",
+        target: { text: "Awaiting your confirmation", exact: true },
+        label: "Deposit waiting for you",
+        holdMs: 1800,
+      },
+      {
+        action: "highlight",
+        target: link("View proof"),
+        label: "Her proof of payment",
+        holdMs: 2000,
+      },
+      {
+        action: "highlight",
+        target: button("Confirm booking"),
+        label: "Confirm booking",
+        holdMs: 1800,
+      },
+      {
+        action: "highlight",
+        target: button("Reject payment"),
+        label: "Reject payment",
+        holdMs: 1400,
+      },
+      { action: "screenshot", name: "chioma-proof-phone" },
+      { action: "dwell", ms: 800 },
+    ],
+  });
+}
+
+/**
+ * Scene 7 of now-now-confirm-deposit: the booking after confirming, Paid so far ₦15,000 and
+ * Balance remaining ₦30,000. Read-only: `seed.sh confirm-chioma` confirms the deposit through
+ * the product's own confirm_pending_payment beforehand, because a real-product scenario never
+ * presses Confirm booking.
+ */
+function chiomaConfirmed(): Scenario {
+  return defineScenario({
+    id: "iker-amaka-chioma-confirmed-phone",
+    title: "A confirmed booking shows what is paid and what is left (phone)",
+    feature: "Booking detail",
+    target: "iker",
+    status: "unverified",
+    viewport: DEVICE_VIEWPORTS.phone,
+    evidence: evidence(
+      ...CHIOMA_EVIDENCE,
+      "supabase/migrations/0157_fix_confirm_pending_payment_for_update.sql (confirm_pending_payment, which Confirm booking calls and fixtures/iker-demo/confirm-chioma.sql calls as the owner)",
+    ),
+    prerequisites: [
+      ...DASHBOARD_PREREQUISITES,
+      AMAKA_PREREQUISITE,
+      "Chioma Okafor's Saturday 10:30 Bridal makeup booking from fixtures/iker-demo/seed.sql has been confirmed with `fixtures/iker-demo/seed.sh confirm-chioma` (Paid so far ₦15,000, Balance remaining ₦30,000). Record iker-amaka-chioma-proof-phone first; run `seed.sh reset-chioma` afterwards.",
+      "Saves nothing: the take only reads the confirmed booking.",
+    ],
+    preflight: [
+      {
+        path: CHIOMA_BOOKING_PATH,
+        expect: [heading("Chioma Okafor"), { text: "Paid so far", exact: true }],
+      },
+    ],
+    steps: [
+      { action: "authenticate" },
+      { action: "navigate", path: CHIOMA_BOOKING_PATH },
+      MASK_LOCAL_ADDRESS,
+      { action: "waitFor", target: heading("Chioma Okafor") },
+      { action: "dwell", ms: 1200 },
+      {
+        action: "highlight",
+        target: { text: "Paid so far", exact: true },
+        label: "₦15,000 paid",
+        holdMs: 1800,
+      },
+      {
+        action: "highlight",
+        target: { text: "Balance remaining", exact: true },
+        label: "₦30,000 to go",
+        holdMs: 2000,
+      },
+      { action: "screenshot", name: "chioma-confirmed-phone" },
+      { action: "dwell", ms: 800 },
+    ],
+  });
+}
+
 export function ikerAmakaScenarios(today: Date = new Date()): Scenario[] {
-  return (["phone", "tablet"] as const).flatMap((device) => [
-    clientBooks(device, today),
-    ownerConfirms(device),
-  ]);
+  return [
+    ...(["phone", "tablet"] as const).flatMap((device) => [
+      clientBooks(device, today),
+      ownerConfirms(device),
+    ]),
+    chiomaProof(),
+    chiomaConfirmed(),
+  ];
 }
 
 export const IKER_AMAKA_SCENARIOS: readonly Scenario[] = ikerAmakaScenarios();

@@ -178,3 +178,35 @@ describe("countLeadingSetupSteps", () => {
     ).toBe(2);
   });
 });
+
+describe("press and typing marks", () => {
+  it("records when the pointer pressed and when typing started, first mark only", () => {
+    const clock = fakeClock();
+    const recorder = createTimelineRecorder(SCENARIO, clock.nowMs);
+    recorder.startCapture();
+    const finish = recorder.begin(
+      0,
+      step({ action: "type", target: { label: "Name" }, text: "Ada" }),
+    );
+    clock.advance(600);
+    recorder.markPress();
+    clock.advance(300);
+    recorder.markKeys();
+    clock.advance(200);
+    recorder.markPress();
+    clock.advance(400);
+    finish(null);
+    const plain = recorder.begin(1, step({ action: "dwell", ms: 500 }));
+    clock.advance(500);
+    plain(null);
+    const [typed, dwell] = recorder.build().events;
+    expect(typed).toMatchObject({
+      startSeconds: 0,
+      pressSeconds: 0.6,
+      keysFromSeconds: 0.9,
+      endSeconds: 1.5,
+    });
+    expect(dwell).not.toHaveProperty("pressSeconds");
+    expect(dwell).not.toHaveProperty("keysFromSeconds");
+  });
+});

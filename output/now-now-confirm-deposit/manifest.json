@@ -1,0 +1,911 @@
+{
+  "schemaVersion": 1,
+  "id": "now-now-confirm-deposit",
+  "title": "Confirm a deposit from proof, not from now now",
+  "topic": "Confirming a client's deposit from proof of payment when they say they will send it now now",
+  "audience": "Owners and staff of Nigerian service businesses, makeup artists first, who check deposit transfers",
+  "contentType": "PRODUCT_TUTORIAL",
+  "template": "product-tutorial",
+  "format": "youtube-landscape",
+  "durationTarget": {
+    "minSeconds": 60,
+    "maxSeconds": 180
+  },
+  "createdAt": "2026-11-19T23:30:36.686Z",
+  "updatedAt": "2026-11-20T01:59:41.697Z",
+  "script": {
+    "version": 2,
+    "hash": "fd6147167d5fb8ba1579e7935ace796cc9be1ceb9b46426697997a3bcc42bffc"
+  },
+  "storyboard": {
+    "version": 1,
+    "hash": "e04a5057ac1dfd1c7e6c6b13c2c87fff1422a892203366e0188a87738774d2f3"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceId": null,
+    "modelId": null,
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "style": 0,
+    "speed": 1,
+    "speakerBoost": true,
+    "languageCode": null,
+    "seed": 20260101,
+    "preset": null,
+    "finishing": {
+      "level": true,
+      "targetLufs": -23,
+      "toleranceLu": 1,
+      "compression": false,
+      "edgeFade": "auto"
+    }
+  },
+  "voiceSelection": null,
+  "render": {
+    "quality": "final",
+    "reducedMotion": false
+  },
+  "stages": {
+    "idea": {
+      "status": "completed",
+      "inputHash": "1eb4f9199aa0500097906037439dce8147db52681393dd12c37645323127673d",
+      "attempts": 1,
+      "startedAt": "2026-11-19T23:30:36.706Z",
+      "completedAt": "2026-11-19T23:30:36.711Z",
+      "error": null
+    },
+    "research": {
+      "status": "completed",
+      "inputHash": "1895fe164edaac7579118ade9324875bdf2f38c97bb1fe21286f2f264d782d26",
+      "attempts": 1,
+      "startedAt": "2026-11-19T23:32:20.019Z",
+      "completedAt": "2026-11-19T23:32:20.030Z",
+      "error": null
+    },
+    "script": {
+      "status": "completed",
+      "inputHash": "fd6147167d5fb8ba1579e7935ace796cc9be1ceb9b46426697997a3bcc42bffc",
+      "attempts": 2,
+      "startedAt": "2026-11-19T23:39:39.175Z",
+      "completedAt": "2026-11-19T23:39:39.186Z",
+      "error": null
+    },
+    "storyboard": {
+      "status": "completed",
+      "inputHash": "e04a5057ac1dfd1c7e6c6b13c2c87fff1422a892203366e0188a87738774d2f3",
+      "attempts": 6,
+      "startedAt": "2026-11-20T01:09:53.525Z",
+      "completedAt": "2026-11-20T01:09:53.805Z",
+      "error": null
+    },
+    "recording": {
+      "status": "pending",
+      "inputHash": "166b7ca0a1e5c0bdb40c508c3d1a7b3b3ae136bf86bf6dcba7b7cd0604908217",
+      "attempts": 2,
+      "startedAt": "2026-11-19T23:42:23.824Z",
+      "completedAt": "2026-11-19T23:42:34.140Z",
+      "error": null
+    },
+    "voice": {
+      "status": "pending",
+      "inputHash": "eaefd06cdbd1e7aec1f800277a1d24ccf3c06800a29192e7cd2a0c6ab3745565",
+      "attempts": 2,
+      "startedAt": "2026-11-20T00:22:40.879Z",
+      "completedAt": "2026-11-20T00:22:54.456Z",
+      "error": null
+    },
+    "motion": {
+      "status": "completed",
+      "inputHash": "2bffeae73e1b237a76487ace83ebbfaff35782f99fcfbf2c7478911862b15b9a",
+      "attempts": 4,
+      "startedAt": "2026-11-20T01:10:28.898Z",
+      "completedAt": "2026-11-20T01:10:29.028Z",
+      "error": null
+    },
+    "composition": {
+      "status": "completed",
+      "inputHash": "2bffeae73e1b237a76487ace83ebbfaff35782f99fcfbf2c7478911862b15b9a",
+      "attempts": 4,
+      "startedAt": "2026-11-20T01:10:29.041Z",
+      "completedAt": "2026-11-20T01:55:43.107Z",
+      "error": null
+    },
+    "subtitles": {
+      "status": "completed",
+      "inputHash": "3e49ac05e50b1aa35101a7f6175cefbe463f949d7f91b6573976952bff0b36dc",
+      "attempts": 4,
+      "startedAt": "2026-11-20T01:55:43.162Z",
+      "completedAt": "2026-11-20T01:55:43.629Z",
+      "error": null
+    },
+    "render": {
+      "status": "completed",
+      "inputHash": "2bffeae73e1b237a76487ace83ebbfaff35782f99fcfbf2c7478911862b15b9a",
+      "attempts": 4,
+      "startedAt": "2026-11-20T01:55:43.649Z",
+      "completedAt": "2026-11-20T01:57:17.502Z",
+      "error": null
+    },
+    "qa": {
+      "status": "completed",
+      "inputHash": "58b8396581b42209245c1fe5ae263a8972252b521244eccd79d0f27b9d19fd31",
+      "attempts": 3,
+      "startedAt": "2026-11-20T01:57:38.631Z",
+      "completedAt": "2026-11-20T01:59:41.697Z",
+      "error": null
+    },
+    "approval": {
+      "status": "pending",
+      "inputHash": "79b1a14fe49f0071e67fbe43135d1c8aec8626aa9625e2aa7ca0d6a81f2d5023",
+      "attempts": 2,
+      "startedAt": "2026-11-20T00:21:48.342Z",
+      "completedAt": "2026-11-20T00:21:48.349Z",
+      "error": null
+    },
+    "export": {
+      "status": "pending",
+      "inputHash": null,
+      "attempts": 0,
+      "startedAt": null,
+      "completedAt": null,
+      "error": null
+    }
+  },
+  "assets": {
+    "narration": {
+      "intro": {
+        "cacheKey": "073c06780080c117eb702d21e8272aca0fd5c7cfa16abc1dc1bdacab7253b710",
+        "textHash": "dc6f011b7815f65c25547586d535427037a41d68ce54b843c8b726012100d867",
+        "file": "audio/intro.mp3",
+        "wordsFile": "audio/intro.words.json",
+        "durationSeconds": 7.244626,
+        "characters": 109,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:42.083Z"
+      },
+      "problem": {
+        "cacheKey": "60458a7d59ba00bd278f1c3027eda8f6ac2beb5a73454574121df8a3b3d3f374",
+        "textHash": "63bf2d0730b5ed72bd6675a2c06f00a2647e15259621f42a03bf64532603795a",
+        "file": "audio/problem.mp3",
+        "wordsFile": "audio/problem.words.json",
+        "durationSeconds": 25.58839,
+        "characters": 343,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:44.105Z"
+      },
+      "maybe-booked": {
+        "cacheKey": "72f12b1d6a71e4ca2ece9ec6e8e49eb1dd10e6556d2833ef03c1862927388dfa",
+        "textHash": "b331e486d1b98ea3dbbcbe1dc186bc0ff8bf0761180350fc3592dc5c76f2a760",
+        "file": "audio/maybe-booked.mp3",
+        "wordsFile": "audio/maybe-booked.words.json",
+        "durationSeconds": 17.414966,
+        "characters": 206,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:45.418Z"
+      },
+      "money-path": {
+        "cacheKey": "9e74c0b2e64c0348768fc826032cc3f7408b879414a511163f9780d6d3326297",
+        "textHash": "0a68834bff548993accdd7ae65640bccd9c6467cc5c02a92785c37a024a6140e",
+        "file": "audio/money-path.mp3",
+        "wordsFile": "audio/money-path.words.json",
+        "durationSeconds": 19.597642,
+        "characters": 243,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:46.916Z"
+      },
+      "check-proof": {
+        "cacheKey": "875a5569554e88fd50212c9059c38904acc159de762f2d4be34e6d43ec3c0a82",
+        "textHash": "0598f0175b6bfa90fcf2410ca8fb5534c23790534d35fb5881a89b424b0409df",
+        "file": "audio/check-proof.mp3",
+        "wordsFile": "audio/check-proof.words.json",
+        "durationSeconds": 10.49542,
+        "characters": 165,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:47.799Z"
+      },
+      "decide": {
+        "cacheKey": "ff36c98a603aaa5e1d1987971bf0f951344fe5269ed1732331fdf1304ac049a1",
+        "textHash": "92339d62b15d44ec3604e1a61483c73fc868fb030f682d435a34a5c3621f41e3",
+        "file": "audio/decide.mp3",
+        "wordsFile": "audio/decide.words.json",
+        "durationSeconds": 11.424218,
+        "characters": 129,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:48.699Z"
+      },
+      "result": {
+        "cacheKey": "625cc9bff0036e0ea796450d0a7f1f39c64cfe6a9dbb1c3085dc9ae0598cc11d",
+        "textHash": "488f88e50fc6e539fa58b68b6cad12307d9d188608b98a2f333963b3955997d1",
+        "file": "audio/result.mp3",
+        "wordsFile": "audio/result.words.json",
+        "durationSeconds": 14.071293,
+        "characters": 176,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:49.783Z"
+      },
+      "cta": {
+        "cacheKey": "5e5ba6eec7fccf0ebc42368819ff70d7b6e16a5349879233d811c080d299bbce",
+        "textHash": "758cfec69da84c118454089c3ee374233e4471d63f612ef6512938d5400a94c0",
+        "file": "audio/cta.mp3",
+        "wordsFile": "audio/cta.words.json",
+        "durationSeconds": 8.405624,
+        "characters": 120,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:30.986Z"
+      },
+      "sh-intro": {
+        "cacheKey": "21f043277067eac2fb8142faa1d17128d99a38d9cc3291ee122bf9c54a32e62d",
+        "textHash": "534134e86af8dfc60f0b7b7ded6e9a01877039558ce8697629284db93b7d6064",
+        "file": "audio/sh-intro.mp3",
+        "wordsFile": "audio/sh-intro.words.json",
+        "durationSeconds": 3.297234,
+        "characters": 49,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:50.469Z"
+      },
+      "sh-problem": {
+        "cacheKey": "6c26a825d407d7199259639b60af70e82e1a00295a35a518056f383fabf340e7",
+        "textHash": "f897fbfc21f39bc961d941c3b0f5360711bd9f694baa983b7b710d78a454c094",
+        "file": "audio/sh-problem.mp3",
+        "wordsFile": "audio/sh-problem.words.json",
+        "durationSeconds": 5.897868,
+        "characters": 88,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:51.092Z"
+      },
+      "sh-maybe-booked": {
+        "cacheKey": "5cf129b74347d0afb50339e29048e0d55236cb8c91785ff79462d98c1f290425",
+        "textHash": "2536668a39f8e488fead5f94712eb75d339fdc7cf047b4104bb40caef07964c0",
+        "file": "audio/sh-maybe-booked.mp3",
+        "wordsFile": "audio/sh-maybe-booked.words.json",
+        "durationSeconds": 4.179592,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:51.617Z"
+      },
+      "sh-money-path": {
+        "cacheKey": "ef89dc3c8aadf633b7f136f8a5cd87ee7af084d262e5b8288d88579ab959b29a",
+        "textHash": "e38a25cd8216453d40a6ccfc2979cb2182d0430153643a85bd5ee86f4454347b",
+        "file": "audio/sh-money-path.mp3",
+        "wordsFile": "audio/sh-money-path.words.json",
+        "durationSeconds": 8.405624,
+        "characters": 113,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:52.415Z"
+      },
+      "sh-check-proof": {
+        "cacheKey": "ba346ac02e2a043fa503c5272d28b1ce0cecad6d53d175d7949acf96e615707d",
+        "textHash": "d0b7ddb43a5dcb3f525fb00e842984239d63dba13bccfe60ad3e2c8706599b31",
+        "file": "audio/sh-check-proof.mp3",
+        "wordsFile": "audio/sh-check-proof.words.json",
+        "durationSeconds": 4.643991,
+        "characters": 78,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:53.248Z"
+      },
+      "sh-decide": {
+        "cacheKey": "efe290270288725bcf0eaa627982fa346cb931b52cc84d790cecc3216bef0a1a",
+        "textHash": "d04ccfdf7ce4d49cb8414170c6ffc1948dc79096dd7e91ae528cc5952d20857d",
+        "file": "audio/sh-decide.mp3",
+        "wordsFile": "audio/sh-decide.words.json",
+        "durationSeconds": 5.15483,
+        "characters": 63,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:53.841Z"
+      },
+      "sh-result": {
+        "cacheKey": "397644fc147024d665f18b45376afcd03f51c214cd4f838308d9466db4068085",
+        "textHash": "e49f85e1f163285c5234578e6ebb1da0d0c2a9aa2ee1ebcfcce8285bf77eb994",
+        "file": "audio/sh-result.mp3",
+        "wordsFile": "audio/sh-result.words.json",
+        "durationSeconds": 5.01551,
+        "characters": 65,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:22:54.422Z"
+      },
+      "sh-cta": {
+        "cacheKey": "25dfe9d040d8f81d45afe0d7c4a94784d0bffc564f93d60673c1fbfbadf4f183",
+        "textHash": "c9888cff91898270ed70aab8803fd60e236d9c11445c918fd3f4936e671a7538",
+        "file": "audio/sh-cta.mp3",
+        "wordsFile": "audio/sh-cta.words.json",
+        "durationSeconds": 4.96907,
+        "characters": 66,
+        "provider": "elevenlabs",
+        "timing": "provider",
+        "createdAt": "2026-11-20T00:21:35.509Z"
+      }
+    },
+    "recordings": {
+      "iker-amaka-chioma-proof-phone": {
+        "hash": "9cae0f616a27b09dccc0321d0051fcd4efa905eeca109aee986a9ac100a66fec",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-chioma-proof-phone/recording.mp4",
+        "timeline": "recordings/iker-amaka-chioma-proof-phone/timeline.json",
+        "screenshots": {
+          "chioma-proof-phone": "recordings/iker-amaka-chioma-proof-phone/screenshots/chioma-proof-phone.png"
+        },
+        "durationSeconds": 13.5,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "recordedAt": "2026-11-19T23:42:19.542Z"
+      },
+      "iker-amaka-chioma-confirmed-phone": {
+        "hash": "10fd0701d33bbeae5b11dfa614b8e1c9793588daa0974b1ca2ee936d50289a12",
+        "target": "iker",
+        "displayHost": "localhost:3000",
+        "verified": false,
+        "video": "recordings/iker-amaka-chioma-confirmed-phone/recording.mp4",
+        "timeline": "recordings/iker-amaka-chioma-confirmed-phone/timeline.json",
+        "screenshots": {
+          "chioma-confirmed-phone": "recordings/iker-amaka-chioma-confirmed-phone/screenshots/chioma-confirmed-phone.png"
+        },
+        "durationSeconds": 8.066667,
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "recordedAt": "2026-11-19T23:42:34.135Z"
+      }
+    },
+    "sceneRenders": {
+      "full/preview/intro": {
+        "hash": "f91bb1c9a114fd60a7524f36068c4adb6be09b105c2a32edba999fb832c2b7c6",
+        "file": "scenes/full/preview/intro.mkv",
+        "durationFrames": 247,
+        "renderedAt": "2026-11-19T23:43:49.776Z"
+      },
+      "full/preview/problem": {
+        "hash": "0a4469c8b76e65f1282a4e45dd1662dbfa1d040fa783f0e07cbc94a88d6f62aa",
+        "file": "scenes/full/preview/problem.mkv",
+        "durationFrames": 744,
+        "renderedAt": "2026-11-19T23:44:01.573Z"
+      },
+      "full/preview/maybe-booked": {
+        "hash": "29f80b02e757c23422b5abc39b37bc48eae7d7b1d41a9f20c66d4f989065d9ae",
+        "file": "scenes/full/preview/maybe-booked.mkv",
+        "durationFrames": 384,
+        "renderedAt": "2026-11-19T23:44:08.461Z"
+      },
+      "full/preview/money-path": {
+        "hash": "6a1dfa6220321810b2fe626294dcd62e9def8c7a95d348ddf7404fe2750d11fe",
+        "file": "scenes/full/preview/money-path.mkv",
+        "durationFrames": 490,
+        "renderedAt": "2026-11-19T23:44:16.582Z"
+      },
+      "full/preview/check-proof": {
+        "hash": "5dee8da8193297d14da3df6eabde007e00dc6a3c611eff31a66ccace6a5cc1a2",
+        "file": "scenes/full/preview/check-proof.mkv",
+        "durationFrames": 432,
+        "renderedAt": "2026-11-19T23:44:30.048Z"
+      },
+      "full/preview/decide": {
+        "hash": "e6c3e05bbba69df136b704080154628c5bfe97fa1781f88133af04f9099fd66a",
+        "file": "scenes/full/preview/decide.mkv",
+        "durationFrames": 295,
+        "renderedAt": "2026-11-19T23:44:35.154Z"
+      },
+      "full/preview/result": {
+        "hash": "769ff68119cd6ecf8df84ffd1687fa0a0bc3d46e0bd20ff6fb92107b63b4e91d",
+        "file": "scenes/full/preview/result.mkv",
+        "durationFrames": 384,
+        "renderedAt": "2026-11-19T23:44:47.333Z"
+      },
+      "full/preview/cta": {
+        "hash": "f4774eaef16ac9e685e8f530d23c50ac8447c1c7974848f2e536409a67bb8024",
+        "file": "scenes/full/preview/cta.mkv",
+        "durationFrames": 261,
+        "renderedAt": "2026-11-19T23:44:52.513Z"
+      },
+      "short/preview/sh-intro": {
+        "hash": "f24131adffa0bb23156881ccf289d128e3203135955ffa34e0ed2d46b9920802",
+        "file": "scenes/short/preview/sh-intro.mkv",
+        "durationFrames": 121,
+        "renderedAt": "2026-11-19T23:44:56.108Z"
+      },
+      "short/preview/sh-problem": {
+        "hash": "7cf0c39669dc2f0206a6af85193167ca7f93a00f131f16ca5478078d4b3b9c04",
+        "file": "scenes/short/preview/sh-problem.mkv",
+        "durationFrames": 212,
+        "renderedAt": "2026-11-19T23:45:02.221Z"
+      },
+      "short/preview/sh-maybe-booked": {
+        "hash": "e91a7b4d1cb29fc817347edef174230845cdf7022ff49dafea9d8259d75e243d",
+        "file": "scenes/short/preview/sh-maybe-booked.mkv",
+        "durationFrames": 137,
+        "renderedAt": "2026-11-19T23:45:05.866Z"
+      },
+      "short/preview/sh-money-path": {
+        "hash": "fb1429c800696610a23178831e20bc6f16ba4312d4bfea6bfaa894e3d4838f70",
+        "file": "scenes/short/preview/sh-money-path.mkv",
+        "durationFrames": 252,
+        "renderedAt": "2026-11-19T23:45:12.414Z"
+      },
+      "short/preview/sh-check-proof": {
+        "hash": "51f2ddbefd70f2d4b6e274670cb9daa89496eae13d98f5263381c5fff9e1303a",
+        "file": "scenes/short/preview/sh-check-proof.mkv",
+        "durationFrames": 432,
+        "renderedAt": "2026-11-19T23:45:30.381Z"
+      },
+      "short/preview/sh-decide": {
+        "hash": "66703f1bb7bf22990aeb91c52277f2d3b3a17faa97e1e295f06dfeee89cf02bd",
+        "file": "scenes/short/preview/sh-decide.mkv",
+        "durationFrames": 176,
+        "renderedAt": "2026-11-19T23:45:34.624Z"
+      },
+      "short/preview/sh-result": {
+        "hash": "f9168e80440d17165e27a9c422257174094b2d4bc6fe31d5edf70f6c4febc94d",
+        "file": "scenes/short/preview/sh-result.mkv",
+        "durationFrames": 270,
+        "renderedAt": "2026-11-19T23:45:45.184Z"
+      },
+      "short/preview/sh-cta": {
+        "hash": "4dd9b733fd7a15172d6f5cc1f865b4b976f2a014920913f99463dde03246dfeb",
+        "file": "scenes/short/preview/sh-cta.mkv",
+        "durationFrames": 168,
+        "renderedAt": "2026-11-19T23:45:49.435Z"
+      },
+      "full/final/intro": {
+        "hash": "9869d29aa037ff80f19bebbd062b1f62bc124c44bd9a8cabda756028d6a63d63",
+        "file": "scenes/full/final/intro.mkv",
+        "durationFrames": 245,
+        "renderedAt": "2026-11-20T01:13:02.014Z"
+      },
+      "full/final/problem": {
+        "hash": "311ae4e9b8fd75e98897337ec940d4385425277a21759899c0e2db1162d5dbad",
+        "file": "scenes/full/final/problem.mkv",
+        "durationFrames": 795,
+        "renderedAt": "2026-11-20T01:20:16.783Z"
+      },
+      "full/final/maybe-booked": {
+        "hash": "3b43e3a095e2c321c5d451224036b50d20ea5e7172c5c6f3d59cf741a7ca9f7a",
+        "file": "scenes/full/final/maybe-booked.mkv",
+        "durationFrames": 550,
+        "renderedAt": "2026-11-20T01:27:46.197Z"
+      },
+      "full/final/money-path": {
+        "hash": "4aa25073e19d1ff8275a472d4976fd1d3a73a3ed6855a9b93cde6583eded6620",
+        "file": "scenes/full/final/money-path.mkv",
+        "durationFrames": 615,
+        "renderedAt": "2026-11-20T01:35:10.247Z"
+      },
+      "full/final/check-proof": {
+        "hash": "684865b4732c8939be1081d96caf64743c5080ec87e040f6690129c8be83fd82",
+        "file": "scenes/full/final/check-proof.mkv",
+        "durationFrames": 354,
+        "renderedAt": "2026-11-20T01:37:47.423Z"
+      },
+      "full/final/decide": {
+        "hash": "29bf35250a143304eb5c582df535de046662712ced3fbc1e330d9475b83c6a71",
+        "file": "scenes/full/final/decide.mkv",
+        "durationFrames": 370,
+        "renderedAt": "2026-11-20T01:39:30.987Z"
+      },
+      "full/final/result": {
+        "hash": "02e549bf09a480b107294de8a66922bc1cc97b6307eb451fc91df65e2986f28e",
+        "file": "scenes/full/final/result.mkv",
+        "durationFrames": 450,
+        "renderedAt": "2026-11-20T01:42:05.901Z"
+      },
+      "full/final/cta": {
+        "hash": "06d4d773e9613f4ec97f56dd88e0a915d6766d427295e29c09beeda1b57c4c63",
+        "file": "scenes/full/final/cta.mkv",
+        "durationFrames": 280,
+        "renderedAt": "2026-11-20T01:43:29.162Z"
+      },
+      "short/final/sh-intro": {
+        "hash": "57dfb9678df8a275ce6fcea9a9d25be43cbb3de00067d81ccd6d75d613c855a8",
+        "file": "scenes/short/final/sh-intro.mkv",
+        "durationFrames": 126,
+        "renderedAt": "2026-11-20T01:44:33.820Z"
+      },
+      "short/final/sh-problem": {
+        "hash": "1ddd83017e8d93e644421a46fa995abb472933876aa59e79debabd43924fde98",
+        "file": "scenes/short/final/sh-problem.mkv",
+        "durationFrames": 204,
+        "renderedAt": "2026-11-20T01:45:57.636Z"
+      },
+      "short/final/sh-maybe-booked": {
+        "hash": "3cecf3a831b98c624bde37fc660d617031d47385f42692c1eb765d2ae37a8ba3",
+        "file": "scenes/short/final/sh-maybe-booked.mkv",
+        "durationFrames": 153,
+        "renderedAt": "2026-11-20T01:47:16.523Z"
+      },
+      "short/final/sh-money-path": {
+        "hash": "5ab54fd833896d562f7f27bee184d0445a7c723acbd4900ee83536cc2b3e4c52",
+        "file": "scenes/short/final/sh-money-path.mkv",
+        "durationFrames": 280,
+        "renderedAt": "2026-11-20T01:48:58.710Z"
+      },
+      "short/final/sh-check-proof": {
+        "hash": "9ce59316e188ddc9729b608cb5d3c273e5d31a3d28c06dfd606707544c236065",
+        "file": "scenes/short/final/sh-check-proof.mkv",
+        "durationFrames": 176,
+        "renderedAt": "2026-11-20T01:51:00.928Z"
+      },
+      "short/final/sh-decide": {
+        "hash": "ddff1a4c023adf6225ce3133a61f6c1b975890b18c17cd37526d8c53431ec7b0",
+        "file": "scenes/short/final/sh-decide.mkv",
+        "durationFrames": 182,
+        "renderedAt": "2026-11-20T01:52:54.209Z"
+      },
+      "short/final/sh-result": {
+        "hash": "8d7dde8617d10b2bccaab6b32c7c04e21ac97e3045a561749d93617793e563ca",
+        "file": "scenes/short/final/sh-result.mkv",
+        "durationFrames": 178,
+        "renderedAt": "2026-11-20T01:54:25.141Z"
+      },
+      "short/final/sh-cta": {
+        "hash": "f70bb515f6ba4a4b82e83106e444466e707e74ca12259180cd1a0655a38c62b8",
+        "file": "scenes/short/final/sh-cta.mkv",
+        "durationFrames": 177,
+        "renderedAt": "2026-11-20T01:55:42.830Z"
+      }
+    },
+    "finals": {
+      "full/preview": {
+        "hash": "91b3f5b80d992768eb36c3ef91f16487fb0b278991286d71181c9426b377616c",
+        "file": "preview/now-now-confirm-deposit-full.mp4",
+        "sha256": "7983d55ccc0a9d81f1d1fa919a4059d5e8f9db9ba9d9f0bf876d0a5039be7c43",
+        "width": 960,
+        "height": 540,
+        "durationSeconds": 107.9,
+        "subtitles": {
+          "srt": "subtitles/full.srt",
+          "vtt": "subtitles/full.vtt"
+        },
+        "timeline": "scenes/full/timeline.json",
+        "renderedAt": "2026-11-19T23:45:58.681Z"
+      },
+      "short/preview": {
+        "hash": "63df9a24f3ced26f90731f54fd9926e873d95a8f68d179f606e2a09c010000f4",
+        "file": "preview/now-now-confirm-deposit-short.mp4",
+        "sha256": "68f9a8593aa73f8ce017baee83722aefd199a4b95a38c554bc84fe4545c0c46c",
+        "width": 540,
+        "height": 960,
+        "durationSeconds": 58.934,
+        "subtitles": {
+          "srt": "subtitles/short.srt",
+          "vtt": "subtitles/short.vtt"
+        },
+        "timeline": "scenes/short/timeline.json",
+        "renderedAt": "2026-11-19T23:46:05.712Z"
+      },
+      "full/final": {
+        "hash": "0ca4183ddee9a878340d51b8d92f25bc69a2e8a0cbd6fe93fc9cdcbe8fac235d",
+        "file": "final/now-now-confirm-deposit-full.mp4",
+        "sha256": "098be8ea5a66b5612148a7632fd706b0aff63ec9b6ad8e014f38d04b25e56455",
+        "width": 3840,
+        "height": 2160,
+        "durationSeconds": 121.965,
+        "subtitles": {
+          "srt": "subtitles/full.srt",
+          "vtt": "subtitles/full.vtt"
+        },
+        "timeline": "scenes/full/timeline.json",
+        "renderedAt": "2026-11-20T01:57:02.561Z"
+      },
+      "short/final": {
+        "hash": "81af91f25855d44526139bbbcea5c88f1abdbb0c4638094ef02d8d644936a9bf",
+        "file": "final/now-now-confirm-deposit-short.mp4",
+        "sha256": "f3d601fa85352a820188012af8ed0dac001e34f8643f4dee36be43b439aba7f0",
+        "width": 2160,
+        "height": 3840,
+        "durationSeconds": 49.235917,
+        "subtitles": {
+          "srt": "subtitles/short.srt",
+          "vtt": "subtitles/short.vtt"
+        },
+        "timeline": "scenes/short/timeline.json",
+        "renderedAt": "2026-11-20T01:57:17.289Z"
+      }
+    },
+    "thumbnails": [
+      {
+        "variant": "product",
+        "file": "thumbnails/product.png",
+        "hash": "3dfb463480add5dd7993a9ab0947a6dd347a79463fc62dd115c492245d216308"
+      },
+      {
+        "variant": "statement",
+        "file": "thumbnails/statement.png",
+        "hash": "5619eb7e6a97454e3fc19daaca63656dcb061b14ae515fd2f2ac08917aecfbf8"
+      },
+      {
+        "variant": "split",
+        "file": "thumbnails/split.png",
+        "hash": "bd6a8eba8b42fabdd29522956d0af9d72ddc056ec096ef10f73fd040916df73a"
+      }
+    ]
+  },
+  "qa": {
+    "full/final": {
+      "subjectHash": "098be8ea5a66b5612148a7632fd706b0aff63ec9b6ad8e014f38d04b25e56455",
+      "passed": true,
+      "failures": 0,
+      "warnings": 1,
+      "report": "qa/full-final/report.html",
+      "checkedAt": "2026-11-20T01:59:02.557Z"
+    },
+    "short/final": {
+      "subjectHash": "f3d601fa85352a820188012af8ed0dac001e34f8643f4dee36be43b439aba7f0",
+      "passed": true,
+      "failures": 0,
+      "warnings": 1,
+      "report": "qa/short-final/report.html",
+      "checkedAt": "2026-11-20T01:59:41.596Z"
+    }
+  },
+  "approvals": {
+    "script": {
+      "subjectHash": "fd6147167d5fb8ba1579e7935ace796cc9be1ceb9b46426697997a3bcc42bffc",
+      "approvedBy": "cyuket",
+      "approvedAt": "2026-11-19T23:43:16.013Z",
+      "note": "Approved by the owner in a Claude Code conversation on 2026-11-20 ('approved, finish the work'); recorded by Claude Code at their instruction. v2 differs from the reviewed v1 only in the scenario id in scene 5's visual note (iker-amaka-chioma-proof-phone); narration unchanged.",
+      "automated": false,
+      "voiceDirectionHash": null
+    },
+    "final": {
+      "full": {
+        "subjectHash": "716ace81370e2f30608761df152f7e19d1619c843f4267bf77c36fb215530d09",
+        "approvedBy": "cyuket",
+        "approvedAt": "2026-11-20T00:21:48.341Z",
+        "note": "",
+        "automated": false
+      },
+      "short": {
+        "subjectHash": "17c834c0112c2c3765de285959be50fad25c62b2f2f8ce53dd778d93886dbe37",
+        "approvedBy": "cyuket",
+        "approvedAt": "2026-11-20T00:21:48.341Z",
+        "note": "",
+        "automated": false
+      }
+    }
+  },
+  "usage": {
+    "synthesisedCharacters": 1893,
+    "synthesisRequests": 14,
+    "cacheHits": 2,
+    "generatedSeconds": 142.431204,
+    "credits": 1909,
+    "regenerations": 14
+  },
+  "exports": [],
+  "history": [
+    {
+      "at": "2026-11-19T23:30:36.711Z",
+      "stage": "idea",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:32:20.030Z",
+      "stage": "research",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:32:20.044Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:32:24.997Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:33:49.745Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:39:39.186Z",
+      "stage": "script",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:39:40.325Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:41:52.282Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:42:19.549Z",
+      "stage": "recording",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:42:34.140Z",
+      "stage": "recording",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:43:16.013Z",
+      "stage": "script",
+      "event": "approved",
+      "detail": "by cyuket"
+    },
+    {
+      "at": "2026-11-19T23:43:41.820Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:43:43.127Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:45:49.457Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:45:49.493Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:46:05.732Z",
+      "stage": "render",
+      "event": "partially completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:46:19.875Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:59:42.590Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:59:42.633Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-19T23:59:57.625Z",
+      "stage": "render",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:00:29.826Z",
+      "stage": "qa",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:16:45.046Z",
+      "stage": "approval",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:21:48.349Z",
+      "stage": "approval",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:22:54.456Z",
+      "stage": "voice",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:23:55.799Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T00:24:42.114Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:07:12.032Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:07:12.106Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:07:50.123Z",
+      "stage": "render",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:09:02.643Z",
+      "stage": "qa",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:09:53.805Z",
+      "stage": "storyboard",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:10:29.028Z",
+      "stage": "motion",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:55:43.107Z",
+      "stage": "composition",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:55:43.629Z",
+      "stage": "subtitles",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:57:17.502Z",
+      "stage": "render",
+      "event": "completed",
+      "detail": ""
+    },
+    {
+      "at": "2026-11-20T01:59:41.697Z",
+      "stage": "qa",
+      "event": "completed",
+      "detail": ""
+    }
+  ]
+}

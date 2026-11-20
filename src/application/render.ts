@@ -103,8 +103,18 @@ export async function compileContext(
   };
 }
 
-export function assetDirectories(deps: RenderDeps, videoId: string): Record<string, string> {
-  return { video: deps.layout.video(videoId).root, brand: deps.layout.brandDir };
+export function assetDirectories(
+  deps: Pick<RenderDeps, "layout">,
+  videoId: string,
+): Record<string, string> {
+  return {
+    video: deps.layout.video(videoId).root,
+    brand: deps.layout.brandDir,
+    // Sound effects that storyboard scenes play (scene.sounds).
+    sfx: deps.layout.sfxDir,
+    // Photos that photo scenes show (visual.kind "photo").
+    images: deps.layout.imagesDir,
+  };
 }
 
 /**

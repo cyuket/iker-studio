@@ -36,6 +36,10 @@ output/**
 *.mp3
 !brand/**/*.mp3
 # Licensed music stays out of Git: its licence forbids passing the file on by itself.
+# Photos stay out of Git too: stock licences forbid passing them on by themselves, and the
+# owner's own photos may show real people. Only the catalogue is tracked.
+assets/images/*
+!assets/images/README.md
 
 # OS and editor
 .DS_Store

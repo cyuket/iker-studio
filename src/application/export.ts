@@ -47,10 +47,14 @@ export async function generateMetadata(
   const synthetic = Object.values(manifest.assets.recordings).some(
     (recording) => recording.target === "synthetic",
   );
+  const credits = [
+    ...new Set(storyboard.cuts.flatMap((cut) => (cut.music?.credit ? [cut.music.credit] : []))),
+  ];
   const metadata = buildMetadata({
     script,
     chapters,
     disclosures: synthetic ? [SYNTHETIC_FOOTAGE_NOTE] : [],
+    credits,
   });
   const file = path.join(paths.metadata, "metadata.md");
   await deps.files.writeText(file, renderMetadataMarkdown(metadata));

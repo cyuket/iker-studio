@@ -2,6 +2,108 @@
 
 Append-only, newest first. UTC timestamps.
 
+## 2026-11-20T03:30Z · Claude Code
+
+- **What:** Every recorded action now makes a sound, and photos may be downloaded when none fits. New `src/domain/action-sounds.ts` (`ACTION_SOUNDS`, `planActionSounds`, `sceneSecondsFor`, the inverse of the footage time map). The scene compiler adds action sounds to product scenes in video mode: `click.wav` on click/select, `click-soft.wav` on key press/drag/dismiss, a sweep on scroll, and keyboard or phone typing (by viewport width) cut to the typing's length with a 6-frame fade. Scene field `actionSounds` (absent means on, `false` silences). Sounds gained an optional `durationFrames`. The recorder now logs `pressSeconds` and `keysFromSeconds` on timeline events (`markPress`/`markKeys` through `StepContext.marks`); older recordings fall back to estimates (press 0.65 s after the step starts, typing 0.35 s after the press). Added "Adding a photo" to `assets/images/README.md`, plus sound-on-every-action and photo-download rules in `storyboard-designer`, `iker-house-style` and `iker` (mirrored), and an action-sound note in `assets/sfx/README.md`.
+- **Why:** The owner asked for room to download images and for every action (typing, button clicks) to have a sound.
+- **Decisions:** Sounds are planned in the domain and compiled into the existing `sounds` list, so Remotion only needed duration and fade support. Product scenes with clicks or typing get new scene hashes and re-render once. Motion-graphic and photo scenes get sounds through storyboard cues, as before, now required for every visible action. Tests: domain planner (logged and estimated presses, phone vs desktop typing, scroll/press, screenshot silence, late footage and cut-off, scene end, inverse map round trip), timeline marks, compiler (placement and durations, opt-out, missing file). A real Remotion render of a sample scene had the click at 1.00 s and typing from about 2.1 s to 3.48 s, then silence. Integration: the two "watchable length" recording tests hit the 120 s timeout in two loaded runs; an isolated run passed all 9 (69 s and 48 s), and the original recorder took 78 s and 33 s, so the timeout is load flakiness, not this change. `pnpm validate` passed (typecheck, lint, format, 1196 unit tests). No commit.
+
+## 2026-11-20T02:00Z · Claude Code
+
+- **What:** `now-now-confirm-deposit` narrated with ElevenLabs (the voice and model in `.env`, eleven_multilingual_v2; dry run 1,893 credits, 14 clips synthesised, 2 from cache), footage trimmed to the narration in scenes check-proof, sh-check-proof and sh-result (footage windows plus "proof" and "balance" cue anchors), re-rendered and QA'd. Final cuts: full 3840x2160 2:02, short 2160x3840 0:49. QA: 0 failures, 1 warning per cut (the two Chioma scenarios are unverified).
+- **Why:** Owner asked to trim the silent gaps and switch to the ElevenLabs voice set in the env, then render.
+- **Decisions:** "Abuja" pronunciation was approved by the owner (`cyuket`), not by Claude. Final approval, export and publishing left to the owner. A Remotion "Target closed" protocol error was printed once during the last render; the render exited 0 and both files and thumbnails were rewritten. No commit.
+
+## 2026-11-20T02:50Z · Claude Code
+
+- **What:** Added `photo` scenes. New visual kind `photo` (`file` in `assets/images/`, `alt`, `heading`, `caption`, `captionCue`, `focus`, `motion`: zoom-in, zoom-out, pan-left, pan-right, still) in `src/domain/storyboard.ts`. `Workspace.imagesDir`, the `images` asset directory, `compileImage` in the scene compiler (missing file is `NOT_FOUND`, the photo's content hash joins the scene hash), `image` in `SceneRenderProps`, a missing-photo check in `pnpm studio storyboard`, a storyboard-preview summary, `src/remotion/components/PhotoScene.tsx` (framed photo in the content zone, slow camera move about the focus point, caption on the scrim token, still under reduced motion) and a sample. Downloaded 20 Pexels/Unsplash photos into `assets/images/` (via a subagent) with `assets/images/README.md` (source page, photographer, licence, size per photo, plus an "Owner's photos" section for `own-*` files). `.gitignore` keeps photos out of Git. Skills (`storyboard-designer`, `iker-house-style`, `iker`) and the README say when to use a photo.
+- **Why:** The owner asked for pictures where needed, not just illustrations, and chose a stock starter set plus their own photos.
+- **Decisions:** Photos sit in the content zone like every other scene (safe areas, bare background at the scene's edges), not full-bleed. The owner's `own-*` photos are preferred when one fits. Stock models are never presented as Iker customers, and photos never stand in for the product UI. The subagent rejected photos with readable brands, screens or signage. Gaps: no Black photographer with a client, no lash photo without brand text, no hands counting Naira, no Nigerian POS, no handwritten ledger. One POS photo has a tiny unreadable "ingenico" mark. Tests: compiler (none for other scenes, served URL, missing file, hash change) and storyboard (missing photo refused, defaults, preview text). Stills of a sample photo scene rendered in 16:9 and 9:16 and were checked by eye. `pnpm validate` passed typecheck, lint and format; one existing test (`asset-directories.test.ts`) needed the new `images` directory, after which `vitest run` passed 1246 of 1246 and Prettier and ESLint passed again. No commit.
+
+## 2026-11-20T02:30Z · Claude Code
+
+- **What:** Every video now narrates with the ElevenLabs voice in `.env` (`ELEVENLABS_VOICE_ID`) and uses the shared music and sound library. Updated `iker-house-style` (sections 5 and 6 plus the owner correction), `iker`, `storyboard-designer`, `video-editor` and `elevenlabs-voice-director`, mirrored to `.agents/skills/`. Added the 12 older CC0 interface sounds (`click.wav`, `message-pop.wav`, ...) to `assets/sfx/README.md` with their use and length; every file in `assets/sfx/` is now listed.
+- **Why:** The owner asked for the `.env` voice to be the voice selection and for all videos to use the added sounds and music where needed.
+- **Decisions:** No engine change was needed. When a video's `voiceId` is null, the ElevenLabs adapter already uses `ELEVENLABS_VOICE_ID`, and scene `sounds` and cut `music` already resolve from `assets/sfx` and `assets/music`. The skills now forbid `--voice-id` and voice switching unless the owner asks, and auditions compare presets of that one voice. Music is on by default for every cut (Mixkit preferred, no credit needed), with 1 to 3 sounds per scene on narration cues. The video-editor skill no longer says "no music by default", and the house style no longer calls every sound CC0. The exact source page of each CC0 wav is not recorded. Existing videos created with the `system` voice are unchanged. Prettier passed; `pnpm validate` not run (docs only). No commit.
+
+## 2026-11-20T12:40Z · Claude Code
+
+- **What:** Added 46 more Mixkit sounds to `assets/sfx`: 19 phone gestures (taps, swipes, screenshot/shutter, lock, unlock tone, notifications, ring), 27 attention hits (record scratches, risers, bass and trailer hits, glitches, wrong-answer buzzers, censor beep, drum roll, heartbeat, news intro, reveal, countdown, clock ticks), plus 4 whooshes. Generated three phone vibration/haptic sounds with FFmpeg (`synth-*.wav`) because Mixkit has none. Rewrote `assets/sfx/README.md` grouped by use; all 74 files are listed.
+- **Why:** The owner asked for missing phone gestures and short attention-grabbing sounds.
+- **Decisions:** Found and fixed an off-by-one in the earlier listing scrape: the six whoosh files from the previous entry had the wrong names (renamed to their real Mixkit titles). Typing files were correct. Every new download was checked against Mixkit's listed length. Left out a cash-register "ka-ching" because Iker records payments and does not take them. Not heard by the owner, not wired into a storyboard, no commit.
+
+## 2026-11-20T12:00Z · Claude Code
+
+- **What:** Downloaded 16 Mixkit music tracks (lo-fi/chill and upbeat motivational) into `assets/music` and 21 Mixkit sound effects (15 keyboard/phone typing, 6 whooshes/pops for caption hits) into `assets/sfx`, all as `mixkit-*.mp3`. Added a Mixkit table to `assets/music/README.md` and created `assets/sfx/README.md` with title, artist, id and licence for each file. Every file checked with ffprobe.
+- **Why:** The owner asked for typing sounds, chill but motivating background music, and trending TikTok/Instagram sounds.
+- **Decisions:** TikTok/Instagram trending sounds were not downloaded: they are copyrighted recordings licensed only for use inside those apps, and ripping them for an Iker ad would break the licence and rule 7's publishing checks. Add them in-app at upload instead (TikTok Commercial Music Library for business accounts). Mixkit licence terms were taken from Mixkit's own JSON-LD (`Mixkit Stock Music Free License`) and the known licence summary; the licence modal text could not be scraped, so recheck before publishing. Media is gitignored. Not wired into any storyboard and not heard by the owner. The Kevin MacLeod tracks and older `.wav` sounds from the previous entry are missing from the READMEs; not fixed here. No commit.
+
+## 2026-11-20T02:30Z · Claude Code
+
+- **What:** Background music and sound effects. Downloaded three Kevin MacLeod tracks (CC BY 4.0) into `assets/music` and twelve CC0 sounds into `assets/sfx` (clicks, pops, bubbles, notifications, seen tick, stamp thud, whoosh, confirm chime), converted to 48 kHz WAV at about -3 dBFS, with sources and licences in each folder's README. New storyboard field `sounds` on a scene (file, cue or atSeconds, volume), checked by `pnpm studio storyboard`, placed by the scene compiler on cue beats and played in `SceneComposition`; new `music.credit`, printed by export in the YouTube description and LinkedIn/Shorts captions. Applied music and sounds to every cut of `last-price-dear`. House style records the owner's request. Tests added for sound cues, placement, missing files, cache identity and credits; `pnpm validate` passed (1179 tests). A real Remotion render of one scene with two sounds had audio at the expected frames.
+- **Why:** The owner asked for chill background music plus click, bubble and notification sounds, downloaded from the internet.
+- **Decisions:** Only sources with explicit free licences (kenney.nl refused scripted downloads, so its CC0 pack came via OpenGameArt; a dual-licensed "completion sound" was skipped). `sounds` is optional, not defaulted, so existing scenes keep their render identity. Clicks are not yet synced to clicks inside recorded footage. Audio files stay out of Git. Not yet heard by the owner; MacLeod's tracks are Content ID pre-registered. Another session is editing the demo seed and this journal at the same time. No commit.
+
+## 2026-11-19T23:55Z · Claude Code
+
+- **What:** Unblocked and continued `now-now-confirm-deposit`. Demo seed gained Chioma Okafor's Saturday 10:30 Bridal makeup booking at ₦45,000 with a ₦15,000 deposit proof pending review (booking ...0046, payment ...0057, its own sample receipt), plus `seed.sh reset-chioma` and `seed.sh confirm-chioma` (calls the product's `confirm_pending_payment` as Amaka). New phone scenarios `iker-amaka-chioma-proof-phone` (scene 5) and `iker-amaka-chioma-confirmed-phone` (scene 7, read-only), both unverified; storyboard scenes 5 and 7 point at them. Script v2 (scenario id in scene 5's note only). Recorded both, approved the script at the owner's explicit instruction, narrated with the `system` stand-in, previewed, rendered and ran QA. `pnpm validate` passed.
+- **Why:** The owner chose "add a booking to the seed" and "write a new scenario" for the gate 1 blockers, then said "approved, finish the work".
+- **Decisions:** Approval recorded as `cyuket` with a note that it was given in the conversation and that v2 differs from the reviewed v1 only in a visual note. Voice kept as `system` because the brief ruled out a real voice: this is a pipeline check. Scene 7's scenario does not press Confirm booking (the scenario test forbids real-product scenarios pressing it); the seed script confirms through the same database function instead. The rate card item stays ₦120,000; only this booking is ₦45,000. Machine clock reads earlier than some entries below. No commit.
+
+## 2026-11-20T02:00Z · Claude Code
+
+- **What:** Replaced the `iker` subagent with the `/iker` skill (`.claude/skills/iker/SKILL.md`, mirrored in `.agents/skills/iker/`). It runs every command from idea to local export and asks the human at the script and final gates (Approve / Improve / Stop here), then records their answer. Removed `.claude/agents/iker.md`. Reverted the agent-delegation wording in CLAUDE.md rules 5 and 6 and replaced it with the in-conversation approval exception. Updated the skill table and README.
+- **Why:** The owner does not want to type commands, and wants to be asked to approve or improve. A subagent cannot ask questions mid-run; a skill in the main conversation can.
+- **Decisions:** Approvals are recorded under the owner's `git user.name`, with a note that they were given in a Claude Code conversation, and only after they choose Approve at that gate. The skill exports locally after final approval, never publishes, never commits. Rule 11 keeps the doctor-based wording. Prettier check passed. Not yet run on a real idea. No commit.
+
+## 2026-11-20T01:40Z · Claude Code
+
+- **What:** The `iker` agent now approves the script itself and runs through to the final render and QA. It narrates with ElevenLabs when `doctor` reports it configured, otherwise with the `system` stand-in. CLAUDE.md rules 5, 6 and 11, the skill table and the README section were updated to match.
+- **Why:** The owner asked for the agent to do everything from script approval to the rendered video. ElevenLabs is now configured on this machine.
+- **Decisions:** The owner's standing delegation is written into rule 6. The approval is recorded as `iker agent (delegated by <git user.name>)` with a note that no person reviewed it, never under the owner's own name (the default `--by`). It applies only to scripts the agent wrote, after `script` and `storyboard` pass, and never covers final approval, export or publishing. The agent does not narrate again with `--force`. Rule 11 no longer claims credentials are missing. Prettier check passed. No commit.
+
+## 2026-11-19T23:35Z · Claude Code (iker agent)
+
+- **What:** Created video `now-now-confirm-deposit` (template `product-tutorial`, `PRODUCT_TUTORIAL`, voice `system` stand-in) and took it to human gate 1: `research.md` (10 facts, pf ids, sources read in slot-books), `script.md` (cuts `full` youtube-landscape 105-135 s, about 1:54, and `short` youtube-shorts 40-60 s, about 0:49) and `storyboard.json` (character-scene, timeline, comparison, pipeline, product, decision, product, cta per cut). `pnpm studio script` accepted v1 with no warnings; `pnpm studio storyboard` saved v1. No approval, recording, narration, render, QA, export or publish was run.
+- **Why:** Owner brief: Chioma's "I'll send it now now", checking proof of payment, Confirm booking or Reject payment, stopping at gate 1.
+- **Decisions:** "Awaiting confirmation holds the slot" cited as pf-041 with the exclusion constraint and occupancy query as sources (no dedicated pf entry exists). Spoken money gained "naira" in the Short's result line. What the client sees after Reject payment is under "Needs research" and out of the script. Open before recording: the demo seed has no ₦45,000 bridal booking (footage would show Tunde, ₦50,000, ₦35,000 balance), no phone scenario shows a confirmed Amaka booking (scene 7 points at `iker-booking-detail`, Test Salon, desktop), and no visual kind can composite a mock proof image. No commit.
+
+## 2026-11-20T01:45Z · Claude Code
+
+- **What:** Fixed `iker-rate-card` against the current slot-books UI. "Packages" is targeted as a button (Base UI Button rendering a Link); the highlighted row is "Soft glam makeup" at `nth: 1` (the hidden phone list renders first); the dialog part opens "Edit" on the first row, steps to Pricing with "Continue" and closes with the X ("Close"), because the add form is now a four-step wizard and Escape does not close it. Screenshot renamed `rate-card-pricing`. `pnpm validate` passed earlier in this task; typecheck and lint passed after the last edits. Recorded (18.1 s) and frames checked; service values unchanged.
+- **Why:** The recording failed in preflight (`link "Packages"`) and then on three stale steps.
+- **Decisions:** Edit rather than Add so the take stays read-only and shows real seeded values (₦50,000, 30%, "about ₦15,000 of ₦50,000"). Open: the sidebar shows "FREE PLAN" because Team is an inactive plan in slot-books (0017), so the owner cannot read its name; Starter and Growth, the only active plans, allow one service. Needs the owner's decision. Scenario stays `unverified`. No commit.
+
+## 2026-11-20T01:25Z · Claude Code
+
+- **What:** Renamed the `idea-to-video` agent to `iker` (`.claude/agents/iker.md`, `name: iker`) and updated the references in README.md and CLAUDE.md.
+- **Why:** The owner asked for the agent to be called iker.
+- **Decisions:** Invoked as "Use the iker agent: <idea>" or `@agent-iker <idea>`. Earlier journal entries keep the old name, because the journal is append-only. Prettier check passed. No commit.
+
+## 2026-11-20T01:15Z · Claude Code
+
+- **What:** Added a README section, "From one idea to a video with Claude Code", that explains how to invoke the `idea-to-video` agent, what it produces and refuses to do, and the human commands that turn its pipeline check into a real video. Added the agent to the README's documentation table.
+- **Why:** The owner asked for the commands and for them to be in the README.
+- **Decisions:** The section sits before "Production workflow for a real video" and points to `/video-director` for the step-by-step route. Prettier check passed. No commit.
+
+## 2026-11-20T01:00Z · Claude Code
+
+- **What:** Fixed "Sign-in did not complete" when recording `iker-amaka-client-books-phone`. The local database had no `amaka.owner@example.com` account (the Amaka Studio seed was not loaded), and re-running `fixtures/iker-demo/seed.sh` failed on "plan limit reached for Services (booking pages): 1 allowed". `seed.sql` now puts the demo business on the `team` plan instead of `growth`. Seed ran; the scenario recorded (28.4 s) and the frames were checked.
+- **Why:** slot-books `0048_plan_feature_flags.sql` gives Growth 1 service and Pro 3; the seed adds 3 services, so its Growth assumption was wrong.
+- **Decisions:** Team (no service or policy limit) rather than Pro (exactly 3) to leave room for a ₦45,000 Bridal makeup item. Checked first that every local auth user is on a test domain. The scenario stays `unverified` until the owner watches the capture. No commit.
+
+## 2026-11-20T01:00Z · Claude Code
+
+- **What:** Added the `idea-to-video` Claude Code agent (`.claude/agents/idea-to-video.md`) and listed it in the CLAUDE.md skill table. Given one full idea, it picks a template and id, runs create, research, script, storyboard, an automated stand-in script approval, record, stand-in narration, preview, render and QA, then journals and returns a report with the human's next commands.
+- **Why:** The owner asked for an agent that turns a full idea into a video locally without step-by-step direction.
+- **Decisions:** The owner chose "run through with stand-ins": the agent records only `approve --stage script --automated --by "Claude Code"` (CLAUDE.md rule 6 exception), uses the `system`/`silent` voice, and never runs final approval, export or publishing. If `http://localhost:3000` does not answer, product scenes fall back to `synthetic-*` scenarios or non-recorded visuals; the agent never starts or seeds slot-books. Three fix-and-rerun attempts per stage, then it stops and reports. Never overwrites an existing `output/<id>`. Not yet run on a real idea. Prettier check passed on the changed files. No commit.
+
+## 2026-11-20T00:30Z · Claude Code
+
+- **What:** Took `last-price-dear` to human gate 1 from the owner's full brief. Rewrote `research.md` (14 facts keyed by pf-NNN, plus a "Needs research" list), `script.md` v3 (cuts full 2:06, shorts 0:46, portrait 0:46, teaser 0:22) and `storyboard.json` v4 (character-scene, story, transformation, comparison, product in iPad/iPhone frames, decision, cta). `script` and `storyboard` both pass.
+- **Why:** The owner gave the full creative brief; the earlier generic script did not follow it.
+- **Decisions:** "free slots"/"when you are free" became "open"; "Nobody has to ask" became "all before the first message"; "The slot is yours" became "The slot is booked"; the full cut's setup scene was split into Rate card, packages and Availability so each recording has a scene. Mock scenes carry an "Illustration" lower third because the pipeline only auto-labels synthetic recordings. Open: ₦15,000 deposit cannot come from a whole-number percentage of ₦45,000; demo seed has no Bridal makeup item; Refund Policy is plan-gated; all `iker-*` scenarios are unverified. Script not approved; nothing recorded, narrated or rendered. No commit.
+
 ## 2026-11-20T00:00Z · Claude Code
 
 - **What:** Wrote `output/last-price-dear/research.md` (10 sourced facts) and `script.md` (full, short-60 and teaser-30 cuts) for "Last price, dear: stop haggling in DMs". `pnpm studio script --video last-price-dear` accepted v1 with no errors or warnings (full 2:49, short-60 0:47, teaser-30 0:25).
